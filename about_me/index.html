@@ -2,9 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dev Log</title>
+  <title>About Me</title>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
+  <style>
+body {
+  background-color: #1a1a1d;
+  color: #d1f7c4;
+  font-family: 'JetBrains Mono', monospace;
+  margin: 0;
+}
+.nav {
+  background: linear-gradient(to right, #d1d1d1, #f1f1f1);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav a {
+  color: #000;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: 600;
+}
+.container {
+  padding: 40px;
+}
+footer {
+  text-align: center;
+  color: #888;
+  font-size: 0.85rem;
+  padding: 30px;
+}
+pre {
+  padding: 40px;
+  white-space: pre-line;
+}
+</style>
   <script>
     window.onload = function() {
       setTimeout(function() {
@@ -18,9 +51,9 @@
 <div id="boot">
   <pre>
 [BOOT]: Initializing device...
-[INFO]: Importing dev_logs_debug.log
-[OK]: dev_log system loaded
-[EXEC]: slcc_eportfolio --dev_log
+[INFO]: Importing personal_details.json
+[OK]: about_me system loaded
+[EXEC]: slcc_eportfolio --about_me
   </pre>
 </div>
 
@@ -34,8 +67,8 @@
     <a href="../final_reflection/index.html">Final</a>
   </div>
   <div class="container">
-    <h1>Dev Log</h1>
-    <p>Every error message lives here. So does my soul.</p>
+    <h1>About Me</h1>
+    <p>I'm Jesus — aspiring forensic nurse, coder, and professional overachiever.</p>
   </div>
   <footer>
     SLCC ePortfolio | Created by Jesus Lopez Aguilar<br>
