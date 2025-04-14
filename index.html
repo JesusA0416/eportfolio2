@@ -46,7 +46,6 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      text-align: left;
       padding: 40px;
     }
     #boot-log {
@@ -57,9 +56,7 @@
   </style>
 </head>
 <body>
-<div id="boot">
-  <div id="boot-log"></div>
-</div>
+<div id="boot"><div id="boot-log"></div></div>
 
 <div id="main" style="display:none; flex-direction: column; align-items: center; justify-content: center;">
   <div class="nav">
@@ -92,6 +89,7 @@
     "[OK]: Resume session"
   ];
 
+  const bootContainer = document.getElementById("boot");
   const log = document.getElementById("boot-log");
   const main = document.getElementById("main");
 
@@ -117,9 +115,9 @@
       }
     } else {
       setTimeout(() => {
-        document.getElementById("boot").style.display = "none";
+        bootContainer.style.display = "none";
         main.style.display = "flex";
-      }, 500);
+      }, 600);
     }
   }
 
