@@ -3,6 +3,7 @@ body {
   background-color: #1a1a1d;
   color: #d1f7c4;
   font-family: 'JetBrains Mono', monospace;
+  margin: 0;
 }
 .nav {
   background: linear-gradient(to right, #d1d1d1, #f1f1f1);
@@ -25,4 +26,8 @@ footer {
   color: #888;
   font-size: 0.85rem;
   padding: 30px;
+}
+pre {
+  padding: 40px;
+  white-space: pre-line;
 }

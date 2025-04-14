@@ -2,34 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Personal Project</title>
+  <title>Final Reflection</title>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <script>
+    window.onload = function() {
+      setTimeout(function() {
+        document.getElementById('boot').style.display = 'none';
+        document.getElementById('main').style.display = 'block';
+      }, 3000);
+    };
+  </script>
 </head>
 <body>
 <div id="boot">
   <pre>
 [BOOT]: Initializing device...
-[INFO]: Importing aim_assistant_ai.py
-[OK]: personal_project system loaded
-[EXEC]: slcc_eportfolio --personal_project
+[INFO]: Importing final_thoughts.memorydump
+[OK]: final_reflection system loaded
+[EXEC]: slcc_eportfolio --final_reflection
   </pre>
 </div>
-<div class="nav">
-  <a href="../index.html">Home</a>
-  <a href="../about_me/index.html">About Me</a>
-  <a href="../reflections/index.html">Reflections</a>
-  <a href="../personal_project/index.html">Project</a>
-  <a href="../dev_log/index.html">Dev Log</a>
-  <a href="../final_reflection/index.html">Final</a>
+
+<div id="main" style="display:none;">
+  <div class="nav">
+    <a href="../index.html">Home</a>
+    <a href="../about_me/index.html">About Me</a>
+    <a href="../reflections/index.html">Reflections</a>
+    <a href="../personal_project/index.html">Project</a>
+    <a href="../dev_log/index.html">Dev Log</a>
+    <a href="../final_reflection/index.html">Final</a>
+  </div>
+  <div class="container">
+    <h1>Final Reflection</h1>
+    <p>This is where I wrap it all up and try to sound wise.</p>
+  </div>
+  <footer>
+    SLCC ePortfolio | Created by Jesus Lopez Aguilar<br>
+    Built with code, Adderall, impulse, and love.
+  </footer>
 </div>
-<div class="container">
-  <h1>Personal Project</h1>
-  <p>This project has mouse control, object detection, and developer breakdowns.</p>
-</div>
-<footer>
-  SLCC ePortfolio | Created by Jesus Lopez Aguilar<br>
-  Built with code, Adderall, impulse, and love.
-</footer>
 </body>
 </html>
