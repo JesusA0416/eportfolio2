@@ -5,59 +5,63 @@
   <title>SLCC ePortfolio - Jesus Lopez Aguilar</title>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
   <style>
-body {
-  background-color: #1a1a1d;
-  color: #d1f7c4;
-  font-family: 'JetBrains Mono', monospace;
-  margin: 0;
-}
-.nav {
-  background: linear-gradient(to right, #d1d1d1, #f1f1f1);
-  padding: 15px 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.nav a {
-  color: #000;
-  text-decoration: none;
-  margin: 0 20px;
-  font-weight: 600;
-}
-.container {
-  padding: 40px;
-}
-footer {
-  text-align: center;
-  color: #888;
-  font-size: 0.85rem;
-  padding: 30px;
-}
-pre {
-  padding: 40px;
-  white-space: pre-line;
-}
-</style>
-  <script>
-    window.onload = function() {
-      setTimeout(function() {
-        document.getElementById('boot').style.display = 'none';
-        document.getElementById('main').style.display = 'block';
-      }, 3000);
-    };
-  </script>
+    body {
+      background-color: #1a1a1d;
+      color: #d1f7c4;
+      font-family: 'JetBrains Mono', monospace;
+      margin: 0;
+    }
+    .nav {
+      background: linear-gradient(to right, #d1d1d1, #f1f1f1);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav a {
+      color: #000;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 75vh;
+      padding: 30px;
+      text-align: center;
+    }
+    footer {
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+      padding: 30px;
+    }
+    #boot {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: left;
+      padding: 40px;
+    }
+    #boot-log {
+      white-space: pre-wrap;
+      max-width: 90%;
+      font-size: 1rem;
+    }
+  </style>
 </head>
 <body>
 <div id="boot">
-  <pre>
-[BOOT]: Initializing device...
-[INFO]: Importing user: Jesus Lopez Aguilar
-[OK]: Portfolio system loaded
-[EXEC]: slcc_eportfolio --start
-  </pre>
+  <div id="boot-log"></div>
 </div>
 
-<div id="main" style="display:none;">
+<div id="main" style="display:none; flex-direction: column; align-items: center; justify-content: center;">
   <div class="nav">
     <a href="index.html">Home</a>
     <a href="about_me/index.html">About Me</a>
@@ -75,5 +79,51 @@ pre {
     Built with code, Adderall, impulse, and love.
   </footer>
 </div>
+
+<script>
+  const firstBoot = [
+    "[BOOT]: Initializing device...",
+    "[INFO]: Importing user: Jesus Lopez Aguilar",
+    "[OK]: Portfolio system loaded",
+    "[EXEC]: slcc_eportfolio --start"
+  ];
+  const returnBoot = [
+    "[INFO]: Returning to home...",
+    "[OK]: Resume session"
+  ];
+
+  const log = document.getElementById("boot-log");
+  const main = document.getElementById("main");
+
+  const isReturning = sessionStorage.getItem("visited");
+  const messages = isReturning ? returnBoot : firstBoot;
+  sessionStorage.setItem("visited", "true");
+
+  let lineIndex = 0;
+  let charIndex = 0;
+
+  function typeCharByChar() {
+    if (lineIndex < messages.length) {
+      const currentLine = messages[lineIndex];
+      if (charIndex < currentLine.length) {
+        log.innerHTML += currentLine[charIndex];
+        charIndex++;
+        setTimeout(typeCharByChar, 30);
+      } else {
+        log.innerHTML += "\n";
+        charIndex = 0;
+        lineIndex++;
+        setTimeout(typeCharByChar, 300);
+      }
+    } else {
+      setTimeout(() => {
+        document.getElementById("boot").style.display = "none";
+        main.style.display = "flex";
+      }, 500);
+    }
+  }
+
+  window.onload = typeCharByChar;
+</script>
 </body>
 </html>
