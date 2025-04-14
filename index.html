@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>SLCC ePortfolio - Jesus Lopez Aguilar</title>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
   <style>
     body {
       background-color: #1a1a1d;
@@ -18,6 +18,8 @@
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
+      width: 100vw;
+      box-sizing: border-box;
     }
     .nav a {
       color: #000;
@@ -52,27 +54,32 @@
       white-space: pre-wrap;
       max-width: 90%;
       font-size: 1rem;
+      line-height: 1.4;
     }
   </style>
 </head>
 <body>
-<div id="boot"><div id="boot-log"></div></div>
+
+<div id="boot">
+  <div id="boot-log"></div>
+</div>
 
 <div id="main" style="display:none; flex-direction: column; align-items: center; justify-content: center;">
   <div class="nav">
     <a href="index.html">Home</a>
     <a href="about_me/index.html">About Me</a>
-    <a href="reflections/index.html">Reflections</a>
-    <a href="personal_project/index.html">Project</a>
-    <a href="dev_log/index.html">Dev Log</a>
-    <a href="final_reflection/index.html">Final</a>
+    <a href="my_goals/index.html">My Goals</a>
+    <a href="coursework/index.html">Coursework</a>
+    <a href="personal_projects/index.html">Personal Projects</a>
   </div>
+
   <div class="container">
     <h1>Welcome to my SLCC ePortfolio</h1>
     <p>Built with chaos, ambition, and just enough caffeine to make it functional. This is my journey, coded and compiled by me — Jesus Lopez Aguilar.</p>
   </div>
+
   <footer>
-    SLCC ePortfolio | Created by Jesus Lopez Aguilar<br>
+    SLCC ePortfolio | Created by Jesus Lopez Aguilar<br />
     Built with code, Adderall, impulse, and love.
   </footer>
 </div>
@@ -99,16 +106,21 @@
 
   let lineIndex = 0;
   let charIndex = 0;
+  let currentLineDiv = null;
 
   function typeCharByChar() {
     if (lineIndex < messages.length) {
       const currentLine = messages[lineIndex];
+      if (charIndex === 0) {
+        currentLineDiv = document.createElement("div");
+        log.appendChild(currentLineDiv);
+      }
+
       if (charIndex < currentLine.length) {
-        log.innerHTML += currentLine[charIndex];
+        currentLineDiv.innerHTML += currentLine[charIndex];
         charIndex++;
         setTimeout(typeCharByChar, 30);
       } else {
-        log.innerHTML += "\n";
         charIndex = 0;
         lineIndex++;
         setTimeout(typeCharByChar, 300);
