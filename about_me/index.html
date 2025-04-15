@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>About Me - Styled Terminal</title>
+  <title>About Me - Jesus Lopez Aguilar</title>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
   <style>
     body {
-      background: linear-gradient(to right, #101010, #1a1a1a);
+      background: linear-gradient(to right, #1f1f1f, #2c2c2c);
       color: #e0ffe0;
       font-family: 'JetBrains Mono', monospace;
       margin: 0;
     }
+
     .nav {
       background: linear-gradient(to right, #d1d1d1, #f1f1f1);
       padding: 15px 30px;
@@ -20,6 +21,7 @@
       flex-wrap: wrap;
       box-sizing: border-box;
     }
+
     .nav a {
       color: #000;
       text-decoration: none;
@@ -27,34 +29,46 @@
       font-weight: 600;
       font-size: 1rem;
     }
+
     .container {
       padding: 40px;
-      text-align: left;
       max-width: 1000px;
       margin: 0 auto;
+      text-align: left;
     }
-    .section {
-      margin-bottom: 40px;
-      cursor: pointer;
-    }
+
     .section h2 {
       font-size: 1.2rem;
       color: #78ffd6;
       margin-bottom: 10px;
+      cursor: pointer;
     }
+
     .output {
-      display: none;
-      white-space: pre-wrap;
       font-size: 1rem;
       line-height: 1.6;
+      white-space: pre-wrap;
       text-align: left;
     }
-    .blue { color: #82aaff; }
-    .green { color: #c3e88d; }
-    .pink { color: #ffcb6b; }
-    .gray { color: #8f8f8f; }
-    .red { color: #f07178; }
-    .bold { font-weight: bold; }
+
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 1em;
+      background-color: #78ffd6;
+      animation: blink 1s step-start infinite;
+      margin-left: 4px;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .c1 { color: #c3e88d; }
+    .c2 { color: #ffcb6b; }
+    .c3 { color: #f07178; }
+    .c4 { color: #82aaff; }
+    .c5 { color: #a3a3ff; }
   </style>
 </head>
 <body>
@@ -68,68 +82,88 @@
 </div>
 
 <div class="container">
-  <div class="section" onclick="typeText('output-whoami', whoamiLines)">
-    <h2>> whoami</h2>
-    <div id="output-whoami" class="output"></div>
-  </div>
+  <h2 onclick="typeStory()" id="trigger">> whoami</h2>
+  <div class="output" id="story"><span id="cursor" class="cursor"></span></div>
 </div>
 
 <script>
-  const whoamiLines = [
-    "<span class='gray'>// Identity section — born with chaos, not a visa</span>",
-    "<span class='blue'>let</span> name = <span class='green'>'Jesus Lopez Aguilar'</span>;",
-    "<span class='blue'>const</span> location = <span class='green'>'Salt Lake City, Utah'</span>;",
-    "<span class='gray'>// Came pre-installed, no green card download</span>",
-    "<span class='red'>/*</span>",
-    " Unlike others who came here with green cards, I didn’t get the ‘Donald Trump Gold Card’.",
-    " I was born into citizenship with ads, taxes, and emotional damage — no skip button.",
-    "<span class='red'>*/</span>",
-    "",
-    "<span class='gray'>// Parental backstory patch v1.0</span>",
-    "<span class='blue'>let</span> mom = <span class='green'>'Miriam Aguilar, Córdoba, Veracruz'</span>;",
-    "<span class='blue'>let</span> dad = <span class='green'>'Sergio Lopez, Zamora, Michoacán'</span>;",
-    "momCareer = <span class='pink'>'Sous chef at Little America Hotel after 25 years'</span>;",
-    "dadCareer = <span class='pink'>'Energy drink production (yes, including Alani)'</span>;",
-    "",
-    "<span class='gray'>// Home traits loadout</span>",
-    "genetics = mom.brains + dad.build;",
-    "energy = <span class='pink'>'short furious Latina mom'</span> || <span class='pink'>'grillmaster dad whose chicken owes him money'</span>;",
-    "",
-    "<span class='gray'>// Final identity echo</span>",
-    "<span class='pink'>console.log</span>(<span class='green'>'What you’re about to read isn’t just about me — it’s about all of that.'</span>);"
-  ];
+const lines = [
+  ["Hello. My name is", "Jesus Lopez Aguilar."],
+  ["Unlike others in my community who arrived with a green card,", "I came with something stronger — a birth certificate."],
+  ["But don’t get it twisted.", "Just because I was born here doesn’t mean I got citizenship PLUS."],
+  ["What I got was", "citizenship with ads,", "taxes,", "and zero skip button."],
+  ["I was born and raised in", "Salt Lake City, Utah."],
+  ["My parents —", "Miriam Aguilar", "and", "Sergio Lopez", "— came from opposite ends of Mexico."],
+  ["My mom,", "from Córdoba, Veracruz,", "started working in the Washington fields at 17."],
+  ["Now?", "She’s a sous chef at the Little America Hotel after 25 years of hustle."],
+  ["My dad came from", "Zamora, Michoacán."],
+  ["He didn’t do construction —", "he worked for major companies that make the energy drinks you flex on TikTok."],
+  ["Yes, including Alani.", "Did I have access to unlimited supply?", "Of course."],
+  ["Was I allowed to drink them?", "Absolutely not."],
+  ["I’ve got my mom’s brains,", "my dad’s build,", "and a family tree full of stories that scream survival."],
+  ["You’ll never know what to expect from me —", "either a short furious Latina mom,", "or a dad who grills chicken so hard it owes him money."],
+  ["What you’re about to read isn’t just about me —", "it’s about all of that, too."]
+];
 
-  function typeText(elementId, lines) {
-    const output = document.getElementById(elementId);
-    output.style.display = 'block';
-    output.innerHTML = '';
+let colors = ['c1', 'c2', 'c3', 'c4', 'c5'];
 
-    let lineIndex = 0;
-    let charIndex = 0;
+let storyDiv = document.getElementById('story');
+let cursor = document.getElementById('cursor');
+let triggered = false;
 
-    function type() {
-      if (lineIndex < lines.length) {
-        const currentLine = lines[lineIndex];
-        const span = document.createElement("div");
-        span.innerHTML = "";
-        output.appendChild(span);
+function typeStory() {
+  if (triggered) return;
+  triggered = true;
 
-        function typeChar() {
-          if (charIndex < currentLine.length) {
-            span.innerHTML += currentLine.charAt(charIndex);
-            charIndex++;
-            setTimeout(typeChar, 10);
-          } else {
-            charIndex = 0;
-            lineIndex++;
-            setTimeout(type, 80);
-          }
-        }
-        typeChar();
-      }
+  cursor.style.display = "inline-block";
+  storyDiv.innerHTML = "";
+  storyDiv.appendChild(cursor);
+
+  let line = 0;
+
+  function typeLine() {
+    if (line >= lines.length) {
+      storyDiv.appendChild(cursor); // Keep blinking
+      return;
     }
-    type();
+
+    let span = document.createElement("div");
+    storyDiv.insertBefore(span, cursor);
+
+    let segment = 0;
+    function typeSegment() {
+      if (segment >= lines[line].length) {
+        line++;
+        setTimeout(typeLine, 300);
+        return;
+      }
+
+      let text = lines[line][segment];
+      let wordSpan = document.createElement("span");
+      wordSpan.className = colors[segment % colors.length];
+      span.appendChild(wordSpan);
+
+      let i = 0;
+      function typeChar() {
+        if (i < text.length) {
+          wordSpan.textContent += text[i];
+          i++;
+          setTimeout(typeChar, 15);
+        } else {
+          wordSpan.textContent += " ";
+          segment++;
+          typeSegment();
+        }
+      }
+
+      typeChar();
+    }
+
+    typeSegment();
   }
+
+  typeLine();
+}
 </script>
 
 </body>
