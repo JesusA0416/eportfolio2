@@ -15,7 +15,7 @@
     .nav {
       background: linear-gradient(to right, #d1d1d1, #f1f1f1);
       padding: 15px 30px;
-      display: flex;
+      display: none;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
@@ -30,10 +30,21 @@
       font-size: 1rem;
     }
 
+    .boot-screen {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px;
+      font-size: 1rem;
+      white-space: pre-wrap;
+      text-align: left;
+    }
+
     .container {
+      display: none;
       padding: 40px;
-      max-width: 1000px;
-      margin: 0 auto;
       text-align: left;
     }
 
@@ -57,7 +68,7 @@
       height: 1em;
       background-color: #78ffd6;
       animation: blink 1s step-start infinite;
-      margin-left: 4px;
+      margin-left: 2px;
     }
 
     @keyframes blink {
@@ -73,7 +84,11 @@
 </head>
 <body>
 
-<div class="nav">
+<div class="boot-screen" id="boot">
+  <div id="boot-lines"></div>
+</div>
+
+<div class="nav" id="navbar">
   <a href="../index.html">Home</a>
   <a href="../about_me/index.html">About Me</a>
   <a href="../my_goals/index.html">My Goals</a>
@@ -81,13 +96,22 @@
   <a href="../personal_projects/index.html">Personal Projects</a>
 </div>
 
-<div class="container">
+<div class="container" id="main-content">
   <h2 onclick="typeStory()" id="trigger">> whoami</h2>
-  <div class="output" id="story"><span id="cursor" class="cursor"></span></div>
+  <div class="output" id="story"></div>
 </div>
 
 <script>
-const lines = [
+const bootLines = [
+  "[BOOT] Initializing about_me...",
+  "[INFO] Importing cultural identity...",
+  "{SAS} Importing thoughts to give a damn...",
+  "[INFO] Confirming love for grilled cheese...",
+  "[OK] Bilingual sarcasm detected",
+  "[EXEC] Rendering life story..."
+];
+
+const storyLines = [
   ["Hello. My name is", "Jesus Lopez Aguilar."],
   ["Unlike others in my community who arrived with a green card,", "I came with something stronger — a birth certificate."],
   ["But don’t get it twisted.", "Just because I was born here doesn’t mean I got citizenship PLUS."],
@@ -105,54 +129,90 @@ const lines = [
   ["What you’re about to read isn’t just about me —", "it’s about all of that, too."]
 ];
 
-let colors = ['c1', 'c2', 'c3', 'c4', 'c5'];
+const colors = ['c1','c2','c3','c4','c5'];
 
-let storyDiv = document.getElementById('story');
-let cursor = document.getElementById('cursor');
-let triggered = false;
+const bootScreen = document.getElementById("boot");
+const bootDiv = document.getElementById("boot-lines");
+const main = document.getElementById("main-content");
+const nav = document.getElementById("navbar");
+const storyDiv = document.getElementById("story");
+
+let bootIndex = 0;
+let bootChar = 0;
+let currentBootLine;
+
+const bootCursor = document.createElement("span");
+bootCursor.className = "cursor";
+bootDiv.appendChild(bootCursor);
+
+function typeBootLine() {
+  if (bootIndex >= bootLines.length) {
+    setTimeout(() => {
+      bootScreen.style.display = "none";
+      nav.style.display = "flex";
+      main.style.display = "block";
+    }, 300);
+    return;
+  }
+
+  if (!currentBootLine) {
+    currentBootLine = document.createElement("div");
+    bootDiv.insertBefore(currentBootLine, bootCursor);
+  }
+
+  if (bootChar < bootLines[bootIndex].length) {
+    currentBootLine.textContent += bootLines[bootIndex].charAt(bootChar);
+    bootChar++;
+    bootDiv.appendChild(bootCursor);
+    setTimeout(typeBootLine, 20);
+  } else {
+    currentBootLine = null;
+    bootChar = 0;
+    bootIndex++;
+    setTimeout(typeBootLine, 250);
+  }
+}
 
 function typeStory() {
-  if (triggered) return;
-  triggered = true;
+  if (storyDiv.dataset.typed === "true") return;
+  storyDiv.dataset.typed = "true";
 
-  cursor.style.display = "inline-block";
-  storyDiv.innerHTML = "";
-  storyDiv.appendChild(cursor);
+  const storyCursor = document.createElement("span");
+  storyCursor.className = "cursor";
 
   let line = 0;
 
   function typeLine() {
-    if (line >= lines.length) {
-      storyDiv.appendChild(cursor); // Keep blinking
-      return;
-    }
+    if (line >= storyLines.length) return;
 
-    let span = document.createElement("div");
-    storyDiv.insertBefore(span, cursor);
-
+    const lineDiv = document.createElement("div");
+    storyDiv.appendChild(lineDiv);
     let segment = 0;
+
     function typeSegment() {
-      if (segment >= lines[line].length) {
+      if (segment >= storyLines[line].length) {
         line++;
         setTimeout(typeLine, 300);
         return;
       }
 
-      let text = lines[line][segment];
-      let wordSpan = document.createElement("span");
-      wordSpan.className = colors[segment % colors.length];
-      span.appendChild(wordSpan);
+      const text = storyLines[line][segment];
+      const color = colors[segment % colors.length];
+      const wordSpan = document.createElement("span");
+      wordSpan.className = color;
+      lineDiv.appendChild(wordSpan);
 
       let i = 0;
       function typeChar() {
-        if (i < text.length) {
-          wordSpan.textContent += text[i];
+        if (i <= text.length) {
+          wordSpan.textContent = text.slice(0, i);
+          lineDiv.appendChild(storyCursor); // Move cursor here after each char
           i++;
           setTimeout(typeChar, 15);
         } else {
-          wordSpan.textContent += " ";
+          wordSpan.innerHTML += "&nbsp;";
           segment++;
-          typeSegment();
+          setTimeout(typeSegment, 100);
         }
       }
 
@@ -162,8 +222,11 @@ function typeStory() {
     typeSegment();
   }
 
+  storyDiv.innerHTML = "";
+  storyDiv.appendChild(storyCursor); // Append the cursor at the start
   typeLine();
 }
+window.onload = typeBootLine;
 </script>
 
 </body>
