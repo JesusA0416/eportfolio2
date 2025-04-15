@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>About Me and My Life - Jesus Lopez Aguilar</title>
-  <link href="="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>About Me - Styled Terminal</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
   <style>
     body {
-      background-color: #1a1a1d;
-      color: #d1f7c4;
+      background: linear-gradient(to right, #101010, #1a1a1a);
+      color: #e0ffe0;
       font-family: 'JetBrains Mono', monospace;
       margin: 0;
     }
@@ -18,7 +18,6 @@
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      width: 100vw;
       box-sizing: border-box;
     }
     .nav a {
@@ -29,29 +28,33 @@
       font-size: 1rem;
     }
     .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 30px;
+      padding: 40px;
       text-align: left;
-      max-width: 900px;
-      margin: auto;
+      max-width: 1000px;
+      margin: 0 auto;
     }
-    footer {
-      text-align: center;
-      color: #888;
-      font-size: 0.85rem;
-      padding: 30px;
+    .section {
+      margin-bottom: 40px;
+      cursor: pointer;
     }
-    ul {
-      list-style-type: none;
-      padding-left: 0;
+    .section h2 {
+      font-size: 1.2rem;
+      color: #78ffd6;
+      margin-bottom: 10px;
     }
-    li::before {
-      content: "// ";
-      color: #888;
+    .output {
+      display: none;
+      white-space: pre-wrap;
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: left;
     }
+    .blue { color: #82aaff; }
+    .green { color: #c3e88d; }
+    .pink { color: #ffcb6b; }
+    .gray { color: #8f8f8f; }
+    .red { color: #f07178; }
+    .bold { font-weight: bold; }
   </style>
 </head>
 <body>
@@ -65,43 +68,69 @@
 </div>
 
 <div class="container">
-  <h1>About Me and My Life</h1>
-
-  <p>Hello. I’m Jesus Lopez Aguilar — not to be confused with the biblical one, though I have pulled off some last-minute miracles involving homework, Wi-Fi, and full-on panic.</p>
-
-  <p>I was born in Salt Lake City, Utah into a Mexican immigrant family. I didn’t apply for citizenship — I respawned here. People say if you’re born in the U.S., you “made it.” Cute. No one talks about the fine print: surprise taxes, translating government forms at 9, and learning how to file your parents’ W-2s before learning how to parallel park.</p>
-
-  <p>My culture isn’t unique — but I am. Mexican culture is shared: passed down through recipes, roasts, and generational trauma. But I’m the special seasoning — the unmeasured sprinkle of chaos that makes the dish hit different.</p>
-
-  <p>Want to know what’s actually unique? That one Mexican state where they eat roaches. Respectfully… you lost me at legs. Bugs? Absolutely not. A fly? Nasty. Shoo’d away with disgust. A bee? Immediate evacuation. A ladybug? No thanks. That’s a beetle with PR. A spider? If it’s visible, I scream. If it’s an inch or more, the lease is in its name. A tarantula? I'm not throwing a shoe — I’m throwing a remote and it's changing the channel on its own. If my mom screams at a rat, I scream too — not from fear, but from culturally trained solidarity.</p>
-
-  <p>You know the phrase: “I scream, you scream, we all scream for ice cream?” No. If you scream, I’m cracking my neck, spiritually detaching, and preparing to flee. My body doesn’t have a startle response. It has a full reboot.</p>
-
-  <p>When I say I’m different, I mean spiritually sensitive with a nervous system that thinks everything’s a threat. If someone speaks after 10 seconds of silence, I jump like I’ve been legally served. I’m not “on edge” — I am the edge.</p>
-
-  <p>I believe in the potato sock hack the way some people believe in astrology — with blind faith and zero accountability when their crush is a dog sign. I don’t care if it’s not scientifically proven — my abuela ran a trauma center from her kitchen and I’m still here. Fevers were cured with garlic, Vicks, and stubbornness. I didn’t grow up with checkups. I grew up with vaporub and a rosary.</p>
-
-  <p>I’m still using the same notebook from sophomore year. It deserves a diploma too. I have two mechanical pencils, and one is a limited edition from Japan that lives in a sacred pouch next to my rosary and whatever’s left of my dignity. Someone asked to borrow it once and said “can I keep it?” ¿De quién es? Mío. You say “era”? I’m tasing you. That pencil survived my emotional breakdowns — it’s family now.</p>
-
-  <p>Hispanic families love to brag. “My son got straight As!” “My daughter got into a great college!” That’s cute. I got a working washing machine and a pencil with a bow on it. Where’s my applause?</p>
-
-  <p>I loved tech, healthcare, criminal justice — but to everyone else, I’m just their Bluetooth technician, their bilingual blood pressure cuff, or apparently… immigration enforcement. Let me exist without a role, please.</p>
-
-  <p>And don’t touch the thermostat. We have two — but one is sacred. Touch it, and you’re on trial. “I’ve done this for years.” Yeah? I also filled out your tax returns and taught you how to use Google. Let’s talk.</p>
-
-  <p>I was once the kid staring at the new student. Then I transferred to Hillside Elementary and became that new kid. But it gave me friends — real ones — that I still talk to in 2025. We’re all Hispanic. We all believe in potato socks and trauma-based medicine. And we all made it.</p>
-
-  <p>Sometimes I spiral. <em>“Para arriba, pa’ bajo, pa’ la izquierda, la derecha, el centro y pa’ dentro.”</em>  
-  Not because I’m taking a shot — but because, for some reason, everyone’s chanting a biblical verse or calibrating their tequila like it’s a ritual.  
-  Meanwhile, I’m just trying to calibrate my emotional state because my Capri Sun straw went in sideways and now the entire pouch is leaking.  
-  Now I’m sticky, unstable, and I don’t even have a pouch to clink while someone says <em>salud</em>.</p>
-
+  <div class="section" onclick="typeText('output-whoami', whoamiLines)">
+    <h2>> whoami</h2>
+    <div id="output-whoami" class="output"></div>
+  </div>
 </div>
 
-<footer>
-  SLCC ePortfolio | Created by Jesus Lopez Aguilar<br />
-  Built with code, trauma, Capri Suns, and two mechanical pencils.
-</footer>
+<script>
+  const whoamiLines = [
+    "<span class='gray'>// Identity section — born with chaos, not a visa</span>",
+    "<span class='blue'>let</span> name = <span class='green'>'Jesus Lopez Aguilar'</span>;",
+    "<span class='blue'>const</span> location = <span class='green'>'Salt Lake City, Utah'</span>;",
+    "<span class='gray'>// Came pre-installed, no green card download</span>",
+    "<span class='red'>/*</span>",
+    " Unlike others who came here with green cards, I didn’t get the ‘Donald Trump Gold Card’.",
+    " I was born into citizenship with ads, taxes, and emotional damage — no skip button.",
+    "<span class='red'>*/</span>",
+    "",
+    "<span class='gray'>// Parental backstory patch v1.0</span>",
+    "<span class='blue'>let</span> mom = <span class='green'>'Miriam Aguilar, Córdoba, Veracruz'</span>;",
+    "<span class='blue'>let</span> dad = <span class='green'>'Sergio Lopez, Zamora, Michoacán'</span>;",
+    "momCareer = <span class='pink'>'Sous chef at Little America Hotel after 25 years'</span>;",
+    "dadCareer = <span class='pink'>'Energy drink production (yes, including Alani)'</span>;",
+    "",
+    "<span class='gray'>// Home traits loadout</span>",
+    "genetics = mom.brains + dad.build;",
+    "energy = <span class='pink'>'short furious Latina mom'</span> || <span class='pink'>'grillmaster dad whose chicken owes him money'</span>;",
+    "",
+    "<span class='gray'>// Final identity echo</span>",
+    "<span class='pink'>console.log</span>(<span class='green'>'What you’re about to read isn’t just about me — it’s about all of that.'</span>);"
+  ];
+
+  function typeText(elementId, lines) {
+    const output = document.getElementById(elementId);
+    output.style.display = 'block';
+    output.innerHTML = '';
+
+    let lineIndex = 0;
+    let charIndex = 0;
+
+    function type() {
+      if (lineIndex < lines.length) {
+        const currentLine = lines[lineIndex];
+        const span = document.createElement("div");
+        span.innerHTML = "";
+        output.appendChild(span);
+
+        function typeChar() {
+          if (charIndex < currentLine.length) {
+            span.innerHTML += currentLine.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeChar, 10);
+          } else {
+            charIndex = 0;
+            lineIndex++;
+            setTimeout(type, 80);
+          }
+        }
+        typeChar();
+      }
+    }
+    type();
+  }
+</script>
 
 </body>
 </html>
