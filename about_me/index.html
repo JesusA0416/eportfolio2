@@ -5,6 +5,9 @@
   <title>About Me - Jesus Lopez Aguilar</title>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
   <style>
+    html, body {
+      overflow-x: hidden;
+    }
     body {
       background: linear-gradient(to right, #1f1f1f, #2c2c2c);
       color: #e0ffe0;
@@ -63,6 +66,11 @@
     .c3 { color: #f07178; }
     .c4 { color: #82aaff; }
     .c5 { color: #a3a3ff; }
+    .glow {
+      color: #78ffd6;
+      text-shadow: 0 0 5px #78ffd6, 0 0 10px #78ffd6, 0 0 20px #00ffe0;
+      padding-left: 40px;
+    }
   </style>
 </head>
 <body>
@@ -79,6 +87,7 @@
   <a href="../personal_projects/index.html">Personal Projects</a>
 </div>
 
+<h2 class="glow">> whoami</h2>
 <div class="output" id="terminal"></div>
 
 <script>
@@ -155,7 +164,7 @@
         bootScreen.style.display = "none";
         nav.style.display = "flex";
         terminal.style.display = "block";
-        typeLine();
+        typeLine(); // start story automatically
       }, 300);
       return;
     }
