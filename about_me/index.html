@@ -6,13 +6,14 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
   <style>
     html, body {
+      margin: 0;
+      padding: 0;
       overflow-x: hidden;
     }
     body {
       background: linear-gradient(to right, #1f1f1f, #2c2c2c);
       color: #e0ffe0;
       font-family: 'JetBrains Mono', monospace;
-      margin: 0;
     }
     .nav {
       display: none;
@@ -22,7 +23,6 @@
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      box-sizing: border-box;
       font-weight: 600;
     }
     .nav a {
@@ -164,7 +164,7 @@
         bootScreen.style.display = "none";
         nav.style.display = "flex";
         terminal.style.display = "block";
-        typeLine(); // start story automatically
+        typeLine(); // ← make sure this says typeLine, not typeStory
       }, 300);
       return;
     }
