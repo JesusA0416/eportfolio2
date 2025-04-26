@@ -18,38 +18,38 @@ nav {
 nav h1 {
   text-align: center;
   margin: 0;
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: #f0f0f0;
 }
 
-section.college-logos {
+section.content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  gap: 60px;
-  animation: fadeInUp 2s ease both;
-}
-
-.college-logo {
+  margin-top: 80px;
   text-align: center;
-}
-
-.college-logo img {
-  width: 250px;
-  max-width: 90%;
-  height: auto;
-  object-fit: contain;
   animation: fadeInUp 2s ease both;
 }
 
-.college-logo p {
-  margin-top: 15px;
-  font-size: 1.2rem;
-  font-weight: 500;
+section.content h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+section.content p {
+  font-size: 1.1rem;
   color: #cccccc;
+}
+
+footer {
+  background-color: #1e1e1e;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #999;
+  margin-top: 80px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.5);
 }
 
 @keyframes fadeInUp {
@@ -61,14 +61,4 @@ section.college-logos {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-footer {
-  background-color: #1e1e1e;
-  padding: 20px;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #999;
-  margin-top: 80px;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.5);
 }
