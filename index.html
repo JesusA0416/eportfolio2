@@ -13,39 +13,22 @@
     <div class="logo">Jesús Lopez Aguilar</div>
     <div class="menu-icon" id="menu-icon">&#9776;</div>
     <ul id="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#courses">Courses</a></li>
-      <li><a href="#achievements">Achievements</a></li>
-      <li><a href="#projects">Outside/Personal Projects</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="projects.html">Outside/Personal Projects</a></li>
     </ul>
   </div>
 </nav>
 
-<section id="home" class="section">
-  <h1>Welcome to My ePortfolio</h1>
-  <p>Building a future with passion, professionalism, and precision.</p>
-</section>
-
-<section id="about" class="section">
-  <h2>About Me</h2>
-  <p>I am Jesús Lopez Aguilar — dedicated to growth, learning, and innovation. This ePortfolio represents my journey and vision.</p>
-</section>
-
-<section id="courses" class="section">
-  <h2>Courses</h2>
-  <p>Explore my academic path and coursework that helped shape my knowledge.</p>
-</section>
-
-<section id="achievements" class="section">
-  <h2>Achievements</h2>
-  <p>Recognitions, awards, and milestones reached along my journey.</p>
-</section>
-
-<section id="projects" class="section">
-  <h2>Outside/Personal Projects</h2>
-  <p>Creative projects and activities pursued beyond the classroom.</p>
-</section>
+<header class="hero">
+  <div class="card">
+    <h1>Welcome to My ePortfolio</h1>
+    <p>Building a future with passion, creativity, and precision.</p>
+    <a href="about.html" class="button">Start Exploring</a>
+  </div>
+</header>
 
 <footer>
   © 2025 Jesús Lopez Aguilar | All rights reserved
@@ -57,16 +40,6 @@
 
   menuIcon.addEventListener('click', () => {
     navLinks.classList.toggle('active');
-  });
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-      navLinks.classList.remove('active');
-    });
   });
 </script>
 
