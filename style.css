@@ -123,13 +123,13 @@ footer {
   #nav-links {
     position: absolute;
     top: 65px;
-    right: -300px; /* Start off-screen */
+    right: -300px; /* Hidden off-screen */
     background-color: #2a2a2a;
     flex-direction: column;
     gap: 20px;
     display: none;
     padding: 20px 0;
-    transition: right 0.3s ease; /* Smooth slide-in effect */
+    transition: right 0.3s ease; /* Smooth slide-in */
   }
 
   #nav-links.active {
