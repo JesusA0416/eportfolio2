@@ -1,139 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>SLCC ePortfolio - Jesus Lopez Aguilar</title>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      background-color: #1a1a1d;
-      color: #d1f7c4;
-      font-family: 'JetBrains Mono', monospace;
-      margin: 0;
-    }
-    .nav {
-      background: linear-gradient(to right, #d1d1d1, #f1f1f1);
-      padding: 15px 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      width: 100vw;
-      box-sizing: border-box;
-    }
-    .nav a {
-      color: #000;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 75vh;
-      padding: 30px;
-      text-align: center;
-    }
-    footer {
-      text-align: center;
-      color: #888;
-      font-size: 0.85rem;
-      padding: 30px;
-    }
-    #boot {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      padding: 40px;
-    }
-    #boot-log {
-      white-space: pre-wrap;
-      max-width: 90%;
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jesús Lopez Aguilar | EPortfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="boot">
-  <div id="boot-log"></div>
-</div>
+    <header class="hero">
+        <h1>Jesús Lopez Aguilar</h1>
+        <p>Not a regular portfolio. A legally distinct experience.</p>
+    </header>
 
-<div id="main" style="display:none; flex-direction: column; align-items: center; justify-content: center;">
-  <div class="nav">
-    <a href="index.html">Home</a>
-    <a href="about_me/index.html">About Me</a>
-    <a href="my_goals/index.html">My Goals</a>
-    <a href="coursework/index.html">Coursework</a>
-    <a href="personal_projects/index.html">Personal Projects</a>
-  </div>
+    <section class="about">
+        <h2>Who Am I?</h2>
+        <p>A slightly chaotic but deeply determined individual pursuing greatness (or at least an A+).</p>
+    </section>
 
-  <div class="container">
-    <h1>Welcome to my SLCC ePortfolio</h1>
-    <p>Built with chaos, ambition, and just enough caffeine to make it functional. This is my journey, coded and compiled by me — Jesus Lopez Aguilar.</p>
-  </div>
+    <section class="projects">
+        <h2>Projects</h2>
+        <div class="project-list">
+            <div class="project-item">Project One Title</div>
+            <div class="project-item">Project Two Title</div>
+            <div class="project-item">Project Three Title</div>
+        </div>
+    </section>
 
-  <footer>
-    SLCC ePortfolio | Created by Jesus Lopez Aguilar<br />
-    Built with code, Adderall, impulse, and love.
-  </footer>
-</div>
+    <section class="reflections">
+        <h2>Reflections</h2>
+        <blockquote>“If you think this is impressive, imagine me under pressure.”</blockquote>
+    </section>
 
-<script>
-  const firstBoot = [
-    "[BOOT]: Initializing device...",
-    "[INFO]: Importing user: Jesus Lopez Aguilar",
-    "[OK]: Portfolio system loaded",
-    "[EXEC]: slcc_eportfolio --start"
-  ];
-  const returnBoot = [
-    "[INFO]: Returning to home...",
-    "[OK]: Resume session"
-  ];
+    <section class="honors">
+        <h2>Honors & Awards</h2>
+        <ul>
+            <li>SLCC Honors Program Member</li>
+            <li>Dean's List 2024</li>
+            <li>Other Cool Achievement Here</li>
+        </ul>
+    </section>
 
-  const bootContainer = document.getElementById("boot");
-  const log = document.getElementById("boot-log");
-  const main = document.getElementById("main");
+    <footer>
+        <p>Built with caffeine, questionable life choices, and relentless Google searches. © 2025 Jesús Lopez Aguilar</p>
+    </footer>
 
-  const isReturning = sessionStorage.getItem("visited");
-  const messages = isReturning ? returnBoot : firstBoot;
-  sessionStorage.setItem("visited", "true");
-
-  let lineIndex = 0;
-  let charIndex = 0;
-  let currentLineDiv = null;
-
-  function typeCharByChar() {
-    if (lineIndex < messages.length) {
-      const currentLine = messages[lineIndex];
-      if (charIndex === 0) {
-        currentLineDiv = document.createElement("div");
-        log.appendChild(currentLineDiv);
-      }
-
-      if (charIndex < currentLine.length) {
-        currentLineDiv.innerHTML += currentLine[charIndex];
-        charIndex++;
-        setTimeout(typeCharByChar, 30);
-      } else {
-        charIndex = 0;
-        lineIndex++;
-        setTimeout(typeCharByChar, 300);
-      }
-    } else {
-      setTimeout(() => {
-        bootContainer.style.display = "none";
-        main.style.display = "flex";
-      }, 600);
-    }
-  }
-
-  window.onload = typeCharByChar;
-</script>
 </body>
 </html>
