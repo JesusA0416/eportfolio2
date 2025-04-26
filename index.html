@@ -9,13 +9,17 @@
 <body>
 
 <nav>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About Me</a></li>
-    <li><a href="#courses">Courses</a></li>
-    <li><a href="#achievements">Achievements</a></li>
-    <li><a href="#projects">Outside/Personal Projects</a></li>
-  </ul>
+  <div class="nav-container">
+    <div class="logo">Jesús Lopez Aguilar</div>
+    <div class="menu-icon" id="menu-icon">&#9776;</div>
+    <ul id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#projects">Outside/Personal Projects</a></li>
+    </ul>
+  </div>
 </nav>
 
 <section id="home" class="section">
@@ -48,12 +52,20 @@
 </footer>
 
 <script>
+  const menuIcon = document.getElementById('menu-icon');
+  const navLinks = document.getElementById('nav-links');
+
+  menuIcon.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
       document.querySelector(this.getAttribute('href')).scrollIntoView({
         behavior: 'smooth'
       });
+      navLinks.classList.remove('active');
     });
   });
 </script>
