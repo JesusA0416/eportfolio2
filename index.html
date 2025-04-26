@@ -2,58 +2,96 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jesús Lopez Aguilar | Home</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jesús Lopez Aguilar | ePortfolio</title>
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background-color: #ffffff;
+      padding: 20px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav h1 {
+      text-align: center;
+      margin: 0;
+      font-size: 2rem;
+      color: #222;
+    }
+    section.college-logos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      gap: 60px;
+      animation: fadeInUp 2s ease both;
+    }
+    .college-logo {
+      text-align: center;
+    }
+    .college-logo img {
+      width: 250px;
+      max-width: 90%;
+      height: auto;
+      object-fit: contain;
+      animation: fadeInUp 2s ease both;
+    }
+    .college-logo p {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #333;
+    }
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    footer {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 80px;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
-<body class="fade-in">
+<body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Me</a></li>
-      <li><a href="goals.html">Goals</a></li>
-      <li><a href="coursework.html">Coursework</a></li>
-      <li><a href="beyond.html">Beyond the Classroom</a></li>
-    </ul>
-  </nav>
+<nav>
+  <h1>Welcome to My ePortfolio</h1>
+</nav>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <h1>Jesús Lopez Aguilar</h1>
-    <p>Welcome to my ePortfolio — polished chaos in dark mode.</p>
-  </header>
+<section class="college-logos">
+  <div class="college-logo">
+    <img src="slcc-logo.jpg" alt="SLCC Honors Program Logo">
+    <p>Salt Lake Community College Honors Program</p>
+  </div>
+  <div class="college-logo">
+    <img src="joyce-logo.png" alt="Joyce University Logo">
+    <p>Joyce University of Nursing & Health Sciences</p>
+  </div>
+</section>
 
-  <!-- College Logos Section -->
-  <section class="college-section">
-    <h3>My Current Colleges of Attendance</h3>
-    <div class="college-logos">
-      <div class="college-item">
-        <img src="joyce-logo.png" alt="Joyce University Logo" class="college-logo">
-        <p class="degree">Nursing Practice</p>
-      </div>
-      <div class="college-item">
-        <img src="slcc-logo.png" alt="SLCC Honors Logo" class="college-logo">
-        <p class="degree">Criminal Justice</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Academic Path Section -->
-  <section class="academic-section">
-    <h2>Academic Path</h2>
-    <p>
-      Advancing Nursing Practice toward a Doctor of Nursing Practice (DNP) and Nurse Practitioner (NP) licensure, 
-      and advancing Criminal Justice through future specialization in Medical Forensics — combining healthcare expertise 
-      and forensic investigation to build a career in forensic medicine.
-    </p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Jesús Lopez Aguilar | Built with love, ambition, and a criminally good work ethic.</p>
-  </footer>
+<footer>
+  © 2025 Jesús Lopez Aguilar | All rights reserved
+</footer>
 
 </body>
 </html>
