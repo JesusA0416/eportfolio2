@@ -18,7 +18,7 @@ nav {
   top: 0;
   z-index: 1000;
   display: flex;
-  justify-content: space-between; /* Ensure navbar is spaced out */
+  justify-content: center; /* Center navbar items */
   align-items: center;
   left: 0; /* Ensure the navbar stays within the screen width */
 }
@@ -35,7 +35,7 @@ nav {
 #nav-links {
   list-style: none;
   display: flex;
-  gap: 25px;  /* Reduced gap between navbar items */
+  gap: 20px;  /* Adjusted gap for mobile */
   margin: 0;
   padding: 0;
   font-family: 'Courier New', Courier, monospace;
@@ -48,7 +48,7 @@ nav {
 #nav-links li a {
   color: black;
   text-decoration: none;
-  font-size: 1.2rem; /* Reduced font size for better fitting */
+  font-size: 1.1rem; /* Adjusted font size */
   font-weight: 600;
   transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
@@ -134,7 +134,7 @@ footer {
   }
 
   #nav-links li a {
-    font-size: 1.2rem; /* Adjust font size for mobile */
+    font-size: 1rem; /* Adjust font size for mobile */
   }
 
   .menu-icon {
