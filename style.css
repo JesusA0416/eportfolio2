@@ -1,7 +1,7 @@
 /* Body and background */
 body {
   background-color: #1c1c1c;
-  font-family: 'Nunito', sans-serif; /* Body font */
+  font-family: 'Nunito', sans-serif;
   margin: 0;
   padding: 0;
   color: #f0f0f0;
@@ -11,15 +11,18 @@ body {
 /* Navbar styles */
 nav {
   background-color: white;
-  padding: 10px 20px; /* Reduced padding for navbar */
+  padding: 15px 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.6);
   width: 100%; /* Ensure navbar spans full width */
   margin: 0;
+  position: sticky; /* Make navbar sticky to the top */
+  top: 0;
+  z-index: 1000; /* Ensure navbar stays on top */
 }
 
 .nav-container {
   display: flex;
-  justify-content: center; /* Center navbar links */
+  justify-content: center; /* Center navbar links horizontally */
   align-items: center; /* Center navbar links vertically */
   width: 100%;
 }
@@ -27,7 +30,7 @@ nav {
 #nav-links {
   list-style: none;
   display: flex;
-  gap: 20px; /* Adjusted spacing between links */
+  gap: 25px; /* Adjust space between navbar items */
   margin: 0;
   padding: 0;
 }
@@ -36,15 +39,15 @@ nav {
   color: black; /* Navbar link color set to black */
   text-decoration: none;
   font-family: 'Courier New', Courier, monospace; /* Coding font for navbar links */
-  font-size: 1rem; /* Adjusted font size for better readability */
-  font-weight: 600; /* Made the font bold for better visibility */
+  font-size: 1.3rem; /* Increased font size for better visibility */
+  font-weight: 600; /* Make the font bold for better visibility */
   transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
 
 #nav-links li a:hover {
   color: #00bcd4;
   text-shadow: 0 0 8px #00bcd4;
-  transform: scale(1.1); /* Hover effect with scale */
+  transform: scale(1.1); /* Hover effect */
 }
 
 #nav-links li a:active {
@@ -63,7 +66,7 @@ nav {
 }
 
 .name-center h1 {
-  font-size: 2.5rem; /* Adjusted Welcome text size */
+  font-size: 3rem; /* Adjusted Welcome text size */
   margin-bottom: 15px;
 }
 
