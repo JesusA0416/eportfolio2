@@ -1,6 +1,6 @@
 body {
   background-color: #1c1c1c;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito', sans-serif; /* Nunito for body text */
   margin: 0;
   padding: 0;
   color: #f0f0f0;
@@ -27,16 +27,21 @@ nav {
 }
 
 #nav-links li a {
-  color: black; /* Changed to black */
+  color: black; /* Black color for navbar links */
   text-decoration: none;
   font-family: 'Courier New', Courier, monospace; /* Coding font for navbar links */
   font-size: 1.1rem;
-  transition: color 0.3s, text-shadow 0.3s;
+  transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
 
 #nav-links li a:hover {
   color: #00bcd4;
   text-shadow: 0 0 8px #00bcd4;
+  transform: scale(1.1); /* Hover effect - makes it slightly bigger */
+}
+
+#nav-links li a:active {
+  color: #007c91; /* Active link color */
 }
 
 .name-center {
