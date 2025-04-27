@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Jesús Lopez Aguilar - ePortfolio</title>
+  
+  <!-- Embedded CSS -->
   <style>
     * {
       margin: 0;
@@ -18,12 +20,12 @@
       font-family: 'Nunito', sans-serif;
       color: #f0f0f0;
       overflow-x: hidden;
-      transition: background-color 0.3s ease;
+      scroll-behavior: smooth; /* Smooth scrolling */
     }
 
     /* Navbar */
     nav {
-      background-color: white;
+      background-color: #fff;
       padding: 10px 0;
       width: 100%;
       position: fixed;
@@ -35,13 +37,12 @@
       justify-content: center;
       align-items: center;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-      transition: padding 0.3s ease;
     }
 
     #nav-links {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 40px;
       margin: 0;
       padding: 0;
       justify-content: center;
@@ -54,24 +55,25 @@
     #nav-links li a {
       color: black;
       text-decoration: none;
-      font-size: 1.2rem;
-      font-weight: 600;
-      padding: 8px 15px;
-      transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+      font-size: 1.3rem;
+      font-weight: 700;
+      padding: 8px 20px;
+      transition: color 0.3s, text-shadow 0.3s, transform 0.3s, background 0.3s;
+      border-radius: 8px;
     }
 
     #nav-links li a:hover {
-      color: #00bcd4;
+      color: #fff;
+      background: #00bcd4;
       text-shadow: 0 0 8px #00bcd4;
       transform: scale(1.1);
     }
 
-    /* Hamburger Menu */
+    /* Mobile Menu */
     .hamburger-menu {
       display: none;
       flex-direction: column;
       cursor: pointer;
-      transition: transform 0.3s ease;
     }
 
     .hamburger-menu div {
@@ -79,7 +81,6 @@
       height: 3px;
       margin: 5px;
       background-color: #000;
-      transition: transform 0.3s ease;
     }
 
     /* Mobile menu - hidden by default */
@@ -126,19 +127,6 @@
     .mobile-nav.active a {
       opacity: 1;
       transition-delay: 0.3s;
-    }
-
-    /* Hide mobile nav and hamburger on desktop */
-    @media (min-width: 768px) {
-      .hamburger-menu {
-        display: none;
-      }
-      .mobile-nav {
-        display: none;
-      }
-      #nav-links {
-        display: flex;
-      }
     }
 
     /* Main content */
@@ -228,6 +216,7 @@
         font-size: 0.9rem;
       }
     }
+
   </style>
 </head>
 
@@ -235,30 +224,15 @@
   <!-- Navbar -->
   <nav>
     <div class="nav-container">
-      <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-
       <ul id="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Me</a></li>
-        <li><a href="#">Courses</a></li>
-        <li><a href="#">Achievements</a></li>
-        <li><a href="#">Outside/Personal Projects</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="projects.html">Personal Projects</a></li>
       </ul>
     </div>
   </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-nav" id="mobile-nav">
-    <a href="#">Home</a>
-    <a href="#">About Me</a>
-    <a href="#">Courses</a>
-    <a href="#">Achievements</a>
-    <a href="#">Outside/Personal Projects</a>
-  </div>
 
   <!-- Main Content -->
   <div class="name-center">
@@ -266,12 +240,12 @@
     <h2>Crafted by: Jesús Lopez Aguilar and his 7 other mood swings.</h2>
     <p>Here you’ll find my work, reflection, and life throughout my academic and personal journey.</p>
     <p>This will reflect the work I crafted from scratch, so if there’s an error... don’t tell me, I’ll go insane.</p>
-    <a href="#explore" class="button">Start Exploring</a>
+    <a href="before-we-begin.html" class="button">Let's Explore</a> <!-- Links to the "Before We Begin" page -->
   </div>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Jesús Lopez Aguilar | All rights reserved (no theyre not)</p>
+    <p>© 2025 Jesús Lopez Aguilar | All rights reserved (theyre not)</p>
   </footer>
 
   <script>
