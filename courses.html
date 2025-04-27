@@ -95,22 +95,19 @@
             transform: scale(1.1);
         }
 
-        /* Hamburger Menu - Using Flexbox for internal alignment */
+        /* Hamburger Menu - Flexbox Centered */
         .hamburger-menu {
             display: none; /* Hidden by default on desktop */
-            /* Use Flexbox to center the bars inside */
             flex-direction: column;
-            justify-content: center; /* Vertical center */
-            align-items: center;    /* Horizontal center */
-            gap: 4px;              /* Space between bars */
-
-            width: 45px;  /* Approx width */
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            width: 45px;
             height: 50px; /* Match mobile navbar height */
-
             z-index: 1100; /* Above everything */
             position: fixed;
-            top: 0;      /* Align top edge with viewport top */
-            right: 15px; /* Position from right */
+            top: 0;
+            right: 15px;
             cursor: pointer;
             transition: transform 0.3s ease;
         }
@@ -118,7 +115,7 @@
         .hamburger-menu div {
             width: 25px;
             height: 3px;
-            margin: 0; /* Remove margin, use gap on parent */
+            margin: 0;
             background-color: #000; /* Black bars */
             border-radius: 1px;
             transition: transform 0.3s ease, background-color 0.3s ease;
@@ -147,32 +144,31 @@
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out, visibility 0s linear 0.5s;
         }
 
+        /* --- Updated mobile link style (no background stuff) --- */
         .mobile-nav a {
             color: black;
             font-size: 1.5rem;
             font-weight: 600;
             text-decoration: none;
-            /* Add padding and border-radius for background effect */
-            padding: 8px 15px;
-            border-radius: 5px;
-            /* Add background-color transition */
-            transition: color 0.3s, text-shadow 0.3s, transform 0.3s, background-color 0.1s linear;
+            /* Removed padding, border-radius, background-color transition */
+            transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
         }
+        /* --- End updated style --- */
 
         /* Glow on hover (desktop) */
         .mobile-nav a:hover {
             color: #00bcd4;
             text-shadow: 0 0 8px #00bcd4;
             transform: scale(1.1);
-            /* background-color: transparent; /* Optional: Reset background on hover */
         }
 
-        /* Class added by JS for tap glow - USE BACKGROUND */
+        /* --- Updated glow class (uses text-shadow) --- */
+        /* Class added by JS for tap glow */
         .mobile-nav a.link-active-glow {
-            background-color: rgba(0, 188, 212, 0.3); /* Semi-transparent cyan background */
-            color: #000; /* Ensure text stays readable */
+            color: #00bcd4; /* Change text color */
+            text-shadow: 0 0 8px #00bcd4; /* Add text glow */
         }
-        /* Removed CSS :active rule */
+        /* --- End updated class --- */
 
 
         /* Show mobile nav when active */
@@ -220,7 +216,8 @@
                 display: none; /* Hide desktop links */
             }
             .hamburger-menu {
-                display: flex; /* Show fixed hamburger (already contains flex properties) */
+                display: flex; /* Show fixed hamburger */
+                height: 50px; /* Match nav height explicitly */
             }
              .nav-container {
                  justify-content: center; /* Center nav content */
@@ -233,7 +230,7 @@
             body {
                 padding-top: 50px; /* Match reduced navbar height */
             }
-            /* Hamburger height set to 50px, top:0 aligns it with navbar */
+            /* Hamburger height is 50px, top:0 aligns it with navbar */
             /* No overrides needed here now for hamburger position */
 
              .intro h2 { font-size: 1.8rem; }
@@ -328,7 +325,6 @@
             let touchInitiated = false; // Flag for touch start
 
             link.addEventListener('touchstart', function(event) {
-                // Add glow class when touch starts
                 this.classList.add('link-active-glow');
                 touchInitiated = true;
             });
