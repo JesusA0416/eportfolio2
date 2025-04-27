@@ -1,7 +1,7 @@
 /* Body and background */
 body {
   background-color: #1c1c1c;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito', sans-serif; /* Body font */
   margin: 0;
   padding: 0;
   color: #f0f0f0;
@@ -30,7 +30,7 @@ nav {
 #nav-links {
   list-style: none;
   display: flex;
-  gap: 30px; /* Adjusted space between navbar items */
+  gap: 25px; /* Adjust space between navbar items */
   margin: 0;
   padding: 0;
 }
@@ -66,7 +66,7 @@ nav {
 }
 
 .name-center h1 {
-  font-size: 2.5rem; /* Adjusted Welcome text size */
+  font-size: 3rem; /* Adjusted Welcome text size */
   margin-bottom: 15px;
 }
 
@@ -113,7 +113,7 @@ footer {
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .nav-container {
-    flex-direction: row; /* Ensure navbar stays side-by-side on mobile */
+    flex-direction: row;
     justify-content: center; /* Center navbar items horizontally */
   }
 
@@ -124,7 +124,7 @@ footer {
     display: flex;
     position: relative;
     top: 60px;
-    width: auto;
+    width: 100%;
     background-color: white;
     left: 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
@@ -132,7 +132,7 @@ footer {
   }
 
   #nav-links li a {
-    font-size: 1.5rem; /* Increased size for better readability on mobile */
+    font-size: 1.3rem; /* Increased size for better readability on mobile */
   }
 
   .menu-icon {
@@ -155,4 +155,20 @@ footer {
 body.dimmed {
   background-color: rgba(0, 0, 0, 0.7);
   transition: background-color 0.5s;
+}
+
+/* Extra small devices like phones in portrait mode */
+@media (max-width: 480px) {
+  #nav-links {
+    gap: 15px; /* Reduce the gap between navbar links */
+    font-size: 1.2rem; /* Slightly reduce the font size */
+  }
+  
+  .name-center h1 {
+    font-size: 1.8rem; /* Further reduce the size of Welcome text on smaller screens */
+  }
+
+  .name-center p {
+    font-size: 0.9rem; /* Adjust text size for readability */
+  }
 }
