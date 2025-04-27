@@ -95,32 +95,40 @@
             transform: scale(1.1);
         }
 
-        /* Hamburger Menu - Fixed Position */
+        /* Hamburger Menu - Using Flexbox for internal alignment */
         .hamburger-menu {
             display: none; /* Hidden by default on desktop */
+            /* Use Flexbox to center the bars inside */
             flex-direction: column;
-            cursor: pointer;
-            padding: 10px;
+            justify-content: center; /* Vertical center */
+            align-items: center;    /* Horizontal center */
+            gap: 4px;              /* Space between bars */
+
+            width: 45px;  /* Approx width */
+            height: 50px; /* Match mobile navbar height */
+
             z-index: 1100; /* Above everything */
             position: fixed;
-            top: 10px;      /* Default Desktop position */
-            right: 15px;     /* Default Desktop position */
-            transition: transform 0.3s ease, top 0.3s ease, right 0.3s ease;
+            top: 0;      /* Align top edge with viewport top */
+            right: 15px; /* Position from right */
+            cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
         .hamburger-menu div {
             width: 25px;
             height: 3px;
-             margin: 4px 0;
+            margin: 0; /* Remove margin, use gap on parent */
             background-color: #000; /* Black bars */
             border-radius: 1px;
             transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
+
         /* Mobile Menu */
         .mobile-nav {
             display: flex; /* Always flex now */
-            position: fixed; /* Use fixed for viewport positioning */
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
@@ -144,7 +152,11 @@
             font-size: 1.5rem;
             font-weight: 600;
             text-decoration: none;
-            transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+            /* Add padding and border-radius for background effect */
+            padding: 8px 15px;
+            border-radius: 5px;
+            /* Add background-color transition */
+            transition: color 0.3s, text-shadow 0.3s, transform 0.3s, background-color 0.1s linear;
         }
 
         /* Glow on hover (desktop) */
@@ -152,12 +164,13 @@
             color: #00bcd4;
             text-shadow: 0 0 8px #00bcd4;
             transform: scale(1.1);
+            /* background-color: transparent; /* Optional: Reset background on hover */
         }
 
-        /* Class added by JS for tap glow */
+        /* Class added by JS for tap glow - USE BACKGROUND */
         .mobile-nav a.link-active-glow {
-            color: #00bcd4;
-            text-shadow: 0 0 8px #00bcd4;
+            background-color: rgba(0, 188, 212, 0.3); /* Semi-transparent cyan background */
+            color: #000; /* Ensure text stays readable */
         }
         /* Removed CSS :active rule */
 
@@ -207,7 +220,7 @@
                 display: none; /* Hide desktop links */
             }
             .hamburger-menu {
-                display: flex; /* Show fixed hamburger */
+                display: flex; /* Show fixed hamburger (already contains flex properties) */
             }
              .nav-container {
                  justify-content: center; /* Center nav content */
@@ -220,12 +233,8 @@
             body {
                 padding-top: 50px; /* Match reduced navbar height */
             }
-            .hamburger-menu {
-                /* Adjust position slightly for new 50px height */
-                top: 9px; /* Updated Alignment */
-                right: 15px; /* Updated Alignment */
-            }
-            /* --- End Navbar Fixes --- */
+            /* Hamburger height set to 50px, top:0 aligns it with navbar */
+            /* No overrides needed here now for hamburger position */
 
              .intro h2 { font-size: 1.8rem; }
              .intro p { font-size: 1rem; }
@@ -239,7 +248,6 @@
              .hamburger-menu {
                  display: none; /* Hide fixed hamburger */
              }
-             /* .mobile-nav hidden via transform/opacity */
              #nav-links {
                  display: flex; /* Ensure desktop links shown */
              }
@@ -320,35 +328,30 @@
             let touchInitiated = false; // Flag for touch start
 
             link.addEventListener('touchstart', function(event) {
-                console.log("touchstart:", this.innerText); // DEBUG
+                // Add glow class when touch starts
                 this.classList.add('link-active-glow');
                 touchInitiated = true;
-            }); // Removed { passive: true }
+            });
 
             link.addEventListener('touchend', function() {
-                console.log("touchend:", this.innerText); // DEBUG
                 if (touchInitiated) {
                     // Use setTimeout to REMOVE the glow class after a short delay
                     setTimeout(() => {
                         this.classList.remove('link-active-glow');
-                        console.log("Glow class removed after timeout (touchend)"); // DEBUG
-                    }, 150); // Delay in milliseconds (e.g., 150ms = 0.15s)
+                    }, 150); // Delay in milliseconds (0.15s)
                 }
-                touchInitiated = false; // Reset flag immediately
+                touchInitiated = false; // Reset flag
             });
 
             link.addEventListener('touchcancel', function() {
-                console.log("touchcancel:", this.innerText); // DEBUG
                  if (touchInitiated) {
                     this.classList.remove('link-active-glow'); // Remove immediately on cancel
-                    console.log("Glow class removed on touchcancel"); // DEBUG
                  }
                  touchInitiated = false; // Reset flag
             });
 
             // --- Click listener for closing menu (also removes glow after delay) ---
             link.addEventListener('click', () => {
-                console.log("click:", link.innerText); // DEBUG
                 const mobileNav = document.getElementById('mobile-nav');
 
                 // Close menu logic (runs immediately)
@@ -357,11 +360,10 @@
                     document.body.classList.remove('no-scroll');
                 }
 
-                // Also remove glow after a delay, in case click is faster than touch events
+                // Also remove glow after a delay, ensures removal
                 setTimeout(() => {
                     if (link.classList.contains('link-active-glow')) {
                        link.classList.remove('link-active-glow');
-                       console.log("Glow class removed after timeout (click)"); // DEBUG
                     }
                 }, 150); // Same delay as touchend
 
