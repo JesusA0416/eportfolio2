@@ -8,22 +8,14 @@ body {
 }
 
 nav {
-  background-color: #2a2a2a;
+  background-color: white;
   padding: 15px 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
 .nav-container {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.menu-icon {
-  font-size: 2rem;
-  color: #f0f0f0;
-  cursor: pointer;
-  display: none;
+  justify-content: flex-start;
 }
 
 #nav-links {
@@ -35,8 +27,9 @@ nav {
 }
 
 #nav-links li a {
-  color: #f0f0f0;
+  color: #1c1c1c;
   text-decoration: none;
+  font-family: 'Courier New', Courier, monospace; /* Coding font applied */
   font-size: 1.1rem;
   transition: color 0.3s, text-shadow 0.3s;
 }
@@ -116,10 +109,6 @@ footer {
 
 /* mobile */
 @media (max-width: 768px) {
-  .menu-icon {
-    display: block;
-  }
-
   #nav-links {
     position: absolute;
     top: 65px;
