@@ -1,4 +1,4 @@
-/* General body and background setup */
+/* General styles */
 body {
   background-color: #1c1c1c;
   font-family: 'Nunito', sans-serif;
@@ -8,11 +8,11 @@ body {
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* Navbar setup */
+/* Navbar styles */
 nav {
   background-color: white;
   padding: 15px 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
   width: 100%;
   position: sticky;
   top: 0;
@@ -22,21 +22,20 @@ nav {
   align-items: center;
 }
 
-/* Navbar links container */
+/* Navbar container */
 .nav-container {
   display: flex;
-  justify-content: center; /* Ensure links are centered */
+  justify-content: center; /* Center navbar items */
   width: 100%;
 }
 
-/* List styling for navbar links */
+/* Navbar links list */
 #nav-links {
   list-style: none;
   display: flex;
-  gap: 40px;
+  gap: 40px; /* Space between links */
   margin: 0;
   padding: 0;
-  font-family: 'Courier New', Courier, monospace;
 }
 
 #nav-links li {
@@ -46,7 +45,7 @@ nav {
 #nav-links li a {
   color: black;
   text-decoration: none;
-  font-size: 1.5rem; /* Font size */
+  font-size: 1.2rem; /* Adjusted font size */
   font-weight: 600;
   transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
@@ -61,19 +60,19 @@ nav {
   color: #007c91;
 }
 
-/* Centering welcome text and description */
+/* Centering name and description */
 .name-center {
   min-height: 90vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  flex-direction: column;
   background: #1c1c1c;
 }
 
 .name-center h1 {
-  font-size: 3rem; /* Size of welcome text */
+  font-size: 3rem; /* Adjusted welcome text size */
   margin-bottom: 15px;
 }
 
@@ -120,7 +119,7 @@ footer {
 /* Mobile adjustments */
 @media (max-width: 768px) {
   #nav-links {
-    flex-direction: row; /* Ensure links are side by side */
+    flex-direction: row; /* Ensure navbar items are side by side */
     gap: 20px;
     padding: 10px 0;
     display: flex;
@@ -130,11 +129,11 @@ footer {
   }
 
   #nav-links li a {
-    font-size: 1.3rem; /* Adjust font size */
+    font-size: 1.3rem; /* Adjusted for mobile */
   }
 
   .name-center h1 {
-    font-size: 2rem;
+    font-size: 2rem; /* Adjusted Welcome text size for mobile */
   }
 
   .name-center h2 {
@@ -151,7 +150,7 @@ body.dimmed {
   transition: background-color 0.5s;
 }
 
-/* Extra small devices like phones in portrait mode */
+/* Extra small devices */
 @media (max-width: 480px) {
   #nav-links {
     gap: 15px;
