@@ -16,11 +16,13 @@ nav {
   width: 100%; /* Ensure navbar spans full width */
   position: fixed; /* FIXED navbar at the top */
   top: 0;
+  left: 0; /* Align navbar to the left edge */
+  right: 0; /* Align navbar to the right edge */
   z-index: 1000;
   display: flex;
   justify-content: center; /* Center navbar items */
   align-items: center;
-  left: 0; /* Ensure the navbar stays within the screen width */
+  margin: 0; /* Remove any margin */
 }
 
 /* Navbar links container */
@@ -74,6 +76,7 @@ nav {
   background: #1c1c1c;
   padding: 20px;
   margin-top: 60px; /* Offset navbar height */
+  width: 100%;
 }
 
 .name-center h1 {
