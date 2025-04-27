@@ -1,12 +1,14 @@
+/* Body and background */
 body {
   background-color: #1c1c1c;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito', sans-serif; /* Body font */
   margin: 0;
   padding: 0;
   color: #f0f0f0;
   transition: background-color 0.3s ease;
 }
 
+/* Navbar styles */
 nav {
   background-color: white;
   padding: 15px 20px;
@@ -29,17 +31,18 @@ nav {
 }
 
 #nav-links li a {
-  color: black;
+  color: black; /* Navbar link color set to black */
   text-decoration: none;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1.1rem;
+  font-family: 'Courier New', Courier, monospace; /* Coding font for navbar links */
+  font-size: 1.2rem; /* Increased font size for better visibility */
+  font-weight: bold; /* Making the font bold for better visibility */
   transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
 
 #nav-links li a:hover {
   color: #00bcd4;
   text-shadow: 0 0 8px #00bcd4;
-  transform: scale(1.1);
+  transform: scale(1.1); /* Hover effect with scale */
 }
 
 #nav-links li a:active {
@@ -58,8 +61,8 @@ nav {
 }
 
 .name-center h1 {
-  font-size: 2.5rem; /* Adjust font size for the Welcome text */
-  margin-bottom: 10px;
+  font-size: 2.5rem; /* Adjusted Welcome text size */
+  margin-bottom: 15px;
 }
 
 .name-center h2 {
@@ -108,7 +111,7 @@ footer {
   }
 }
 
-/* mobile */
+/* Mobile */
 @media (max-width: 768px) {
   .nav-container {
     flex-direction: column;
@@ -130,7 +133,11 @@ footer {
   }
 
   #nav-links li a {
-    font-size: 1.3rem;
+    font-size: 1.3rem; /* Increased size for better readability on mobile */
+  }
+
+  .menu-icon {
+    display: none; /* Hide hamburger menu */
   }
 }
 
