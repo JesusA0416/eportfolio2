@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +23,7 @@
     /* Navbar */
     nav {
       background-color: white;
-      padding: 5px 0;
+      padding: 10px 0;
       width: 100%;
       position: fixed;
       top: 0;
@@ -32,18 +31,12 @@
       right: 0;
       z-index: 1000;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
     }
 
-    .nav-container {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
+    /* Links for desktop and mobile */
     #nav-links {
       list-style: none;
       display: flex;
@@ -71,8 +64,61 @@
       transform: scale(1.1);
     }
 
-    #nav-links li a:active {
-      color: #007c91;
+    /* Hamburger Menu */
+    .hamburger-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger-menu div {
+      width: 25px;
+      height: 3px;
+      margin: 5px;
+      background-color: #000;
+      transition: transform 0.3s ease;
+    }
+
+    /* Mobile menu - hidden by default */
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: white;
+      width: 100%;
+      height: 100vh;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding: 10px 0;
+    }
+
+    .mobile-nav a {
+      color: black;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .mobile-nav a:hover {
+      color: #00bcd4;
+      text-shadow: 0 0 8px #00bcd4;
+      transform: scale(1.1);
+    }
+
+    /* Hide mobile nav and hamburger on desktop */
+    @media (min-width: 768px) {
+      .hamburger-menu {
+        display: none;
+      }
+      .mobile-nav {
+        display: none;
+      }
+      #nav-links {
+        display: flex;
+      }
     }
 
     /* Main content */
@@ -136,27 +182,15 @@
     /* Mobile Adjustments */
     @media (max-width: 768px) {
       #nav-links {
-        flex-direction: row;
-        gap: 15px;
-        padding: 10px 0;
+        display: none;
+      }
+
+      .hamburger-menu {
         display: flex;
-        width: 100%;
       }
 
-      #nav-links li a {
-        font-size: 1rem;
-      }
-
-      .name-center h1 {
-        font-size: 2rem;
-      }
-
-      .name-center h2 {
-        font-size: 1rem;
-      }
-
-      .name-center p {
-        font-size: 1rem;
+      .mobile-nav {
+        display: flex;
       }
     }
 
@@ -178,8 +212,15 @@
 </head>
 
 <body>
+  <!-- Navbar -->
   <nav>
     <div class="nav-container">
+      <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
       <ul id="nav-links">
         <li><a href="#">Home</a></li>
         <li><a href="#">About Me</a></li>
@@ -190,6 +231,16 @@
     </div>
   </nav>
 
+  <!-- Mobile Menu -->
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#">Home</a>
+    <a href="#">About Me</a>
+    <a href="#">Courses</a>
+    <a href="#">Achievements</a>
+    <a href="#">Outside/Personal Projects</a>
+  </div>
+
+  <!-- Main Content -->
   <div class="name-center">
     <h1>Welcome to my General Education ePortfolio!</h1>
     <h2>Made by: Jesús Lopez Aguilar and my 7 other personalities</h2>
@@ -197,10 +248,18 @@
     <a href="#explore" class="button">Start Exploring</a>
   </div>
 
+  <!-- Footer -->
   <footer>
     <p>© 2025 Jesús Lopez Aguilar | All rights reserved</p>
   </footer>
 
+  <script>
+    // Function to toggle the mobile menu
+    function toggleMenu() {
+      const mobileNav = document.getElementById('mobile-nav');
+      mobileNav.style.display = mobileNav.style.display === 'flex' ? 'none' : 'flex';
+    }
+  </script>
 </body>
 
 </html>
