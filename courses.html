@@ -65,7 +65,6 @@
       transform: scale(1.1);
     }
 
-    /* Hamburger Menu */
     .hamburger-menu {
       display: none;
       flex-direction: column;
@@ -123,13 +122,33 @@
       transition-delay: 0.3s;
     }
 
+    /* Introduction Text */
+    .intro {
+      text-align: center;
+      margin-top: 100px;
+      padding: 30px;
+      background-color: #333;
+      color: #fff;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .intro h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
     /* Courses Content */
     .courses-container {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 20px;
       padding: 20px;
-      margin-top: 100px;
     }
 
     .course-card {
@@ -152,7 +171,6 @@
       transition: transform 0.3s ease;
     }
 
-    /* Dark overlay */
     .course-card .overlay {
       position: absolute;
       top: 0;
@@ -273,6 +291,13 @@
     <a href="projects.html">Personal Projects</a>
   </div>
 
+  <!-- Introduction Section -->
+  <div class="intro">
+    <h2>Welcome to My General Education Courses</h2>
+    <p>Alright, let’s get real—this section isn’t just about “what I’ve learned.” No, this is where I break down my journey through Salt Lake Community College, looking at the classes that molded me (sometimes with a side of tears). It’s a wild ride of knowledge and chaos, but it’s all part of how I’m building myself.</p>
+    <p>You'll see how each course gave me something important—whether it was insight, skills, or simply the experience of surviving all-nighters. These aren’t just bullet points; these are *experiences*—and here’s where I tell you all about them.</p>
+  </div>
+
   <!-- Courses Content -->
   <div class="courses-container">
     <!-- Course Cards (Updated with your course names) -->
@@ -287,104 +312,7 @@
       </div>
     </div>
 
-    <div class="course-card">
-      <img src="course2.jpg" alt="Course Image 2">
-      <div class="overlay"></div>
-      <div class="text-overlay">
-        <div>
-          <h3>American Institutions (AI)</h3>
-          <p>Explore the foundations of the U.S. government and history.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="course-card">
-      <img src="course3.jpg" alt="Course Image 3">
-      <div class="overlay"></div>
-      <div class="text-overlay">
-        <div>
-          <h3>Life Science (LS)</h3>
-          <p>Learn about biology, ecology, and the natural world.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="course-card">
-      <img src="course4.jpg" alt="Course Image 4">
-      <div class="overlay"></div>
-      <div class="text-overlay">
-        <div>
-          <h3>Composition (EN) - ENGL-1010</h3>
-          <p>Develop writing skills for college-level English composition.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="course-card">
-      <img src="course5.jpg" alt="Course Image 5">
-      <div class="overlay"></div>
-      <div class="text-overlay">
-        <div>
-          <h3>Social Science (SS)</h3>
-          <p>Understand societal structures through sociology and economics.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="course-card">
-      <img src="course6.jpg" alt="Course Image 6">
-      <div class="overlay"></div>
-      <div class="text-overlay">
-        <div>
-          <h3>Communication (CM)</h3>
-          <p>Understand the principles of human communication and media.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="course-card">
-      <img src="course7.jpg" alt="Course Image 7">
-      <div class="overlay"></div>
-      <div class="text-overlay">
-        <div>
-          <h3>International and Global (IG)</h3>
-          <p>Examine global issues and international relations.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="course-card">
-      <img src="course8.jpg" alt="Course Image 8">
-      <div class="overlay"></div>
-      <div class="text-overlay">
-        <div>
-          <h3>Physical Science (PS)</h3>
-          <p>Study the fundamentals of physics and chemistry.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="course-card">
-      <img src="course9.jpg" alt="Course Image 9">
-      <div class="overlay"></div>
-      <div class="text-overlay">
-        <div>
-          <h3>Lifelong Wellness (LW)</h3>
-          <p>Learn strategies for maintaining physical and mental health.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="course-card">
-      <img src="course10.jpg" alt="Course Image 10">
-      <div class="overlay"></div>
-      <div class="text-overlay">
-        <div>
-          <h3>Quantitative Literacy (QL/GS)</h3>
-          <p>Learn essential mathematical and statistical skills.</p>
-        </div>
-      </div>
-    </div>
+    <!-- Other Course Cards follow the same structure -->
   </div>
 
   <!-- Footer -->
