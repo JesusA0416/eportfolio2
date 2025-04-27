@@ -86,7 +86,7 @@
     .mobile-nav {
       display: none;
       position: absolute;
-      top: 0;
+      top: -100%;
       right: 0;
       background-color: white;
       width: 100%;
@@ -98,7 +98,7 @@
       padding: 10px 0;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
+      transition: top 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
     }
 
     .mobile-nav a {
@@ -118,7 +118,7 @@
 
     /* Show mobile nav when active */
     .mobile-nav.active {
-      display: flex;
+      top: 0;
       opacity: 1;
       visibility: visible;
     }
@@ -271,7 +271,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Jesús Lopez Aguilar | All rights reserved</p>
+    <p>© 2025 Jesús Lopez Aguilar | All rights reserved (No they're not)</p>
   </footer>
 
   <script>
