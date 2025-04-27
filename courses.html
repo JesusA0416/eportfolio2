@@ -15,7 +15,7 @@
             box-sizing: border-box;
         }
 
-        /* --- Animation Definition --- */
+        /* --- Animation Definition (Keep for course cards/intro) --- */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -32,45 +32,49 @@
             font-family: 'Nunito', sans-serif;
             color: #f0f0f0;
             overflow-x: hidden;
-            padding-top: 60px; /* Account for fixed navbar */
+            /* Keep padding-top because nav is fixed */
+            padding-top: 60px;
+            transition: background-color 0.3s ease;
         }
-        /* Optional: Body scroll lock style (if re-enabled in JS) */
-        /*
-        body.no-scroll {
-            overflow: hidden;
-        }
-        */
 
-        /* Navbar */
+        /* Navbar - Styles adjusted to match reference */
         nav {
             background-color: white;
-            padding: 0 20px;
+            /* Reference uses padding: 10px 0; height: auto; */
+            /* Keep explicit height for consistent padding-top offset */
             height: 60px;
+            padding: 0 20px; /* Keep some padding for container */
             width: 100%;
             position: fixed;
             top: 0;
             left: 0;
+            right: 0; /* Added based on reference */
             z-index: 1000;
             display: flex;
-            justify-content: center; /* Centers .nav-container */
+            justify-content: center; /* Center #nav-links directly */
             align-items: center;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+            transition: padding 0.3s ease; /* From reference */
         }
 
-        .nav-container {
-            display: flex;
-            justify-content: center; /* Center items horizontally by default (for desktop links) */
-            align-items: center;
-            width: 100%;
-            max-width: 1200px;
-        }
+        /* No specific .nav-container centering needed now */
+        /* Keep .nav-container if needed for max-width or other layouts later */
+         .nav-container {
+             display: flex;
+             justify-content: space-between; /* Use space-between for logo/links vs hamburger */
+             align-items: center;
+             width: 100%;
+             max-width: 1200px; /* Optional: constrain width */
+         }
+
 
         #nav-links {
             list-style: none;
-            display: flex; /* Hidden on mobile via media query */
+            display: flex; /* Display handled by media queries */
             gap: 20px;
             margin: 0;
             padding: 0;
+            justify-content: center; /* Ensure links center themselves */
         }
 
         #nav-links li {
@@ -83,7 +87,7 @@
             font-size: 1.2rem;
             font-weight: 600;
             padding: 8px 15px;
-            transition: color 0.3s ease-out, text-shadow 0.3s ease-out, transform 0.3s ease-out;
+            transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
         }
 
         #nav-links li a:hover {
@@ -92,45 +96,47 @@
             transform: scale(1.1);
         }
 
-        /* Hamburger Menu Icon */
+        /* Hamburger Menu - Styles from reference */
         .hamburger-menu {
-            display: none; /* Hidden by default, shown in media query */
+            display: none; /* Display handled by media query */
             flex-direction: column;
             cursor: pointer;
+            /* Added padding for easier clicking */
             padding: 10px;
-            z-index: 1002;
-            position: relative; /* Helps z-index */
+            z-index: 1002; /* Ensure clickable */
+            position: relative;
+            transition: transform 0.3s ease; /* From reference */
         }
 
         .hamburger-menu div {
             width: 25px;
             height: 3px;
-            margin: 4px 0;
+             /* margin: 5px; /* From reference */
+             margin: 4px 0; /* Keep slightly tighter spacing */
             background-color: #000;
-            transition: background-color 0.3s ease-out;
+            transition: transform 0.3s ease; /* From reference */
         }
 
-        /* --- Mobile Navigation Panel --- */
+        /* Mobile Menu - Styles from reference */
         .mobile-nav {
-            display: flex;
-            position: fixed;
-            top: -100vh; /* Start off-screen */
-            left: 0;
-            /* Restored Transparency */
-            background-color: rgba(255, 255, 255, 0.95); /* Back to 0.95 alpha */
-            width: 100%;
-            height: calc(100vh - 60px); /* Full height minus navbar */
+            display: none; /* Hidden by default, enabled in mobile media query */
+            position: absolute; /* From reference */
+            top: -100%; /* Start off-screen */
+            left: 0; /* Align to left */
+            right: 0; /* Align to right (effectively width 100%) */
+            background-color: rgba(255, 255, 255, 0.9); /* Reference background */
+            width: 100%; /* Ensure full width */
+            height: 100vh; /* Reference height */
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 30px;
-            /* Updated Transition for smoother slide */
-            transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Longer duration + smoother curve */
-            z-index: 1001; /* Above content, below hamburger if needed */
-        }
-
-        .mobile-nav.active {
-            top: 60px; /* Slide down to below navbar */
+            padding: 10px 0; /* Reference padding */
+            opacity: 0; /* Start hidden */
+            visibility: hidden; /* Start hidden */
+            z-index: 1001; /* Below hamburger icon */
+             /* Reference transition */
+            transition: top 0.8s ease-in-out, opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
         }
 
         .mobile-nav a {
@@ -138,17 +144,32 @@
             font-size: 1.5rem;
             font-weight: 600;
             text-decoration: none;
-            opacity: 1;
-            transition: color 0.3s ease-out, text-shadow 0.3s ease-out, transform 0.3s ease-out;
+            opacity: 0; /* Start hidden */
+            /* Reference transition */
+            transition: opacity 0.8s ease-in-out, color 0.3s, text-shadow 0.3s, transform 0.3s;
         }
 
         .mobile-nav a:hover {
-             color: #00bcd4;
-             text-shadow: 0 0 8px #00bcd4;
-             transform: scale(1.1);
-         }
+            color: #00bcd4;
+            text-shadow: 0 0 8px #00bcd4;
+            transform: scale(1.1);
+        }
 
-        /* Introduction Text */
+        /* Show mobile nav when active - From reference */
+        .mobile-nav.active {
+            top: 0; /* Slide into view */
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Fade in links when nav is active - From reference */
+        .mobile-nav.active a {
+            opacity: 1;
+            transition-delay: 0.3s; /* Delay link fade-in */
+        }
+
+
+        /* Introduction Text - Keep specific styles for courses page */
         .intro {
             text-align: center;
             margin: 30px 20px;
@@ -158,7 +179,7 @@
             border-radius: 10px;
             line-height: 1.6;
             /* Animation */
-            opacity: 0; /* Start hidden */
+            opacity: 0;
             animation: fadeInUp 0.6s 0.1s ease-out forwards;
         }
 
@@ -172,7 +193,7 @@
             margin-bottom: 20px;
         }
 
-        /* Courses Content */
+        /* Courses Content - Keep specific styles for courses page */
         .courses-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -187,33 +208,30 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-            /* Animation */
-            opacity: 0; /* Start hidden */
+            opacity: 0;
             animation: fadeInUp 0.6s ease-out forwards;
         }
-        /* Stagger animation delays */
         .courses-container .course-card:nth-child(1) { animation-delay: 0.2s; }
         .courses-container .course-card:nth-child(2) { animation-delay: 0.3s; }
         .courses-container .course-card:nth-child(3) { animation-delay: 0.4s; }
         .courses-container .course-card:nth-child(4) { animation-delay: 0.5s; }
-         /* Add more delays if needed */
 
 
+        /* Keep enhanced glow */
         .course-card:hover {
             transform: scale(1.05);
-            /* Enhanced Glow Effect */
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5), 0 0 18px #00bcd4; /* Increased glow size */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5), 0 0 18px #00bcd4;
         }
 
         .course-card img {
-            display: block; /* Prevent extra space below image */
+            display: block;
             width: 100%;
             height: auto;
             transition: filter 0.3s ease-out;
         }
 
         .course-card:hover img {
-             filter: brightness(50%); /* Darken image on hover */
+             filter: brightness(50%);
         }
 
         .course-card .overlay {
@@ -222,16 +240,16 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* Base overlay */
+            background-color: rgba(0, 0, 0, 0.5);
             z-index: 1;
             transition: background-color 0.3s ease-out;
         }
 
         .course-card:hover .overlay {
-            background-color: rgba(0, 0, 0, 0.7); /* Darker overlay on hover */
+            background-color: rgba(0, 0, 0, 0.7);
         }
 
-        /* Text Overlay - Now always visible */
+        /* Keep text always visible */
         .course-card .text-overlay {
             position: absolute;
             top: 50%;
@@ -239,17 +257,15 @@
             transform: translate(-50%, -50%);
             text-align: center;
             color: #fff;
-            width: 90%; /* Prevent text spilling */
-            z-index: 2; /* Above overlay */
-            /* Text is always visible (opacity rules removed) */
+            width: 90%;
+            z-index: 2;
         }
 
-        /* Text styling within the overlay */
         .text-overlay h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
-            color: #00bcd4; /* Cyan heading */
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* Readability shadow */
+            color: #00bcd4;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
         }
 
         .text-overlay p {
@@ -257,10 +273,10 @@
             color: #f0f0f0;
             margin-bottom: 0;
             line-height: 1.4;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* Readability shadow */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
         }
 
-        /* Button Styling (defined but not used in current cards) */
+        /* Button Styling (Keep for potential use) */
         .button {
             display: inline-block;
             margin-top: 15px;
@@ -278,76 +294,91 @@
             box-shadow: 0 0 10px #00bcd4;
         }
 
-        footer {
-            background-color: #2a2a2a;
-            padding: 20px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #aaa;
-            width: 100%;
-            margin-top: 40px; /* Space above footer */
-        }
+        /* Footer - Match reference style */
+         footer {
+             background-color: #2a2a2a;
+             padding: 15px; /* Reference padding */
+             text-align: center;
+             font-size: 0.9rem;
+             color: #aaa;
+             width: 100%;
+             position: relative; /* From reference */
+             /* bottom: 0; /* From reference - remove if causes issues */
+             margin-top: 40px; /* Keep space above footer */
+         }
 
 
-        /* --- Media Queries --- */
-        @media (max-width: 768px) {
-            nav {
-                padding: 0 10px; /* Adjust padding */
-            }
+        /* --- Media Queries - Adjusted based on reference --- */
 
-            .nav-container {
-                 justify-content: flex-end; /* Push hamburger to the right on mobile */
-            }
-
+        /* Mobile Adjustments (< 768px) */
+        @media (max-width: 767px) { /* Use 767px to avoid overlap with min-width 768px */
             #nav-links {
                 display: none; /* Hide desktop links */
             }
 
             .hamburger-menu {
-                display: flex; /* Show hamburger menu */
+                display: flex; /* Show hamburger */
             }
 
-             .intro h2 {
-                font-size: 1.8rem; /* Adjust heading size */
+            .mobile-nav {
+                 display: flex; /* Enable mobile nav layout */
             }
-             .intro p {
-                font-size: 1rem; /* Adjust text size */
-            }
-             /* Consider disabling entry animations on mobile if needed */
-             /*
-             .intro, .course-card {
-                 animation: none;
-                 opacity: 1;
+
+             .nav-container {
+                  /* Justify hamburger to the right */
+                  justify-content: flex-end;
+              }
+
+            /* Keep courses page mobile styles */
+             .intro h2 { font-size: 1.8rem; }
+             .intro p { font-size: 1rem; }
+             .courses-container { grid-template-columns: 1fr; padding: 15px; gap: 15px; }
+             .text-overlay h3 { font-size: 1.3rem; }
+             .text-overlay p { font-size: 0.9rem; }
+        }
+
+         /* Desktop Adjustments (>= 768px) - From reference */
+         @media (min-width: 768px) {
+             .hamburger-menu {
+                 display: none;
              }
-             */
+             .mobile-nav {
+                 /* Ensure mobile nav is not flex (or hidden) on desktop */
+                 display: none;
+             }
+             #nav-links {
+                 /* Ensure desktop links are shown */
+                 display: flex;
+             }
+              .nav-container {
+                   /* Center links block on desktop */
+                  justify-content: center;
+              }
+         }
 
-            .courses-container {
-                grid-template-columns: 1fr; /* Stack cards vertically */
-                padding: 15px; /* Adjust padding */
-                 gap: 15px; /* Adjust gap */
-            }
 
-             /* Adjust text size in cards for mobile */
-            .text-overlay h3 {
-                font-size: 1.3rem;
-            }
-             .text-overlay p {
-                font-size: 0.9rem;
-            }
-        }
+        /* Optional: Smaller Mobile Adjustments (< 480px) from reference */
+         @media (max-width: 480px) {
+             /* #nav-links styles here likely irrelevant as it's hidden */
 
-        @media (min-width: 769px) {
-            /* Ensure hamburger is hidden on larger screens */
-            .hamburger-menu {
-                display: none;
-            }
-        }
+             /* Adjust intro/course text sizes if needed */
+              .intro h2 { font-size: 1.6rem; }
+              .intro p { font-size: 0.9rem; }
+              .text-overlay h3 { font-size: 1.2rem; }
+              .text-overlay p { font-size: 0.8rem; }
+          }
+
     </style>
 </head>
 
 <body>
     <nav>
         <div class="nav-container">
+             <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
             <ul id="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Me</a></li>
@@ -355,12 +386,7 @@
                 <li><a href="achievements.html">Achievements</a></li>
                 <li><a href="projects.html">Personal Projects</a></li>
             </ul>
-            <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-                <div></div>
-                <div></div>
-                <div></div>
             </div>
-        </div>
     </nav>
 
     <div class="mobile-nav" id="mobile-nav">
@@ -406,28 +432,14 @@
     </footer>
 
     <script>
-        // Toggles the mobile navigation menu
+        // Function to toggle the mobile menu (Simplified based on reference)
         function toggleMenu() {
-            // ALERT REMOVED - No popup should appear now
             const mobileNav = document.getElementById('mobile-nav');
             mobileNav.classList.toggle('active');
-
-            // Optional: Toggle body scroll lock (if CSS for .no-scroll is added)
-            // document.body.classList.toggle('no-scroll');
         }
 
-        // Adds event listeners to mobile nav links to close menu on click
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                const mobileNav = document.getElementById('mobile-nav');
-                // Check if menu is active before trying to close
-                if (mobileNav.classList.contains('active')) {
-                    mobileNav.classList.remove('active');
-                    // Also remove scroll lock if it was active and CSS exists
-                    // document.body.classList.remove('no-scroll');
-                }
-            });
-        });
+        // --- Removed other JS (scroll lock, close on click) to match reference ---
+
     </script>
 </body>
 </html>
