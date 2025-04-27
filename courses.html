@@ -51,7 +51,7 @@
             top: 0;
             left: 0;
             right: 0;
-            z-index: 1000;
+            z-index: 1000; /* Below mobile nav and hamburger */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -61,7 +61,8 @@
 
          .nav-container {
              display: flex;
-             /* Justify depends on screen size (see media queries) */
+             /* Centered on desktop, doesn't need to worry about hamburger now */
+             justify-content: center;
              align-items: center;
              width: 100%;
              max-width: 1200px;
@@ -69,10 +70,11 @@
 
         #nav-links {
             list-style: none;
-            /* Display handled by media queries */
+             /* Display handled by media queries */
             gap: 20px;
             margin: 0;
             padding: 0;
+            display: flex; /* Default display */
             justify-content: center;
         }
 
@@ -95,14 +97,16 @@
             transform: scale(1.1);
         }
 
-        /* Hamburger Menu */
+        /* Hamburger Menu - Now position:fixed */
         .hamburger-menu {
-            display: none; /* Display handled by media query */
+            display: none; /* Hidden by default on desktop */
             flex-direction: column;
             cursor: pointer;
             padding: 10px;
-            z-index: 1002;
-            position: relative;
+            z-index: 1100; /* Higher than mobile nav (1001) and main nav (1000) */
+            position: fixed; /* Fixed relative to viewport */
+            top: 10px;      /* Adjust position from top */
+            right: 15px;     /* Adjust position from right */
             transition: transform 0.3s ease;
         }
 
@@ -110,20 +114,22 @@
             width: 25px;
             height: 3px;
              margin: 4px 0;
-            background-color: #000;
-            transition: transform 0.3s ease;
+            /* Changed to white for visibility against dark page background */
+            background-color: #fff;
+            border-radius: 1px; /* Slightly rounded ends */
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         /* Mobile Menu - Styles from reference */
         .mobile-nav {
             display: none; /* Hidden by default, enabled in mobile media query */
-            position: absolute; /* From reference */
-            top: -100%; /* Start off-screen */
+            position: absolute;
+            top: -100%;
             left: 0;
             right: 0;
             background-color: rgba(255, 255, 255, 0.9); /* Reference background */
             width: 100%;
-            height: 100vh; /* Reference height */
+            height: 100vh;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -131,7 +137,7 @@
             padding: 10px 0;
             opacity: 0;
             visibility: hidden;
-            z-index: 1001;
+            z-index: 1001; /* Below hamburger */
             transition: top 0.8s ease-in-out, opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
         }
 
@@ -140,22 +146,26 @@
             font-size: 1.5rem;
             font-weight: 600;
             text-decoration: none;
-            opacity: 0; /* Start hidden */
+            opacity: 0;
             transition: opacity 0.8s ease-in-out, color 0.3s, text-shadow 0.3s, transform 0.3s;
         }
 
-        /* --- This rule creates the glow on hover --- */
+        /* Glow on hover (desktop) */
         .mobile-nav a:hover {
             color: #00bcd4;
-            text-shadow: 0 0 8px #00bcd4; /* The glow */
+            text-shadow: 0 0 8px #00bcd4;
             transform: scale(1.1);
         }
-        /* --- End of glow rule --- */
+        /* Glow on tap (mobile) */
+        .mobile-nav a:active {
+            color: #00bcd4;
+            text-shadow: 0 0 8px #00bcd4;
+        }
 
 
         /* Show mobile nav when active */
         .mobile-nav.active {
-            top: 0; /* Slide into view */
+            top: 0;
             opacity: 1;
             visibility: visible;
         }
@@ -163,7 +173,7 @@
         /* Fade in links when nav is active */
         .mobile-nav.active a {
             opacity: 1;
-            transition-delay: 0.3s; /* Delay link fade-in */
+            transition-delay: 0.3s;
         }
 
 
@@ -179,16 +189,8 @@
             opacity: 0;
             animation: fadeInUp 0.6s 0.1s ease-out forwards;
         }
-
-        .intro h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .intro p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
+        .intro h2 { font-size: 2rem; margin-bottom: 20px; }
+        .intro p { font-size: 1.1rem; margin-bottom: 20px; }
 
         /* Courses Content */
         .courses-container {
@@ -197,7 +199,6 @@
             gap: 20px;
             padding: 20px;
         }
-
         .course-card {
             position: relative;
             background-color: #333;
@@ -213,93 +214,24 @@
         .courses-container .course-card:nth-child(3) { animation-delay: 0.4s; }
         .courses-container .course-card:nth-child(4) { animation-delay: 0.5s; }
 
-
         .course-card:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5), 0 0 18px #00bcd4; /* Enhanced glow */
         }
-
-        .course-card img {
-            display: block;
-            width: 100%;
-            height: auto;
-            transition: filter 0.3s ease-out;
-        }
-
-        .course-card:hover img {
-             filter: brightness(50%);
-        }
-
-        .course-card .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-            transition: background-color 0.3s ease-out;
-        }
-
-        .course-card:hover .overlay {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        .course-card .text-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: #fff;
-            width: 90%;
-            z-index: 2;
-        }
-
-        .text-overlay h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #00bcd4;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-        }
-
-        .text-overlay p {
-            font-size: 1rem;
-            color: #f0f0f0;
-            margin-bottom: 0;
-            line-height: 1.4;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-        }
+        .course-card img { display: block; width: 100%; height: auto; transition: filter 0.3s ease-out; }
+        .course-card:hover img { filter: brightness(50%); }
+        .course-card .overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 1; transition: background-color 0.3s ease-out; }
+        .course-card:hover .overlay { background-color: rgba(0, 0, 0, 0.7); }
+        .course-card .text-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #fff; width: 90%; z-index: 2; }
+        .text-overlay h3 { font-size: 1.5rem; margin-bottom: 10px; color: #00bcd4; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        .text-overlay p { font-size: 1rem; color: #f0f0f0; margin-bottom: 0; line-height: 1.4; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
 
         /* Button Styling */
-        .button {
-            display: inline-block;
-            margin-top: 15px;
-            background-color: #00bcd4;
-            color: #1f1f1f;
-            padding: 10px 25px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
-        }
-
-        .button:hover {
-            background-color: #0097a7;
-            box-shadow: 0 0 10px #00bcd4;
-        }
+        .button { display: inline-block; margin-top: 15px; background-color: #00bcd4; color: #1f1f1f; padding: 10px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out; }
+        .button:hover { background-color: #0097a7; box-shadow: 0 0 10px #00bcd4; }
 
         /* Footer */
-         footer {
-             background-color: #2a2a2a;
-             padding: 15px;
-             text-align: center;
-             font-size: 0.9rem;
-             color: #aaa;
-             width: 100%;
-             position: relative;
-             margin-top: 40px;
-         }
+         footer { background-color: #2a2a2a; padding: 15px; text-align: center; font-size: 0.9rem; color: #aaa; width: 100%; position: relative; margin-top: 40px; }
 
 
         /* --- Media Queries --- */
@@ -307,17 +239,16 @@
         /* Mobile Adjustments (< 768px) */
         @media (max-width: 767px) {
             #nav-links {
-                display: none;
+                display: none; /* Hide desktop links */
             }
             .hamburger-menu {
-                display: flex;
+                display: flex; /* Show fixed hamburger */
             }
             .mobile-nav {
-                 display: flex; /* Enable layout */
+                 display: flex; /* Enable mobile nav layout */
             }
-             .nav-container {
-                  justify-content: flex-end; /* Push hamburger right */
-              }
+             /* .nav-container justify-content no longer needed for hamburger */
+
              .intro h2 { font-size: 1.8rem; }
              .intro p { font-size: 1rem; }
              .courses-container { grid-template-columns: 1fr; padding: 15px; gap: 15px; }
@@ -328,17 +259,15 @@
          /* Desktop Adjustments (>= 768px) */
          @media (min-width: 768px) {
              .hamburger-menu {
-                 display: none;
+                 display: none; /* Hide fixed hamburger */
              }
              .mobile-nav {
-                 display: none; /* Ensure hidden */
+                 display: none; /* Ensure mobile nav hidden */
              }
              #nav-links {
-                 display: flex; /* Ensure shown */
+                 display: flex; /* Ensure desktop links shown */
              }
-              .nav-container {
-                  justify-content: center; /* Center links block */
-              }
+              /* .nav-container justify-content: center; /* Already default for nav */
          }
 
         /* Optional: Smaller Mobile Adjustments (< 480px) */
@@ -355,12 +284,7 @@
 <body>
     <nav>
          <div class="nav-container">
-            <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <ul id="nav-links">
+             <ul id="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Me</a></li>
                 <li><a href="courses.html">Courses</a></li>
@@ -370,91 +294,6 @@
         </div>
     </nav>
 
-    <div class="mobile-nav" id="mobile-nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="courses.html">Courses</a>
-        <a href="achievements.html">Achievements</a>
-        <a href="projects.html">Personal Projects</a>
-    </div>
-
-    <div class="intro">
-        <h2>Welcome to My General Education Courses</h2>
-        <p>Alright, let’s get real—this section isn’t just about “what I’ve learned.” No, this is where I break down my journey through Salt Lake Community College, looking at the classes that molded me (sometimes with a side of tears). It’s a wild ride of knowledge and chaos, but it’s all part of how I’m building myself.</p>
-        <p>You'll see how each course gave me something important—whether it was insight, skills, or simply the experience of surviving all-nighters. These aren’t just bullet points; these are *experiences*—and here’s where I tell you all about them.</p>
-    </div>
-
-    <div class="courses-container">
-        <div class="course-card">
-            <img src="course1.jpg" alt="Humanities Course Image">
-            <div class="overlay"></div>
-            <div class="text-overlay">
-                 <h3>Humanities (HU)</h3>
-                 <p>Study philosophy, literature, and art in human history.</p>
-            </div>
-        </div>
-        <div class="course-card">
-            <img src="course2.jpg" alt="Fine Arts Course Image">
-            <div class="overlay"></div>
-            <div class="text-overlay">
-                 <h3>Fine Arts (FA)</h3>
-                 <p>Explore artistic expression and its impact on culture.</p>
-            </div>
-        </div>
-         <div class="course-card">
-            <img src="course3.jpg" alt="Another Course Image">
-            <div class="overlay"></div>
-            <div class="text-overlay">
-                 <h3>Example Course (EX)</h3>
-                 <p>This is another course description.</p>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p>© 2025 Jesús Lopez Aguilar | All rights reserved</p>
-    </footer>
-
-    <script>
-        // Function to toggle the mobile menu AND body scroll lock
-        function toggleMenu() {
-            console.log("--- toggleMenu function started ---"); // Check if function runs
-            const mobileNav = document.getElementById('mobile-nav');
-            const body = document.body;
-
-            // Log current state BEFORE toggle
-            console.log("Before toggle - mobileNav has 'active' class:", mobileNav.classList.contains('active'));
-
-            // Toggle the 'active' class on the mobile navigation panel
-            mobileNav.classList.toggle('active');
-
-            // Log current state AFTER toggle
-            console.log("After toggle - mobileNav has 'active' class:", mobileNav.classList.contains('active'));
-
-
-            // Toggle the 'no-scroll' class on the body
-            if (mobileNav.classList.contains('active')) {
-                console.log("Adding no-scroll class to body");
-                body.classList.add('no-scroll');
-            } else {
-                console.log("Removing no-scroll class from body");
-                body.classList.remove('no-scroll');
-            }
-            console.log("--- toggleMenu function finished ---");
-        }
-
-        // Add event listeners to mobile nav links to close menu on click
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                console.log("Link inside menu clicked"); // Check if this runs
-                const mobileNav = document.getElementById('mobile-nav');
-                if (mobileNav.classList.contains('active')) {
-                    console.log("Closing menu from link click");
-                    mobileNav.classList.remove('active');
-                    document.body.classList.remove('no-scroll');
-                }
-            });
-        });
-    </script>
-    </body>
-</html>
+    <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
