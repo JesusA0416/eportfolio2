@@ -33,7 +33,7 @@
             color: #f0f0f0;
             overflow-x: hidden;
             padding-top: 60px; /* Default padding for Desktop navbar */
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, padding-top 0.3s ease; /* Added padding transition */
         }
 
         /* Rule to prevent body scroll when mobile menu is active */
@@ -56,7 +56,7 @@
             justify-content: center;
             align-items: center;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-            transition: padding 0.3s ease, height 0.3s ease; /* Added height transition */
+            transition: padding 0.3s ease, height 0.3s ease;
         }
 
          .nav-container {
@@ -105,7 +105,7 @@
             position: fixed;
             top: 10px;      /* Default Desktop position */
             right: 15px;     /* Default Desktop position */
-            transition: transform 0.3s ease, top 0.3s ease, right 0.3s ease; /* Added top/right transition */
+            transition: transform 0.3s ease, top 0.3s ease, right 0.3s ease;
         }
 
         .hamburger-menu div {
@@ -209,8 +209,6 @@
             .hamburger-menu {
                 display: flex; /* Show fixed hamburger */
             }
-            /* .mobile-nav is always flex now */
-
              .nav-container {
                  justify-content: center; /* Center nav content */
              }
@@ -224,8 +222,8 @@
             }
             .hamburger-menu {
                 /* Adjust position slightly for new 50px height */
-                top: 10px; /* Vertically centered (50px - 30px icon)/2 */
-                right: 12px; /* Slightly more inset */
+                top: 7px; /* Updated alignment */
+                right: 15px; /* Updated alignment */
             }
             /* --- End Navbar Fixes --- */
 
@@ -241,7 +239,7 @@
              .hamburger-menu {
                  display: none; /* Hide fixed hamburger */
              }
-             /* .mobile-nav is hidden via transform/opacity */
+             /* .mobile-nav hidden via opacity/transform */
              #nav-links {
                  display: flex; /* Ensure desktop links shown */
              }
@@ -317,41 +315,49 @@
             }
         }
 
-        // --- Touch Event Listeners for Mobile Glow ---
+        // --- Touch Event Listeners for Mobile Glow (with debugging) ---
         document.querySelectorAll('.mobile-nav a').forEach(link => {
-            let touchInitiated = false; // Flag to ensure glow happens on actual tap
+            let touchInitiated = false;
 
             link.addEventListener('touchstart', function(event) {
-                // Use 'this' which refers to the link element
+                console.log("touchstart detected on:", this.innerText); // DEBUG
                 this.classList.add('link-active-glow');
-                touchInitiated = true; // Mark that touch started on this element
-            }, { passive: true }); // Use passive: true if not preventing default
+                touchInitiated = true;
+            }); // Removed { passive: true } for testing
 
             link.addEventListener('touchend', function() {
-                // Remove glow class after touch ends
+                console.log("touchend detected on:", this.innerText); // DEBUG
                 if (touchInitiated) {
+                    // Remove immediately:
                     this.classList.remove('link-active-glow');
+                    console.log("Glow class removed immediately on touchend"); // DEBUG
                     touchInitiated = false;
                 }
             });
 
-            link.addEventListener('touchcancel', function() { // Handle if touch moves off element etc.
+            link.addEventListener('touchcancel', function() {
+                console.log("touchcancel detected on:", this.innerText); // DEBUG
                  if (touchInitiated) {
                     this.classList.remove('link-active-glow');
+                    console.log("Glow class removed on touchcancel"); // DEBUG
                     touchInitiated = false;
                  }
             });
 
             // --- Keep existing click listener for closing menu ---
             link.addEventListener('click', () => {
+                console.log("click detected on:", link.innerText); // DEBUG
                 const mobileNav = document.getElementById('mobile-nav');
                 if (mobileNav.classList.contains('active')) {
                     mobileNav.classList.remove('active');
                     document.body.classList.remove('no-scroll');
                 }
-                // Ensure glow is removed if click finishes faster than touchend
-                 link.classList.remove('link-active-glow');
-                 touchInitiated = false;
+                // Ensure glow is removed if click finishes faster than touchend/touchcancel
+                 if (link.classList.contains('link-active-glow')) {
+                    link.classList.remove('link-active-glow');
+                    console.log("Glow class removed by click listener"); // DEBUG
+                 }
+                 touchInitiated = false; // Reset flag on click too
             });
         });
     </script>
