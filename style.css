@@ -1,4 +1,4 @@
-/* General styles */
+/* General body and background setup */
 body {
   background-color: #1c1c1c;
   font-family: 'Nunito', sans-serif;
@@ -8,41 +8,45 @@ body {
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+/* Navbar setup */
 nav {
   background-color: white;
   padding: 15px 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
-  width: 100%; /* Ensure navbar spans full width */
-  position: sticky;
-  top: 0; /* Stick navbar to the top */
-  left: 0;
-  z-index: 1000; /* Make sure navbar stays at the top */
-}
-
-.nav-container {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
-  justify-content: center; /* Center navbar items */
+  justify-content: center; /* Center navbar links */
   align-items: center;
 }
 
+/* Navbar links container */
+.nav-container {
+  display: flex;
+  justify-content: center; /* Ensure links are centered */
+  width: 100%;
+}
+
+/* List styling for navbar links */
 #nav-links {
   list-style: none;
   display: flex;
-  gap: 40px; /* Adjust space between navbar items */
-  padding: 0;
+  gap: 40px;
   margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 #nav-links li {
-  display: inline-block; /* Keep navbar items side by side */
+  display: inline-block;
 }
 
 #nav-links li a {
   color: black;
   text-decoration: none;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1.5rem; /* Set font size */
+  font-size: 1.5rem; /* Font size */
   font-weight: 600;
   transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
@@ -57,19 +61,19 @@ nav {
   color: #007c91;
 }
 
-/* Centering name and description */
+/* Centering welcome text and description */
 .name-center {
   min-height: 90vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  flex-direction: column;
   background: #1c1c1c;
 }
 
 .name-center h1 {
-  font-size: 3rem; /* Set size of welcome text */
+  font-size: 3rem; /* Size of welcome text */
   margin-bottom: 15px;
 }
 
@@ -116,29 +120,21 @@ footer {
 /* Mobile adjustments */
 @media (max-width: 768px) {
   #nav-links {
-    flex-direction: row; /* Keep navbar items side by side */
+    flex-direction: row; /* Ensure links are side by side */
     gap: 20px;
     padding: 10px 0;
     display: flex;
-    position: relative;
-    top: 60px;
     width: 100%;
     background-color: white;
-    left: 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-    transition: top 0.3s ease;
   }
 
   #nav-links li a {
-    font-size: 1.3rem; /* Slightly smaller for mobile */
-  }
-
-  .menu-icon {
-    display: none; /* Hide hamburger menu */
+    font-size: 1.3rem; /* Adjust font size */
   }
 
   .name-center h1 {
-    font-size: 2rem; /* Adjusted Welcome text size for mobile */
+    font-size: 2rem;
   }
 
   .name-center h2 {
@@ -155,7 +151,7 @@ body.dimmed {
   transition: background-color 0.5s;
 }
 
-/* Extra small devices */
+/* Extra small devices like phones in portrait mode */
 @media (max-width: 480px) {
   #nav-links {
     gap: 15px;
