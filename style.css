@@ -1,52 +1,54 @@
-/* General body and background */
+/* General body and background setup */
 body {
   background-color: #1c1c1c;
   font-family: 'Nunito', sans-serif;
   margin: 0;
   padding: 0;
   color: #f0f0f0;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Navbar styles */
 nav {
   background-color: white;
-  padding: 15px 20px;
+  padding: 10px 20px;  /* Reduce padding for the navbar */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   width: 100%; /* Ensure navbar spans full width */
-  margin: 0;
   position: sticky;
-  top: 0;
-  z-index: 1000; /* Ensure navbar stays at the top */
+  top: 0; /* Fix navbar to the top */
+  left: 0;
+  z-index: 1000;
   display: flex;
-  justify-content: center; /* Center navbar links horizontally */
+  justify-content: center; /* Center navbar items */
   align-items: center;
 }
 
+/* Navbar links container */
 .nav-container {
   display: flex;
   justify-content: center; /* Center navbar links */
   width: 100%;
 }
 
+/* Navbar links */
 #nav-links {
   list-style: none;
   display: flex;
-  gap: 30px; /* Adjust space between navbar items */
+  gap: 40px; /* Space between navbar items */
   margin: 0;
   padding: 0;
   font-family: 'Courier New', Courier, monospace;
 }
 
 #nav-links li {
-  display: inline-block; /* Ensure the navbar links remain side by side */
+  display: inline-block; /* Ensure the navbar links stay side by side */
 }
 
 #nav-links li a {
   color: black;
   text-decoration: none;
-  font-size: 1.2rem; /* Font size for navbar links */
-  font-weight: 600;
+  font-size: 1.3rem; /* Adjusted font size for better readability */
+  font-weight: 600; /* Make links bold */
   transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
 
@@ -69,15 +71,16 @@ nav {
   text-align: center;
   flex-direction: column;
   background: #1c1c1c;
+  padding: 20px;
 }
 
 .name-center h1 {
-  font-size: 3rem; /* Adjusted Welcome text size */
-  margin-bottom: 15px;
+  font-size: 2.5rem; /* Adjusted size of Welcome text */
+  margin-bottom: 10px;
 }
 
 .name-center h2 {
-  font-size: 1.5rem;
+  font-size: 1.4rem; /* Adjusted subheading size */
   color: #00bcd4;
   margin-bottom: 20px;
 }
@@ -119,18 +122,17 @@ footer {
 /* Mobile adjustments */
 @media (max-width: 768px) {
   #nav-links {
-    flex-direction: row; /* Ensure navbar items are side by side */
+    flex-direction: row; /* Ensure navbar items stay side-by-side */
     gap: 20px;
     padding: 10px 0;
     display: flex;
     width: 100%;
     background-color: white;
-    left: 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   }
 
   #nav-links li a {
-    font-size: 1.3rem; /* Adjust font size for mobile */
+    font-size: 1.3rem; /* Adjusted font size for mobile */
   }
 
   .menu-icon {
@@ -148,11 +150,6 @@ footer {
   .name-center p {
     font-size: 1rem;
   }
-}
-
-body.dimmed {
-  background-color: rgba(0, 0, 0, 0.7);
-  transition: background-color 0.5s;
 }
 
 /* Extra small devices like phones in portrait mode */
