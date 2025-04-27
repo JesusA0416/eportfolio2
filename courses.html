@@ -33,7 +33,7 @@
             color: #f0f0f0;
             overflow-x: hidden;
             padding-top: 60px; /* Default padding for Desktop navbar */
-            transition: background-color 0.3s ease, padding-top 0.3s ease; /* Added padding transition */
+            transition: background-color 0.3s ease, padding-top 0.3s ease;
         }
 
         /* Rule to prevent body scroll when mobile menu is active */
@@ -222,8 +222,8 @@
             }
             .hamburger-menu {
                 /* Adjust position slightly for new 50px height */
-                top: 7px; /* Updated alignment */
-                right: 15px; /* Updated alignment */
+                top: 9px; /* Updated Alignment */
+                right: 15px; /* Updated Alignment */
             }
             /* --- End Navbar Fixes --- */
 
@@ -239,7 +239,7 @@
              .hamburger-menu {
                  display: none; /* Hide fixed hamburger */
              }
-             /* .mobile-nav hidden via opacity/transform */
+             /* .mobile-nav hidden via transform/opacity */
              #nav-links {
                  display: flex; /* Ensure desktop links shown */
              }
@@ -315,48 +315,56 @@
             }
         }
 
-        // --- Touch Event Listeners for Mobile Glow (with debugging) ---
+        // --- Touch Event Listeners for Mobile Glow (with LINGER via setTimeout) ---
         document.querySelectorAll('.mobile-nav a').forEach(link => {
-            let touchInitiated = false;
+            let touchInitiated = false; // Flag for touch start
 
             link.addEventListener('touchstart', function(event) {
-                console.log("touchstart detected on:", this.innerText); // DEBUG
+                console.log("touchstart:", this.innerText); // DEBUG
                 this.classList.add('link-active-glow');
                 touchInitiated = true;
-            }); // Removed { passive: true } for testing
+            }); // Removed { passive: true }
 
             link.addEventListener('touchend', function() {
-                console.log("touchend detected on:", this.innerText); // DEBUG
+                console.log("touchend:", this.innerText); // DEBUG
                 if (touchInitiated) {
-                    // Remove immediately:
-                    this.classList.remove('link-active-glow');
-                    console.log("Glow class removed immediately on touchend"); // DEBUG
-                    touchInitiated = false;
+                    // Use setTimeout to REMOVE the glow class after a short delay
+                    setTimeout(() => {
+                        this.classList.remove('link-active-glow');
+                        console.log("Glow class removed after timeout (touchend)"); // DEBUG
+                    }, 150); // Delay in milliseconds (e.g., 150ms = 0.15s)
                 }
+                touchInitiated = false; // Reset flag immediately
             });
 
             link.addEventListener('touchcancel', function() {
-                console.log("touchcancel detected on:", this.innerText); // DEBUG
+                console.log("touchcancel:", this.innerText); // DEBUG
                  if (touchInitiated) {
-                    this.classList.remove('link-active-glow');
+                    this.classList.remove('link-active-glow'); // Remove immediately on cancel
                     console.log("Glow class removed on touchcancel"); // DEBUG
-                    touchInitiated = false;
                  }
+                 touchInitiated = false; // Reset flag
             });
 
-            // --- Keep existing click listener for closing menu ---
+            // --- Click listener for closing menu (also removes glow after delay) ---
             link.addEventListener('click', () => {
-                console.log("click detected on:", link.innerText); // DEBUG
+                console.log("click:", link.innerText); // DEBUG
                 const mobileNav = document.getElementById('mobile-nav');
+
+                // Close menu logic (runs immediately)
                 if (mobileNav.classList.contains('active')) {
                     mobileNav.classList.remove('active');
                     document.body.classList.remove('no-scroll');
                 }
-                // Ensure glow is removed if click finishes faster than touchend/touchcancel
-                 if (link.classList.contains('link-active-glow')) {
-                    link.classList.remove('link-active-glow');
-                    console.log("Glow class removed by click listener"); // DEBUG
-                 }
+
+                // Also remove glow after a delay, in case click is faster than touch events
+                setTimeout(() => {
+                    if (link.classList.contains('link-active-glow')) {
+                       link.classList.remove('link-active-glow');
+                       console.log("Glow class removed after timeout (click)"); // DEBUG
+                    }
+                }, 150); // Same delay as touchend
+
                  touchInitiated = false; // Reset flag on click too
             });
         });
