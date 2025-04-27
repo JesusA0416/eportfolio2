@@ -1,12 +1,11 @@
 /* Body and background */
 body {
   background-color: #1c1c1c;
-  font-family: 'Nunito', sans-serif; /* Body font */
+  font-family: 'Nunito', sans-serif;
   margin: 0;
   padding: 0;
   color: #f0f0f0;
-  transition: background-color 0.3s ease;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Navbar styles */
@@ -14,20 +13,20 @@ nav {
   background-color: white;
   padding: 15px 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.6);
-  width: 100%; /* Ensure navbar takes full width */
+  width: 100%; /* Ensure navbar spans full width */
 }
 
 .nav-container {
   display: flex;
-  justify-content: center; /* Center navbar links */
-  align-items: center; /* Center links vertically */
+  justify-content: center; /* Center navbar links horizontally */
+  align-items: center; /* Center navbar links vertically */
   width: 100%;
 }
 
 #nav-links {
   list-style: none;
   display: flex;
-  gap: 25px; /* Increased space between navbar items */
+  gap: 30px; /* Space between navbar items */
   margin: 0;
   padding: 0;
 }
@@ -36,7 +35,7 @@ nav {
   color: black; /* Navbar link color set to black */
   text-decoration: none;
   font-family: 'Courier New', Courier, monospace; /* Coding font for navbar links */
-  font-size: 1.2rem; /* Increased font size for better visibility */
+  font-size: 1.2rem; /* Font size for navbar links */
   font-weight: bold; /* Make the font bold for better visibility */
   transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
@@ -44,7 +43,7 @@ nav {
 #nav-links li a:hover {
   color: #00bcd4;
   text-shadow: 0 0 8px #00bcd4;
-  transform: scale(1.1); /* Hover effect with scale */
+  transform: scale(1.1); /* Hover effect */
 }
 
 #nav-links li a:active {
@@ -104,14 +103,14 @@ footer {
   width: 100%; /* Ensure footer spans full width */
   position: relative;
   bottom: 0;
-  margin: 0; /* Remove any margin */
+  margin: 0; /* Remove margin to prevent space issues */
 }
 
 /* Mobile */
 @media (max-width: 768px) {
   .nav-container {
-    flex-direction: row; /* Ensure navbar stays side-by-side on mobile */
-    justify-content: center; /* Center navbar items horizontally */
+    flex-direction: row;
+    justify-content: center; /* Ensure navbar items are centered on mobile */
   }
 
   #nav-links {
