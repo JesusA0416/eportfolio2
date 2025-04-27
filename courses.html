@@ -124,16 +124,16 @@
     /* Courses Content */
     .courses-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 20px;
       padding: 20px;
       margin-top: 100px;
-      color: #fff;
     }
 
     .course-card {
+      position: relative;
       background-color: #333;
-      padding: 20px;
+      overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -147,20 +147,40 @@
     .course-card img {
       width: 100%;
       height: auto;
-      border-radius: 10px;
-      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .course-card .text-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .course-card:hover .text-overlay {
+      background: rgba(0, 0, 0, 0.7);
     }
 
     .course-card h3 {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       margin-bottom: 10px;
       color: #00bcd4;
     }
 
     .course-card p {
       font-size: 1rem;
-      margin-bottom: 20px;
       color: #f0f0f0;
+      margin-bottom: 20px;
     }
 
     .button {
@@ -207,7 +227,7 @@
 
     @media (max-width: 480px) {
       .course-card h3 {
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
 
       .course-card p {
@@ -250,25 +270,34 @@
     <!-- Course Card 1 -->
     <div class="course-card">
       <img src="course1.jpg" alt="Course Image 1">
-      <h3>American Institutions (AI)</h3>
-      <p>Explore the foundations of the U.S. government and history, focusing on the formation of the Constitution and key historical events.</p>
-      <a href="course-details.html" class="button">Learn More</a>
+      <div class="text-overlay">
+        <div>
+          <h3>American Institutions (AI)</h3>
+          <p>Explore the foundations of the U.S. government and history.</p>
+        </div>
+      </div>
     </div>
 
     <!-- Course Card 2 -->
     <div class="course-card">
       <img src="course2.jpg" alt="Course Image 2">
-      <h3>Humanities (HU)</h3>
-      <p>Study the rich cultural history of the human experience through the lens of philosophy, literature, and art.</p>
-      <a href="course-details.html" class="button">Learn More</a>
+      <div class="text-overlay">
+        <div>
+          <h3>Humanities (HU)</h3>
+          <p>Study philosophy, literature, and art in human history.</p>
+        </div>
+      </div>
     </div>
 
     <!-- Course Card 3 -->
     <div class="course-card">
       <img src="course3.jpg" alt="Course Image 3">
-      <h3>Social Science (SS)</h3>
-      <p>Understand societal structures and behaviors through the study of sociology, psychology, and economics.</p>
-      <a href="course-details.html" class="button">Learn More</a>
+      <div class="text-overlay">
+        <div>
+          <h3>Social Science (SS)</h3>
+          <p>Understand societal structures through sociology and economics.</p>
+        </div>
+      </div>
     </div>
 
     <!-- More courses can be added here -->
