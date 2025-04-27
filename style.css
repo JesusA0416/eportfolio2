@@ -1,60 +1,66 @@
-/* Body and background */
+/* General Body and Background */
 body {
   background-color: #1c1c1c;
   font-family: 'Nunito', sans-serif;
   margin: 0;
   padding: 0;
   color: #f0f0f0;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Navbar styles */
 nav {
   background-color: white;
   padding: 15px 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
-  width: 100%; /* Ensure navbar spans full width */
-  margin: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  width: 100%; /* Full width navbar */
   position: sticky;
-  top: 0;
+  top: 0; /* Stick navbar to the top */
+  left: 0;
   z-index: 1000; /* Ensure navbar stays at the top */
+  display: flex;
+  justify-content: center; /* Center navbar items */
 }
 
 .nav-container {
-  display: flex;
-  justify-content: center; /* Center navbar links horizontally */
-  align-items: center; /* Center navbar links vertically */
   width: 100%;
+  display: flex;
+  justify-content: center; /* Center navbar links */
+  align-items: center;
 }
 
 #nav-links {
   list-style: none;
   display: flex;
-  gap: 40px; /* Adjust space between navbar items */
-  margin: 0;
+  gap: 30px; /* Space between links */
   padding: 0;
-  font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+}
+
+#nav-links li {
+  display: inline-block; /* Make sure the links appear side by side */
 }
 
 #nav-links li a {
-  color: black; /* Navbar link color set to black */
+  color: black;
   text-decoration: none;
-  font-size: 1.5rem; /* Adjusted font size */
-  font-weight: 600; /* Bold text for better visibility */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.2rem; /* Adjusted for visibility */
+  font-weight: 600;
   transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
 
 #nav-links li a:hover {
   color: #00bcd4;
   text-shadow: 0 0 8px #00bcd4;
-  transform: scale(1.1); /* Hover effect */
+  transform: scale(1.1);
 }
 
 #nav-links li a:active {
   color: #007c91;
 }
 
-/* Centering name and description */
+/* Centering Name and Description */
 .name-center {
   min-height: 90vh;
   display: flex;
@@ -66,7 +72,7 @@ nav {
 }
 
 .name-center h1 {
-  font-size: 2.5rem; /* Adjusted Welcome text size */
+  font-size: 3rem; /* Adjusted welcome text size */
   margin-bottom: 15px;
 }
 
@@ -77,24 +83,9 @@ nav {
 }
 
 .name-center p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #f0f0f0;
   margin-bottom: 30px;
-}
-
-.button {
-  background-color: #00bcd4;
-  color: #1f1f1f;
-  padding: 10px 25px;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.button:hover {
-  background-color: #0097a7;
-  box-shadow: 0 0 10px #00bcd4;
 }
 
 /* Footer styles */
@@ -112,31 +103,19 @@ footer {
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-  .nav-container {
-    flex-direction: row;
-    justify-content: center; /* Ensure navbar items are centered horizontally */
-  }
-
   #nav-links {
     flex-direction: row; /* Keep navbar links side-by-side */
-    gap: 25px; /* Adjust space between navbar items */
+    gap: 20px;
     padding: 10px 0;
     display: flex;
-    position: relative;
-    top: 60px;
     width: 100%;
     background-color: white;
     left: 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-    transition: top 0.3s ease;
   }
 
   #nav-links li a {
-    font-size: 1.3rem; /* Increased size for better readability on mobile */
-  }
-
-  .menu-icon {
-    display: none; /* Hide hamburger menu */
+    font-size: 1.3rem; /* Increased size for readability */
   }
 
   .name-center h1 {
@@ -160,15 +139,15 @@ body.dimmed {
 /* Extra small devices like phones in portrait mode */
 @media (max-width: 480px) {
   #nav-links {
-    gap: 15px; /* Reduce the gap between navbar links */
-    font-size: 1.2rem; /* Slightly reduce the font size */
+    gap: 15px;
+    font-size: 1.2rem;
   }
-  
+
   .name-center h1 {
-    font-size: 1.8rem; /* Further reduce the size of Welcome text on smaller screens */
+    font-size: 1.8rem;
   }
 
   .name-center p {
-    font-size: 0.9rem; /* Adjust text size for readability */
+    font-size: 0.9rem;
   }
 }
