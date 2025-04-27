@@ -1,23 +1,25 @@
+/* Body and background */
 body {
   background-color: #1c1c1c;
-  font-family: 'Nunito', sans-serif; /* Nunito font for body text */
+  font-family: 'Nunito', sans-serif; /* Body font */
   margin: 0;
   padding: 0;
   color: #f0f0f0;
   transition: background-color 0.3s ease;
 }
 
+/* Navbar styles */
 nav {
   background-color: white;
   padding: 15px 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.6);
-  width: 100%; /* Ensure the navbar is full-width */
+  width: 100%;
 }
 
 .nav-container {
   display: flex;
   justify-content: flex-start;
-  width: 100%; /* Ensure the navbar container takes full width */
+  width: 100%;
 }
 
 #nav-links {
@@ -29,7 +31,7 @@ nav {
 }
 
 #nav-links li a {
-  color: black; /* Black color for navbar links */
+  color: black; /* Navbar link color set to black */
   text-decoration: none;
   font-family: 'Courier New', Courier, monospace; /* Coding font for navbar links */
   font-size: 1.1rem;
@@ -37,15 +39,16 @@ nav {
 }
 
 #nav-links li a:hover {
-  color: #00bcd4;
+  color: #00bcd4; /* Glow color for hover */
   text-shadow: 0 0 8px #00bcd4;
-  transform: scale(1.1); /* Hover effect - makes it slightly bigger */
+  transform: scale(1.1); /* Hover effect with scale */
 }
 
 #nav-links li a:active {
-  color: #007c91; /* Active link color */
+  color: #007c91;
 }
 
+/* Centering name and description */
 .name-center {
   min-height: 90vh;
   display: flex;
@@ -57,7 +60,7 @@ nav {
 }
 
 .name-center h1 {
-  font-size: 2.5rem;
+  font-size: 2rem; /* Smaller font size for Welcome text */
   margin-bottom: 15px;
 }
 
@@ -75,18 +78,7 @@ footer {
   color: #aaa;
 }
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* mobile */
+/* Mobile */
 @media (max-width: 768px) {
   .nav-container {
     flex-direction: column;
@@ -94,11 +86,11 @@ footer {
   }
 
   #nav-links {
-    flex-direction: column; /* Stack navbar links vertically on small screens */
+    flex-direction: column;
     gap: 10px;
     padding: 10px 0;
-    display: none;
-    position: absolute;
+    display: block; /* Always visible */
+    position: relative;
     top: 60px;
     width: 100%;
     background-color: white;
@@ -107,26 +99,12 @@ footer {
     transition: top 0.3s ease;
   }
 
-  #nav-links.active {
-    display: flex;
-  }
-
   #nav-links li a {
-    font-size: 1.3rem; /* Slightly larger font size for better readability on mobile */
+    font-size: 1.3rem;
   }
 
   .menu-icon {
-    font-size: 2rem;
-    color: black;
-    cursor: pointer;
-    display: block;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-  }
-
-  .menu-icon.active {
-    background-color: #2a2a2a;
+    display: none; /* Hide hamburger menu */
   }
 }
 
