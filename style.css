@@ -1,6 +1,6 @@
 body {
   background-color: #1c1c1c;
-  font-family: 'Nunito', sans-serif; /* For body text */
+  font-family: 'Nunito', sans-serif; /* Nunito font for body text */
   margin: 0;
   padding: 0;
   color: #f0f0f0;
@@ -11,11 +11,13 @@ nav {
   background-color: white;
   padding: 15px 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  width: 100%; /* Ensure the navbar is full-width */
 }
 
 .nav-container {
   display: flex;
   justify-content: flex-start;
+  width: 100%; /* Ensure the navbar container takes full width */
 }
 
 #nav-links {
@@ -86,21 +88,45 @@ footer {
 
 /* mobile */
 @media (max-width: 768px) {
-  #nav-links {
-    position: absolute;
-    top: 65px;
-    right: -300px; /* Hidden off-screen */
-    background-color: #2a2a2a;
+  .nav-container {
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
+  }
+
+  #nav-links {
+    flex-direction: column; /* Stack navbar links vertically on small screens */
+    gap: 10px;
+    padding: 10px 0;
     display: none;
-    padding: 20px 0;
-    transition: right 0.3s ease; /* Smooth slide-in effect */
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    background-color: white;
+    left: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    transition: top 0.3s ease;
   }
 
   #nav-links.active {
-    right: 0; /* Slide in from the right */
     display: flex;
+  }
+
+  #nav-links li a {
+    font-size: 1.3rem; /* Slightly larger font size for better readability on mobile */
+  }
+
+  .menu-icon {
+    font-size: 2rem;
+    color: black;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .menu-icon.active {
+    background-color: #2a2a2a;
   }
 }
 
