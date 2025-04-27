@@ -61,21 +61,18 @@
 
          .nav-container {
              display: flex;
-             /* Justify depends on screen size (see media queries) */
              align-items: center;
              width: 100%;
              max-width: 1200px;
-             /* Default justify for desktop (links centered) */
-             justify-content: center;
+             justify-content: center; /* Centered links on desktop */
          }
 
         #nav-links {
             list-style: none;
-            /* Display handled by media queries */
             gap: 20px;
             margin: 0;
             padding: 0;
-            display: flex; /* Default display */
+            display: flex; /* Default display (overridden in mobile query) */
             justify-content: center;
         }
 
@@ -98,16 +95,16 @@
             transform: scale(1.1);
         }
 
-        /* Hamburger Menu - Now position:fixed */
+        /* Hamburger Menu - Fixed Position */
         .hamburger-menu {
             display: none; /* Hidden by default on desktop */
             flex-direction: column;
             cursor: pointer;
             padding: 10px;
-            z-index: 1100; /* Higher than mobile nav (1001) and main nav (1000) */
-            position: fixed; /* Fixed relative to viewport */
-            top: 10px;      /* Adjust position from top */
-            right: 15px;     /* Adjust position from right */
+            z-index: 1100; /* Above everything else */
+            position: fixed;
+            top: 10px;
+            right: 15px;
             transition: transform 0.3s ease;
         }
 
@@ -115,32 +112,34 @@
             width: 25px;
             height: 3px;
              margin: 4px 0;
-            /* === Fix: Changed back to black for visibility against white navbar === */
-            background-color: #000;
-            /* === End Fix === */
-            border-radius: 1px; /* Slightly rounded ends */
+            background-color: #000; /* Black bars */
+            border-radius: 1px;
             transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
-        /* Mobile Menu - Styles from reference */
+        /* Mobile Menu - Changed back to position:fixed and transform animation */
         .mobile-nav {
-            display: none; /* Hidden by default, enabled in mobile media query */
-            position: absolute;
-            top: -100%;
-            left: 0;
-            right: 0;
+            display: flex; /* Use flex for layout by default */
+            position: fixed; /* Changed back to fixed */
+            top: 0;          /* Anchor to top of viewport */
+            left: 0;         /* Anchor to left of viewport */
+            right: 0;        /* Anchor to right (makes width 100%) */
             background-color: rgba(255, 255, 255, 0.9); /* Reference background */
-            width: 100%;
-            height: 100vh;
+            width: 100%;    /* Explicit width */
+            height: 100vh;   /* Full viewport height */
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 30px;
             padding: 10px 0;
-            opacity: 0;
-            visibility: hidden;
             z-index: 1001; /* Below hamburger */
-            transition: top 0.8s ease-in-out, opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+            /* Hide using transform and opacity */
+            opacity: 0;
+            transform: translateY(-100%);
+            visibility: hidden; /* Use visibility for accessibility */
+            /* Transition transform and opacity */
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out, visibility 0s linear 0.5s;
+            /* Delay hiding visibility until transition ends */
         }
 
         .mobile-nav a {
@@ -148,8 +147,8 @@
             font-size: 1.5rem;
             font-weight: 600;
             text-decoration: none;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out, color 0.3s, text-shadow 0.3s, transform 0.3s;
+            /* Parent container handles opacity fade */
+            transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
         }
 
         /* Glow on hover (desktop) */
@@ -167,16 +166,13 @@
 
         /* Show mobile nav when active */
         .mobile-nav.active {
-            top: 0;
             opacity: 1;
-            visibility: visible;
+            transform: translateY(0); /* Slide into view */
+            visibility: visible; /* Make it visible */
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out, visibility 0s linear 0s;
+            /* Make visible immediately when activating */
         }
-
-        /* Fade in links when nav is active */
-        .mobile-nav.active a {
-            opacity: 1;
-            transition-delay: 0.3s;
-        }
+        /* Rule for .mobile-nav.active a {} removed */
 
 
         /* Introduction Text */
@@ -188,7 +184,7 @@
             color: #fff;
             border-radius: 10px;
             line-height: 1.6;
-            opacity: 0; /* Start hidden for animation */
+            opacity: 0;
             animation: fadeInUp 0.6s 0.1s ease-out forwards;
         }
         .intro h2 { font-size: 2rem; margin-bottom: 20px; }
@@ -208,7 +204,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-            opacity: 0; /* Start hidden for animation */
+            opacity: 0;
             animation: fadeInUp 0.6s ease-out forwards;
         }
         .courses-container .course-card:nth-child(1) { animation-delay: 0.2s; }
@@ -246,9 +242,8 @@
             .hamburger-menu {
                 display: flex; /* Show fixed hamburger */
             }
-            .mobile-nav {
-                 display: flex; /* Enable mobile nav layout */
-            }
+            /* Removed .mobile-nav { display: flex; } - It's always flex now */
+
              .nav-container {
                  /* Hamburger is fixed, so nav content can center */
                  justify-content: center;
@@ -265,9 +260,8 @@
              .hamburger-menu {
                  display: none; /* Hide fixed hamburger */
              }
-             .mobile-nav {
-                 display: none; /* Ensure mobile nav hidden */
-             }
+             /* No need to hide .mobile-nav display:none here, it's hidden via opacity/transform */
+
              #nav-links {
                  display: flex; /* Ensure desktop links shown */
              }
