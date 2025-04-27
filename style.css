@@ -11,42 +11,44 @@ body {
 /* Navbar styles */
 nav {
   background-color: white;
-  padding: 10px 20px;
+  padding: 5px 20px;  /* Reduced padding for smaller navbar */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   width: 100%; /* Ensure navbar spans full width */
-  position: sticky;
+  position: fixed; /* FIXED navbar at the top */
   top: 0;
   z-index: 1000;
   display: flex;
-  justify-content: space-between; /* Make navbar space out correctly */
+  justify-content: space-between; /* Ensure navbar is spaced out */
   align-items: center;
+  left: 0; /* Ensure the navbar stays within the screen width */
 }
 
 /* Navbar links container */
 .nav-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center navbar links */
   align-items: center;
   width: 100%;
 }
 
+/* Navbar links */
 #nav-links {
   list-style: none;
   display: flex;
-  gap: 40px; /* Space between navbar items */
+  gap: 25px;  /* Reduced gap between navbar items */
   margin: 0;
   padding: 0;
   font-family: 'Courier New', Courier, monospace;
 }
 
 #nav-links li {
-  display: inline-block;
+  display: inline-block; /* Ensure the navbar links stay side by side */
 }
 
 #nav-links li a {
   color: black;
   text-decoration: none;
-  font-size: 1.4rem; /* Adjusted font size for better readability */
+  font-size: 1.2rem; /* Reduced font size for better fitting */
   font-weight: 600;
   transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
@@ -70,15 +72,17 @@ nav {
   text-align: center;
   flex-direction: column;
   background: #1c1c1c;
+  padding: 20px;
+  margin-top: 60px; /* Offset navbar height */
 }
 
 .name-center h1 {
-  font-size: 3rem; /* Adjusted Welcome text size */
-  margin-bottom: 15px;
+  font-size: 2.5rem; /* Adjusted size of Welcome text */
+  margin-bottom: 10px;
 }
 
 .name-center h2 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #00bcd4;
   margin-bottom: 20px;
 }
@@ -111,7 +115,7 @@ footer {
   text-align: center;
   font-size: 0.9rem;
   color: #aaa;
-  width: 100%;
+  width: 100%; /* Ensure footer spans full width */
   position: relative;
   bottom: 0;
   margin: 0;
@@ -121,7 +125,7 @@ footer {
 @media (max-width: 768px) {
   #nav-links {
     flex-direction: row; /* Ensure navbar items stay side-by-side */
-    gap: 20px;
+    gap: 15px;  /* Adjust gap between links */
     padding: 10px 0;
     display: flex;
     width: 100%;
@@ -130,11 +134,11 @@ footer {
   }
 
   #nav-links li a {
-    font-size: 1.3rem; /* Adjust font size for mobile */
+    font-size: 1.2rem; /* Adjust font size for mobile */
   }
 
   .menu-icon {
-    display: none;
+    display: none; /* Hide hamburger menu */
   }
 
   .name-center h1 {
@@ -150,16 +154,11 @@ footer {
   }
 }
 
-body.dimmed {
-  background-color: rgba(0, 0, 0, 0.7);
-  transition: background-color 0.5s;
-}
-
 /* Extra small devices like phones in portrait mode */
 @media (max-width: 480px) {
   #nav-links {
-    gap: 15px;
-    font-size: 1.2rem;
+    gap: 10px;  /* Adjust gap on smaller screens */
+    font-size: 1rem; /* Further reduce font size on very small screens */
   }
 
   .name-center h1 {
