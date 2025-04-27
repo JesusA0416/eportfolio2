@@ -15,9 +15,9 @@ nav {
   box-shadow: 0 2px 8px rgba(0,0,0,0.6);
   width: 100%; /* Ensure navbar spans full width */
   margin: 0;
-  position: sticky; /* Make navbar sticky to the top */
+  position: sticky;
   top: 0;
-  z-index: 1000; /* Ensure navbar stays on top */
+  z-index: 1000; /* Ensure navbar stays at the top */
 }
 
 .nav-container {
@@ -30,7 +30,7 @@ nav {
 #nav-links {
   list-style: none;
   display: flex;
-  gap: 25px; /* Adjust space between navbar items */
+  gap: 30px; /* Adjusted space between navbar items */
   margin: 0;
   padding: 0;
 }
@@ -38,9 +38,9 @@ nav {
 #nav-links li a {
   color: black; /* Navbar link color set to black */
   text-decoration: none;
-  font-family: 'Courier New', Courier, monospace; /* Coding font for navbar links */
-  font-size: 1.3rem; /* Increased font size for better visibility */
-  font-weight: 600; /* Make the font bold for better visibility */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.2rem;
+  font-weight: 600; /* Bold text for better visibility */
   transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
 
@@ -66,7 +66,7 @@ nav {
 }
 
 .name-center h1 {
-  font-size: 3rem; /* Adjusted Welcome text size */
+  font-size: 2.5rem; /* Adjusted Welcome text size */
   margin-bottom: 15px;
 }
 
@@ -113,7 +113,7 @@ footer {
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .nav-container {
-    flex-direction: row;
+    flex-direction: row; /* Ensure navbar stays side-by-side on mobile */
     justify-content: center; /* Center navbar items horizontally */
   }
 
