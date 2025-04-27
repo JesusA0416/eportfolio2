@@ -18,14 +18,14 @@ nav {
 
 .nav-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-start; /* Keep navbar items side by side */
   width: 100%;
 }
 
 #nav-links {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 30px; /* Increased space between navbar items */
   margin: 0;
   padding: 0;
 }
@@ -34,8 +34,8 @@ nav {
   color: black; /* Navbar link color set to black */
   text-decoration: none;
   font-family: 'Courier New', Courier, monospace; /* Coding font for navbar links */
-  font-size: 1.2rem; /* Increased font size for better visibility */
-  font-weight: bold; /* Making the font bold for better visibility */
+  font-size: 1.3rem; /* Increased font size for better visibility */
+  font-weight: 700; /* Make the font bold for better visibility */
   transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
 
@@ -61,7 +61,7 @@ nav {
 }
 
 .name-center h1 {
-  font-size: 2.5rem; /* Adjusted Welcome text size */
+  font-size: 3rem; /* Adjusted Welcome text size */
   margin-bottom: 15px;
 }
 
@@ -100,32 +100,21 @@ footer {
   color: #aaa;
 }
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Mobile */
 @media (max-width: 768px) {
   .nav-container {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row; /* Ensure navbar stays side-by-side on mobile */
+    justify-content: flex-start;
   }
 
   #nav-links {
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row; /* Keep navbar links side-by-side */
+    gap: 20px;
     padding: 10px 0;
-    display: block;
+    display: flex;
     position: relative;
     top: 60px;
-    width: 100%;
+    width: auto;
     background-color: white;
     left: 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
@@ -133,7 +122,7 @@ footer {
   }
 
   #nav-links li a {
-    font-size: 1.3rem; /* Increased size for better readability on mobile */
+    font-size: 1.5rem; /* Increased size for better readability on mobile */
   }
 
   .menu-icon {
