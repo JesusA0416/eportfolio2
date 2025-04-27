@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>About Me - Jesús Lopez Aguilar</title>
+  <style>
+    /* Same CSS as previous page */
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-container">
+      <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="projects.html">Personal Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="courses.html">Courses</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="projects.html">Personal Projects</a>
+  </div>
+
+  <!-- Main Content for About Me -->
+  <div class="before-we-begin">
+    <h1>About Me</h1>
+    <p>Hello! I am Jesús Lopez Aguilar, a student at SLCC with a passion for Criminal Justice and Nursing. My academic journey has been fueled by my interests in forensic science, healthcare, and technology. My goal is to become a Nurse Practitioner specializing in medical forensics, where I can contribute to both law enforcement and healthcare.</p>
+    <p>In my free time, I enjoy coding, working on personal projects, and learning more about technology and science. This ePortfolio is a reflection of my work and the experiences I've had so far. I'm excited to share my journey with you!</p>
+    <a href="courses.html" class="button">Explore My Courses</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Jesús Lopez Aguilar | All rights reserved</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const mobileNav = document.getElementById('mobile-nav');
+      mobileNav.classList.toggle('active');
+    }
+  </script>
+</body>
+
+</html>
