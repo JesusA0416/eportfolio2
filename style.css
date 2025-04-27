@@ -6,6 +6,7 @@ body {
   padding: 0;
   color: #f0f0f0;
   transition: background-color 0.3s ease;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Navbar styles */
@@ -14,13 +15,13 @@ nav {
   padding: 15px 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.6);
   width: 100%; /* Ensure navbar takes full width */
-  margin: 0; /* Remove any default margin */
+  margin: 0; /* Remove any margin */
 }
 
 .nav-container {
   display: flex;
-  justify-content: flex-start; /* Keep navbar links side-by-side */
-  width: 100%; /* Ensure navbar takes full width */
+  justify-content: flex-start;
+  width: 100%;
 }
 
 #nav-links {
@@ -35,7 +36,7 @@ nav {
   color: black; /* Navbar link color set to black */
   text-decoration: none;
   font-family: 'Courier New', Courier, monospace; /* Coding font for navbar links */
-  font-size: 1.2rem; /* Increased font size for better visibility */
+  font-size: 1.1rem; /* Adjust font size for readability */
   font-weight: bold; /* Make the font bold for better visibility */
   transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
@@ -63,7 +64,7 @@ nav {
 }
 
 .name-center h1 {
-  font-size: 3rem; /* Adjusted Welcome text size */
+  font-size: 2.5rem; /* Adjusted Welcome text size for desktop */
   margin-bottom: 15px;
 }
 
@@ -110,18 +111,18 @@ footer {
 /* Mobile */
 @media (max-width: 768px) {
   .nav-container {
-    flex-direction: row;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
   }
 
   #nav-links {
-    flex-direction: row; /* Keep navbar links side-by-side */
-    gap: 20px;
+    flex-direction: column; /* Stack navbar links vertically on mobile */
+    gap: 10px;
     padding: 10px 0;
-    display: flex;
+    display: block;
     position: relative;
     top: 60px;
-    width: auto;
+    width: 100%;
     background-color: white;
     left: 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
@@ -129,11 +130,23 @@ footer {
   }
 
   #nav-links li a {
-    font-size: 1.5rem; /* Increased size for better readability on mobile */
+    font-size: 1.3rem; /* Increased size for better readability on mobile */
   }
 
   .menu-icon {
     display: none; /* Hide hamburger menu */
+  }
+
+  .name-center h1 {
+    font-size: 2rem; /* Adjusted Welcome text size for mobile */
+  }
+
+  .name-center h2 {
+    font-size: 1.3rem;
+  }
+
+  .name-center p {
+    font-size: 1rem;
   }
 }
 
