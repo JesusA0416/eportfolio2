@@ -5,9 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Before We Begin - Jesús Lopez Aguilar</title>
+  <title>Jesús Lopez Aguilar - ePortfolio</title>
   <style>
-    /* Reset and general styles */
     * {
       margin: 0;
       padding: 0;
@@ -19,9 +18,10 @@
       font-family: 'Nunito', sans-serif;
       color: #f0f0f0;
       overflow-x: hidden;
+      transition: background-color 0.3s ease;
     }
 
-    /* Navbar styles */
+    /* Navbar */
     nav {
       background-color: white;
       padding: 10px 0;
@@ -35,6 +35,7 @@
       justify-content: center;
       align-items: center;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+      transition: padding 0.3s ease;
     }
 
     #nav-links {
@@ -65,11 +66,12 @@
       transform: scale(1.1);
     }
 
-    /* Hamburger menu styles */
+    /* Hamburger Menu */
     .hamburger-menu {
       display: none;
       flex-direction: column;
       cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
     .hamburger-menu div {
@@ -77,15 +79,16 @@
       height: 3px;
       margin: 5px;
       background-color: #000;
+      transition: transform 0.3s ease;
     }
 
-    /* Mobile menu (hidden by default) */
+    /* Mobile menu - hidden by default */
     .mobile-nav {
       display: none;
       position: absolute;
       top: -100%;
       right: 0;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.9); /* Transparent white background */
       width: 100%;
       height: 100vh;
       flex-direction: column;
@@ -113,7 +116,7 @@
       transform: scale(1.1);
     }
 
-    /* Show mobile menu when active */
+    /* Show mobile nav when active */
     .mobile-nav.active {
       top: 0;
       opacity: 1;
@@ -126,7 +129,7 @@
     }
 
     /* Main content */
-    .before-we-begin {
+    .name-center {
       min-height: 90vh;
       display: flex;
       align-items: center;
@@ -138,13 +141,19 @@
       margin-top: 70px;
     }
 
-    .before-we-begin h1 {
+    .name-center h1 {
       font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .name-center h2 {
+      font-size: 1.2rem;
+      color: #00bcd4;
       margin-bottom: 20px;
     }
 
-    .before-we-begin p {
-      font-size: 1.2rem;
+    .name-center p {
+      font-size: 1rem;
       color: #f0f0f0;
       margin-bottom: 30px;
     }
@@ -198,12 +207,12 @@
         font-size: 1rem;
       }
 
-      .before-we-begin h1 {
+      .name-center h1 {
         font-size: 1.8rem;
       }
 
-      .before-we-begin p {
-        font-size: 1rem;
+      .name-center p {
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -229,13 +238,22 @@
     </div>
   </nav>
 
-  <!-- Main Content for "Before We Begin" -->
-  <div class="before-we-begin">
-    <h1>Before We Begin...</h1>
-    <p>Welcome to my ePortfolio! This is where I share my academic journey and personal projects. But before diving into my work, here's a quick intro:</p>
-    <p>As you explore, keep in mind that this ePortfolio is a reflection of my experiences, achievements, and the ups and downs of creating this website from scratch. If something goes wrong, please don’t mention it... my inner perfectionist might break down!</p>
-    <p>Ready to explore my work and journey? Click below to proceed!</p>
-    <a href="about.html" class="button">Proceed to ePortfolio</a>
+  <!-- Mobile Menu -->
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="courses.html">Courses</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="projects.html">Personal Projects</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="name-center">
+    <h1>Welcome to my SLCC ePortfolio: General Education!</h1>
+    <h2>Crafted by: Jesús Lopez Aguilar and his 7 other mood swings.</h2>
+    <p>Here you’ll find my work, reflection, and life throughout my academic and personal journey.</p>
+    <p>This will reflect the work I crafted from scratch, so if there’s an error... don’t tell me, I’ll go insane.</p>
+    <a href="before-we-begin.html" class="button">Let's Explore</a> <!-- Links to the "Before We Begin" page -->
   </div>
 
   <!-- Footer -->
@@ -250,6 +268,7 @@
       mobileNav.classList.toggle('active');
     }
   </script>
+
 </body>
 
 </html>
