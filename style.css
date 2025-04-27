@@ -14,18 +14,19 @@ nav {
   padding: 15px 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.6);
   width: 100%; /* Ensure navbar takes full width */
+  margin: 0; /* Remove any default margin */
 }
 
 .nav-container {
   display: flex;
-  justify-content: flex-start; /* Align navbar links side-by-side */
+  justify-content: flex-start; /* Keep navbar links side-by-side */
   width: 100%; /* Ensure navbar takes full width */
 }
 
 #nav-links {
   list-style: none;
   display: flex;
-  gap: 25px; /* Increased gap between navbar items */
+  gap: 25px; /* Increased space between navbar items */
   margin: 0;
   padding: 0;
 }
@@ -58,6 +59,7 @@ nav {
   text-align: center;
   flex-direction: column;
   background: #1c1c1c;
+  margin: 0; /* Ensure no margin to avoid spacing issues */
 }
 
 .name-center h1 {
@@ -92,6 +94,7 @@ nav {
   box-shadow: 0 0 10px #00bcd4;
 }
 
+/* Footer styles */
 footer {
   background-color: #2a2a2a;
   padding: 20px;
@@ -101,17 +104,18 @@ footer {
   width: 100%; /* Ensure footer spans full width */
   position: relative;
   bottom: 0;
+  margin: 0; /* Remove any margin */
 }
 
-/* Prevent stacking, ensure navbar stays side-by-side at all screen sizes */
+/* Mobile */
 @media (max-width: 768px) {
   .nav-container {
-    flex-direction: row; /* Ensure navbar stays side-by-side on mobile */
+    flex-direction: row;
     justify-content: flex-start;
   }
 
   #nav-links {
-    flex-direction: row; /* Ensure navbar links are side by side */
+    flex-direction: row; /* Keep navbar links side-by-side */
     gap: 20px;
     padding: 10px 0;
     display: flex;
@@ -133,7 +137,6 @@ footer {
   }
 }
 
-/* Body dim effect when menu is active */
 body.dimmed {
   background-color: rgba(0, 0, 0, 0.7);
   transition: background-color 0.5s;
