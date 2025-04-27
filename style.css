@@ -1,51 +1,51 @@
-/* General styles */
+/* General body and background */
 body {
   background-color: #1c1c1c;
   font-family: 'Nunito', sans-serif;
   margin: 0;
   padding: 0;
   color: #f0f0f0;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Navbar styles */
 nav {
   background-color: white;
   padding: 15px 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
-  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  width: 100%; /* Ensure navbar spans full width */
+  margin: 0;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1000; /* Ensure navbar stays at the top */
   display: flex;
-  justify-content: center; /* Center navbar links */
+  justify-content: center; /* Center navbar links horizontally */
   align-items: center;
 }
 
-/* Navbar container */
 .nav-container {
   display: flex;
-  justify-content: center; /* Center navbar items */
+  justify-content: center; /* Center navbar links */
   width: 100%;
 }
 
-/* Navbar links list */
 #nav-links {
   list-style: none;
   display: flex;
-  gap: 40px; /* Space between links */
+  gap: 30px; /* Adjust space between navbar items */
   margin: 0;
   padding: 0;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 #nav-links li {
-  display: inline-block;
+  display: inline-block; /* Ensure the navbar links remain side by side */
 }
 
 #nav-links li a {
   color: black;
   text-decoration: none;
-  font-size: 1.2rem; /* Adjusted font size */
+  font-size: 1.2rem; /* Font size for navbar links */
   font-weight: 600;
   transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
@@ -72,7 +72,7 @@ nav {
 }
 
 .name-center h1 {
-  font-size: 3rem; /* Adjusted welcome text size */
+  font-size: 3rem; /* Adjusted Welcome text size */
   margin-bottom: 15px;
 }
 
@@ -125,11 +125,16 @@ footer {
     display: flex;
     width: 100%;
     background-color: white;
+    left: 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   }
 
   #nav-links li a {
-    font-size: 1.3rem; /* Adjusted for mobile */
+    font-size: 1.3rem; /* Adjust font size for mobile */
+  }
+
+  .menu-icon {
+    display: none; /* Hide hamburger menu */
   }
 
   .name-center h1 {
@@ -150,7 +155,7 @@ body.dimmed {
   transition: background-color 0.5s;
 }
 
-/* Extra small devices */
+/* Extra small devices like phones in portrait mode */
 @media (max-width: 480px) {
   #nav-links {
     gap: 15px;
