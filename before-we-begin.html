@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Before We Begin - Jesús Lopez Aguilar</title>
   <style>
+    /* Reset and general styles */
     * {
       margin: 0;
       padding: 0;
@@ -18,10 +19,9 @@
       font-family: 'Nunito', sans-serif;
       color: #f0f0f0;
       overflow-x: hidden;
-      transition: background-color 0.3s ease;
     }
 
-    /* Navbar */
+    /* Navbar styles */
     nav {
       background-color: white;
       padding: 10px 0;
@@ -35,7 +35,6 @@
       justify-content: center;
       align-items: center;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-      transition: padding 0.3s ease;
     }
 
     #nav-links {
@@ -66,12 +65,11 @@
       transform: scale(1.1);
     }
 
-    /* Hamburger Menu */
+    /* Hamburger menu styles */
     .hamburger-menu {
       display: none;
       flex-direction: column;
       cursor: pointer;
-      transition: transform 0.3s ease;
     }
 
     .hamburger-menu div {
@@ -79,16 +77,15 @@
       height: 3px;
       margin: 5px;
       background-color: #000;
-      transition: transform 0.3s ease;
     }
 
-    /* Mobile menu - hidden by default */
+    /* Mobile menu (hidden by default) */
     .mobile-nav {
       display: none;
       position: absolute;
       top: -100%;
       right: 0;
-      background-color: rgba(255, 255, 255, 0.9); /* Transparent white background */
+      background-color: rgba(255, 255, 255, 0.9);
       width: 100%;
       height: 100vh;
       flex-direction: column;
@@ -116,7 +113,7 @@
       transform: scale(1.1);
     }
 
-    /* Show mobile nav when active */
+    /* Show mobile menu when active */
     .mobile-nav.active {
       top: 0;
       opacity: 1;
@@ -238,7 +235,7 @@
     <p>Welcome to my ePortfolio! This is where I share my academic journey and personal projects. But before diving into my work, here's a quick intro:</p>
     <p>As you explore, keep in mind that this ePortfolio is a reflection of my experiences, achievements, and the ups and downs of creating this website from scratch. If something goes wrong, please don’t mention it... my inner perfectionist might break down!</p>
     <p>Ready to explore my work and journey? Click below to proceed!</p>
-    <a href="about.html" class="button">Proceed to ePortfolio</a> <!-- Link to the About Me page -->
+    <a href="about.html" class="button">Proceed to ePortfolio</a>
   </div>
 
   <!-- Footer -->
