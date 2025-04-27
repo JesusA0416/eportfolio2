@@ -36,7 +36,7 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Added rule to prevent body scroll when mobile menu is active */
+        /* Rule to prevent body scroll when mobile menu is active */
         body.no-scroll {
             overflow: hidden;
         }
@@ -418,35 +418,43 @@
     <script>
         // Function to toggle the mobile menu AND body scroll lock
         function toggleMenu() {
+            console.log("--- toggleMenu function started ---"); // Check if function runs
             const mobileNav = document.getElementById('mobile-nav');
             const body = document.body;
+
+            // Log current state BEFORE toggle
+            console.log("Before toggle - mobileNav has 'active' class:", mobileNav.classList.contains('active'));
 
             // Toggle the 'active' class on the mobile navigation panel
             mobileNav.classList.toggle('active');
 
+            // Log current state AFTER toggle
+            console.log("After toggle - mobileNav has 'active' class:", mobileNav.classList.contains('active'));
+
+
             // Toggle the 'no-scroll' class on the body
-            // Check if the menu is now active to decide whether to add or remove
             if (mobileNav.classList.contains('active')) {
+                console.log("Adding no-scroll class to body");
                 body.classList.add('no-scroll');
             } else {
+                console.log("Removing no-scroll class from body");
                 body.classList.remove('no-scroll');
             }
+            console.log("--- toggleMenu function finished ---");
         }
 
         // Add event listeners to mobile nav links to close menu on click
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', () => {
+                console.log("Link inside menu clicked"); // Check if this runs
                 const mobileNav = document.getElementById('mobile-nav');
-                // Check if menu is active before trying to close
                 if (mobileNav.classList.contains('active')) {
-                    // Close the menu
+                    console.log("Closing menu from link click");
                     mobileNav.classList.remove('active');
-                    // Remove the scroll lock from the body
                     document.body.classList.remove('no-scroll');
                 }
             });
         });
     </script>
-
-</body>
+    </body>
 </html>
