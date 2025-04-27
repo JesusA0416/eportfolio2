@@ -27,9 +27,9 @@ nav {
 }
 
 #nav-links li a {
-  color: #1c1c1c;
+  color: black; /* Changed to black */
   text-decoration: none;
-  font-family: 'Courier New', Courier, monospace; /* Coding font applied */
+  font-family: 'Courier New', Courier, monospace; /* Coding font for navbar links */
   font-size: 1.1rem;
   transition: color 0.3s, text-shadow 0.3s;
 }
@@ -39,53 +39,25 @@ nav {
   text-shadow: 0 0 8px #00bcd4;
 }
 
-.hero {
+.name-center {
   min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  flex-direction: column;
   background: #1c1c1c;
 }
 
-.card {
-  background-color: #2d2d2d;
-  padding: 40px 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.7);
-  animation: fadeInUp 1.5s ease both;
-}
-
-.card h1 {
-  margin-bottom: 15px;
+.name-center h1 {
   font-size: 2.5rem;
+  margin-bottom: 15px;
 }
 
-.card h2 {
-  margin-bottom: 20px;
+.name-center h2 {
   font-size: 1.5rem;
   color: #00bcd4;
-}
-
-.card p {
-  margin-bottom: 30px;
-  font-size: 1.1rem;
-  color: #f0f0f0;
-}
-
-.button {
-  background-color: #00bcd4;
-  color: #1f1f1f;
-  padding: 10px 25px;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.button:hover {
-  background-color: #0097a7;
-  box-shadow: 0 0 10px #00bcd4;
+  margin-bottom: 20px;
 }
 
 footer {
