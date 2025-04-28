@@ -39,13 +39,13 @@
   <main>
     <div class="intro fade-in-section">
       <h2>Welcome to My General Education Courses</h2>
-      <p>Alright, let’s get real—this section isn’t just about "what I’ve learned." It’s where I break down my journey through Salt Lake Community College, looking at the classes that molded my borderline chaos into something (mostly) functional.</p>
+      <p>Alright, let's get real—this section isn’t just about “what I’ve learned.” It’s where I break down my journey through Salt Lake Community College, looking at the classes that molded my journey with a side of chaos (and a lot of late nights).</p>
       <p>You'll see how each course gave me something important—whether it was insight, skills, or simply the experience of surviving all-nighters. These aren’t just bullet points; these are experiences.</p>
     </div>
 
     <div class="courses-container fade-in-section">
 
-      <!-- FIRST SPECIAL ROW -->
+      <!-- Special Layout (AI and Humanities) -->
       <div class="special-row">
         
         <div class="ai-column">
@@ -92,8 +92,7 @@
 
       </div>
 
-      <!-- AFTER SPECIAL ROW, REGULAR COURSES -->
-
+      <!-- After special layout - Normal Grid -->
       <div class="courses-grid">
 
         <div class="course-card">
@@ -124,7 +123,7 @@
         </div>
 
         <div class="course-card">
-          <img src="images/international_global.png" alt="International and Global">
+          <img src="images/international_global.png" alt="International & Global">
           <div class="overlay"></div>
           <div class="text-overlay">
             <h3>International & Global (IG)</h3>
@@ -146,7 +145,7 @@
           <div class="overlay"></div>
           <div class="text-overlay">
             <h3>Quantitative Literacy (QL)</h3>
-            <p>Applying mathematical reasoning skills.</p>
+            <p>Applying mathematical skills and logical thinking.</p>
           </div>
         </div>
 
@@ -162,41 +161,41 @@
       </div>
 
     </div>
-
   </main>
 
   <footer>
     <p>© 2025 Jesús Lopez Aguilar | All rights reserved</p>
   </footer>
 
-  <script>
-    function toggleMenu() {
-      const mobileNav = document.getElementById('mobile-nav');
-      const hamburgerIcon = document.getElementById('hamburger-menu');
-      const body = document.body;
+<script>
+function toggleMenu() {
+  const mobileNav = document.getElementById('mobile-nav');
+  const hamburgerIcon = document.getElementById('hamburger-menu');
+  const body = document.body;
 
-      mobileNav.classList.toggle('active');
-      hamburgerIcon.classList.toggle('is-active');
+  mobileNav.classList.toggle('active');
+  hamburgerIcon.classList.toggle('is-active');
 
-      if (mobileNav.classList.contains('active')) {
-        body.classList.add('no-scroll');
-      } else {
-        body.classList.remove('no-scroll');
-      }
+  if (mobileNav.classList.contains('active')) {
+    body.classList.add('no-scroll');
+  } else {
+    body.classList.remove('no-scroll');
+  }
+}
+
+const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+const observerCallback = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
     }
+  });
+};
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+const targets = document.querySelectorAll('.fade-in-section');
+targets.forEach(target => observer.observe(target));
+</script>
 
-    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-    const observerCallback = (entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    };
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    const targets = document.querySelectorAll('.fade-in-section');
-    targets.forEach(target => observer.observe(target));
-  </script>
 </body>
 </html>
