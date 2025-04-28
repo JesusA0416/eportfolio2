@@ -8,6 +8,11 @@
     <title>Courses - Jesús Lopez Aguilar</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Ensure cards are block level for JS libs if needed */
+        /* .course-card { display: block; } */
+        /* Override potential inline-block added previously */
+    </style>
 </head>
 
 <body>
@@ -44,81 +49,89 @@
         </div>
 
         <div class="courses-container fade-in-section">
-
-            <div class="course-card course-card-ai-tall">
-                 <img src="images/american_institutions.png" alt="American Institutions Image"> <div class="overlay"></div>
+            <div class="course-card">
+                 <img src="images/american_institutions.png" alt="American Institutions Image">
+                <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>American Institutions (AI)</h3>
                      <p>Understanding U.S. government and history.</p>
                 </div>
             </div>
-
-            <div class="course-card course-card-hu-wide">
-                 <img src="images/course1.png" alt="Humanities Course Image"> <div class="overlay"></div>
-                <div class="text-overlay">
-                     <h3>Humanities (HU)</h3>
-                     <p>Study philosophy, literature, and art.</p>
-                </div>
-            </div>
-
             <div class="course-card">
-                 <img src="images/course2.png" alt="Fine Arts Course Image"> <div class="overlay"></div>
+                 <img src="images/course2.png" alt="Fine Arts Course Image">
+                <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>Fine Arts (FA)</h3>
                      <p>Explore artistic expression and its impact on culture.</p>
                 </div>
             </div>
              <div class="course-card">
-                 <img src="images/social_science.png" alt="Social Science Image"> <div class="overlay"></div>
+                 <img src="images/course1.png" alt="Humanities Course Image">
+                <div class="overlay"></div>
+                <div class="text-overlay">
+                     <h3>Humanities (HU)</h3>
+                     <p>Study philosophy, literature, and art.</p>
+                </div>
+            </div>
+             <div class="course-card">
+                 <img src="images/social_science.png" alt="Social Science Image">
+                <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>Social Science (SS)</h3>
                      <p>Examine human society and relationships.</p>
                 </div>
             </div>
              <div class="course-card">
-                 <img src="images/composition.png" alt="Composition Image"> <div class="overlay"></div>
+                 <img src="images/composition.png" alt="Composition Image">
+                <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>Composition (EN)</h3>
                      <p>Developing effective writing skills.</p>
                 </div>
             </div>
             <div class="course-card">
-                 <img src="images/quantitative_literacy.png" alt="Quantitative Literacy Image"> <div class="overlay"></div>
+                 <img src="images/quantitative_literacy.png" alt="Quantitative Literacy Image">
+                <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>Quantitative Literacy (QL/QS)</h3>
                      <p>Applying mathematical skills.</p>
                 </div>
             </div>
              <div class="course-card">
-                 <img src="images/life_science.png" alt="Life Science Image"> <div class="overlay"></div>
+                 <img src="images/life_science.png" alt="Life Science Image">
+                <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>Life Science</h3>
                      <p>Study of living organisms.</p>
                 </div>
             </div>
             <div class="course-card">
-                 <img src="images/physical_science.png" alt="Physical Science Image"> <div class="overlay"></div>
+                 <img src="images/physical_science.png" alt="Physical Science Image">
+                <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>Physical Science (PS)</h3>
                      <p>Exploring non-living systems.</p>
                 </div>
             </div>
              <div class="course-card">
-                 <img src="images/communication.png" alt="Communication Image"> <div class="overlay"></div>
+                 <img src="images/communication.png" alt="Communication Image">
+                <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>Communication (CM)</h3>
                      <p>Effective human communication.</p>
                 </div>
             </div>
             <div class="course-card">
-                 <img src="images/international_global.png" alt="International and Global Image"> <div class="overlay"></div>
+                 <img src="images/international_global.png" alt="International and Global Image">
+                <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>International & Global (IG)</h3>
                      <p>Understanding global perspectives.</p>
                 </div>
             </div>
              <div class="course-card">
-                 <img src="images/lifelong_wellness.png" alt="Lifelong Wellness Image"> <div class="overlay"></div>
+                 <img src="images/lifelong_wellness.png" alt="Lifelong Wellness Image">
+                <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>Lifelong Wellness (LW)</h3>
                      <p>Principles of health and well-being.</p>
@@ -129,8 +142,11 @@
         <p>© 2025 Jesús Lopez Aguilar | All rights reserved</p>
     </footer>
 
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
     <script>
-        // Function to toggle the mobile menu, body scroll lock, AND hamburger animation class
+        // --- Menu Toggle Function ---
         function toggleMenu() {
             const mobileNav = document.getElementById('mobile-nav');
             const hamburgerIcon = document.getElementById('hamburger-menu');
@@ -146,23 +162,12 @@
             }
         }
 
-        // --- Touch Event Listeners for Mobile Glow ---
+        // --- Mobile Link Glow & Menu Close ---
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             let touchInitiated = false;
-            link.addEventListener('touchstart', function(event) {
-                this.classList.add('link-active-glow');
-                touchInitiated = true;
-            });
-            link.addEventListener('touchend', function() {
-                if (touchInitiated) {
-                    setTimeout(() => { this.classList.remove('link-active-glow'); }, 150);
-                }
-                touchInitiated = false;
-            });
-            link.addEventListener('touchcancel', function() {
-                 if (touchInitiated) { this.classList.remove('link-active-glow'); }
-                 touchInitiated = false;
-            });
+            link.addEventListener('touchstart', function(event) { this.classList.add('link-active-glow'); touchInitiated = true; });
+            link.addEventListener('touchend', function() { if (touchInitiated) { setTimeout(() => { this.classList.remove('link-active-glow'); }, 150); } touchInitiated = false; });
+            link.addEventListener('touchcancel', function() { if (touchInitiated) { this.classList.remove('link-active-glow'); } touchInitiated = false; });
             link.addEventListener('click', () => {
                 const mobileNav = document.getElementById('mobile-nav');
                 const hamburgerIcon = document.getElementById('hamburger-menu');
@@ -172,7 +177,7 @@
                     document.body.classList.remove('no-scroll');
                 }
                 setTimeout(() => { if (link.classList.contains('link-active-glow')) { link.classList.remove('link-active-glow'); } }, 150);
-                 touchInitiated = false;
+                touchInitiated = false;
             });
         });
 
@@ -189,6 +194,27 @@
         const observer = new IntersectionObserver(observerCallback, observerOptions);
         const targets = document.querySelectorAll('.fade-in-section');
         targets.forEach(target => observer.observe(target));
+
+        // --- Masonry Layout Initialization ---
+        // Wrap in event listener to ensure DOM is ready
+        window.addEventListener('load', () => {
+            const coursesContainer = document.querySelector('.courses-container');
+            if (coursesContainer) { // Check if container exists on page
+                // Initialize Masonry after images have loaded
+                imagesLoaded( coursesContainer, function() {
+                  console.log('Images loaded, initializing Masonry'); // For debugging
+                  const masonryInstance = new Masonry( coursesContainer, {
+                    itemSelector: '.course-card',
+                    // columnWidth: Can be a selector or number. If items have % width, maybe use element sizer or number
+                    // Let's try without columnWidth first if items have CSS width
+                    gutter: 20, // Should match CSS gap ideally, or set gap here
+                    percentPosition: true // Use percentages if card widths use %
+                  });
+                });
+            }
+        });
+        // --- End Masonry Layout ---
+
     </script>
     </body>
 </html>
