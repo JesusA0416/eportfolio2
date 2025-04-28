@@ -1,262 +1,269 @@
-/* --- General Styles & Resets --- */
+/* --- General Resets --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { height: 100%; }
 
-/* --- Google Font Import --- */
+/* --- Fonts --- */
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap');
 
-/* --- Body Defaults & Sticky Footer Setup --- */
-body { background-color: #1c1c1c; font-family: 'Nunito', sans-serif; color: #f0f0f0; overflow-x: hidden; padding-top: 60px; transition: background-color 0.3s ease, padding-top 0.3s ease; display: flex; flex-direction: column; min-height: 100%; }
+/* --- Body --- */
+body {
+  background-color: #1c1c1c;
+  font-family: 'Nunito', sans-serif;
+  color: #f0f0f0;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: background-color 0.3s ease, padding-top 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
 body.no-scroll { overflow: hidden; }
 main { flex-grow: 1; }
 
 /* --- Navbar --- */
-nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); transition: padding 0.3s ease, height 0.3s ease; }
- .nav-container { display: flex; align-items: center; width: 100%; max-width: 1200px; justify-content: center; }
-#nav-links { list-style: none; gap: 20px; margin: 0; padding: 0; display: flex; justify-content: center; }
-#nav-links li { display: inline-block; }
-#nav-links li a { font-family: 'Nunito', sans-serif; color: black; text-decoration: none; font-size: 1.2rem; font-weight: 600; padding: 8px 15px; transition: color 0.3s, text-shadow 0.3s, transform 0.3s; }
-#nav-links li a:hover { color: #00bcd4; text-shadow: 0 0 8px #00bcd4; transform: scale(1.1); }
-#nav-links li a.active-nav-link { color: #00bcd4; font-weight: 700; }
+nav {
+  background-color: white;
+  height: 60px;
+  padding: 0 20px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  transition: padding 0.3s ease, height 0.3s ease;
+}
+.nav-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+}
+#nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+#nav-links li a {
+  color: black;
+  font-family: 'Nunito', sans-serif;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 8px 15px;
+  transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+}
+#nav-links li a:hover {
+  color: #00bcd4;
+  text-shadow: 0 0 8px #00bcd4;
+  transform: scale(1.1);
+}
+#nav-links li a.active-nav-link {
+  color: #00bcd4;
+  font-weight: 700;
+}
 
-/* --- Hamburger Menu --- */
-.hamburger-menu { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 4px; width: 45px; height: 50px; z-index: 1100; position: fixed; top: 0; right: 15px; cursor: pointer; transition: transform 0.3s ease; }
-.hamburger-menu div { width: 25px; height: 3px; margin: 0; background-color: #000; border-radius: 1px; transition: transform 0.3s ease-in-out, background-color 0.3s ease, opacity 0.3s ease; transform-origin: center; }
+/* --- Hamburger --- */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 45px;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  right: 15px;
+  cursor: pointer;
+  z-index: 1100;
+}
+.hamburger-menu div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
 .hamburger-menu.is-active div:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger-menu.is-active div:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .hamburger-menu.is-active div:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* --- Mobile Menu --- */
-.mobile-nav { display: flex; position: fixed; top: 0; left: 0; right: 0; background-color: rgba(255, 255, 255, 0.9); width: 100%; height: 100vh; flex-direction: column; justify-content: center; align-items: center; gap: 30px; padding: 10px 0; z-index: 1001; opacity: 0; transform: translateY(-100%); visibility: hidden; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out, visibility 0s linear 0.5s; }
-.mobile-nav a { font-family: 'Nunito', sans-serif; color: black; font-size: 1.5rem; font-weight: 600; text-decoration: none; transition: color 0.3s, text-shadow 0.3s, transform 0.3s; }
-.mobile-nav a:hover { color: #00bcd4; text-shadow: 0 0 8px #00bcd4; transform: scale(1.1); }
-.mobile-nav a.link-active-glow { color: #00bcd4; text-shadow: 0 0 8px #00bcd4; }
-.mobile-nav.active { opacity: 1; transform: translateY(0); visibility: visible; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out, visibility 0s linear 0s; }
-
-/* === Page Specific Styles === */
-
-/* --- Styles for index.html --- */
-.name-center { min-height: calc(90vh - 60px); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column; padding: 20px; }
-.name-center h1 { font-size: 2.5rem; margin-bottom: 10px; font-family: 'Lora', serif; }
-.name-center h2 { font-size: 1.2rem; color: #00bcd4; margin-bottom: 20px; font-family: 'Nunito', sans-serif; }
-.name-center p { font-size: 1rem; margin-bottom: 30px; max-width: 600px; }
-
-/* --- Styles for courses.html --- */
-.intro { text-align: center; margin: 30px 20px; padding: 30px; background-color: #333; color: #fff; border-radius: 10px; line-height: 1.6; }
-.intro h2 { font-size: 2rem; margin-bottom: 20px; font-family: 'Lora', serif; }
-.intro p { font-size: 1.1rem; margin-bottom: 20px; }
-
-/* --- Featured Course Area --- */
-.featured-course-area {
-    padding: 20px;
-    display: flex;
-    justify-content: center;
+/* --- Mobile Nav --- */
+.mobile-nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 10px 0;
+  z-index: 1001;
+  opacity: 0;
+  transform: translateY(-100%);
+  visibility: hidden;
+  transition: transform 0.5s, opacity 0.5s;
 }
-.course-card-ai-featured {
-    /* Base card styles apply, override size */
-    width: 60%; /* Make it large */
-    max-width: 600px; /* Limit maximum size */
-    min-height: 350px; /* Give it significant height */
-    aspect-ratio: 16 / 9; /* Example ratio, adjust as needed */
-    margin-bottom: 30px; /* Space below */
+.mobile-nav.active {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
 }
-/* Ensure base card styles apply */
-.course-card-ai-featured .text-overlay h3 { font-size: 1.8rem; }
-.course-card-ai-featured .text-overlay p { font-size: 1.1rem; }
-
-
-/* --- Scrollable Courses Section --- */
-.scrollable-courses-wrapper {
-    position: relative;
-    padding: 0 50px; /* Make space for buttons */
-    margin-bottom: 40px; /* Space below scroll area */
-    max-width: 1200px; /* Match general content width */
-    margin-left: auto;
-    margin-right: auto;
+.mobile-nav a {
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+}
+.mobile-nav a:hover {
+  color: #00bcd4;
+  text-shadow: 0 0 8px #00bcd4;
+  transform: scale(1.1);
+}
+.mobile-nav a.link-active-glow {
+  color: #00bcd4;
+  text-shadow: 0 0 8px #00bcd4;
 }
 
-/* Container for the horizontally scrolling cards */
-.courses-container {
-    display: flex; /* Use Flexbox */
-    overflow-x: auto; /* Allow horizontal scrolling */
-    scroll-snap-type: x mandatory; /* Snap items */
-    scroll-behavior: smooth; /* Smooth scrolling via JS */
-    padding: 20px 0; /* Vertical padding inside scroll area */
-    gap: 20px; /* Gap between cards */
-    /* Hide scrollbar */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE/Edge */
+/* --- Intro Section --- */
+.intro {
+  text-align: center;
+  margin: 30px 20px;
+  padding: 30px;
+  background-color: #333;
+  border-radius: 10px;
+  line-height: 1.6;
 }
-.courses-container::-webkit-scrollbar {
-    display: none; /* Safari/Chrome */
+.intro h2 {
+  font-family: 'Lora', serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.intro p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
 }
 
-/* Course Card within scroll container */
+/* --- Courses Layout --- */
+.courses-layout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 300px;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* --- Course Card Base --- */
 .course-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    background-color: #333;
-    color: #f0f0f0;
-    /* Sizing for horizontal scroll */
-    flex: 0 0 280px; /* Do not grow, do not shrink, base width 280px */
-    width: 280px; /* Explicit width */
-    min-height: auto; /* Let image determine height */
-    aspect-ratio: 4 / 3; /* Maintain aspect ratio */
-    scroll-snap-align: center; /* Snap cards to center */
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
-/* Image, Overlay, Text for cards */
-.course-card img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease-out, filter 0.3s ease-out; }
-.course-card .overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.4); z-index: 1; transition: background-color 0.3s ease-out; pointer-events: none; border-radius: 10px;}
-.course-card .text-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; text-align: center; color: #fff; width: 90%; padding: 10px; }
-/* Adjust text size for these standard cards */
-.text-overlay h3 { font-size: 1.3rem; margin-bottom: 5px; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.9); font-family: 'Lora', serif; }
-.text-overlay p { font-size: 0.9rem; color: #f0f0f0; margin-bottom: 0; line-height: 1.3; text-shadow: 1px 1px 3px rgba(0,0,0,0.9); }
-
-/* Hover Effects for cards */
-.course-card:hover { transform: scale(1.03); box-shadow: 0 0 20px 3px rgba(0, 188, 212, 0.8); z-index: 5; }
-.course-card:hover img { filter: brightness(40%); }
-
-/* Scroll Buttons */
-.scroll-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background-color: rgba(40, 40, 40, 0.7);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-.scroll-btn:hover {
-    background-color: rgba(0, 188, 212, 0.8);
-}
-.scroll-btn.prev { left: 0px; }
-.scroll-btn.next { right: 0px; }
-.scroll-btn:focus { outline: 2px solid #00bcd4; outline-offset: 1px;}
-
-
-/* --- Styles for before-we-begin.html & about.html --- */
-.before-we-begin { min-height: calc(90vh - 60px); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column; padding: 20px; }
-.before-we-begin h1 { font-size: 2.5rem; margin-bottom: 20px; font-family: 'Lora', serif; }
-.before-we-begin p { font-size: 1.2rem; color: #f0f0f0; margin-bottom: 30px; max-width: 700px; }
-
-
-/* === Scroll Animation Styles === */
-.fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-.fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
-
-
-/* === Common Components === */
-/* Button Styling */
-.button { display: inline-block; margin-top: 15px; background-color: #00bcd4; color: #1f1f1f; padding: 10px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out; font-family: 'Nunito', sans-serif; }
-.button:hover { background-color: #0097a7; box-shadow: 0 0 10px #00bcd4; }
-/* Focus styles */
-a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
-.button:focus { box-shadow: 0 0 10px #00bcd4; }
-/* Footer */
- footer { background-color: #2a2a2a; padding: 15px; text-align: center; font-size: 0.9rem; color: #aaa; width: 100%; border-top: 1px solid #333; flex-shrink: 0; }
-
-
-/* --- Media Queries --- */
-
-/* Mobile Adjustments (< 768px) */
-@media (max-width: 767px) {
-    #nav-links { display: none; }
-    .hamburger-menu { display: flex; height: 50px; top: 0; right: 15px; }
-    .nav-container { justify-content: center; }
-    nav { height: 50px; }
-    body { padding-top: 50px; }
-
-    /* Adjust featured card size */
-    .course-card-ai-featured { width: 90%; aspect-ratio: 16 / 10; min-height: 250px; }
-
-    /* Adjust scroll container */
-    .scrollable-courses-wrapper { padding: 0 10px; /* Less padding for buttons */ }
-    .scroll-btn { width: 35px; height: 35px; font-size: 1.2rem; }
-    .scroll-btn.prev { left: -5px; } /* Position buttons closer */
-    .scroll-btn.next { right: -5px; }
-
-    /* Adjust scrolled card size */
-    .courses-container { gap: 15px; }
-    .course-card {
-        flex-basis: 220px; /* Smaller cards for mobile scroll */
-        width: 220px;
-        min-height: auto; /* Remove min-height if aspect-ratio works */
-        aspect-ratio: 4 / 3;
-    }
-
-    /* Mobile Font Sizes */
-    .name-center h1 { font-size: 1.8rem; } .name-center p { font-size: 0.9rem; }
-    .intro h2 { font-size: 1.8rem; } .intro p { font-size: 1rem; }
-    .text-overlay h3 { font-size: 1.1rem; } .text-overlay p { font-size: 0.8rem; }
-    .before-we-begin h1 { font-size: 1.8rem; } .before-we-begin p { font-size: 1rem; }
+/* Hover Effects */
+.course-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px 5px rgba(0,188,212,0.8);
 }
 
- /* Desktop Adjustments (>= 768px) */
- @media (min-width: 768px) {
-     .hamburger-menu { display: none; }
-     #nav-links { display: flex; }
-     .nav-container { justify-content: center; }
- }
- /* No media queries needed for course container/card widths as flex handles it */
-.courses-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 40px;
-    max-width: 1400px;
-    margin: 0 auto;
+/* Image + Overlay */
+.course-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.course-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+.course-card .text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 10px;
+  z-index: 2;
 }
 
-.course-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    background-color: #333;
-    color: #fff;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 300px;
+/* --- Large and Small Cards --- */
+.large-card {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.small-card {
+  /* default 1x1 */
 }
 
-.course-card.large-card {
+/* --- Manual Placement --- */
+.ai { grid-column: 1/3; grid-row: 1/3; }
+.fine-arts { grid-column: 3/4; grid-row: 1/2; }
+.social-science { grid-column: 4/5; grid-row: 1/2; }
+.composition { grid-column: 1/2; grid-row: 3/4; }
+.life-science { grid-column: 2/3; grid-row: 3/4; }
+.quantitative-literacy { grid-column: 3/4; grid-row: 2/3; }
+.humanities { grid-column: 3/5; grid-row: 3/5; }
+
+/* --- Footer --- */
+footer {
+  background-color: #2a2a2a;
+  padding: 15px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+  width: 100%;
+  border-top: 1px solid #333;
+  flex-shrink: 0;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  nav { height: 50px; }
+  .hamburger-menu { display: flex; }
+  #nav-links { display: none; }
+  .courses-layout {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 250px;
+  }
+  .large-card {
     grid-column: span 2;
     grid-row: span 2;
-    height: 620px;
+  }
+  .small-card {
+    grid-column: span 1;
+  }
+  .ai, .fine-arts, .social-science, .composition, .life-science, .quantitative-literacy, .humanities {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .intro h2 { font-size: 1.8rem; }
+  .intro p { font-size: 1rem; }
 }
 
-.course-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.course-card .overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-}
-
-.course-card .text-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    padding: 10px;
-    z-index: 2;
-}
-
-.course-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 20px 5px rgba(0,188,212,0.8);
+/* --- Fade In Animation --- */
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
