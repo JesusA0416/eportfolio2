@@ -114,7 +114,6 @@ nav {
 .hamburger-menu div {
     width: 25px;
     height: 3px;
-    margin: 0;
     background-color: #000;
     border-radius: 1px;
     transition: transform 0.3s ease-in-out, background-color 0.3s ease, opacity 0.3s ease;
@@ -134,7 +133,7 @@ nav {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* --- Mobile Menu --- */
+/* --- Mobile Nav --- */
 .mobile-nav {
     display: flex;
     position: fixed;
@@ -153,7 +152,14 @@ nav {
     opacity: 0;
     transform: translateY(-100%);
     visibility: hidden;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out, visibility 0s linear 0.5s;
+    transition: transform 0.5s, opacity 0.5s, visibility 0s linear 0.5s;
+}
+
+.mobile-nav.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    transition: transform 0.5s, opacity 0.5s, visibility 0s linear 0s;
 }
 
 .mobile-nav a {
@@ -171,75 +177,7 @@ nav {
     transform: scale(1.1);
 }
 
-.mobile-nav a.link-active-glow {
-    color: #00bcd4;
-    text-shadow: 0 0 8px #00bcd4;
-}
-
-.mobile-nav.active {
-    opacity: 1;
-    transform: translateY(0);
-    visibility: visible;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out, visibility 0s linear 0s;
-}
-
-/* --- Page Specific Styles --- */
-
-/* Index (Home) */
-.name-center {
-    min-height: calc(90vh - 60px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    padding: 20px;
-}
-
-.name-center h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    font-family: 'Lora', serif;
-}
-
-.name-center h2 {
-    font-size: 1.2rem;
-    color: #00bcd4;
-    margin-bottom: 20px;
-    font-family: 'Nunito', sans-serif;
-}
-
-.name-center p {
-    font-size: 1rem;
-    margin-bottom: 30px;
-    max-width: 600px;
-}
-
-/* Before We Begin and About Me pages */
-.before-we-begin {
-    min-height: calc(90vh - 60px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    padding: 20px;
-}
-
-.before-we-begin h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    font-family: 'Lora', serif;
-}
-
-.before-we-begin p {
-    font-size: 1.2rem;
-    color: #f0f0f0;
-    margin-bottom: 30px;
-    max-width: 700px;
-}
-
-/* Courses Page */
+/* --- Intro Section --- */
 .intro {
     text-align: center;
     margin: 30px 20px;
@@ -261,46 +199,87 @@ nav {
     margin-bottom: 20px;
 }
 
-/* Courses container */
+/* --- Special Layout for Courses --- */
 .courses-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+.special-row {
+    display: flex;
+    gap: 30px;
+}
+
+.ai-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sub-row {
+    display: flex;
+    gap: 20px;
+}
+
+.humanities-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Regular Courses Grid --- */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* --- Course Cards --- */
 .course-card {
-    position: relative;
+    background-color: #333;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    background-color: #333;
-    min-height: 160px;
-    color: #f0f0f0;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .course-card img {
-    display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
-    transition: transform 0.3s ease-out, filter 0.3s ease-out;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.course-card .overlay {
+.course-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px 5px rgba(0, 188, 212, 0.7);
+}
+
+.course-card:hover img {
+    filter: brightness(60%);
+    transform: scale(1.05);
+}
+
+.overlay {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 1;
     pointer-events: none;
 }
 
-.course-card .text-overlay {
+.text-overlay {
     position: absolute;
-    top: 50%; left: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
     text-align: center;
@@ -318,21 +297,9 @@ nav {
 .text-overlay p {
     font-size: 1rem;
     color: #f0f0f0;
-    margin-bottom: 0;
-    line-height: 1.4;
 }
 
-/* Hover Effects */
-.course-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 20px 3px rgba(0, 188, 212, 0.8);
-}
-
-.course-card:hover img {
-    filter: brightness(40%);
-}
-
-/* Button Styling */
+/* --- Buttons --- */
 .button {
     display: inline-block;
     margin-top: 15px;
@@ -344,7 +311,7 @@ nav {
     font-weight: bold;
     font-family: 'Nunito', sans-serif;
     font-size: 1rem;
-    transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .button:hover {
@@ -352,13 +319,7 @@ nav {
     box-shadow: 0 0 10px #00bcd4;
 }
 
-.button:focus {
-    outline: 2px solid #00bcd4;
-    outline-offset: 3px;
-    box-shadow: 0 0 10px #00bcd4;
-}
-
-/* Scroll Fade-In */
+/* --- Scroll Fade-In --- */
 .fade-in-section {
     opacity: 0;
     transform: translateY(30px);
@@ -370,7 +331,7 @@ nav {
     transform: translateY(0);
 }
 
-/* Footer */
+/* --- Footer --- */
 footer {
     background-color: #2a2a2a;
     padding: 15px;
@@ -379,32 +340,32 @@ footer {
     color: #aaa;
     width: 100%;
     border-top: 1px solid #333;
-    flex-shrink: 0;
 }
 
-/* --- Media Queries --- */
-@media (max-width: 767px) {
-    #nav-links { display: none; }
-    .hamburger-menu { display: flex; }
-    nav { height: 50px; }
-    body { padding-top: 50px; }
-    .courses-container {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 15px;
-        padding: 15px;
+/* --- Responsive Layouts --- */
+@media (max-width: 768px) {
+    .special-row {
+        flex-direction: column;
     }
-    .course-card {
-        min-height: 160px;
+    .sub-row {
+        flex-direction: column;
+    }
+    #nav-links {
+        display: none;
+    }
+    .hamburger-menu {
+        display: flex;
+    }
+    nav {
+        height: 50px;
+    }
+    body {
+        padding-top: 50px;
     }
 }
 
 @media (max-width: 480px) {
-    .courses-container {
+    .courses-grid {
         grid-template-columns: 1fr;
-        gap: 15px;
-        padding: 15px;
-    }
-    .course-card {
-        min-height: 180px;
     }
 }
