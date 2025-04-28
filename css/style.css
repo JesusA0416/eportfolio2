@@ -46,44 +46,102 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
 .intro h2 { font-size: 2rem; margin-bottom: 20px; font-family: 'Lora', serif; }
 .intro p { font-size: 1.1rem; margin-bottom: 20px; }
 
-/* Courses Container - Setup for Masonry JS */
-.courses-container {
-    padding: 20px; /* Padding around the grid */
-    max-width: 1200px;
-    margin: 0 auto; /* Center container */
-    /* Remove display: grid/flex */
-    /* Masonry JS will add absolute positioning to children */
+/* --- Featured Course Area --- */
+.featured-course-area {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+.course-card-ai-featured {
+    /* Base card styles apply, override size */
+    width: 60%; /* Make it large */
+    max-width: 600px; /* Limit maximum size */
+    min-height: 350px; /* Give it significant height */
+    aspect-ratio: 16 / 9; /* Example ratio, adjust as needed */
+    margin-bottom: 30px; /* Space below */
+}
+/* Ensure base card styles apply */
+.course-card-ai-featured .text-overlay h3 { font-size: 1.8rem; }
+.course-card-ai-featured .text-overlay p { font-size: 1.1rem; }
+
+
+/* --- Scrollable Courses Section --- */
+.scrollable-courses-wrapper {
+    position: relative;
+    padding: 0 50px; /* Make space for buttons */
+    margin-bottom: 40px; /* Space below scroll area */
+    max-width: 1200px; /* Match general content width */
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Course Card - Define base width and margin for Masonry */
+/* Container for the horizontally scrolling cards */
+.courses-container {
+    display: flex; /* Use Flexbox */
+    overflow-x: auto; /* Allow horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Snap items */
+    scroll-behavior: smooth; /* Smooth scrolling via JS */
+    padding: 20px 0; /* Vertical padding inside scroll area */
+    gap: 20px; /* Gap between cards */
+    /* Hide scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE/Edge */
+}
+.courses-container::-webkit-scrollbar {
+    display: none; /* Safari/Chrome */
+}
+
+/* Course Card within scroll container */
 .course-card {
-    position: relative; /* Keep relative for overlay */
+    position: relative;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    background-color: #333; /* Fallback */
+    background-color: #333;
     color: #f0f0f0;
-    /* --- Define width for Masonry columns --- */
-    width: calc(25% - 15px); /* Example: Aim for 4 columns, adjust '15px' based on desired gutter/2 */
-    margin-bottom: 20px; /* Vertical gap */
-    /* --- End Width --- */
-    /* Remove fixed height/aspect-ratio - let image determine */
-    min-height: auto;
+    /* Sizing for horizontal scroll */
+    flex: 0 0 280px; /* Do not grow, do not shrink, base width 280px */
+    width: 280px; /* Explicit width */
+    min-height: auto; /* Let image determine height */
+    aspect-ratio: 4 / 3; /* Maintain aspect ratio */
+    scroll-snap-align: center; /* Snap cards to center */
 }
 
-/* Image Styling - Allow natural height */
-.course-card img { display: block; width: 100%; height: auto; object-fit: cover; transition: transform 0.3s ease-out, filter 0.3s ease-out; border-radius: 10px;}
-/* Overlay */
+/* Image, Overlay, Text for cards */
+.course-card img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease-out, filter 0.3s ease-out; }
 .course-card .overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.4); z-index: 1; transition: background-color 0.3s ease-out; pointer-events: none; border-radius: 10px;}
-/* Text Overlay */
 .course-card .text-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; text-align: center; color: #fff; width: 90%; padding: 10px; }
+/* Adjust text size for these standard cards */
 .text-overlay h3 { font-size: 1.3rem; margin-bottom: 5px; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.9); font-family: 'Lora', serif; }
 .text-overlay p { font-size: 0.9rem; color: #f0f0f0; margin-bottom: 0; line-height: 1.3; text-shadow: 1px 1px 3px rgba(0,0,0,0.9); }
 
-/* Hover Effects */
+/* Hover Effects for cards */
 .course-card:hover { transform: scale(1.03); box-shadow: 0 0 20px 3px rgba(0, 188, 212, 0.8); z-index: 5; }
 .course-card:hover img { filter: brightness(40%); }
+
+/* Scroll Buttons */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(40, 40, 40, 0.7);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.scroll-btn:hover {
+    background-color: rgba(0, 188, 212, 0.8);
+}
+.scroll-btn.prev { left: 0px; }
+.scroll-btn.next { right: 0px; }
+.scroll-btn:focus { outline: 2px solid #00bcd4; outline-offset: 1px;}
 
 
 /* --- Styles for before-we-begin.html & about.html --- */
@@ -109,20 +167,32 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
 
 
 /* --- Media Queries --- */
-/* Adjust card width for Masonry columns on different screens */
-@media (max-width: 1199px) { /* Example: 3 columns */
-    .course-card { width: calc(33.33% - 14px); /* Adjust gap calculation */ }
-}
 
-@media (max-width: 767px) { /* Example: 2 columns */
+/* Mobile Adjustments (< 768px) */
+@media (max-width: 767px) {
     #nav-links { display: none; }
     .hamburger-menu { display: flex; height: 50px; top: 0; right: 15px; }
     .nav-container { justify-content: center; }
     nav { height: 50px; }
     body { padding-top: 50px; }
 
-    .courses-container { padding: 15px; }
-    .course-card { width: calc(50% - 10px); margin-bottom: 15px;} /* Adjust gap calculation */
+    /* Adjust featured card size */
+    .course-card-ai-featured { width: 90%; aspect-ratio: 16 / 10; min-height: 250px; }
+
+    /* Adjust scroll container */
+    .scrollable-courses-wrapper { padding: 0 10px; /* Less padding for buttons */ }
+    .scroll-btn { width: 35px; height: 35px; font-size: 1.2rem; }
+    .scroll-btn.prev { left: -5px; } /* Position buttons closer */
+    .scroll-btn.next { right: -5px; }
+
+    /* Adjust scrolled card size */
+    .courses-container { gap: 15px; }
+    .course-card {
+        flex-basis: 220px; /* Smaller cards for mobile scroll */
+        width: 220px;
+        min-height: auto; /* Remove min-height if aspect-ratio works */
+        aspect-ratio: 4 / 3;
+    }
 
     /* Mobile Font Sizes */
     .name-center h1 { font-size: 1.8rem; } .name-center p { font-size: 0.9rem; }
@@ -131,20 +201,10 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
     .before-we-begin h1 { font-size: 1.8rem; } .before-we-begin p { font-size: 1rem; }
 }
 
- @media (max-width: 550px) { /* Example: 1 column */
-     .courses-container { padding: 10px; }
-     .course-card { width: 100%; margin-bottom: 15px;} /* Full width */
-
-     /* Font size adjustments */
-    .name-center h1 { font-size: 1.6rem; } .name-center p { font-size: 0.85rem; }
-     .intro h2 { font-size: 1.6rem; } .intro p { font-size: 0.9rem; }
-     .text-overlay h3 { font-size: 1rem; } .text-overlay p { font-size: 0.75rem; }
-     .before-we-begin h1 { font-size: 1.6rem; } .before-we-begin p { font-size: 0.9rem; }
- }
-
- /* Keep other media queries */
+ /* Desktop Adjustments (>= 768px) */
  @media (min-width: 768px) {
      .hamburger-menu { display: none; }
      #nav-links { display: flex; }
      .nav-container { justify-content: center; }
  }
+ /* No media queries needed for course container/card widths as flex handles it */
