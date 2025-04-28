@@ -70,69 +70,49 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
 .intro h2 { font-size: 2rem; margin-bottom: 20px; font-family: 'Lora', serif; }
 .intro p { font-size: 1.1rem; margin-bottom: 20px; }
 
-/* Courses Container - Auto-fill grid */
+/* Courses Container - Using Flexbox Wrap */
 .courses-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    padding: 25px;
-    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items */
+    gap: 20px; /* Adjust gap */
+    padding: 20px;
+    max-width: 1300px; /* Allow slightly wider container */
     margin: 0 auto;
 }
 
-/* Course Card - Image-based structure with min-height fallback */
+/* Course Card - Adjusted for ~6 columns on wide screens */
 .course-card {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    background-color: #333; /* Fallback background */
-    min-height: 200px; /* <<< Fallback height for broken/missing images */
+    background-color: #333;
+    min-height: 160px; /* Adjust fallback height for potentially smaller cards */
     color: #f0f0f0;
+    /* Flex sizing: Aim for 6 columns -> 100/6 = ~16.6% */
+    /* Adjust calc based on gap (e.g., 5/6 * 20px = ~17px) */
+    flex: 0 1 calc(16.66% - 17px);
+    /* Add min-width to prevent excessive shrinking */
+    min-width: 160px; /* Cards can get quite small */
+    margin-bottom: 20px; /* Add margin back */
 }
 
 /* Image Styling */
-.course-card img {
-    display: block;
-    width: 100%;
-    height: 100%; /* Let image fill height */
-    object-fit: cover; /* Cover area, maintain aspect ratio, might crop */
-    transition: transform 0.3s ease-out, filter 0.3s ease-out;
-}
+.course-card img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease-out, filter 0.3s ease-out; }
+/* Overlay */
+.course-card .overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.4); z-index: 1; transition: background-color 0.3s ease-out; pointer-events: none; }
+/* Text Overlay */
+.course-card .text-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; text-align: center; color: #fff; width: 90%; padding: 5px; } /* Reduced padding */
+/* Adjust text sizes for potentially smaller cards */
+.text-overlay h3 { font-size: 1.1rem; margin-bottom: 4px; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.9); font-family: 'Lora', serif; }
+.text-overlay p { font-size: 0.75rem; color: #f0f0f0; margin-bottom: 0; line-height: 1.3; text-shadow: 1px 1px 3px rgba(0,0,0,0.9); }
 
-/* Overlay for base darkening effect */
-.course-card .overlay {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4); /* Default darkness */
-    z-index: 1;
-    transition: background-color 0.3s ease-out;
-    pointer-events: none;
-}
+/* Hover Effects */
+.course-card:hover { transform: scale(1.05); /* Increase scale slightly */ box-shadow: 0 0 20px 3px rgba(0, 188, 212, 0.8); }
+.course-card:hover img { filter: brightness(40%); }
 
-/* Text Overlay - Absolute Centered */
-.course-card .text-overlay {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    text-align: center;
-    color: #fff;
-    width: 90%;
-    padding: 10px;
-}
-.text-overlay h3 { font-size: 1.5rem; margin-bottom: 10px; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.9); font-family: 'Lora', serif; }
-.text-overlay p { font-size: 1rem; color: #f0f0f0; margin-bottom: 0; line-height: 1.4; text-shadow: 1px 1px 3px rgba(0,0,0,0.9); }
-
-/* Hover Effects: Glow + Darken Image */
-.course-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 20px 3px rgba(0, 188, 212, 0.8); /* Box glow */
-}
-.course-card:hover img {
-     filter: brightness(40%); /* Darken image on hover */
-}
 
 /* --- Styles for before-we-begin.html & about.html --- */
 .before-we-begin { min-height: calc(90vh - 60px); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column; padding: 20px; }
@@ -162,7 +142,23 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
 
 /* --- Media Queries --- */
 
-/* Mobile Adjustments (< 768px) */
+/* Mobile Adjustments (< 768px) - Target ~3 columns */
+@media (max-width: 1000px) { /* Adjust breakpoint */
+    .courses-container {
+        gap: 20px;
+        padding: 20px;
+    }
+    .course-card {
+        flex-basis: calc(33.33% - 14px); /* Target 3 columns */
+        min-width: 200px; /* Allow shrinking */
+        margin-bottom: 20px;
+    }
+    .text-overlay h3 { font-size: 1.2rem; } /* Slightly larger text */
+    .text-overlay p { font-size: 0.8rem; }
+}
+
+
+/* Mobile Adjustments (< 767px) - Target 2 columns */
 @media (max-width: 767px) {
     #nav-links { display: none; }
     .hamburger-menu { display: flex; height: 50px; top: 0; right: 15px; }
@@ -170,45 +166,48 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
     nav { height: 50px; }
     body { padding-top: 50px; }
 
-    /* Mobile Grid Layout for Courses */
     .courses-container {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 15px;
         padding: 15px;
     }
     .course-card {
-        min-height: 160px; /* Adjust fallback height for mobile */
+        flex-basis: calc(50% - 8px); /* Target 2 columns */
+        min-width: 180px;
+        min-height: 180px; /* Adjust fallback */
+        margin-bottom: 15px;
     }
+    /* Adjust font sizes if needed */
+    .text-overlay h3 { font-size: 1.1rem; }
+    .text-overlay p { font-size: 0.8rem; }
 
-    /* Mobile Font Sizes */
+    /* Other Mobile Font Sizes */
     .name-center h1 { font-size: 1.8rem; } .name-center p { font-size: 0.9rem; }
     .intro h2 { font-size: 1.8rem; } .intro p { font-size: 1rem; }
-    .text-overlay h3 { font-size: 1.3rem; } .text-overlay p { font-size: 0.9rem; }
     .before-we-begin h1 { font-size: 1.8rem; } .before-we-begin p { font-size: 1rem; }
 }
 
- /* Desktop Adjustments (>= 768px) */
- @media (min-width: 768px) {
-     .hamburger-menu { display: none; }
-     #nav-links { display: flex; }
-     .nav-container { justify-content: center; }
- }
-
-/* Smaller Mobile Adjustments (< 480px) */
+ /* Smaller Mobile Adjustments (< 480px) - Target 1 column */
  @media (max-width: 480px) {
-    /* Course Grid to 1 column */
      .courses-container {
-        grid-template-columns: 1fr;
         gap: 15px;
         padding: 15px;
-    }
+     }
      .course-card {
-        min-height: 180px; /* Adjust fallback height */
-    }
+        flex-basis: 95%; /* Target 1 column */
+        min-width: unset; /* Remove min-width if forcing 1 column */
+        margin-bottom: 15px;
+     }
 
      /* Font size adjustments */
      .name-center h1 { font-size: 1.6rem; } .name-center p { font-size: 0.85rem; }
      .intro h2 { font-size: 1.6rem; } .intro p { font-size: 0.9rem; }
-     .text-overlay h3 { font-size: 1.1rem; } .text-overlay p { font-size: 0.8rem; }
+     .text-overlay h3 { font-size: 1rem; } .text-overlay p { font-size: 0.75rem; }
      .before-we-begin h1 { font-size: 1.6rem; } .before-we-begin p { font-size: 0.9rem; }
+ }
+
+ /* Desktop Adjustments (>= 768px) - Handled by base flex rule */
+ @media (min-width: 768px) {
+     .hamburger-menu { display: none; }
+     #nav-links { display: flex; }
+     .nav-container { justify-content: center; }
  }
