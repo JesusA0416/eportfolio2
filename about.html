@@ -1,113 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>About Me - Jesús Lopez Aguilar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>About Me - Jesús Lopez Aguilar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <nav>
-         <div class="nav-container">
-            <ul id="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active-nav-link">About Me</a></li> <li><a href="courses.html">Courses</a></li>
-                <li><a href="achievements.html">Achievements</a></li>
-                <li><a href="projects.html">Personal Projects</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
+  <nav>
+    <div class="nav-container">
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active-nav-link">About Me</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="projects.html">Personal Projects</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <div class="mobile-nav" id="mobile-nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="courses.html">Courses</a>
-        <a href="achievements.html">Achievements</a>
-        <a href="projects.html">Personal Projects</a>
+  <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="courses.html">Courses</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="projects.html">Personal Projects</a>
+  </div>
+
+  <main>
+    <div class="page-center fade-in-section">
+      <h1>About Me</h1>
+      <p>I'm Jesús Lopez Aguilar — a student passionate about Criminal Justice and Nursing with a focus on Forensics. When I'm not studying crime scenes or healthcare, I'm probably overthinking existential questions and trying to remember if I did that one homework assignment.</p>
+      <a href="courses.html" class="button">Explore My Courses</a>
     </div>
+  </main>
 
-    <div class="before-we-begin fade-in-section">
-        <h1>About Me</h1>
-        <p>I am Jesús Lopez Aguilar, a student at SLCC studying Criminal Justice and Nursing Practice. I love blending forensic science and healthcare together in my education and future goals!</p>
-        <a href="courses.html" class="button">Explore My Courses</a>
-    </div>
-    <footer>
-        <p>© 2025 Jesús Lopez Aguilar | All rights reserved</p>
-    </footer>
+  <footer>
+    <p>© 2025 Jesús Lopez Aguilar | All rights reserved</p>
+  </footer>
 
-    <script>
-        // Function to toggle the mobile menu, body scroll lock, AND hamburger animation class
-        function toggleMenu() {
-            const mobileNav = document.getElementById('mobile-nav');
-            const hamburgerIcon = document.getElementById('hamburger-menu'); // Get the hamburger icon
-            const body = document.body;
+<script>
+function toggleMenu() {
+  const mobileNav = document.getElementById('mobile-nav');
+  const hamburgerIcon = document.getElementById('hamburger-menu');
+  const body = document.body;
 
-            mobileNav.classList.toggle('active');
-            hamburgerIcon.classList.toggle('is-active'); // Toggle hamburger animation class
+  mobileNav.classList.toggle('active');
+  hamburgerIcon.classList.toggle('is-active');
 
-            if (mobileNav.classList.contains('active')) {
-                body.classList.add('no-scroll');
-            } else {
-                body.classList.remove('no-scroll');
-            }
-        }
+  if (mobileNav.classList.contains('active')) {
+    body.classList.add('no-scroll');
+  } else {
+    body.classList.remove('no-scroll');
+  }
+}
 
-        // --- Touch Event Listeners for Mobile Glow ---
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
-            let touchInitiated = false;
-            link.addEventListener('touchstart', function(event) {
-                this.classList.add('link-active-glow');
-                touchInitiated = true;
-            });
-            link.addEventListener('touchend', function() {
-                if (touchInitiated) {
-                    setTimeout(() => { this.classList.remove('link-active-glow'); }, 150);
-                }
-                touchInitiated = false;
-            });
-            link.addEventListener('touchcancel', function() {
-                 if (touchInitiated) { this.classList.remove('link-active-glow'); }
-                 touchInitiated = false;
-            });
-            link.addEventListener('click', () => {
-                const mobileNav = document.getElementById('mobile-nav');
-                const hamburgerIcon = document.getElementById('hamburger-menu'); // Need hamburger here too
-                if (mobileNav.classList.contains('active')) {
-                    mobileNav.classList.remove('active');
-                    hamburgerIcon.classList.remove('is-active'); // Ensure hamburger resets if link clicked
-                    document.body.classList.remove('no-scroll');
-                }
-                setTimeout(() => { if (link.classList.contains('link-active-glow')) { link.classList.remove('link-active-glow'); } }, 150);
-                 touchInitiated = false;
-            });
-        }); // Added missing closing parenthesis
+const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+const observerCallback = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    }
+  });
+};
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+const targets = document.querySelectorAll('.fade-in-section');
+targets.forEach(target => observer.observe(target));
+</script>
 
-        // --- Intersection Observer for Scroll Animations ---
-        const observerOptions = {
-          root: null, rootMargin: '0px', threshold: 0.1
-        };
-        const observerCallback = (entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        };
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-        const targets = document.querySelectorAll('.fade-in-section');
-        targets.forEach(target => observer.observe(target));
-        // --- End Intersection Observer ---
-    </script>
-    </body>
+</body>
 </html>
