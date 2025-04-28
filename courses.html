@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,6 @@
 </head>
 
 <body>
-
   <nav>
     <div class="nav-container">
       <ul id="nav-links">
@@ -38,17 +38,16 @@
   </div>
 
   <main>
-
     <div class="intro fade-in-section">
       <h2>Welcome to My General Education Courses</h2>
-      <p>Alright, let’s get real—this section isn’t just about “what I’ve learned.” No, this is where I break down my journey through Salt Lake Community College, looking at the classes that molded me (sometimes with a side of tears). It’s a wild ride of knowledge and chaos, but it’s all part of how I’m building myself.</p>
-      <p>You'll see how each course gave me something important—whether it was insight, skills, or simply the experience of surviving all-nighters. These aren’t just bullet points; these are *experiences*—and here’s where I tell you all about them.</p>
+      <p>This section isn’t just about “what I’ve learned.” This is where I break down my journey through SLCC, looking at the classes that molded me (sometimes with a side of tears).</p>
+      <p>You'll see how each course gave me something important—whether it was insight, skills, or simply the experience of surviving all-nighters. These aren’t just bullet points; these are *experiences*.</p>
     </div>
 
-    <div class="courses-layout fade-in-section">
-      <!-- Big American Institutions Card -->
-      <div class="course-card large-card ai">
-        <img src="images/american_institutions.png" alt="American Institutions Image">
+    <div class="courses-container fade-in-section">
+
+      <div class="course-card">
+        <img src="images/american_institutions.png" alt="American Institutions">
         <div class="overlay"></div>
         <div class="text-overlay">
           <h3>American Institutions (AI)</h3>
@@ -56,46 +55,44 @@
         </div>
       </div>
 
-      <!-- Small Cards Next to AI -->
-      <div class="course-card small-card fine-arts">
-        <img src="images/course2.png" alt="Fine Arts Image">
+      <div class="course-card">
+        <img src="images/course2.jpg" alt="Fine Arts">
         <div class="overlay"></div>
         <div class="text-overlay">
           <h3>Fine Arts (FA)</h3>
-          <p>Explore artistic expression.</p>
+          <p>Explore artistic expression and its impact on culture.</p>
         </div>
       </div>
 
-      <div class="course-card small-card social-science">
-        <img src="images/social_science.png" alt="Social Science Image">
+      <div class="course-card">
+        <img src="images/course1.jpg" alt="Humanities">
+        <div class="overlay"></div>
+        <div class="text-overlay">
+          <h3>Humanities (HU)</h3>
+          <p>Study philosophy, literature, and art.</p>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <img src="images/social_science.png" alt="Social Science">
         <div class="overlay"></div>
         <div class="text-overlay">
           <h3>Social Science (SS)</h3>
-          <p>Examine human society.</p>
+          <p>Examine human society and relationships.</p>
         </div>
       </div>
 
-      <!-- Small Cards Beneath AI -->
-      <div class="course-card small-card composition">
-        <img src="images/composition.png" alt="Composition Image">
+      <div class="course-card">
+        <img src="images/composition.jpg" alt="Composition">
         <div class="overlay"></div>
         <div class="text-overlay">
           <h3>Composition (EN)</h3>
-          <p>Developing writing skills.</p>
+          <p>Developing effective writing skills.</p>
         </div>
       </div>
 
-      <div class="course-card small-card life-science">
-        <img src="images/life_science.png" alt="Life Science Image">
-        <div class="overlay"></div>
-        <div class="text-overlay">
-          <h3>Life Science</h3>
-          <p>Study of living organisms.</p>
-        </div>
-      </div>
-
-      <div class="course-card small-card quantitative-literacy">
-        <img src="images/quantitative_literacy.png" alt="Quantitative Literacy Image">
+      <div class="course-card">
+        <img src="images/quantitative_literacy.jpg" alt="Quantitative Literacy">
         <div class="overlay"></div>
         <div class="text-overlay">
           <h3>Quantitative Literacy (QL/QS)</h3>
@@ -103,17 +100,52 @@
         </div>
       </div>
 
-      <!-- Big Humanities Card Bottom Right -->
-      <div class="course-card large-card humanities">
-        <img src="images/course1.png" alt="Humanities Image">
+      <div class="course-card">
+        <img src="images/life_science.jpg" alt="Life Science">
         <div class="overlay"></div>
         <div class="text-overlay">
-          <h3>Humanities (HU)</h3>
-          <p>Study philosophy, literature, and art.</p>
+          <h3>Life Science</h3>
+          <p>Study of living organisms.</p>
         </div>
       </div>
-    </div>
 
+      <div class="course-card">
+        <img src="images/physical_science.jpg" alt="Physical Science">
+        <div class="overlay"></div>
+        <div class="text-overlay">
+          <h3>Physical Science (PS)</h3>
+          <p>Exploring non-living systems.</p>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <img src="images/communication.jpg" alt="Communication">
+        <div class="overlay"></div>
+        <div class="text-overlay">
+          <h3>Communication (CM)</h3>
+          <p>Effective human communication.</p>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <img src="images/international_global.jpg" alt="International and Global">
+        <div class="overlay"></div>
+        <div class="text-overlay">
+          <h3>International & Global (IG)</h3>
+          <p>Understanding global perspectives.</p>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <img src="images/lifelong_wellness.jpg" alt="Lifelong Wellness">
+        <div class="overlay"></div>
+        <div class="text-overlay">
+          <h3>Lifelong Wellness (LW)</h3>
+          <p>Principles of health and well-being.</p>
+        </div>
+      </div>
+
+    </div>
   </main>
 
   <footer>
@@ -121,13 +153,14 @@
   </footer>
 
   <script>
-    // --- Hamburger Menu Function ---
     function toggleMenu() {
       const mobileNav = document.getElementById('mobile-nav');
       const hamburgerIcon = document.getElementById('hamburger-menu');
       const body = document.body;
+
       mobileNav.classList.toggle('active');
       hamburgerIcon.classList.toggle('is-active');
+
       if (mobileNav.classList.contains('active')) {
         body.classList.add('no-scroll');
       } else {
@@ -135,26 +168,6 @@
       }
     }
 
-    // --- Mobile Nav Link Glow & Menu Close ---
-    document.querySelectorAll('.mobile-nav a').forEach(link => {
-      let touchInitiated = false;
-      link.addEventListener('touchstart', function (event) { this.classList.add('link-active-glow'); touchInitiated = true; });
-      link.addEventListener('touchend', function () { if (touchInitiated) { setTimeout(() => { this.classList.remove('link-active-glow'); }, 150); } touchInitiated = false; });
-      link.addEventListener('touchcancel', function () { if (touchInitiated) { this.classList.remove('link-active-glow'); } touchInitiated = false; });
-      link.addEventListener('click', () => {
-        const mobileNav = document.getElementById('mobile-nav');
-        const hamburgerIcon = document.getElementById('hamburger-menu');
-        if (mobileNav.classList.contains('active')) {
-          mobileNav.classList.remove('active');
-          hamburgerIcon.classList.remove('is-active');
-          document.body.classList.remove('no-scroll');
-        }
-        setTimeout(() => { if (link.classList.contains('link-active-glow')) { link.classList.remove('link-active-glow'); } }, 150);
-        touchInitiated = false;
-      });
-    });
-
-    // --- Intersection Observer for Scroll Animations ---
     const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
     const observerCallback = (entries, observer) => {
       entries.forEach(entry => {
@@ -168,6 +181,6 @@
     const targets = document.querySelectorAll('.fade-in-section');
     targets.forEach(target => observer.observe(target));
   </script>
-
 </body>
+
 </html>
