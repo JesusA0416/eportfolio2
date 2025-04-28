@@ -46,17 +46,15 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
 .intro h2 { font-size: 2rem; margin-bottom: 20px; font-family: 'Lora', serif; }
 .intro p { font-size: 1.1rem; margin-bottom: 20px; }
 
-/* Courses Container - Using 4-Column Dense Grid */
+/* Courses Container - Auto-fill grid with dense flow */
 .courses-container {
     display: grid;
-    /* Default to 4 columns on larger screens */
-    grid-template-columns: repeat(4, 1fr);
-    /* Define a base size for rows, allow content to expand */
-    grid-auto-rows: minmax(180px, auto); /* Adjust min height as needed */
-    grid-auto-flow: dense; /* Attempt to fill holes */
-    gap: 20px; /* Adjust gap */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Base size ~300px */
+    grid-auto-rows: minmax(200px, auto); /* Let rows grow, min height */
+    grid-auto-flow: dense; /* Try to fill gaps */
+    gap: 25px;
     padding: 25px;
-    max-width: 1200px; /* Adjust as needed */
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -68,26 +66,18 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
     background-color: #333; /* Fallback */
+    min-height: 200px; /* Fallback height */
     color: #f0f0f0;
-    /* Ensure cards fill their grid area */
-     width: 100%;
-     height: 100%;
-     min-height: 180px; /* Keep minimum fallback for grid auto rows */
 }
 
-/* Specific styles for LARGER cards */
-.course-card-ai {
-    grid-column: span 2;
-    grid-row: span 2; /* Make AI a 2x2 block */
-    min-height: 380px; /* = (2 * 180px auto row min) + 20px gap */
+/* Specific class ONLY for cards that should span wider */
+.course-card-wide {
+    grid-column: span 2; /* Make this card span 2 columns */
+     /* Optional: force aspect ratio for wide cards if needed */
+    /* aspect-ratio: 8 / 3; */
+    /* Optional: Adjust min-height if wide cards should be taller */
+    /* min-height: 180px; */
 }
-.course-card-hu,
-.course-card-en,
-.course-card-ls {
-    grid-column: span 2; /* Make HU, EN, LS 2x1 blocks */
-    /* min-height should be covered by grid-auto-rows */
-}
-/* All others cards are implicitly 1x1 */
 
 /* Image Styling */
 .course-card img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease-out, filter 0.3s ease-out; }
@@ -127,21 +117,7 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
 
 /* --- Media Queries --- */
 
-/* Tablet Adjustments (~768px - 1023px) - Target 3 columns */
-@media (max-width: 1023px) {
-    .courses-container {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns */
-        grid-auto-rows: minmax(160px, auto);
-        gap: 20px; padding: 20px;
-    }
-    /* How spanning cards behave on 3 columns */
-    .course-card-ai { grid-column: span 2; grid-row: span 1; min-height: 160px; /* Reset spans/height */ }
-    .course-card-hu { grid-column: span 2; grid-row: span 1; min-height: 160px; }
-    .course-card-en { grid-column: span 1; grid-row: span 1; min-height: 160px; } /* Span 1 */
-    .course-card-ls { grid-column: span 1; grid-row: span 1; min-height: 160px; } /* Span 1 */
-}
-
-/* Mobile Adjustments (< 768px) - Target 2 columns */
+/* Mobile Adjustments (< 768px) - Target auto-fill based on smaller min */
 @media (max-width: 767px) {
     #nav-links { display: none; }
     .hamburger-menu { display: flex; height: 50px; top: 0; right: 15px; }
@@ -150,57 +126,44 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
     body { padding-top: 50px; }
 
     .courses-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns */
-        grid-auto-rows: minmax(180px, auto);
-        gap: 15px; padding: 15px;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Smaller min allows 2 cols sooner */
+        gap: 15px;
+        padding: 15px;
     }
-    /* Spanning cards take full width */
-    .course-card-ai, .course-card-hu, .course-card-en, .course-card-ls {
-        grid-column: span 2; /* Span full width */
-        grid-row: span 1;    /* Only 1 row high */
-        min-height: 180px; /* Reset min height */
-    }
+    .course-card { min-height: 160px; }
+    /* Make wide card span full width (2 cols) */
+    .course-card-wide { grid-column: span 2; }
 
     /* Mobile Font Sizes */
     .name-center h1 { font-size: 1.8rem; } .name-center p { font-size: 0.9rem; }
     .intro h2 { font-size: 1.8rem; } .intro p { font-size: 1rem; }
-    .text-overlay h3 { font-size: 1.3rem; } .text-overlay p { font-size: 0.9rem; }
+    .text-overlay h3 { font-size: 1.1rem; } .text-overlay p { font-size: 0.8rem; }
     .before-we-begin h1 { font-size: 1.8rem; } .before-we-begin p { font-size: 1rem; }
 }
 
-/* Smaller Mobile Adjustments (< 480px) - Target 1 column */
- @media (max-width: 480px) {
+ /* Desktop Adjustments (>= 768px) */
+ @media (min-width: 768px) {
+     .hamburger-menu { display: none; }
+     #nav-links { display: flex; }
+     .nav-container { justify-content: center; }
+     /* Auto-fill handles desktop columns */
+     /* Wide card spans 2 */
+ }
+
+/* Smaller Mobile Adjustments (< 500px approx for 1 column) */
+ @media (max-width: 550px) { /* Adjust breakpoint for 1 column */
      .courses-container {
-        grid-template-columns: 1fr; /* 1 column */
-        grid-auto-rows: minmax(200px, auto);
-        gap: 15px; padding: 15px;
+        grid-template-columns: 1fr; /* Force 1 column */
+        gap: 15px;
+        padding: 15px;
     }
-     /* All cards span 1 column */
-     .course-card-ai, .course-card-hu, .course-card-en, .course-card-ls {
-        grid-column: span 1;
-        grid-row: span 1;
-        min-height: 200px;
-    }
+     .course-card { min-height: 180px; }
+     /* Make wide card span only 1 column */
+     .course-card-wide { grid-column: span 1; }
 
      /* Font size adjustments */
      .name-center h1 { font-size: 1.6rem; } .name-center p { font-size: 0.85rem; }
      .intro h2 { font-size: 1.6rem; } .intro p { font-size: 0.9rem; }
-     .text-overlay h3 { font-size: 1.1rem; } .text-overlay p { font-size: 0.8rem; }
+     .text-overlay h3 { font-size: 1rem; } .text-overlay p { font-size: 0.75rem; }
      .before-we-begin h1 { font-size: 1.6rem; } .before-we-begin p { font-size: 0.9rem; }
- }
-
- /* Desktop Adjustments (>= 1024px) - Explicitly 4 columns */
- @media (min-width: 1024px) {
-     .hamburger-menu { display: none; }
-     #nav-links { display: flex; }
-     .nav-container { justify-content: center; }
-      .courses-container {
-          grid-template-columns: repeat(4, 1fr); /* Force 4 columns */
-          grid-auto-rows: minmax(200px, auto); /* Adjust base row height maybe */
-      }
-      /* Spans for 4 columns */
-      .course-card-ai { grid-column: span 2; grid-row: span 2; min-height: 420px; /* (2 * 200px) + 20px gap */ }
-      .course-card-hu { grid-column: span 2; grid-row: span 1; min-height: 200px; }
-      .course-card-en { grid-column: span 2; grid-row: span 1; min-height: 200px; }
-      .course-card-ls { grid-column: span 2; grid-row: span 1; min-height: 200px; }
  }
