@@ -1,208 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Courses - Jesús Lopez Aguilar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Courses - Jesús Lopez Aguilar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <nav>
-         <div class="nav-container">
-            <ul id="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="courses.html" class="active-nav-link">Courses</a></li> <li><a href="achievements.html">Achievements</a></li>
-                <li><a href="projects.html">Personal Projects</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
+  <nav>
+    <div class="nav-container">
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="courses.html" class="active-nav-link">Courses</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="projects.html">Personal Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="courses.html">Courses</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="projects.html">Personal Projects</a>
+  </div>
+
+  <main>
+
+    <div class="intro fade-in-section">
+      <h2>Welcome to My General Education Courses</h2>
+      <p>Alright, let’s get real—this section isn’t just about “what I’ve learned.” No, this is where I break down my journey through Salt Lake Community College, looking at the classes that molded me (sometimes with a side of tears). It’s a wild ride of knowledge and chaos, but it’s all part of how I’m building myself.</p>
+      <p>You'll see how each course gave me something important—whether it was insight, skills, or simply the experience of surviving all-nighters. These aren’t just bullet points; these are *experiences*—and here’s where I tell you all about them.</p>
     </div>
 
-    <div class="mobile-nav" id="mobile-nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="courses.html">Courses</a>
-        <a href="achievements.html">Achievements</a>
-        <a href="projects.html">Personal Projects</a>
-    </div>
-
-    <div class="courses-grid fade-in-section">
-
-    <div class="course-card large-card">
+    <div class="courses-layout fade-in-section">
+      <!-- Big American Institutions Card -->
+      <div class="course-card large-card ai">
         <img src="images/american_institutions.png" alt="American Institutions Image">
         <div class="overlay"></div>
         <div class="text-overlay">
-            <h3>American Institutions (AI)</h3>
-            <p>Understanding U.S. government and history.</p>
+          <h3>American Institutions (AI)</h3>
+          <p>Understanding U.S. government and history.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="course-card">
-        <img src="images/course2.png" alt="Fine Arts Course Image">
+      <!-- Small Cards Next to AI -->
+      <div class="course-card small-card fine-arts">
+        <img src="images/course2.png" alt="Fine Arts Image">
         <div class="overlay"></div>
         <div class="text-overlay">
-            <h3>Fine Arts (FA)</h3>
-            <p>Explore artistic expression.</p>
+          <h3>Fine Arts (FA)</h3>
+          <p>Explore artistic expression.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="course-card">
-        <img src="images/course1.png" alt="Humanities Course Image">
-        <div class="overlay"></div>
-        <div class="text-overlay">
-            <h3>Humanities (HU)</h3>
-            <p>Study philosophy, literature, art.</p>
-        </div>
-    </div>
-
-    <div class="course-card large-card">
+      <div class="course-card small-card social-science">
         <img src="images/social_science.png" alt="Social Science Image">
         <div class="overlay"></div>
         <div class="text-overlay">
-            <h3>Social Science (SS)</h3>
-            <p>Examine human society.</p>
+          <h3>Social Science (SS)</h3>
+          <p>Examine human society.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="course-card">
+      <!-- Small Cards Beneath AI -->
+      <div class="course-card small-card composition">
         <img src="images/composition.png" alt="Composition Image">
         <div class="overlay"></div>
         <div class="text-overlay">
-            <h3>Composition (EN)</h3>
-            <p>Developing writing skills.</p>
+          <h3>Composition (EN)</h3>
+          <p>Developing writing skills.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="course-card">
-        <img src="images/quantitative_literacy.png" alt="Quantitative Literacy Image">
-        <div class="overlay"></div>
-        <div class="text-overlay">
-            <h3>Quantitative Literacy (QL/QS)</h3>
-            <p>Applying mathematical skills.</p>
-        </div>
-    </div>
-
-    <div class="course-card large-card">
+      <div class="course-card small-card life-science">
         <img src="images/life_science.png" alt="Life Science Image">
         <div class="overlay"></div>
         <div class="text-overlay">
-            <h3>Life Science</h3>
-            <p>Study of living organisms.</p>
+          <h3>Life Science</h3>
+          <p>Study of living organisms.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="course-card">
-        <img src="images/physical_science.png" alt="Physical Science Image">
+      <div class="course-card small-card quantitative-literacy">
+        <img src="images/quantitative_literacy.png" alt="Quantitative Literacy Image">
         <div class="overlay"></div>
         <div class="text-overlay">
-            <h3>Physical Science (PS)</h3>
-            <p>Exploring non-living systems.</p>
+          <h3>Quantitative Literacy (QL/QS)</h3>
+          <p>Applying mathematical skills.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="course-card">
-        <img src="images/communication.png" alt="Communication Image">
+      <!-- Big Humanities Card Bottom Right -->
+      <div class="course-card large-card humanities">
+        <img src="images/course1.png" alt="Humanities Image">
         <div class="overlay"></div>
         <div class="text-overlay">
-            <h3>Communication (CM)</h3>
-            <p>Effective communication.</p>
+          <h3>Humanities (HU)</h3>
+          <p>Study philosophy, literature, and art.</p>
         </div>
+      </div>
     </div>
 
-    <div class="course-card">
-        <img src="images/international_global.png" alt="International and Global Image">
-        <div class="overlay"></div>
-        <div class="text-overlay">
-            <h3>International & Global (IG)</h3>
-            <p>Understanding global perspectives.</p>
-        </div>
-    </div>
+  </main>
 
-    <div class="course-card">
-        <img src="images/lifelong_wellness.png" alt="Lifelong Wellness Image">
-        <div class="overlay"></div>
-        <div class="text-overlay">
-            <h3>Lifelong Wellness (LW)</h3>
-            <p>Principles of health.</p>
-        </div>
-    </div>
+  <footer>
+    <p>© 2025 Jesús Lopez Aguilar | All rights reserved</p>
+  </footer>
 
-</div>
-             <button class="scroll-btn next" onclick="scrollCourses(1)" aria-label="Next Courses">&#10095;</button>
-        </div> </main> <footer>
-        <p>© 2025 Jesús Lopez Aguilar | All rights reserved</p>
-    </footer>
+  <script>
+    // --- Hamburger Menu Function ---
+    function toggleMenu() {
+      const mobileNav = document.getElementById('mobile-nav');
+      const hamburgerIcon = document.getElementById('hamburger-menu');
+      const body = document.body;
+      mobileNav.classList.toggle('active');
+      hamburgerIcon.classList.toggle('is-active');
+      if (mobileNav.classList.contains('active')) {
+        body.classList.add('no-scroll');
+      } else {
+        body.classList.remove('no-scroll');
+      }
+    }
 
-    <script>
-        // --- Menu Toggle Function ---
-        function toggleMenu() {
-            const mobileNav = document.getElementById('mobile-nav');
-            const hamburgerIcon = document.getElementById('hamburger-menu');
-            const body = document.body;
-            mobileNav.classList.toggle('active');
-            hamburgerIcon.classList.toggle('is-active');
-            if (mobileNav.classList.contains('active')) {
-                body.classList.add('no-scroll');
-            } else {
-                body.classList.remove('no-scroll');
-            }
+    // --- Mobile Nav Link Glow & Menu Close ---
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      let touchInitiated = false;
+      link.addEventListener('touchstart', function (event) { this.classList.add('link-active-glow'); touchInitiated = true; });
+      link.addEventListener('touchend', function () { if (touchInitiated) { setTimeout(() => { this.classList.remove('link-active-glow'); }, 150); } touchInitiated = false; });
+      link.addEventListener('touchcancel', function () { if (touchInitiated) { this.classList.remove('link-active-glow'); } touchInitiated = false; });
+      link.addEventListener('click', () => {
+        const mobileNav = document.getElementById('mobile-nav');
+        const hamburgerIcon = document.getElementById('hamburger-menu');
+        if (mobileNav.classList.contains('active')) {
+          mobileNav.classList.remove('active');
+          hamburgerIcon.classList.remove('is-active');
+          document.body.classList.remove('no-scroll');
         }
+        setTimeout(() => { if (link.classList.contains('link-active-glow')) { link.classList.remove('link-active-glow'); } }, 150);
+        touchInitiated = false;
+      });
+    });
 
-        // --- Mobile Link Glow & Menu Close ---
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
-            let touchInitiated = false;
-            link.addEventListener('touchstart', function(event) { this.classList.add('link-active-glow'); touchInitiated = true; });
-            link.addEventListener('touchend', function() { if (touchInitiated) { setTimeout(() => { this.classList.remove('link-active-glow'); }, 150); } touchInitiated = false; });
-            link.addEventListener('touchcancel', function() { if (touchInitiated) { this.classList.remove('link-active-glow'); } touchInitiated = false; });
-            link.addEventListener('click', () => {
-                const mobileNav = document.getElementById('mobile-nav');
-                const hamburgerIcon = document.getElementById('hamburger-menu');
-                if (mobileNav.classList.contains('active')) {
-                    mobileNav.classList.remove('active');
-                    hamburgerIcon.classList.remove('is-active');
-                    document.body.classList.remove('no-scroll');
-                }
-                setTimeout(() => { if (link.classList.contains('link-active-glow')) { link.classList.remove('link-active-glow'); } }, 150);
-                 touchInitiated = false;
-            });
-        });
-
-        // --- Intersection Observer for Scroll Animations ---
-        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-        const observerCallback = (entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        };
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-        const targets = document.querySelectorAll('.fade-in-section');
-        targets.forEach(target => observer.observe(target));
-
-        // --- Horizontal Scroll Button Function ---
-        function scrollCourses(direction) {
-            const container = document.getElementById('scrollableCourses');
-            if (container) {
-                // Calculate scroll amount (e.g., 80% of container width)
-                const scrollAmount = container.clientWidth * 0.8;
-                container.scrollBy({
-                    left: scrollAmount * direction, // direction is -1 for left, 1 for right
-                    behavior: 'smooth' // Smooth scrolling
-                });
-            }
+    // --- Intersection Observer for Scroll Animations ---
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+    const observerCallback = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
         }
-    </script>
-    </body>
+      });
+    };
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const targets = document.querySelectorAll('.fade-in-section');
+    targets.forEach(target => observer.observe(target));
+  </script>
+
+</body>
 </html>
