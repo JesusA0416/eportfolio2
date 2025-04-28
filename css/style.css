@@ -208,3 +208,55 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
      .nav-container { justify-content: center; }
  }
  /* No media queries needed for course container/card widths as flex handles it */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.course-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 300px;
+}
+
+.course-card.large-card {
+    grid-column: span 2;
+    grid-row: span 2;
+    height: 620px;
+}
+
+.course-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.course-card .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+}
+
+.course-card .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 10px;
+    z-index: 2;
+}
+
+.course-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px 5px rgba(0,188,212,0.8);
+}
