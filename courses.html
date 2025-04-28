@@ -9,9 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Ensure cards are block level for JS libs if needed */
-        /* .course-card { display: block; } */
-        /* Override potential inline-block added previously */
+        .courses-container { visibility: hidden; } /* Hide container until JS runs */
+        .courses-container.masonry-init { visibility: visible; } /* Show after init */
+        .course-card { float: left; } /* Basic fallback float */
     </style>
 </head>
 
@@ -50,88 +50,77 @@
 
         <div class="courses-container fade-in-section">
             <div class="course-card">
-                 <img src="images/american_institutions.png" alt="American Institutions Image">
-                <div class="overlay"></div>
+                 <img src="images/american_institutions.png" alt="American Institutions Image"> <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>American Institutions (AI)</h3>
                      <p>Understanding U.S. government and history.</p>
                 </div>
             </div>
             <div class="course-card">
-                 <img src="images/course2.png" alt="Fine Arts Course Image">
-                <div class="overlay"></div>
+                 <img src="images/course2.png" alt="Fine Arts Course Image"> <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>Fine Arts (FA)</h3>
                      <p>Explore artistic expression and its impact on culture.</p>
                 </div>
             </div>
              <div class="course-card">
-                 <img src="images/course1.png" alt="Humanities Course Image">
-                <div class="overlay"></div>
+                 <img src="images/course1.png" alt="Humanities Course Image"> <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>Humanities (HU)</h3>
                      <p>Study philosophy, literature, and art.</p>
                 </div>
             </div>
              <div class="course-card">
-                 <img src="images/social_science.png" alt="Social Science Image">
-                <div class="overlay"></div>
+                 <img src="images/social_science.png" alt="Social Science Image"> <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>Social Science (SS)</h3>
                      <p>Examine human society and relationships.</p>
                 </div>
             </div>
              <div class="course-card">
-                 <img src="images/composition.png" alt="Composition Image">
-                <div class="overlay"></div>
+                 <img src="images/composition.png" alt="Composition Image"> <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>Composition (EN)</h3>
                      <p>Developing effective writing skills.</p>
                 </div>
             </div>
             <div class="course-card">
-                 <img src="images/quantitative_literacy.png" alt="Quantitative Literacy Image">
-                <div class="overlay"></div>
+                 <img src="images/quantitative_literacy.png" alt="Quantitative Literacy Image"> <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>Quantitative Literacy (QL/QS)</h3>
                      <p>Applying mathematical skills.</p>
                 </div>
             </div>
              <div class="course-card">
-                 <img src="images/life_science.png" alt="Life Science Image">
-                <div class="overlay"></div>
+                 <img src="images/life_science.png" alt="Life Science Image"> <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>Life Science</h3>
                      <p>Study of living organisms.</p>
                 </div>
             </div>
             <div class="course-card">
-                 <img src="images/physical_science.png" alt="Physical Science Image">
-                <div class="overlay"></div>
+                 <img src="images/physical_science.png" alt="Physical Science Image"> <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>Physical Science (PS)</h3>
                      <p>Exploring non-living systems.</p>
                 </div>
             </div>
              <div class="course-card">
-                 <img src="images/communication.png" alt="Communication Image">
-                <div class="overlay"></div>
+                 <img src="images/communication.png" alt="Communication Image"> <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>Communication (CM)</h3>
                      <p>Effective human communication.</p>
                 </div>
             </div>
             <div class="course-card">
-                 <img src="images/international_global.png" alt="International and Global Image">
-                <div class="overlay"></div>
+                 <img src="images/international_global.png" alt="International and Global Image"> <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>International & Global (IG)</h3>
                      <p>Understanding global perspectives.</p>
                 </div>
             </div>
              <div class="course-card">
-                 <img src="images/lifelong_wellness.png" alt="Lifelong Wellness Image">
-                <div class="overlay"></div>
+                 <img src="images/lifelong_wellness.png" alt="Lifelong Wellness Image"> <div class="overlay"></div>
                 <div class="text-overlay">
                      <h3>Lifelong Wellness (LW)</h3>
                      <p>Principles of health and well-being.</p>
@@ -151,10 +140,8 @@
             const mobileNav = document.getElementById('mobile-nav');
             const hamburgerIcon = document.getElementById('hamburger-menu');
             const body = document.body;
-
             mobileNav.classList.toggle('active');
             hamburgerIcon.classList.toggle('is-active');
-
             if (mobileNav.classList.contains('active')) {
                 body.classList.add('no-scroll');
             } else {
@@ -177,7 +164,7 @@
                     document.body.classList.remove('no-scroll');
                 }
                 setTimeout(() => { if (link.classList.contains('link-active-glow')) { link.classList.remove('link-active-glow'); } }, 150);
-                touchInitiated = false;
+                 touchInitiated = false;
             });
         });
 
@@ -196,20 +183,22 @@
         targets.forEach(target => observer.observe(target));
 
         // --- Masonry Layout Initialization ---
-        // Wrap in event listener to ensure DOM is ready
+        // Ensure the script runs after the DOM is loaded
         window.addEventListener('load', () => {
             const coursesContainer = document.querySelector('.courses-container');
-            if (coursesContainer) { // Check if container exists on page
-                // Initialize Masonry after images have loaded
+            if (coursesContainer) { // Check if container exists
+                // Initialize imagesLoaded first
                 imagesLoaded( coursesContainer, function() {
+                  // All images are loaded, now initialize Masonry
                   console.log('Images loaded, initializing Masonry'); // For debugging
                   const masonryInstance = new Masonry( coursesContainer, {
                     itemSelector: '.course-card',
-                    // columnWidth: Can be a selector or number. If items have % width, maybe use element sizer or number
-                    // Let's try without columnWidth first if items have CSS width
-                    gutter: 20, // Should match CSS gap ideally, or set gap here
-                    percentPosition: true // Use percentages if card widths use %
+                    columnWidth: '.course-card', // Use card width itself for column calculation
+                    gutter: 20, // Space between columns (adjust value to match desired visual gap)
+                    percentPosition: true // Better for responsive sizing
                   });
+                  // Reveal container after Masonry runs
+                  coursesContainer.classList.add('masonry-init');
                 });
             }
         });
