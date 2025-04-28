@@ -74,43 +74,49 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
 .courses-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Center items */
-    gap: 20px; /* Adjust gap */
-    padding: 20px;
-    max-width: 1300px; /* Allow slightly wider container */
+    justify-content: center; /* Center items including last row */
+    gap: 25px;
+    padding: 25px;
+    max-width: 1200px; /* Adjust as needed */
     margin: 0 auto;
 }
 
-/* Course Card - Adjusted for ~6 columns on wide screens */
+/* Course Card - Image-based structure with flex sizing */
 .course-card {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    background-color: #333;
-    min-height: 160px; /* Adjust fallback height for potentially smaller cards */
+    background-color: #333; /* Fallback background */
+    min-height: 200px;      /* Fallback height if image broken */
     color: #f0f0f0;
-    /* Flex sizing: Aim for 6 columns -> 100/6 = ~16.6% */
-    /* Adjust calc based on gap (e.g., 5/6 * 20px = ~17px) */
-    flex: 0 1 calc(16.66% - 17px);
-    /* Add min-width to prevent excessive shrinking */
-    min-width: 160px; /* Cards can get quite small */
-    margin-bottom: 20px; /* Add margin back */
+    /* Flex sizing: Target ~3 columns */
+    /* Allow grow, allow shrink, base width ~300px */
+    flex: 1 1 300px;
+    /* Limit max growth slightly less than 1/2 container width minus gap */
+    /* to encourage 3 columns when possible */
+    max-width: calc(50% - 13px);
+    /* Adjust max-width based on desired widest size */
+    /* max-width: 360px; /* Example fixed max */
 }
+/* Ensure cards don't exceed container width */
+.course-card {
+     max-width: 100%; /* Allow shrinking below flex-basis */
+}
+
 
 /* Image Styling */
 .course-card img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease-out, filter 0.3s ease-out; }
 /* Overlay */
 .course-card .overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.4); z-index: 1; transition: background-color 0.3s ease-out; pointer-events: none; }
 /* Text Overlay */
-.course-card .text-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; text-align: center; color: #fff; width: 90%; padding: 5px; } /* Reduced padding */
-/* Adjust text sizes for potentially smaller cards */
-.text-overlay h3 { font-size: 1.1rem; margin-bottom: 4px; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.9); font-family: 'Lora', serif; }
-.text-overlay p { font-size: 0.75rem; color: #f0f0f0; margin-bottom: 0; line-height: 1.3; text-shadow: 1px 1px 3px rgba(0,0,0,0.9); }
+.course-card .text-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; text-align: center; color: #fff; width: 90%; padding: 10px; }
+.text-overlay h3 { font-size: 1.5rem; margin-bottom: 10px; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.9); font-family: 'Lora', serif; }
+.text-overlay p { font-size: 1rem; color: #f0f0f0; margin-bottom: 0; line-height: 1.4; text-shadow: 1px 1px 3px rgba(0,0,0,0.9); }
 
 /* Hover Effects */
-.course-card:hover { transform: scale(1.05); /* Increase scale slightly */ box-shadow: 0 0 20px 3px rgba(0, 188, 212, 0.8); }
+.course-card:hover { transform: scale(1.03); box-shadow: 0 0 20px 3px rgba(0, 188, 212, 0.8); }
 .course-card:hover img { filter: brightness(40%); }
 
 
@@ -142,23 +148,7 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
 
 /* --- Media Queries --- */
 
-/* Mobile Adjustments (< 768px) - Target ~3 columns */
-@media (max-width: 1000px) { /* Adjust breakpoint */
-    .courses-container {
-        gap: 20px;
-        padding: 20px;
-    }
-    .course-card {
-        flex-basis: calc(33.33% - 14px); /* Target 3 columns */
-        min-width: 200px; /* Allow shrinking */
-        margin-bottom: 20px;
-    }
-    .text-overlay h3 { font-size: 1.2rem; } /* Slightly larger text */
-    .text-overlay p { font-size: 0.8rem; }
-}
-
-
-/* Mobile Adjustments (< 767px) - Target 2 columns */
+/* Mobile Adjustments (< 768px) - Target 2 columns */
 @media (max-width: 767px) {
     #nav-links { display: none; }
     .hamburger-menu { display: flex; height: 50px; top: 0; right: 15px; }
@@ -166,36 +156,42 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
     nav { height: 50px; }
     body { padding-top: 50px; }
 
+    /* Mobile Layout for Courses */
     .courses-container {
-        gap: 15px;
+        gap: 15px; /* Adjust gap */
         padding: 15px;
     }
     .course-card {
-        flex-basis: calc(50% - 8px); /* Target 2 columns */
-        min-width: 180px;
         min-height: 180px; /* Adjust fallback */
-        margin-bottom: 15px;
+        flex-basis: calc(50% - 10px); /* Aim for 2 columns */
+        max-width: calc(50% - 10px); /* Limit growth */
     }
-    /* Adjust font sizes if needed */
-    .text-overlay h3 { font-size: 1.1rem; }
-    .text-overlay p { font-size: 0.8rem; }
 
-    /* Other Mobile Font Sizes */
+    /* Mobile Font Sizes */
     .name-center h1 { font-size: 1.8rem; } .name-center p { font-size: 0.9rem; }
     .intro h2 { font-size: 1.8rem; } .intro p { font-size: 1rem; }
+    .text-overlay h3 { font-size: 1.1rem; } .text-overlay p { font-size: 0.8rem; }
     .before-we-begin h1 { font-size: 1.8rem; } .before-we-begin p { font-size: 1rem; }
 }
 
- /* Smaller Mobile Adjustments (< 480px) - Target 1 column */
+ /* Desktop Adjustments (>= 768px) */
+ @media (min-width: 768px) {
+     .hamburger-menu { display: none; }
+     #nav-links { display: flex; }
+     .nav-container { justify-content: center; }
+     /* Base flex rules target ~3 columns */
+ }
+
+/* Smaller Mobile Adjustments (< 480px) - Target 1 column */
  @media (max-width: 480px) {
      .courses-container {
         gap: 15px;
         padding: 15px;
      }
      .course-card {
-        flex-basis: 95%; /* Target 1 column */
-        min-width: unset; /* Remove min-width if forcing 1 column */
-        margin-bottom: 15px;
+        flex-basis: 95%; /* Aim for 1 column */
+        max-width: 95%;
+        min-height: 200px; /* Readjust fallback maybe */
      }
 
      /* Font size adjustments */
@@ -203,11 +199,4 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
      .intro h2 { font-size: 1.6rem; } .intro p { font-size: 0.9rem; }
      .text-overlay h3 { font-size: 1rem; } .text-overlay p { font-size: 0.75rem; }
      .before-we-begin h1 { font-size: 1.6rem; } .before-we-begin p { font-size: 0.9rem; }
- }
-
- /* Desktop Adjustments (>= 768px) - Handled by base flex rule */
- @media (min-width: 768px) {
-     .hamburger-menu { display: none; }
-     #nav-links { display: flex; }
-     .nav-container { justify-content: center; }
  }
