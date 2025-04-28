@@ -46,16 +46,17 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
 .intro h2 { font-size: 2rem; margin-bottom: 20px; font-family: 'Lora', serif; }
 .intro p { font-size: 1.1rem; margin-bottom: 20px; }
 
-/* Courses Container - 4-Column Dense Grid */
+/* Courses Container - Using 4-Column Dense Grid */
 .courses-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Default to 4 columns */
+    /* Default to 4 columns on larger screens */
+    grid-template-columns: repeat(4, 1fr);
     /* Define a base size for rows, allow content to expand */
     grid-auto-rows: minmax(180px, auto); /* Adjust min height as needed */
-    grid-auto-flow: dense; /* Try to fill gaps */
-    gap: 20px;
+    grid-auto-flow: dense; /* Attempt to fill holes */
+    gap: 20px; /* Adjust gap */
     padding: 25px;
-    max-width: 1200px;
+    max-width: 1200px; /* Adjust as needed */
     margin: 0 auto;
 }
 
@@ -71,19 +72,22 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
     /* Ensure cards fill their grid area */
      width: 100%;
      height: 100%;
-     min-height: 180px; /* Keep minimum fallback */
+     min-height: 180px; /* Keep minimum fallback for grid auto rows */
 }
 
-/* Specific styles for larger cards */
+/* Specific styles for LARGER cards */
 .course-card-ai {
     grid-column: span 2;
     grid-row: span 2; /* Make AI a 2x2 block */
-    min-height: 380px; /* = (2 * 180px row height) + 20px gap */
+    min-height: 380px; /* = (2 * 180px auto row min) + 20px gap */
 }
-.course-card-hu { grid-column: span 2; /* 2x1 */ }
-.course-card-en { grid-column: span 2; /* 2x1 */ }
-.course-card-ls { grid-column: span 2; /* 2x1 */ }
-/* All others are implicitly 1x1 */
+.course-card-hu,
+.course-card-en,
+.course-card-ls {
+    grid-column: span 2; /* Make HU, EN, LS 2x1 blocks */
+    /* min-height should be covered by grid-auto-rows */
+}
+/* All others cards are implicitly 1x1 */
 
 /* Image Styling */
 .course-card img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease-out, filter 0.3s ease-out; }
@@ -127,16 +131,14 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
 @media (max-width: 1023px) {
     .courses-container {
         grid-template-columns: repeat(3, 1fr); /* 3 columns */
-        grid-auto-rows: minmax(160px, auto); /* Adjust auto row height */
-        gap: 20px;
-        padding: 20px;
+        grid-auto-rows: minmax(160px, auto);
+        gap: 20px; padding: 20px;
     }
     /* How spanning cards behave on 3 columns */
     .course-card-ai { grid-column: span 2; grid-row: span 1; min-height: 160px; /* Reset spans/height */ }
     .course-card-hu { grid-column: span 2; grid-row: span 1; min-height: 160px; }
-    .course-card-en { grid-column: span 2; grid-row: span 1; min-height: 160px; }
-    .course-card-ls { grid-column: span 1; grid-row: span 1; min-height: 160px; } /* Make LS standard size */
-    /* All others are span 1 */
+    .course-card-en { grid-column: span 1; grid-row: span 1; min-height: 160px; } /* Span 1 */
+    .course-card-ls { grid-column: span 1; grid-row: span 1; min-height: 160px; } /* Span 1 */
 }
 
 /* Mobile Adjustments (< 768px) - Target 2 columns */
@@ -147,12 +149,10 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
     nav { height: 50px; }
     body { padding-top: 50px; }
 
-    /* Mobile Grid Layout for Courses */
     .courses-container {
         grid-template-columns: repeat(2, 1fr); /* 2 columns */
-        grid-auto-rows: minmax(180px, auto); /* Adjust auto row height */
-        gap: 15px;
-        padding: 15px;
+        grid-auto-rows: minmax(180px, auto);
+        gap: 15px; padding: 15px;
     }
     /* Spanning cards take full width */
     .course-card-ai, .course-card-hu, .course-card-en, .course-card-ls {
@@ -170,18 +170,16 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
 
 /* Smaller Mobile Adjustments (< 480px) - Target 1 column */
  @media (max-width: 480px) {
-     /* Course Grid to 1 column */
      .courses-container {
         grid-template-columns: 1fr; /* 1 column */
-        grid-auto-rows: minmax(200px, auto); /* Adjust auto row height */
-        gap: 15px;
-        padding: 15px;
+        grid-auto-rows: minmax(200px, auto);
+        gap: 15px; padding: 15px;
     }
      /* All cards span 1 column */
      .course-card-ai, .course-card-hu, .course-card-en, .course-card-ls {
         grid-column: span 1;
         grid-row: span 1;
-        min-height: 200px; /* Reset min height */
+        min-height: 200px;
     }
 
      /* Font size adjustments */
@@ -189,4 +187,20 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
      .intro h2 { font-size: 1.6rem; } .intro p { font-size: 0.9rem; }
      .text-overlay h3 { font-size: 1.1rem; } .text-overlay p { font-size: 0.8rem; }
      .before-we-begin h1 { font-size: 1.6rem; } .before-we-begin p { font-size: 0.9rem; }
+ }
+
+ /* Desktop Adjustments (>= 1024px) - Explicitly 4 columns */
+ @media (min-width: 1024px) {
+     .hamburger-menu { display: none; }
+     #nav-links { display: flex; }
+     .nav-container { justify-content: center; }
+      .courses-container {
+          grid-template-columns: repeat(4, 1fr); /* Force 4 columns */
+          grid-auto-rows: minmax(200px, auto); /* Adjust base row height maybe */
+      }
+      /* Spans for 4 columns */
+      .course-card-ai { grid-column: span 2; grid-row: span 2; min-height: 420px; /* (2 * 200px) + 20px gap */ }
+      .course-card-hu { grid-column: span 2; grid-row: span 1; min-height: 200px; }
+      .course-card-en { grid-column: span 2; grid-row: span 1; min-height: 200px; }
+      .course-card-ls { grid-column: span 2; grid-row: span 1; min-height: 200px; }
  }
