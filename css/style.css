@@ -158,6 +158,106 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
 
 /* Footer */
  footer { background-color: #2a2a2a; padding: 15px; text-align: center; font-size: 0.9rem; color: #aaa; width: 100%; border-top: 1px solid #333; flex-shrink: 0; /* Part of sticky footer */ }
+/* --- Styles for courses.html --- */
+.intro {
+  text-align: center;
+  margin: 30px 20px;
+  padding: 30px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 10px;
+  line-height: 1.6;
+}
+
+.intro h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-family: 'Lora', serif;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* Courses Container - Auto-fill grid */
+.courses-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Course Card - Image-based structure with min-height fallback */
+.course-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  background-color: #333; /* Fallback background */
+  min-height: 250px; /* Good middle ground */
+  color: #f0f0f0;
+}
+
+/* Image Styling */
+.course-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-out, filter 0.3s ease-out;
+}
+
+/* Overlay for base darkening effect */
+.course-card .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Default darkness */
+  z-index: 1;
+  transition: background-color 0.3s ease-out;
+  pointer-events: none;
+}
+
+/* Text Overlay - Absolute Centered */
+.course-card .text-overlay {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  width: 90%;
+  padding: 10px;
+}
+
+.text-overlay h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+  font-family: 'Lora', serif;
+}
+
+.text-overlay p {
+  font-size: 1rem;
+  color: #f0f0f0;
+  margin-bottom: 0;
+  line-height: 1.4;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+}
+
+/* Hover Effects: Glow + Darken Image */
+.course-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px 3px rgba(0, 188, 212, 0.8);
+}
+
+.course-card:hover img {
+  filter: brightness(40%);
+}
 
 
 /* --- Media Queries --- */
