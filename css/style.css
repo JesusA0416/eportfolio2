@@ -76,10 +76,7 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
   grid-template-columns: repeat(3, 366px);
   grid-auto-rows: 550px;
   gap: 25px;
-  width: 1200px; /* <<< force the grid to have a width */
-  max-width: 100%;
-  justify-content: center;
-  margin: 0 auto;
+  width: auto; /* no width needed anymore */
   padding: 40px 20px;
 }
 
