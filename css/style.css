@@ -72,12 +72,18 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
 
 /* Courses Container - Auto-fill grid */
 .courses-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    padding: 25px;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 366px);
+  grid-template-rows: repeat(4, 550px);
+  grid-template-areas:
+    "ai cm ql en"
+    "ai lw ig ls"
+    "fa ss hu hu"
+    ".  ps hu hu";
+  gap: 25px;
+  justify-content: center;
+  width: auto;
+  margin: 0 auto;
 }
 
 /* Course Card - Image-based structure with min-height fallback */
