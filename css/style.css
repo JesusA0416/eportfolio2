@@ -101,33 +101,34 @@ nav {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  max-width: 600px;
-  width: 90%;
-  gap: 20px;
+  min-height: calc(100vh - 60px); /* Full screen minus navbar */
+  padding: 40px 20px;
+  margin: 0 auto;
+  gap: 30px; /* Nice breathing space between h1, h2, p, button */
+  width: 100%;
+  max-width: 650px;
 }
 
 .name-center h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-family: 'Lora', serif;
 }
 
 .name-center h2 {
-  font-size: 1.5rem;
-  color: #00bcd4;
+  font-size: 1.7rem;
   font-family: 'Nunito', sans-serif;
+  color: #00bcd4;
 }
 
 .name-center p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-family: 'Nunito', sans-serif;
   color: #f0f0f0;
+  line-height: 1.6;
 }
 
 .name-center .button {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 /* --- About & Before We Begin Pages Centering --- */
