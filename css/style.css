@@ -170,8 +170,8 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
 /* === Scroll Animation Styles === */
 .fade-in-section {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(60px); /* Move a little more for smoother feeling */
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out; /* Slow it down */
   will-change: opacity, transform;
 }
 
