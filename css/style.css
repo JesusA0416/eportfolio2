@@ -89,23 +89,19 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
 
 /* Course Card - Image-based structure with min-height fallback */
 .course-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    background-color: #333; /* Fallback background */
-    min-height: 200px; /* <<< Fallback height for broken/missing images */
-    color: #f0f0f0;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4; /* <<<<<< BOOM */
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
-/* Image Styling */
 .course-card img {
-    display: block;
-    width: 100%;
-    height: 100%; /* Let image fill height */
-    object-fit: cover; /* Cover area, maintain aspect ratio, might crop */
-    transition: transform 0.3s ease-out, filter 0.3s ease-out;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Overlay for base darkening effect */
