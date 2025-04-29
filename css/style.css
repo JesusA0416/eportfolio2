@@ -514,3 +514,11 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   width: 100% !important;
   height: 100% !important;
 }
+/* Force AI card to behave */
+.ai-card {
+  grid-column: span 2 !important;
+  grid-row: span 2 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
