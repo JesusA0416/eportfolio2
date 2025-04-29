@@ -123,9 +123,7 @@
 <script src="js/script.js"></script>
 
 </body>
-</html>
-<!-- HAMBURGER + MOBILE NAV -->
-<div class="hamburger-menu" id="hamburger">
+</html><div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
   <div></div>
   <div></div>
   <div></div>
@@ -139,4 +137,21 @@
   <a href="personal-projects.html">Personal Projects</a>
 </div>
 
-<script src="js/script.js"></script>
+<!-- THEN add this custom script instead of linking js/script.js -->
+
+<script>
+  function toggleMenu() {
+    const mobileNav = document.getElementById('mobile-nav');
+    const hamburgerIcon = document.getElementById('hamburger-menu');
+    const body = document.body;
+
+    mobileNav.classList.toggle('active');
+    hamburgerIcon.classList.toggle('is-active');
+
+    if (mobileNav.classList.contains('active')) {
+      body.classList.add('no-scroll');
+    } else {
+      body.classList.remove('no-scroll');
+    }
+  }
+</script>
