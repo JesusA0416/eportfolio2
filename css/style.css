@@ -1,10 +1,18 @@
-/* --- General Styles --- */
+/* --- General Styles & Resets --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap');
+
+/* --- Body Defaults & Sticky Footer Setup --- */
 body {
   background-color: #1c1c1c;
   font-family: 'Nunito', sans-serif;
@@ -13,193 +21,173 @@ body {
   padding-top: 60px;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* --- Main Content Wrapper --- */
 main {
   flex-grow: 1;
 }
 
 /* --- Navbar --- */
-nav {
-  background-color: white;
-  height: 60px;
-  padding: 0 20px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  display: flex;
+nav { 
+  background-color: white; 
+  height: 60px; 
+  padding: 0 20px; 
+  width: 100%; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  z-index: 1000; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); 
+  transition: padding 0.3s ease, height 0.3s ease;
+}
+
+.nav-container { 
+  display: flex; 
+  align-items: center; 
+  width: 100%; 
+  max-width: 1200px; 
   justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-.nav-container {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 1200px;
+#nav-links { 
+  list-style: none; 
+  gap: 20px; 
+  margin: 0; 
+  padding: 0; 
+  display: flex; 
   justify-content: center;
 }
 
-#nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+#nav-links li { 
+  display: inline-block; 
 }
 
-#nav-links li a {
-  font-family: 'Nunito', sans-serif;
-  color: black;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 600;
-  padding: 8px 15px;
+#nav-links li a { 
+  font-family: 'Nunito', sans-serif; 
+  color: black; 
+  text-decoration: none; 
+  font-size: 1.2rem; 
+  font-weight: 600; 
+  padding: 8px 15px; 
   transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
 
-#nav-links li a:hover {
-  color: #00bcd4;
-  text-shadow: 0 0 8px #00bcd4;
+#nav-links li a:hover { 
+  color: #00bcd4; 
+  text-shadow: 0 0 8px #00bcd4; 
   transform: scale(1.1);
 }
 
-#nav-links li a.active-nav-link {
-  color: #00bcd4;
+#nav-links li a.active-nav-link { 
+  color: #00bcd4; 
+  font-weight: 700;
 }
 
-/* --- Mobile Nav --- */
-.hamburger-menu {
-  display: none;
+/* --- Hamburger Menu --- */
+.hamburger-menu { 
+  display: none; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 4px; 
+  width: 45px; 
+  height: 50px; 
+  z-index: 1100; 
+  position: fixed; 
+  top: 0; 
+  right: 15px; 
+  cursor: pointer; 
+  transition: transform 0.3s ease;
 }
 
-.mobile-nav {
-  display: none;
+.hamburger-menu div { 
+  width: 25px; 
+  height: 3px; 
+  margin: 0; 
+  background-color: #000; 
+  border-radius: 1px; 
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease, opacity 0.3s ease; 
+  transform-origin: center;
 }
 
-/* --- Courses Page --- */
-
-/* Intro box */
-.intro {
-  text-align: center;
-  margin: 30px 20px;
-  padding: 30px;
-  background-color: #333;
-  color: #fff;
-  border-radius: 10px;
+.hamburger-menu.is-active div:nth-child(1) { 
+  transform: translateY(7px) rotate(45deg); 
+}
+.hamburger-menu.is-active div:nth-child(2) { 
+  opacity: 0; 
+  transform: scaleX(0); 
+}
+.hamburger-menu.is-active div:nth-child(3) { 
+  transform: translateY(-7px) rotate(-45deg); 
 }
 
-/* Courses container */
-.courses-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 30px 100px;
-  width: 100%;
-  gap: 40px;
-  overflow-x: auto;
+/* --- Mobile Menu --- */
+.mobile-nav { 
+  display: flex; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  background-color: rgba(255, 255, 255, 0.9); 
+  width: 100%; 
+  height: 100vh; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 30px; 
+  padding: 10px 0; 
+  z-index: 1001; 
+  opacity: 0; 
+  transform: translateY(-100%); 
+  visibility: hidden; 
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out, visibility 0s linear 0.5s;
 }
 
-/* Each row */
-.course-row {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 30px;
-  flex-wrap: nowrap;
-  width: max-content;
+.mobile-nav a { 
+  font-family: 'Nunito', sans-serif; 
+  color: black; 
+  font-size: 1.5rem; 
+  font-weight: 600; 
+  text-decoration: none; 
+  transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
 
-/* Big cards */
-.ai-card, .humanities-card {
-  width: 400px;
-  height: 700px;
-  background-color: #333;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  flex-shrink: 0;
+.mobile-nav a:hover { 
+  color: #00bcd4; 
+  text-shadow: 0 0 8px #00bcd4; 
+  transform: scale(1.1);
 }
 
-/* Small cards */
-.small-card {
-  width: 300px;
-  height: 400px;
-  background-color: #333;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  flex-shrink: 0;
+.mobile-nav a.link-active-glow { 
+  color: #00bcd4; 
+  text-shadow: 0 0 8px #00bcd4;
 }
 
-/* Course Card Container */
-.course-card {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-/* Images */
-.course-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Hover Effects */
-.course-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 20px 6px rgba(0, 188, 212, 0.7);
-}
-
-/* Overlay and Text */
-.overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-}
-
-.text-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #fff;
-  z-index: 2;
-  width: 90%;
-}
-
-.text-overlay h3 {
-  font-family: 'Lora', serif;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.text-overlay p {
-  font-family: 'Nunito', sans-serif;
-  font-size: 1rem;
-}
-
-/* Humanities special float */
-.humanities-card {
-  margin-top: -300px;
-  margin-left: 30px;
+.mobile-nav.active { 
+  opacity: 1; 
+  transform: translateY(0); 
+  visibility: visible; 
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out, visibility 0s linear 0s;
 }
 
 /* --- Footer --- */
-footer {
-  background-color: #2a2a2a;
-  padding: 15px;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #aaa;
-  width: 100%;
-  border-top: 1px solid #333;
+footer { 
+  background-color: #2a2a2a; 
+  padding: 15px; 
+  text-align: center; 
+  font-size: 0.9rem; 
+  color: #aaa; 
+  width: 100%; 
+  border-top: 1px solid #333; 
   flex-shrink: 0;
 }
