@@ -167,7 +167,18 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
 /* Footer */
  footer { background-color: #2a2a2a; padding: 15px; text-align: center; font-size: 0.9rem; color: #aaa; width: 100%; border-top: 1px solid #333; flex-shrink: 0; /* Part of sticky footer */ }
 
+/* === Scroll Animation Styles === */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
 
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 /* --- Media Queries --- */
 
 /* Mobile Adjustments (< 768px) */
