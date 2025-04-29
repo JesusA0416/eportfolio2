@@ -119,13 +119,15 @@ nav {
   flex-wrap: nowrap;
 }
 
-.ai-card, .humanities-card {
+.humanities-card {
   width: 400px;
   height: 700px;
   background-color: #333;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
+  margin-top: -150px; /* <<< pull it UP */
+  margin-left: 40px; /* <<< move it LEFT slightly */
 }
 
 .small-card {
