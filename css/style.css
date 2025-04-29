@@ -503,3 +503,14 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   text-shadow: 1px 1px 4px black;
   width: 90%;
 }
+.course-card {
+  width: 100%; /* Let it fill the grid cell */
+  height: 100%;
+}
+
+.course-card[style*="grid-area: ai"] {
+  grid-column: span 2;
+  grid-row: span 2;
+  width: 100% !important;
+  height: 100% !important;
+}
