@@ -73,11 +73,12 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
 /* Courses Container - Auto-fill grid */
 .courses-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 366px); /* Instead of 1fr — fixed pixel width */
   grid-auto-rows: 550px;
   gap: 25px;
-  width: 100%;
-  margin: 0;
+  width: auto;
+  justify-content: center;
+  margin: 0 auto;
   padding: 40px 20px;
 }
 
