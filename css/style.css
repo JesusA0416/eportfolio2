@@ -522,3 +522,16 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   height: 100% !important;
   display: block;
 }
+#ai-card {
+  grid-area: ai !important;
+  grid-column: span 2 !important;
+  grid-row: span 2 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: unset !important;
+  max-width: unset !important;
+  min-height: unset !important;
+  max-height: unset !important;
+  display: block !important;
+  box-sizing: border-box !important;
+}
