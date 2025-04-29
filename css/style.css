@@ -101,10 +101,10 @@ nav {
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: calc(100vh - 60px); /* Full screen minus navbar */
-  padding: 40px 20px;
+  min-height: calc(100vh - 60px); /* Viewport height minus navbar */
+  padding: 0 20px;
   margin: 0 auto;
-  gap: 30px; /* Nice breathing space between h1, h2, p, button */
+  gap: 10px; /* Nice small breathing between h1, h2, p, button */
   width: 100%;
   max-width: 650px;
 }
@@ -112,23 +112,38 @@ nav {
 .name-center h1 {
   font-size: 2.8rem;
   font-family: 'Lora', serif;
+  font-weight: bold;
 }
 
 .name-center h2 {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-family: 'Nunito', sans-serif;
-  color: #00bcd4;
+  font-weight: 700;
+  color: #f0f0f0;
 }
 
 .name-center p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-family: 'Nunito', sans-serif;
   color: #f0f0f0;
-  line-height: 1.6;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  max-width: 500px;
 }
 
 .name-center .button {
-  margin-top: 10px;
+  display: inline-block;
+  background-color: #00bcd4;
+  color: #1c1c1c;
+  font-weight: bold;
+  padding: 10px 25px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+.name-center .button:hover {
+  background-color: #0097a7;
+  box-shadow: 0 0 10px #00bcd4;
 }
 
 /* --- About & Before We Begin Pages Centering --- */
@@ -151,30 +166,6 @@ nav {
 .intro p, .before-we-begin p {
   font-size: 1.1rem;
   color: #f0f0f0;
-}
-
-/* --- Buttons --- */
-.button {
-  display: inline-block;
-  background-color: #00bcd4;
-  color: #1f1f1f;
-  padding: 10px 25px;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
-  font-family: 'Nunito', sans-serif;
-}
-.button:hover {
-  background-color: #0097a7;
-  box-shadow: 0 0 10px #00bcd4;
-}
-a:focus, .button:focus {
-  outline: 2px solid #00bcd4;
-  outline-offset: 3px;
-}
-.button:focus {
-  box-shadow: 0 0 10px #00bcd4;
 }
 
 /* --- Footer --- */
