@@ -287,10 +287,10 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
 
 /* Big Card (spanning multiple rows and columns) */
 .course-card.big {
-  width: calc(366px * 2 + 30px); /* two columns + gap */
-  height: calc(550px * 2 + 30px); /* two rows + gap */
-  grid-column: span 2;
-  grid-row: span 2;
+  grid-column: span 2 !important;
+  grid-row: span 2 !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 /* --- Correct Card Sizes --- */
 .course-card.small {
