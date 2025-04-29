@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const faders = document.querySelectorAll('.fade-in-section');
 
   const appearOptions = {
-    threshold: 0.9,  // smoother scroll trigger
+    threshold: 1.0,  // smoother scroll trigger
   };
 
   const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
