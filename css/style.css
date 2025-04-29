@@ -71,29 +71,32 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
 .intro p { font-size: 1.1rem; margin-bottom: 20px; }
 
 /* Courses Container - Auto-fill grid */
-.courses-wrapper {
-  display: flex;
+.courses-section {
+  display: grid;
+  grid-template-columns: repeat(3, 366px);
   justify-content: center;
+  gap: 30px;
+  padding: 40px 0;
   width: 100%;
 }
 
+.intro {
+  grid-column: 1 / -1; /* full width of the grid */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 .courses-container {
-  display: grid;
-  grid-template-columns: repeat(3, 366px); /* 🔥 fixed width cards */
-  grid-auto-rows: 500px; /* 🔥 fixed height cards */
-  gap: 25px;
-  width: auto;
-  padding: 40px 20px;
-  justify-content: center;
+  display: contents; /* flatten the grid - let cards inherit grid */
 }
 
 .course-card {
   width: 366px;
   height: 500px;
   background-color: #333;
-  position: relative;
-  overflow: hidden;
   border-radius: 10px;
+  overflow: hidden;
+  position: relative;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
@@ -103,6 +106,7 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
   height: 100%;
   object-fit: cover;
 }
+
 
 /* Overlay for base darkening effect */
 .course-card .overlay {
