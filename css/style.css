@@ -1,14 +1,4 @@
 /* === GENERAL RESETS === */
-body::before {
-  content: '';
-  position: fixed;
-  top: 60px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #1c1c1c;
-  z-index: -1;
-}
 * {
   margin: 0;
   padding: 0;
@@ -40,7 +30,7 @@ main {
 
 /* === NAVBAR === */
 nav {
-  background-color: #eeeeee; /* LIGHT GRAY navbar */
+  background-color: #eeeeee; /* Light gray navbar */
   height: 60px;
   padding: 0 20px;
   width: 100%;
@@ -124,7 +114,7 @@ nav {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile Menu */
+/* Mobile Nav */
 .mobile-nav {
   display: none;
 }
@@ -192,7 +182,7 @@ footer {
   margin-bottom: 30px;
 }
 
-/* === ABOUT PAGE (about.html) and BEFORE WE BEGIN === */
+/* === ABOUT and BEFORE WE BEGIN === */
 .before-we-begin {
   min-height: calc(90vh - 60px);
   display: flex;
@@ -215,13 +205,16 @@ footer {
   margin-bottom: 30px;
 }
 
-/* === COURSES PAGE ONLY (ISOLATED) === */
+/* === COURSES PAGE (ISOLATED) === */
+.courses-page {
+  background-color: #1c1c1c; /* <<< THE CRITICAL FINAL FIX */
+}
+
 .courses-page .courses-section {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
-  background-color: #1c1c1c
 }
 
 .courses-page .intro {
@@ -277,7 +270,7 @@ footer {
   z-index: 2;
 }
 
-/* Hover Effects */
+/* Hover Effects for Courses */
 .courses-page .course-card:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px 8px rgba(0, 188, 212, 0.8);
