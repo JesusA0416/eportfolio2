@@ -212,3 +212,76 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
      .text-overlay h3 { font-size: 1.1rem; } .text-overlay p { font-size: 0.8rem; }
      .before-we-begin h1 { font-size: 1.6rem; } .before-we-begin p { font-size: 0.9rem; }
  }
+/* --- Courses Page Layout --- */
+.courses-layout {
+  display: grid;
+  grid-template-columns: 300px 300px 600px;
+  grid-template-rows: 300px 300px;
+  grid-template-areas:
+    "ai small1 small2"
+    "small3 small4 humanities";
+  gap: 20px;
+  justify-content: center;
+  padding: 40px 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.course-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.course-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  width: 90%;
+}
+
+.text-overlay h3 {
+  font-size: 1.5rem;
+  font-family: 'Lora', serif;
+  text-shadow: 0 0 5px black;
+}
+
+.course-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px 5px rgba(0, 188, 212, 0.8);
+}
+
+.course-card:hover img {
+  filter: brightness(40%);
+}
+
+.course-card.small {
+  width: 300px;
+  height: 300px;
+}
+
+.course-card.big {
+  width: 600px;
+  height: 600px;
+}
