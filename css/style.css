@@ -1,320 +1,432 @@
 /* === GENERAL RESETS === */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html, body {
-  height: 100%;
+    height: 100%;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap');
 
 /* === BODY === */
 body {
-  background-color: #1c1c1c;
-  font-family: 'Nunito', sans-serif;
-  color: #f0f0f0;
-  overflow-x: hidden;
-  padding-top: 60px;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  transition: background-color 0.3s ease;
+    background-color: #1c1c1c; /* <<< Sets the main dark background */
+    font-family: 'Nunito', sans-serif;
+    color: #f0f0f0;
+    overflow-x: hidden;
+    padding-top: 60px; /* Adjust if using fixed navbar */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s ease;
 }
 
 main {
-  flex-grow: 1;
+    flex-grow: 1;
+    /* Adding flex centering from previous steps - adjust if needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0; /* Optional padding */
 }
 
 /* === NAVBAR === */
 nav {
-  background-color: #eeeeee; /* Light gray navbar */
-  height: 60px;
-  padding: 0 20px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    background-color: #eeeeee; /* Light gray navbar */
+    height: 60px;
+    padding: 0 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .nav-container {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 1200px;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: center;
 }
 
 #nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0; /* Ensure no default padding */
+    margin: 0; /* Ensure no default margin */
 }
 
 #nav-links li a {
-  font-family: 'Nunito', sans-serif;
-  color: black;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 600;
-  padding: 8px 15px;
-  transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+    font-family: 'Nunito', sans-serif;
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 8px 15px;
+    transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
 
 #nav-links li a:hover {
-  color: #00bcd4;
-  text-shadow: 0 0 8px #00bcd4;
-  transform: scale(1.1);
+    color: #00bcd4;
+    text-shadow: 0 0 8px #00bcd4;
+    transform: scale(1.1);
 }
 
 #nav-links li a.active-nav-link {
-  color: #00bcd4;
+    color: #00bcd4; /* Style for the active page link */
 }
 
 /* === HAMBURGER MENU === */
 .hamburger-menu {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  width: 45px;
-  height: 50px;
-  z-index: 1100;
-  position: fixed;
-  top: 0;
-  right: 15px;
-  cursor: pointer;
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 45px;
+    height: 50px; /* Should match mobile nav height */
+    z-index: 1100;
+    position: fixed;
+    top: 0; /* Align with top of viewport */
+    right: 15px;
+    cursor: pointer;
+    /* Add transitions for the animation */
+    transition: transform 0.3s ease;
 }
 
 .hamburger-menu div {
-  width: 25px;
-  height: 3px;
-  background-color: black;
-  border-radius: 2px;
+    width: 25px;
+    height: 3px;
+    background-color: black; /* Hamburger lines color */
+    border-radius: 2px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease, background-color 0.3s ease;
+    transform-origin: center;
 }
 
+/* Hamburger animation to 'X' */
 .hamburger-menu.is-active div:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
 }
-
 .hamburger-menu.is-active div:nth-child(2) {
-  opacity: 0;
+    opacity: 0;
+    transform: scaleX(0);
 }
-
 .hamburger-menu.is-active div:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile Nav */
+/* === Mobile Nav Overlay === */
 .mobile-nav {
-  display: none;
+    /* Starts hidden */
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+    z-index: 1001; /* Below hamburger icon, above content */
+    opacity: 0;
+    transform: translateY(-100%);
+    visibility: hidden;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out, visibility 0s linear 0.5s;
 }
 
 .mobile-nav.active {
-  display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(255, 255, 255, 0.9);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  gap: 30px;
-  padding: 10px;
-  z-index: 1001;
+    /* Becomes visible */
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out, visibility 0s linear 0s;
 }
 
 .mobile-nav a {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: black;
-  text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: black; /* Link color */
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
+
+.mobile-nav a:hover {
+    color: #00bcd4; /* Hover color */
+    text-shadow: 0 0 8px #00bcd4;
+    transform: scale(1.1);
+}
+.mobile-nav a.link-active-glow { /* Style for active link in mobile */
+     color: #00bcd4;
+     text-shadow: 0 0 8px #00bcd4;
+}
+
 
 /* === FOOTER === */
 footer {
-  background-color: #2a2a2a;
-  padding: 15px;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #aaa;
-  width: 100%;
-  margin-top: auto;
+    background-color: #2a2a2a;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #aaa;
+    width: 100%;
+    margin-top: auto; /* Pushes footer down */
+    flex-shrink: 0; /* Prevent footer from shrinking */
 }
 
 /* === HOMEPAGE (index.html) === */
-.name-center {
-  min-height: calc(90vh - 60px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
+/* Using a more generic name might be better if reused */
+.centered-content-block {
+    /* min-height: calc(90vh - 60px); Removed, main handles centering */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Internal vertical centering */
+    align-items: center; /* Internal horizontal centering */
+    text-align: center; /* Text centering */
+    padding: 20px;
+    width: 90%; /* Responsive width */
+    max-width: 600px; /* Max width for homepage text */
+    margin-left: auto; /* External centering handled by main */
+    margin-right: auto;
 }
 
-.name-center h1 {
-  font-family: 'Lora', serif;
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+.centered-content-block h1 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
-.name-center h2 {
-  font-size: 1.2rem;
-  color: #00bcd4;
-  margin-bottom: 20px;
+.centered-content-block h2 { /* Specific subtitle style if needed */
+    font-size: 1.2rem;
+    color: #00bcd4; /* Cyan color */
+    margin-bottom: 20px;
 }
 
-.name-center p {
-  font-size: 1rem;
-  max-width: 600px;
-  margin-bottom: 30px;
+.centered-content-block p {
+    font-size: 1rem;
+    /* max-width: 600px; Already handled by container max-width */
+    margin-bottom: 30px;
+    line-height: 1.6; /* Improve readability */
 }
 
 /* === ABOUT and BEFORE WE BEGIN === */
-.before-we-begin {
-  min-height: calc(90vh - 60px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
+/* Can reuse .centered-content-block or make specific */
+.about-content-block { /* Example for About page */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    width: 90%;
+    max-width: 700px; /* Slightly wider for these pages */
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.before-we-begin h1 {
-  font-family: 'Lora', serif;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+.about-content-block h1 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
 }
 
-.before-we-begin p {
-  font-size: 1.2rem;
-  max-width: 700px;
-  margin-bottom: 30px;
+.about-content-block p {
+    font-size: 1.2rem;
+    /* max-width: 700px; Handled by container */
+    margin-bottom: 30px;
+    line-height: 1.6;
 }
 
-/* === COURSES PAGE (ISOLATED) === */
-.courses-page {
-  background-color: #1c1c1c; /* <<< THE CRITICAL FINAL FIX */
+/* === COURSES PAGE === */
+/* Styles for the GRID layout (Option B) */
+.courses-page-container { /* A wrapper div inside main for courses page */
+    width: 100%;
+    max-width: 1200px; /* Max width for the grid */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Padding around the content */
 }
 
-.courses-page .courses-section {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
+.courses-page-container .intro { /* Optional intro text above grid */
+    text-align: center;
+    margin-bottom: 40px; /* Space below intro */
+    background-color: #333; /* Darker box for intro */
+    padding: 25px;
+    border-radius: 10px;
+}
+.courses-page-container .intro h2 {
+    font-family: 'Lora', serif;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+.courses-page-container .intro p {
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
-.courses-page .intro {
-  text-align: center;
-  margin-bottom: 30px;
+
+.courses-grid { /* The grid itself */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 30px; /* Space between cards */
 }
 
-.courses-page .courses-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
+.course-card { /* Individual card styling */
+    background-color: #333; /* Card background */
+    border-radius: 10px;
+    overflow: hidden; /* Keep image corners rounded */
+    position: relative;
+    width: 100%; /* Take grid column width */
+    aspect-ratio: 4 / 3; /* Aspect ratio for card */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    color: #f0f0f0; /* Default text color */
 }
 
-.courses-page .course-card {
-  background-color: #333;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  aspect-ratio: 3/4;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+.course-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the card area */
+    transition: transform 0.3s ease-out, filter 0.3s ease-out;
 }
 
-.courses-page .course-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease-out, filter 0.3s ease-out;
+.course-card .overlay { /* Dark overlay on image */
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    pointer-events: none; /* Allow clicks through */
+    transition: background-color 0.3s ease-out;
 }
 
-.courses-page .course-card .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  pointer-events: none;
+.course-card .text-overlay { /* Text on the card */
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 90%;
+    padding: 10px; /* Padding within text area */
+    z-index: 2;
 }
 
-.courses-page .course-card .text-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  width: 90%;
-  text-shadow: 0 0 8px rgba(0, 188, 212, 0.8);
-  font-family: 'Lora', serif;
-  font-size: 1.2rem;
-  z-index: 2;
+.course-card .text-overlay h3 { /* Card title */
+     font-family: 'Lora', serif;
+     font-size: 1.3rem; /* Adjust as needed */
+     margin-bottom: 5px;
+     text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
 }
+
+.course-card .text-overlay p { /* Card description */
+    font-size: 0.9rem; /* Adjust as needed */
+    line-height: 1.3;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+}
+
 
 /* Hover Effects for Courses */
-.courses-page .course-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px 8px rgba(0, 188, 212, 0.8);
+.course-card:hover {
+    transform: scale(1.03); /* Slight zoom */
+    box-shadow: 0 0 20px 3px rgba(0, 188, 212, 0.8); /* Cyan glow */
+    z-index: 5; /* Bring card forward */
 }
 
-.courses-page .course-card:hover img {
-  filter: brightness(0.6);
+.course-card:hover img {
+    filter: brightness(0.5); /* Dim image more on hover */
 }
+.course-card:hover .overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Darken overlay on hover */
+}
+
 
 /* === BUTTONS === */
 .button {
-  background-color: #00bcd4;
-  color: #1f1f1f;
-  padding: 10px 25px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background-color 0.3s, box-shadow 0.3s;
-  font-family: 'Nunito', sans-serif;
+    display: inline-block; /* Allow margin/padding */
+    margin-top: 15px; /* Space above button */
+    background-color: #00bcd4; /* Cyan background */
+    color: #1f1f1f; /* Dark text */
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    font-family: 'Nunito', sans-serif;
+    border: none; /* Remove default border */
+    cursor: pointer; /* Indicate clickable */
 }
 
 .button:hover {
-  background-color: #0097a7;
-  box-shadow: 0 0 10px #00bcd4;
+    background-color: #0097a7; /* Darker cyan on hover */
+    box-shadow: 0 0 10px #00bcd4;
 }
 
-/* === MEDIA QUERIES FOR MOBILE === */
+
+/* === MEDIA QUERIES === */
 @media (max-width: 768px) {
-  #nav-links {
-    display: none;
-  }
-  .hamburger-menu {
-    display: flex;
-  }
-  nav {
-    height: 50px;
-  }
-  body {
-    padding-top: 50px;
-  }
+    body {
+        padding-top: 50px; /* Adjust for shorter mobile navbar */
+    }
+    nav {
+        height: 50px; /* Shorter navbar */
+    }
+    #nav-links {
+        display: none; /* Hide desktop links */
+    }
+    .hamburger-menu {
+        display: flex; /* Show hamburger */
+        height: 50px; /* Match navbar height */
+    }
+
+    /* Adjust font sizes for smaller screens */
+    .centered-content-block h1, .about-content-block h1 {
+        font-size: 2rem;
+    }
+     .centered-content-block p, .about-content-block p {
+        font-size: 1rem;
+    }
+     .courses-page-container .intro h2 {
+        font-size: 1.8rem;
+    }
+     .courses-page-container .intro p {
+        font-size: 1rem;
+    }
+
+    /* Adjust grid for tablets */
+     .courses-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+     .course-card .text-overlay h3 {
+        font-size: 1.1rem;
+     }
+     .course-card .text-overlay p {
+        font-size: 0.8rem;
+     }
 }
 
 @media (max-width: 480px) {
-  .courses-page .courses-grid {
-    grid-template-columns: 1fr;
-  }
+    /* Stack grid items on small mobile */
+    .courses-grid {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 25px; /* Increase gap slightly for single column */
+    }
+     .centered-content-block h1, .about-content-block h1 {
+        font-size: 1.8rem;
+    }
+     .courses-page-container .intro h2 {
+        font-size: 1.5rem;
+    }
 }
