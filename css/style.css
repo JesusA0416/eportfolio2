@@ -77,7 +77,9 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
   justify-content: center;
   gap: 30px;
   padding: 40px 0;
-  width: 100%;
+  width: fit-content;        /* allow grid to shrink-wrap */
+  margin-left: auto;         /* CENTER IT */
+  margin-right: auto;        /* CENTER IT */
 }
 
 .intro {
