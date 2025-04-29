@@ -1,4 +1,4 @@
-/* --- General Styles & Resets --- */
+/* --- General Styles & Reset --- */
 * {
   margin: 0;
   padding: 0;
@@ -9,10 +9,10 @@ html {
   height: 100%;
 }
 
-/* --- Google Font Import --- */
+/* --- Font Import --- */
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap');
 
-/* --- Body Defaults & Sticky Footer Setup --- */
+/* --- Body Setup --- */
 body {
   background-color: #1c1c1c;
   font-family: 'Nunito', sans-serif;
@@ -28,16 +28,15 @@ body.no-scroll {
   overflow: hidden;
 }
 
-/* --- Main Content Area --- */
+/* --- Main Content Centering --- */
 main {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
-  padding: 20px;
-  min-height: calc(100vh - 60px);
+  padding: 40px 20px;
 }
 
 /* --- Navbar --- */
@@ -91,34 +90,29 @@ nav {
   color: #00bcd4;
 }
 
-/* --- Hamburger Menu --- */
-.hamburger-menu {
+/* --- Mobile Nav (Hidden) --- */
+.hamburger-menu, .mobile-nav {
   display: none;
 }
 
-/* --- Mobile Menu --- */
-.mobile-nav {
-  display: none;
-}
-
-/* --- Center Content on Home / About / Before We Begin Pages --- */
+/* --- Centered Sections (Home, About, Before We Begin) --- */
 .name-center, .before-we-begin, .intro {
   text-align: center;
-  margin: 50px auto;
+  margin: 60px auto;
   padding: 20px;
-  max-width: 700px;
+  max-width: 800px;
   width: 90%;
 }
 
 .name-center h1, .before-we-begin h1, .intro h2 {
   font-family: 'Lora', serif;
   font-size: 2.5rem;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .name-center h2 {
   font-family: 'Nunito', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #00bcd4;
   margin-bottom: 20px;
 }
@@ -140,6 +134,7 @@ nav {
   text-decoration: none;
   border-radius: 8px;
   transition: background-color 0.3s, box-shadow 0.3s;
+  margin-top: 20px;
 }
 
 .button:hover {
@@ -152,10 +147,6 @@ a:focus, .button:focus {
   outline-offset: 3px;
 }
 
-.button:focus {
-  box-shadow: 0 0 10px #00bcd4;
-}
-
 /* --- Footer --- */
 footer {
   background-color: #2a2a2a;
@@ -165,7 +156,7 @@ footer {
   color: #aaa;
   width: 100%;
   border-top: 1px solid #333;
-  flex-shrink: 0;
+  margin-top: auto;
 }
 
 /* --- Scroll Animation --- */
@@ -180,7 +171,7 @@ footer {
   transform: translateY(0);
 }
 
-/* --- Courses Page --- */
+/* --- Courses Page Special Layout --- */
 .courses-layout {
   display: grid;
   grid-template-columns: 300px 300px 600px;
@@ -232,6 +223,7 @@ footer {
   text-shadow: 0 0 5px black;
 }
 
+/* Hover Effects */
 .course-card:hover {
   transform: scale(1.03);
   box-shadow: 0 0 20px 5px rgba(0, 188, 212, 0.8);
@@ -252,59 +244,32 @@ footer {
 }
 
 /* --- Responsive Mobile Adjustments --- */
-@media (max-width: 767px) {
-  body {
-    padding-top: 50px;
-  }
-
-  nav {
-    height: 50px;
-  }
-
+@media (max-width: 768px) {
   main {
-    padding: 15px 0;
+    padding: 20px 10px;
   }
 
-  #nav-links {
-    display: none;
-  }
-
-  .hamburger-menu {
-    display: flex;
-  }
-
-  .nav-container {
-    justify-content: center;
-  }
-
-  .name-center, .intro, .before-we-begin {
-    padding: 30px 15px;
+  .name-center, .before-we-begin, .intro {
+    padding: 20px 10px;
     width: 95%;
   }
 
-  .name-center h1, .intro h2, .before-we-begin h1 {
-    font-size: 1.8rem;
+  .courses-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "humanities"
+      "ai"
+      "small1"
+      "small2"
+      "small3"
+      "small4";
   }
 
-  .name-center h2 {
-    font-size: 1.3rem;
-  }
-
-  .name-center p, .intro p, .before-we-begin p {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .hamburger-menu {
-    display: none;
-  }
-
-  #nav-links {
-    display: flex;
-  }
-
-  .nav-container {
-    justify-content: center;
+  .course-card.small, .course-card.big {
+    width: 90%;
+    height: auto;
+    aspect-ratio: 4/3;
+    margin: 0 auto;
   }
 }
