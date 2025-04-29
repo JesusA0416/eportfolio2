@@ -569,3 +569,23 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   display: block;
   object-fit: cover;
 }
+#ai-card {
+  grid-area: ai;
+  grid-column: span 2 !important;
+  grid-row: span 2 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  object-fit: cover !important;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #000;
+}
+
+#ai-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  aspect-ratio: auto !important;
+}
