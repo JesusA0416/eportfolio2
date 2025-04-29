@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Courses - Jesús Lopez Aguilar</title>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -17,141 +16,64 @@
         <li><a href="about.html">About Me</a></li>
         <li><a href="courses.html" class="active-nav-link">Courses</a></li>
         <li><a href="achievements.html">Achievements</a></li>
-        <li><a href="projects.html">Personal Projects</a></li>
       </ul>
     </div>
   </nav>
 
-  <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-
-  <div class="mobile-nav" id="mobile-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Me</a>
-    <a href="courses.html">Courses</a>
-    <a href="achievements.html">Achievements</a>
-    <a href="projects.html">Personal Projects</a>
-  </div>
-
   <main>
-    <div class="intro fade-in-section">
-      <h2>Welcome to My General Education Courses</h2>
-      <p>These courses are the backbone of my education — some inspiring, some traumatizing, all unforgettable.</p>
-    </div>
-
-    <div class="courses-container fade-in-section">
-
-      <!-- First Row -->
-      <div class="course-row">
-        <div class="ai-card">
-          <div class="course-card">
-            <img src="images/american_institutions.png" alt="American Institutions">
-            <div class="overlay"></div>
-            <div class="text-overlay">
-              <h3>American Institutions (AI)</h3>
-              <p>Understanding U.S. government and history.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="small-card">
-          <div class="course-card">
-            <img src="images/fine_arts.png" alt="Fine Arts">
-            <div class="overlay"></div>
-            <div class="text-overlay">
-              <h3>Fine Arts (FA)</h3>
-              <p>Exploring creativity and culture.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="small-card">
-          <div class="course-card">
-            <img src="images/social_science.png" alt="Social Science">
-            <div class="overlay"></div>
-            <div class="text-overlay">
-              <h3>Social Science (SS)</h3>
-              <p>Understanding human societies and behavior.</p>
-            </div>
-          </div>
+    <section class="courses-layout">
+      <div class="course-card small" style="grid-area: small1;">
+        <img src="course1.png" alt="Small Course 1">
+        <div class="overlay"></div>
+        <div class="text-overlay">
+          <h3>Small Course 1</h3>
         </div>
       </div>
 
-      <!-- Second Row -->
-      <div class="course-row">
-        <div class="small-card">
-          <div class="course-card">
-            <img src="images/communication.png" alt="Communication">
-            <div class="overlay"></div>
-            <div class="text-overlay">
-              <h3>Communication (CM)</h3>
-              <p>Mastering effective human communication.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="small-card">
-          <div class="course-card">
-            <img src="images/life_science.png" alt="Life Science">
-            <div class="overlay"></div>
-            <div class="text-overlay">
-              <h3>Life Science (LS)</h3>
-              <p>Exploring the living world and ecosystems.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="humanities-card">
-          <div class="course-card">
-            <img src="images/course1.png" alt="Humanities">
-            <div class="overlay"></div>
-            <div class="text-overlay">
-              <h3>Humanities (HU)</h3>
-              <p>Philosophy, art, and literature through time.</p>
-            </div>
-          </div>
+      <div class="course-card small" style="grid-area: small2;">
+        <img src="course2.png" alt="Small Course 2">
+        <div class="overlay"></div>
+        <div class="text-overlay">
+          <h3>Small Course 2</h3>
         </div>
       </div>
 
-    </div>
+      <div class="course-card big" style="grid-area: humanities;">
+        <img src="course3.png" alt="Humanities">
+        <div class="overlay"></div>
+        <div class="text-overlay">
+          <h3>Humanities (HU)</h3>
+        </div>
+      </div>
+
+      <div class="course-card big" style="grid-area: ai;">
+        <img src="course4.png" alt="AI">
+        <div class="overlay"></div>
+        <div class="text-overlay">
+          <h3>Artificial Intelligence (AI)</h3>
+        </div>
+      </div>
+
+      <div class="course-card small" style="grid-area: small3;">
+        <img src="course5.png" alt="Small Course 3">
+        <div class="overlay"></div>
+        <div class="text-overlay">
+          <h3>Small Course 3</h3>
+        </div>
+      </div>
+
+      <div class="course-card small" style="grid-area: small4;">
+        <img src="course6.png" alt="Small Course 4">
+        <div class="overlay"></div>
+        <div class="text-overlay">
+          <h3>Small Course 4</h3>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>© 2025 Jesús Lopez Aguilar | All rights reserved</p>
+    © 2025 Jesús Lopez Aguilar. All rights reserved.
   </footer>
-
-<script>
-function toggleMenu() {
-  const mobileNav = document.getElementById('mobile-nav');
-  const hamburgerIcon = document.getElementById('hamburger-menu');
-  const body = document.body;
-
-  mobileNav.classList.toggle('active');
-  hamburgerIcon.classList.toggle('is-active');
-
-  if (mobileNav.classList.contains('active')) {
-    body.classList.add('no-scroll');
-  } else {
-    body.classList.remove('no-scroll');
-  }
-}
-
-const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-const observerCallback = (entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
-    }
-  });
-};
-const observer = new IntersectionObserver(observerCallback, observerOptions);
-const targets = document.querySelectorAll('.fade-in-section');
-targets.forEach(target => observer.observe(target));
-</script>
-
 </body>
 </html>
