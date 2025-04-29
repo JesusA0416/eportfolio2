@@ -106,7 +106,7 @@ nav {
 .courses-container {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 50px;
   padding: 30px 50px;
   width: 100%;
 }
@@ -115,7 +115,7 @@ nav {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 20px;
+  gap: 80px; /* more breathing so AI and Humanities almost touch at corners */
   flex-wrap: nowrap;
 }
 
@@ -126,7 +126,6 @@ nav {
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 0 30px 10px rgba(0, 188, 212, 0.4);
 }
 
 .small-card {
@@ -136,13 +135,24 @@ nav {
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 0 20px 8px rgba(0, 188, 212, 0.3);
+}
+
+.course-card {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .course-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* FULL image shown */
+}
+
+/* Hover Glow Only */
+.course-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px 6px rgba(0, 188, 212, 0.7);
 }
 
 /* Course cards */
