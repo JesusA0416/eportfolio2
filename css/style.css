@@ -1,11 +1,12 @@
 /* --- General Styles & Resets --- */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 html {
-    height: 100%;
+  height: 100%;
 }
 
 /* --- Google Font Import --- */
@@ -13,194 +14,234 @@ html {
 
 /* --- Body Defaults & Sticky Footer Setup --- */
 body {
-    background-color: #1c1c1c;
-    font-family: 'Nunito', sans-serif;
-    color: #f0f0f0;
-    overflow-x: hidden;
-    padding-top: 60px;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  background-color: #1c1c1c;
+  font-family: 'Nunito', sans-serif;
+  color: #f0f0f0;
+  overflow-x: hidden;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 body.no-scroll {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 /* --- Main Content Area --- */
 main {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 20px 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0;
 }
 
 /* --- Navbar --- */
 nav {
-    background-color: white;
-    height: 60px;
-    padding: 0 20px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  background-color: white;
+  height: 60px;
+  padding: 0 20px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 .nav-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
 }
 #nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+  list-style: none;
+  display: flex;
+  gap: 20px;
 }
 #nav-links li a {
-    font-family: 'Nunito', sans-serif;
-    color: black;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 600;
-    padding: 8px 15px;
-    transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+  font-family: 'Nunito', sans-serif;
+  color: black;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 8px 15px;
+  transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
 #nav-links li a:hover {
-    color: #00bcd4;
-    text-shadow: 0 0 8px #00bcd4;
-    transform: scale(1.1);
+  color: #00bcd4;
+  text-shadow: 0 0 8px #00bcd4;
+  transform: scale(1.1);
 }
 #nav-links li a.active-nav-link {
-    color: #00bcd4;
+  color: #00bcd4;
 }
 
 /* --- Hamburger Menu --- */
 .hamburger-menu {
-    display: none;
+  display: none;
 }
 
 /* --- Mobile Menu --- */
 .mobile-nav {
-    display: none;
+  display: none;
 }
 
-/* --- Page Specific Sections --- */
-.name-center, .intro, .before-we-begin {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1150px;
-    width: 90%;
+/* --- Home Page Centering (index.html) --- */
+.name-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 600px;
+  width: 90%;
+  gap: 20px;
 }
-.name-center h1, .intro h2, .before-we-begin h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    font-family: 'Lora', serif;
+
+.name-center h1 {
+  font-size: 2.5rem;
+  font-family: 'Lora', serif;
 }
-.name-center p, .intro p, .before-we-begin p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    color: #f0f0f0;
+
+.name-center h2 {
+  font-size: 1.5rem;
+  color: #00bcd4;
+  font-family: 'Nunito', sans-serif;
+}
+
+.name-center p {
+  font-size: 1.1rem;
+  color: #f0f0f0;
+}
+
+.name-center .button {
+  margin-top: 20px;
+}
+
+/* --- About & Before We Begin Pages Centering --- */
+.intro, .before-we-begin {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 1150px;
+  width: 90%;
+}
+
+.intro h2, .before-we-begin h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-family: 'Lora', serif;
+}
+
+.intro p, .before-we-begin p {
+  font-size: 1.1rem;
+  color: #f0f0f0;
 }
 
 /* --- Buttons --- */
 .button {
-    display: inline-block;
-    margin-top: 15px;
-    background-color: #00bcd4;
-    color: #1f1f1f;
-    padding: 10px 25px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
-    font-family: 'Nunito', sans-serif;
+  display: inline-block;
+  background-color: #00bcd4;
+  color: #1f1f1f;
+  padding: 10px 25px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+  font-family: 'Nunito', sans-serif;
 }
 .button:hover {
-    background-color: #0097a7;
-    box-shadow: 0 0 10px #00bcd4;
+  background-color: #0097a7;
+  box-shadow: 0 0 10px #00bcd4;
 }
 a:focus, .button:focus {
-    outline: 2px solid #00bcd4;
-    outline-offset: 3px;
+  outline: 2px solid #00bcd4;
+  outline-offset: 3px;
 }
 .button:focus {
-    box-shadow: 0 0 10px #00bcd4;
+  box-shadow: 0 0 10px #00bcd4;
 }
 
 /* --- Footer --- */
 footer {
-    background-color: #2a2a2a;
-    padding: 15px;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #aaa;
-    width: 100%;
-    border-top: 1px solid #333;
-    flex-shrink: 0;
+  background-color: #2a2a2a;
+  padding: 15px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+  width: 100%;
+  border-top: 1px solid #333;
+  flex-shrink: 0;
 }
 
 /* --- Scroll Animation --- */
 .fade-in-section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 .fade-in-section.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* --- Media Queries for Mobile --- */
 @media (max-width: 767px) {
-    body {
-        padding-top: 50px;
-    }
-    main {
-        padding: 15px 0;
-    }
-    #nav-links {
-        display: none;
-    }
-    .hamburger-menu {
-        display: flex;
-    }
-    .nav-container {
-        justify-content: center;
-    }
-    nav {
-        height: 50px;
-    }
-    .name-center, .intro, .before-we-begin {
-        padding: 30px 15px;
-        width: 95%;
-    }
-    .name-center h1, .intro h2, .before-we-begin h1 {
-        font-size: 1.8rem;
-    }
-    .name-center p, .intro p, .before-we-begin p {
-        font-size: 1rem;
-    }
+  body {
+    padding-top: 50px;
+  }
+  main {
+    padding: 15px 0;
+  }
+  #nav-links {
+    display: none;
+  }
+  .hamburger-menu {
+    display: flex;
+  }
+  .nav-container {
+    justify-content: center;
+  }
+  nav {
+    height: 50px;
+  }
+  .name-center, .intro, .before-we-begin {
+    padding: 30px 15px;
+    width: 95%;
+  }
+  .name-center h1, .intro h2, .before-we-begin h1 {
+    font-size: 1.8rem;
+  }
+  .name-center h2 {
+    font-size: 1.3rem;
+  }
+  .name-center p, .intro p, .before-we-begin p {
+    font-size: 1rem;
+  }
 }
 
-/* --- Desktop Adjustments --- */
 @media (min-width: 768px) {
-    .hamburger-menu {
-        display: none;
-    }
-    #nav-links {
-        display: flex;
-    }
-    .nav-container {
-        justify-content: center;
-    }
+  .hamburger-menu {
+    display: none;
+  }
+  #nav-links {
+    display: flex;
+  }
+  .nav-container {
+    justify-content: center;
+  }
 }
