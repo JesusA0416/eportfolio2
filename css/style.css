@@ -402,3 +402,15 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   width: 100%;
   height: 100%;
 }
+/* --- Lock each card to its grid area --- */
+.course-card[style*="grid-area: ai"] { grid-area: ai; }
+.course-card[style*="grid-area: cm"] { grid-area: cm; }
+.course-card[style*="grid-area: ql"] { grid-area: ql; }
+.course-card[style*="grid-area: en"] { grid-area: en; }
+.course-card[style*="grid-area: lw"] { grid-area: lw; }
+.course-card[style*="grid-area: ig"] { grid-area: ig; }
+.course-card[style*="grid-area: ls"] { grid-area: ls; }
+.course-card[style*="grid-area: fa"] { grid-area: fa; }
+.course-card[style*="grid-area: ss"] { grid-area: ss; }
+.course-card[style*="grid-area: ps"] { grid-area: ps; }
+.course-card[style*="grid-area: hu"] { grid-area: hu; }
