@@ -21,115 +21,98 @@
       <li><a href="personal-projects.html">Personal Projects</a></li>
     </ul>
   </div>
-
-  <!-- Hamburger menu -->
-  <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-
-  <div class="mobile-nav" id="mobile-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Me</a>
-    <a href="courses.html" class="link-active-glow">Courses</a>
-    <a href="achievements.html">Achievements</a>
-    <a href="personal-projects.html">Personal Projects</a>
-  </div>
-
 </nav>
 
-<!-- MAIN -->
+<!-- HAMBURGER MENU -->
+<div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About Me</a>
+  <a href="courses.html" class="link-active-glow">Courses</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="personal-projects.html">Personal Projects</a>
+</div>
+
+<!-- MAIN CONTENT -->
 <main class="courses-page">
 
-  <section class="courses-section">
+  <section class="intro fade-in-section">
+    <h2>My College Courses</h2>
+    <p>Below are the courses I've completed as part of my education at SLCC.</p>
+  </section>
 
-    <div class="intro">
-      <h2>My College Courses</h2>
-      <p>Below are the courses I've completed as part of my education at SLCC.</p>
+  <section class="courses-grid">
+
+    <!-- Course Cards -->
+    <div class="course-card fade-in-section" style="grid-column: 1 / span 2; grid-row: 1 / span 2;">
+      <img src="images/american_institutions.png" alt="American Institutions">
+      <div class="overlay"></div>
+      <div class="text-overlay"><h3>American Institutions (AI)</h3></div>
     </div>
 
-    <div class="courses-grid">
+    <div class="course-card fade-in-section" style="grid-column: 3; grid-row: 1;">
+      <img src="images/quantitative_literacy.png" alt="Quantitative Literacy (QL)">
+      <div class="overlay"></div>
+      <div class="text-overlay"><h3>Quantitative Literacy (QL)</h3></div>
+    </div>
 
-      <!-- ALL YOUR COURSE CARDS -->
+    <div class="course-card fade-in-section" style="grid-column: 3; grid-row: 2;">
+      <img src="images/composition.png" alt="Composition (EN)">
+      <div class="overlay"></div>
+      <div class="text-overlay"><h3>Composition (EN)</h3></div>
+    </div>
 
-      <!-- AI (Big) -->
-      <div class="course-card" style="grid-column: 1 / span 2; grid-row: 1 / span 2;">
-        <img src="images/american_institutions.png" alt="American Institutions">
-        <div class="overlay"></div>
-        <div class="text-overlay"><h3>American Institutions (AI)</h3></div>
-      </div>
+    <div class="course-card fade-in-section" style="grid-column: 1; grid-row: 3;">
+      <img src="images/course2.png" alt="Fine Arts (FA)">
+      <div class="overlay"></div>
+      <div class="text-overlay"><h3>Fine Arts (FA)</h3></div>
+    </div>
 
-      <!-- QL -->
-      <div class="course-card" style="grid-column: 3; grid-row: 1;">
-        <img src="images/quantitative_literacy.png" alt="Quantitative Literacy (QL)">
-        <div class="overlay"></div>
-        <div class="text-overlay"><h3>Quantitative Literacy (QL)</h3></div>
-      </div>
+    <div class="course-card fade-in-section" style="grid-column: 2; grid-row: 3;">
+      <img src="images/communication.png" alt="Communication (CM)">
+      <div class="overlay"></div>
+      <div class="text-overlay"><h3>Communication (CM)</h3></div>
+    </div>
 
-      <!-- EN -->
-      <div class="course-card" style="grid-column: 3; grid-row: 2;">
-        <img src="images/composition.png" alt="Composition (EN)">
-        <div class="overlay"></div>
-        <div class="text-overlay"><h3>Composition (EN)</h3></div>
-      </div>
+    <div class="course-card fade-in-section" style="grid-column: 3; grid-row: 3;">
+      <img src="images/international_global.png" alt="International & Global (IG)">
+      <div class="overlay"></div>
+      <div class="text-overlay"><h3>International & Global (IG)</h3></div>
+    </div>
 
-      <!-- FA -->
-      <div class="course-card" style="grid-column: 1; grid-row: 3;">
-        <img src="images/course2.png" alt="Fine Arts (FA)">
-        <div class="overlay"></div>
-        <div class="text-overlay"><h3>Fine Arts (FA)</h3></div>
-      </div>
+    <div class="course-card fade-in-section" style="grid-column: 1; grid-row: 4;">
+      <img src="images/lifelong_wellness.png" alt="Lifelong Wellness (LW)">
+      <div class="overlay"></div>
+      <div class="text-overlay"><h3>Lifelong Wellness (LW)</h3></div>
+    </div>
 
-      <!-- CM -->
-      <div class="course-card" style="grid-column: 2; grid-row: 3;">
-        <img src="images/communication.png" alt="Communication (CM)">
-        <div class="overlay"></div>
-        <div class="text-overlay"><h3>Communication (CM)</h3></div>
-      </div>
+    <div class="course-card fade-in-section" style="grid-column: 2; grid-row: 4;">
+      <img src="images/life_science.png" alt="Life Science (LS)">
+      <div class="overlay"></div>
+      <div class="text-overlay"><h3>Life Science (LS)</h3></div>
+    </div>
 
-      <!-- IG -->
-      <div class="course-card" style="grid-column: 3; grid-row: 3;">
-        <img src="images/international_global.png" alt="International & Global (IG)">
-        <div class="overlay"></div>
-        <div class="text-overlay"><h3>International & Global (IG)</h3></div>
-      </div>
+    <div class="course-card fade-in-section" style="grid-column: 3; grid-row: 4;">
+      <img src="images/physical_science.png" alt="Physical Science (PS)">
+      <div class="overlay"></div>
+      <div class="text-overlay"><h3>Physical Science (PS)</h3></div>
+    </div>
 
-      <!-- LW -->
-      <div class="course-card" style="grid-column: 1; grid-row: 4;">
-        <img src="images/lifelong_wellness.png" alt="Lifelong Wellness (LW)">
-        <div class="overlay"></div>
-        <div class="text-overlay"><h3>Lifelong Wellness (LW)</h3></div>
-      </div>
+    <div class="course-card fade-in-section" style="grid-column: 1; grid-row: 5;">
+      <img src="images/social_science.png" alt="Social Science (SS)">
+      <div class="overlay"></div>
+      <div class="text-overlay"><h3>Social Science (SS)</h3></div>
+    </div>
 
-      <!-- LS -->
-      <div class="course-card" style="grid-column: 2; grid-row: 4;">
-        <img src="images/life_science.png" alt="Life Science (LS)">
-        <div class="overlay"></div>
-        <div class="text-overlay"><h3>Life Science (LS)</h3></div>
-      </div>
-
-      <!-- PS -->
-      <div class="course-card" style="grid-column: 3; grid-row: 4;">
-        <img src="images/physical_science.png" alt="Physical Science (PS)">
-        <div class="overlay"></div>
-        <div class="text-overlay"><h3>Physical Science (PS)</h3></div>
-      </div>
-
-      <!-- SS -->
-      <div class="course-card" style="grid-column: 1; grid-row: 5;">
-        <img src="images/social_science.png" alt="Social Science (SS)">
-        <div class="overlay"></div>
-        <div class="text-overlay"><h3>Social Science (SS)</h3></div>
-      </div>
-
-      <!-- HU (BIG) -->
-      <div class="course-card" style="grid-column: 2 / span 2; grid-row: 5 / span 2;">
-        <img src="images/course1.png" alt="Humanities (HU)">
-        <div class="overlay"></div>
-        <div class="text-overlay"><h3>Humanities (HU)</h3></div>
-      </div>
-
+    <div class="course-card fade-in-section" style="grid-column: 2 / span 2; grid-row: 5 / span 2;">
+      <img src="images/course1.png" alt="Humanities (HU)">
+      <div class="overlay"></div>
+      <div class="text-overlay"><h3>Humanities (HU)</h3></div>
     </div>
 
   </section>
@@ -141,23 +124,24 @@
   <p>© 2025 Jesús Lopez Aguilar. All rights reserved.</p>
 </footer>
 
-<!-- Hamburger Toggle Script -->
+<!-- JS SCRIPTS -->
 <script>
-function toggleMenu() {
-  const mobileNav = document.getElementById('mobile-nav');
-  const hamburgerIcon = document.getElementById('hamburger-menu');
-  const body = document.body;
+  function toggleMenu() {
+    const mobileNav = document.getElementById('mobile-nav');
+    const hamburgerIcon = document.getElementById('hamburger-menu');
+    const body = document.body;
 
-  mobileNav.classList.toggle('active');
-  hamburgerIcon.classList.toggle('is-active');
+    mobileNav.classList.toggle('active');
+    hamburgerIcon.classList.toggle('is-active');
 
-  if (mobileNav.classList.contains('active')) {
-    body.classList.add('no-scroll');
-  } else {
-    body.classList.remove('no-scroll');
+    if (mobileNav.classList.contains('active')) {
+      body.classList.add('no-scroll');
+    } else {
+      body.classList.remove('no-scroll');
+    }
   }
-}
 </script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const faders = document.querySelectorAll('.fade-in-section');
@@ -183,5 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+
 </body>
 </html>
