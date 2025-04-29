@@ -535,3 +535,21 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   display: block !important;
   box-sizing: border-box !important;
 }
+#ai-card {
+  grid-area: ai !important;
+  grid-column: span 2 !important;
+  grid-row: span 2 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: grid !important;
+  place-items: stretch !important;
+  place-self: stretch !important;
+  object-fit: cover !important;
+  box-sizing: border-box !important;
+}
+
+#ai-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
