@@ -74,17 +74,9 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
 .courses-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 550px);
-  grid-template-areas:
-    "ai ql en hu"
-    "ai ig ls hu"
-    "fa cm lw ps"
-    ".  .  ss .";
+  grid-auto-rows: 550px;
   gap: 25px;
-  justify-content: stretch;
-  align-items: stretch;
   width: 100%;
-  max-width: 100%;
   margin: 0;
   padding: 40px 20px;
 }
