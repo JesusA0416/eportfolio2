@@ -102,31 +102,58 @@ nav {
   margin: 0 auto;
 }
 
-/* Special first layout */
-.special-row {
+/* --- SPECIAL PUZZLE GRID LAYOUT FOR COURSES PAGE --- */
+.special-grid-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 30px;
-  align-items: start;
-}
-
-.ai-column {
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: 300px 300px 300px;
+  grid-template-rows: 300px 300px;
   gap: 20px;
-  grid-row: span 2;
+  grid-template-areas:
+    "ai small1 small2"
+    "ai small3 humanities";
+  justify-content: center;
 }
 
-.sub-row {
-  display: flex;
-  gap: 20px;
+.ai-card {
+  grid-area: ai;
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  height: 620px;
 }
 
-.humanities-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+.humanities-card {
+  grid-area: humanities;
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  height: 620px;
+}
+
+.small-card:nth-child(2) {
+  grid-area: small1;
+}
+
+.small-card:nth-child(3) {
+  grid-area: small2;
+}
+
+.small-card:nth-child(4) {
+  grid-area: small3;
+}
+
+.small-card:nth-child(5) {
+  grid-area: small4;
+}
+
+.small-card {
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  height: 300px;
 }
 
 /* Course cards */
