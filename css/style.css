@@ -23,6 +23,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
 body.no-scroll {
   overflow: hidden;
 }
@@ -30,10 +31,6 @@ body.no-scroll {
 /* --- Main Content Area --- */
 main {
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   padding: 20px 0;
 }
@@ -54,6 +51,7 @@ nav {
   align-items: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
+
 .nav-container {
   display: flex;
   align-items: center;
@@ -61,11 +59,13 @@ nav {
   max-width: 1200px;
   justify-content: center;
 }
+
 #nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
 }
+
 #nav-links li a {
   font-family: 'Nunito', sans-serif;
   color: black;
@@ -75,11 +75,13 @@ nav {
   padding: 8px 15px;
   transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
+
 #nav-links li a:hover {
   color: #00bcd4;
   text-shadow: 0 0 8px #00bcd4;
   transform: scale(1.1);
 }
+
 #nav-links li a.active-nav-link {
   color: #00bcd4;
 }
@@ -94,44 +96,37 @@ nav {
   display: none;
 }
 
-/* --- Home Page Centering (index.html) --- */
-.name-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+/* --- Home / About / Before We Begin Center Content --- */
+.name-center, .before-we-begin, .intro {
   text-align: center;
-  min-height: calc(100vh - 60px); /* Viewport height minus navbar */
-  padding: 0 20px;
-  margin: 0 auto;
-  gap: 10px; /* Nice small breathing between h1, h2, p, button */
-  width: 100%;
-  max-width: 650px;
+  margin: 50px auto;
+  padding: 20px;
+  max-width: 700px;
+  width: 90%;
 }
 
-.name-center h1 {
-  font-size: 2.8rem;
+.name-center h1, .before-we-begin h1, .intro h2 {
   font-family: 'Lora', serif;
-  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
 }
 
 .name-center h2 {
+  font-family: 'Nunito', sans-serif;
   font-size: 1.5rem;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  color: #f0f0f0;
-}
-
-.name-center p {
-  font-size: 1rem;
-  font-family: 'Nunito', sans-serif;
-  color: #f0f0f0;
-  margin-top: 10px;
+  color: #00bcd4;
   margin-bottom: 20px;
-  max-width: 500px;
 }
 
-.name-center .button {
+.name-center p, .before-we-begin p, .intro p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* --- Button Styling --- */
+.button {
   display: inline-block;
   background-color: #00bcd4;
   color: #1c1c1c;
@@ -141,31 +136,19 @@ nav {
   border-radius: 8px;
   transition: background-color 0.3s, box-shadow 0.3s;
 }
-.name-center .button:hover {
+
+.button:hover {
   background-color: #0097a7;
   box-shadow: 0 0 10px #00bcd4;
 }
 
-/* --- About & Before We Begin Pages Centering --- */
-.intro, .before-we-begin {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  max-width: 1150px;
-  width: 90%;
+a:focus, .button:focus {
+  outline: 2px solid #00bcd4;
+  outline-offset: 3px;
 }
 
-.intro h2, .before-we-begin h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  font-family: 'Lora', serif;
-}
-
-.intro p, .before-we-begin p {
-  font-size: 1.1rem;
-  color: #f0f0f0;
+.button:focus {
+  box-shadow: 0 0 10px #00bcd4;
 }
 
 /* --- Footer --- */
@@ -186,41 +169,51 @@ footer {
   transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+
 .fade-in-section.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* --- Media Queries for Mobile --- */
+/* --- Responsive Mobile Adjustments --- */
 @media (max-width: 767px) {
   body {
     padding-top: 50px;
   }
-  main {
-    padding: 15px 0;
-  }
-  #nav-links {
-    display: none;
-  }
-  .hamburger-menu {
-    display: flex;
-  }
-  .nav-container {
-    justify-content: center;
-  }
+
   nav {
     height: 50px;
   }
+
+  main {
+    padding: 15px 0;
+  }
+
+  #nav-links {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .nav-container {
+    justify-content: center;
+  }
+
   .name-center, .intro, .before-we-begin {
     padding: 30px 15px;
     width: 95%;
   }
+
   .name-center h1, .intro h2, .before-we-begin h1 {
     font-size: 1.8rem;
   }
+
   .name-center h2 {
     font-size: 1.3rem;
   }
+
   .name-center p, .intro p, .before-we-begin p {
     font-size: 1rem;
   }
@@ -230,9 +223,11 @@ footer {
   .hamburger-menu {
     display: none;
   }
+
   #nav-links {
     display: flex;
   }
+
   .nav-container {
     justify-content: center;
   }
