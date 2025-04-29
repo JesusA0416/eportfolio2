@@ -38,7 +38,7 @@
   <a href="personal-projects.html">Personal Projects</a>
 </div>
 
-<!-- MAIN CONTENT -->
+<!-- MAIN -->
 <main class="courses-page">
 
   <section class="intro fade-in-section">
@@ -47,7 +47,7 @@
   </section>
 
   <section class="courses-grid">
-
+  
     <!-- Course Cards -->
     <div class="course-card fade-in-section" style="grid-column: 1 / span 2; grid-row: 1 / span 2;">
       <img src="images/american_institutions.png" alt="American Institutions">
@@ -124,22 +124,22 @@
   <p>© 2025 Jesús Lopez Aguilar. All rights reserved.</p>
 </footer>
 
-<!-- JS SCRIPTS -->
+<!-- SCRIPTS -->
 <script>
-  function toggleMenu() {
-    const mobileNav = document.getElementById('mobile-nav');
-    const hamburgerIcon = document.getElementById('hamburger-menu');
-    const body = document.body;
+function toggleMenu() {
+  const mobileNav = document.getElementById('mobile-nav');
+  const hamburgerIcon = document.getElementById('hamburger-menu');
+  const body = document.body;
 
-    mobileNav.classList.toggle('active');
-    hamburgerIcon.classList.toggle('is-active');
+  mobileNav.classList.toggle('active');
+  hamburgerIcon.classList.toggle('is-active');
 
-    if (mobileNav.classList.contains('active')) {
-      body.classList.add('no-scroll');
-    } else {
-      body.classList.remove('no-scroll');
-    }
+  if (mobileNav.classList.contains('active')) {
+    body.classList.add('no-scroll');
+  } else {
+    body.classList.remove('no-scroll');
   }
+}
 </script>
 
 <script>
@@ -147,15 +147,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const faders = document.querySelectorAll('.fade-in-section');
 
   const appearOptions = {
-    threshold: 0.2,
-    rootMargin: "0px 0px -100px 0px"
+    threshold: 0.3,  // smoother scroll trigger
   };
 
   const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        return;
-      } else {
+      if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
         appearOnScroll.unobserve(entry.target);
       }
