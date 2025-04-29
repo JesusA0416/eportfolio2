@@ -79,12 +79,12 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
 
 .courses-container {
   display: grid;
-  grid-template-columns: repeat(3, 366px);
-  grid-auto-rows: 500px;
+  grid-template-columns: repeat(3, 1fr);
   gap: 25px;
-  max-width: 1200px; /* 🔥 CAP the size */
-  width: 100%;
+  width: 1200px;
+  max-width: 100%;
   padding: 40px 20px;
+  place-items: center;
 }
 
 /* Course Card - Image-based structure with min-height fallback */
