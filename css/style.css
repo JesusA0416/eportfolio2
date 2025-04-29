@@ -24,6 +24,7 @@ body {
     transition: background-color 0.3s ease;
 }
 
+/* === MAIN CONTENT === */
 main {
     flex-grow: 1;
     width: 100%;
@@ -80,7 +81,7 @@ nav {
     color: #00bcd4;
 }
 
-/* === HAMBURGER MENU === */
+/* === HAMBURGER MENU (mobile) === */
 .hamburger-menu {
     display: none;
     flex-direction: column;
@@ -152,7 +153,7 @@ footer {
     margin-top: auto;
 }
 
-/* === HOMEPAGE & ABOUT CENTERED BLOCKS === */
+/* === CENTERED BLOCKS (Home, About) === */
 .centered-content-block {
     display: flex;
     flex-direction: column;
@@ -187,6 +188,12 @@ main.courses-page {
     padding: 40px 20px;
 }
 
+/* Fix Section */
+.courses-section {
+    background-color: transparent;
+}
+
+/* Intro Section */
 main.courses-page .intro {
     text-align: center;
     margin-bottom: 30px;
@@ -204,7 +211,7 @@ main.courses-page .intro p {
     font-size: 1.1rem;
 }
 
-/* --- FIXED GRID FOR COURSES --- */
+/* Courses Grid */
 main.courses-page .courses-grid {
     display: grid;
     grid-template-columns: repeat(3, 366px);
@@ -213,7 +220,7 @@ main.courses-page .courses-grid {
     justify-content: center;
 }
 
-/* COURSE CARD STYLES */
+/* Course Card */
 main.courses-page .course-card {
     background-color: #333;
     border-radius: 10px;
@@ -249,7 +256,7 @@ main.courses-page .course-card .text-overlay h3 {
     font-size: 1.5rem;
 }
 
-/* HOVER EFFECT */
+/* Hover Effect */
 main.courses-page .course-card:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px 8px rgba(0, 188, 212, 0.8);
