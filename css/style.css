@@ -333,3 +333,14 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   max-width: 1600px;
   margin: 0 auto;
 }
+.course-card.small {
+  width: 366px;
+  height: 550px;
+}
+
+.course-card.big {
+  grid-column: span 2;
+  grid-row: span 2;
+  width: calc(366px * 2 + 25px); /* two columns + gap */
+  height: calc(550px * 2 + 25px); /* two rows + gap */
+}
