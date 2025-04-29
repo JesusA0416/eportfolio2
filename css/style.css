@@ -589,3 +589,81 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   display: block !important;
   aspect-ratio: auto !important;
 }
+.courses-container {
+  display: grid;
+  grid-template-columns: repeat(4, 366px);
+  grid-template-rows: repeat(4, 550px);
+  grid-template-areas:
+    "ai ql en hu"
+    "ai ig ls hu"
+    "fa cm lw ps"
+    ".  .  ss .";
+  gap: 25px;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Lock cards to positions */
+.course-card[style*="grid-area: ai"] { grid-area: ai; }
+.course-card[style*="grid-area: cm"] { grid-area: cm; }
+.course-card[style*="grid-area: ql"] { grid-area: ql; }
+.course-card[style*="grid-area: en"] { grid-area: en; }
+.course-card[style*="grid-area: lw"] { grid-area: lw; }
+.course-card[style*="grid-area: ig"] { grid-area: ig; }
+.course-card[style*="grid-area: ls"] { grid-area: ls; }
+.course-card[style*="grid-area: fa"] { grid-area: fa; }
+.course-card[style*="grid-area: ss"] { grid-area: ss; }
+.course-card[style*="grid-area: ps"] { grid-area: ps; }
+.course-card[style*="grid-area: hu"] { grid-area: hu; }
+
+.course-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  background-color: #333;
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.course-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.course-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px 8px rgba(0, 188, 212, 0.8);
+}
+
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  text-shadow: 1px 1px 4px black;
+  width: 90%;
+}
+
+/* AI force wide */
+#ai-card {
+  grid-area: ai;
+  grid-column: span 2;
+  grid-row: span 2;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  display: block;
+}
+
+#ai-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block;
+}
