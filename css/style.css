@@ -1,4 +1,14 @@
 /* === GENERAL RESETS === */
+body::before {
+  content: '';
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #1c1c1c;
+  z-index: -1;
+}
 * {
   margin: 0;
   padding: 0;
