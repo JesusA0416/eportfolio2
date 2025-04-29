@@ -103,10 +103,17 @@ nav {
 }
 
 /* --- SPECIAL PUZZLE GRID LAYOUT FOR COURSES PAGE --- */
-/* --- Puzzle Layout for Courses --- */
+.courses-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 30px 50px;
+  width: 100%;
+}
+
 .course-row {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   gap: 20px;
   flex-wrap: nowrap;
@@ -119,7 +126,7 @@ nav {
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 0 30px 10px rgba(0, 188, 212, 0.4); /* CONSTANT GLOW */
+  box-shadow: 0 0 30px 10px rgba(0, 188, 212, 0.4);
 }
 
 .small-card {
@@ -129,10 +136,9 @@ nav {
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 0 20px 8px rgba(0, 188, 212, 0.3); /* Smaller Glow */
+  box-shadow: 0 0 20px 8px rgba(0, 188, 212, 0.3);
 }
 
-/* Image styling inside all cards */
 .course-card img {
   width: 100%;
   height: 100%;
