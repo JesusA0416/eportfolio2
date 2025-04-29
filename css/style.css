@@ -212,23 +212,23 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
      .text-overlay h3 { font-size: 1.1rem; } .text-overlay p { font-size: 0.8rem; }
      .before-we-begin h1 { font-size: 1.6rem; } .before-we-begin p { font-size: 0.9rem; }
  }
-/* --- Courses Page Layout for 10 Cards --- */
+/* --- Courses Grid Layout (Fixed Diagonal) --- */
 .courses-layout {
   display: grid;
-  grid-template-columns: 300px 300px 300px 300px;
-  grid-template-rows: 300px 300px 300px;
+  grid-template-columns: 300px 300px 300px;
+  grid-template-rows: 300px 300px 300px 300px;
   grid-template-areas:
-    "ai small1 small2 humanities"
-    "ai small3 small4 humanities"
-    "small5 small6 small7 small8";
+    "ai small1 small2"
+    "ai small3 small4"
+    "small5 small6 humanities"
+    "small7 small8 humanities";
   gap: 20px;
   justify-content: center;
   padding: 40px 20px;
-  max-width: 1400px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-/* Base for all course cards */
 .course-card {
   position: relative;
   overflow: hidden;
@@ -269,7 +269,6 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   text-shadow: 0 0 5px black;
 }
 
-/* Hover effect */
 .course-card:hover {
   transform: scale(1.03);
   box-shadow: 0 0 20px 5px rgba(0, 188, 212, 0.8);
@@ -279,7 +278,6 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   filter: brightness(40%);
 }
 
-/* Card sizing */
 .course-card.small {
   width: 300px;
   height: 300px;
