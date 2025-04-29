@@ -71,15 +71,14 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
 .intro p { font-size: 1.1rem; margin-bottom: 20px; }
 
 /* Courses Container - Auto-fill grid */
-.courses-section {
-  display: grid;
-  grid-template-columns: repeat(3, 366px);
-  justify-content: center;
-  gap: 30px;
-  padding: 40px 0;
-  width: fit-content;        /* allow grid to shrink-wrap */
-  margin-left: auto;         /* CENTER IT */
-  margin-right: auto;        /* CENTER IT */
+main.courses-page .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 366px);
+    grid-auto-rows: 550px;
+    gap: 25px;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
 .intro {
