@@ -13,7 +13,7 @@ html, body {
 
 /* === BODY === */
 body {
-    background-color: #1c1c1c; /* <<< Sets the main dark background */
+    background-color: #1c1c1c; /* Main dark background */
     font-family: 'Nunito', sans-serif;
     color: #f0f0f0;
     overflow-x: hidden;
@@ -24,15 +24,13 @@ body {
     transition: background-color 0.3s ease;
 }
 
+/* === MAIN CONTENT AREA (Generic) === */
 main {
-    flex-grow: 1;
-    /* Adding flex centering from previous steps - adjust if needed */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 20px 0; /* Optional padding */
+    flex-grow: 1; /* Allows main to fill space */
+    width: 100%; /* Ensure main takes full width */
+    /* Removed flex centering - handled by page-specific containers */
+    /* Add general padding if desired, or handle in specific containers */
+    /* padding: 20px 0; */
 }
 
 /* === NAVBAR === */
@@ -64,8 +62,8 @@ nav {
     list-style: none;
     display: flex;
     gap: 20px;
-    padding: 0; /* Ensure no default padding */
-    margin: 0; /* Ensure no default margin */
+    padding: 0;
+    margin: 0;
 }
 
 #nav-links li a {
@@ -85,37 +83,35 @@ nav {
 }
 
 #nav-links li a.active-nav-link {
-    color: #00bcd4; /* Style for the active page link */
+    color: #00bcd4;
 }
 
 /* === HAMBURGER MENU === */
 .hamburger-menu {
-    display: none; /* Hidden by default */
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 4px;
     width: 45px;
-    height: 50px; /* Should match mobile nav height */
+    height: 50px;
     z-index: 1100;
     position: fixed;
-    top: 0; /* Align with top of viewport */
+    top: 0;
     right: 15px;
     cursor: pointer;
-    /* Add transitions for the animation */
     transition: transform 0.3s ease;
 }
 
 .hamburger-menu div {
     width: 25px;
     height: 3px;
-    background-color: black; /* Hamburger lines color */
+    background-color: black;
     border-radius: 2px;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease, background-color 0.3s ease;
     transform-origin: center;
 }
 
-/* Hamburger animation to 'X' */
 .hamburger-menu.is-active div:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
@@ -129,13 +125,12 @@ nav {
 
 /* === Mobile Nav Overlay === */
 .mobile-nav {
-    /* Starts hidden */
     display: flex;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+    background-color: rgba(255, 255, 255, 0.95);
     width: 100%;
     height: 100vh;
     flex-direction: column;
@@ -143,7 +138,7 @@ nav {
     align-items: center;
     gap: 30px;
     padding: 10px;
-    z-index: 1001; /* Below hamburger icon, above content */
+    z-index: 1001;
     opacity: 0;
     transform: translateY(-100%);
     visibility: hidden;
@@ -151,7 +146,6 @@ nav {
 }
 
 .mobile-nav.active {
-    /* Becomes visible */
     opacity: 1;
     transform: translateY(0);
     visibility: visible;
@@ -161,17 +155,16 @@ nav {
 .mobile-nav a {
     font-size: 1.5rem;
     font-weight: 600;
-    color: black; /* Link color */
+    color: black;
     text-decoration: none;
     transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
-
 .mobile-nav a:hover {
-    color: #00bcd4; /* Hover color */
+    color: #00bcd4;
     text-shadow: 0 0 8px #00bcd4;
     transform: scale(1.1);
 }
-.mobile-nav a.link-active-glow { /* Style for active link in mobile */
+.mobile-nav a.link-active-glow {
      color: #00bcd4;
      text-shadow: 0 0 8px #00bcd4;
 }
@@ -185,248 +178,225 @@ footer {
     font-size: 0.9rem;
     color: #aaa;
     width: 100%;
-    margin-top: auto; /* Pushes footer down */
-    flex-shrink: 0; /* Prevent footer from shrinking */
+    margin-top: auto;
+    flex-shrink: 0;
 }
 
-/* === HOMEPAGE (index.html) === */
-/* Using a more generic name might be better if reused */
+/* === Centered Content Blocks (Homepage, About, etc.) === */
+/* Apply class="centered-content-block" to the main div inside <main> on those pages */
 .centered-content-block {
-    /* min-height: calc(90vh - 60px); Removed, main handles centering */
     display: flex;
     flex-direction: column;
     justify-content: center; /* Internal vertical centering */
     align-items: center; /* Internal horizontal centering */
     text-align: center; /* Text centering */
-    padding: 20px;
+    padding: 40px 20px; /* Padding inside the block */
     width: 90%; /* Responsive width */
-    max-width: 600px; /* Max width for homepage text */
-    margin-left: auto; /* External centering handled by main */
-    margin-right: auto;
+    max-width: 600px; /* Adjust max-width per page if needed */
+    margin: auto; /* Center the block within the main area */
+    flex-grow: 1; /* Allow block to take space if needed */
 }
+/* Example targeting specific page if needed */
+.home-page-content { max-width: 600px; }
+.about-page-content { max-width: 700px; }
 
 .centered-content-block h1 {
     font-family: 'Lora', serif;
     font-size: 2.5rem;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-.centered-content-block h2 { /* Specific subtitle style if needed */
+.centered-content-block h2 { /* Specific subtitle style */
     font-size: 1.2rem;
-    color: #00bcd4; /* Cyan color */
-    margin-bottom: 20px;
+    color: #00bcd4;
+    margin-bottom: 25px;
 }
 
 .centered-content-block p {
     font-size: 1rem;
-    /* max-width: 600px; Already handled by container max-width */
-    margin-bottom: 30px;
-    line-height: 1.6; /* Improve readability */
-}
-
-/* === ABOUT and BEFORE WE BEGIN === */
-/* Can reuse .centered-content-block or make specific */
-.about-content-block { /* Example for About page */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    width: 90%;
-    max-width: 700px; /* Slightly wider for these pages */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.about-content-block h1 {
-    font-family: 'Lora', serif;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.about-content-block p {
-    font-size: 1.2rem;
-    /* max-width: 700px; Handled by container */
     margin-bottom: 30px;
     line-height: 1.6;
 }
 
-/* === COURSES PAGE === */
-/* Styles for the GRID layout (Option B) */
-.courses-page-container { /* A wrapper div inside main for courses page */
-    width: 100%;
-    max-width: 1200px; /* Max width for the grid */
-    margin: 0 auto; /* Center the container */
-    padding: 20px; /* Padding around the content */
+/* === COURSES PAGE Specific Styles (Grid Layout) === */
+/* Target the main element with the class */
+main.courses-page {
+    /* Center the content area horizontally */
+    max-width: 1200px; /* Max width of the courses content */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 20px; /* Padding around the courses content */
+    /* Override generic main flex centering for this page */
+    display: block; /* Reset display from main's potential flex */
 }
 
-.courses-page-container .intro { /* Optional intro text above grid */
+/* Style the intro section within courses page */
+main.courses-page .intro {
     text-align: center;
     margin-bottom: 40px; /* Space below intro */
     background-color: #333; /* Darker box for intro */
-    padding: 25px;
+    padding: 30px;
     border-radius: 10px;
 }
-.courses-page-container .intro h2 {
+main.courses-page .intro h2 {
     font-family: 'Lora', serif;
     font-size: 2rem;
     margin-bottom: 15px;
 }
-.courses-page-container .intro p {
+main.courses-page .intro p {
     font-size: 1.1rem;
     line-height: 1.6;
+    margin-bottom: 0; /* Remove default p margin if needed */
 }
 
-
-.courses-grid { /* The grid itself */
+/* Style the grid container within courses page */
+main.courses-page .courses-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
     gap: 30px; /* Space between cards */
 }
 
-.course-card { /* Individual card styling */
+/* Style individual course cards within courses page */
+main.courses-page .course-card {
     background-color: #333; /* Card background */
     border-radius: 10px;
-    overflow: hidden; /* Keep image corners rounded */
+    overflow: hidden;
     position: relative;
-    width: 100%; /* Take grid column width */
-    aspect-ratio: 4 / 3; /* Aspect ratio for card */
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Adjusted aspect ratio */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    color: #f0f0f0; /* Default text color */
+    color: #f0f0f0;
 }
 
-.course-card img {
+main.courses-page .course-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cover the card area */
+    object-fit: cover;
     transition: transform 0.3s ease-out, filter 0.3s ease-out;
 }
 
-.course-card .overlay { /* Dark overlay on image */
+main.courses-page .course-card .overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background-color: rgba(0, 0, 0, 0.4);
-    pointer-events: none; /* Allow clicks through */
+    pointer-events: none;
     transition: background-color 0.3s ease-out;
+    border-radius: 10px; /* Match card rounding */
 }
 
-.course-card .text-overlay { /* Text on the card */
+main.courses-page .course-card .text-overlay {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
     width: 90%;
-    padding: 10px; /* Padding within text area */
+    padding: 10px;
     z-index: 2;
 }
 
-.course-card .text-overlay h3 { /* Card title */
+main.courses-page .course-card .text-overlay h3 {
      font-family: 'Lora', serif;
-     font-size: 1.3rem; /* Adjust as needed */
+     font-size: 1.3rem;
      margin-bottom: 5px;
      text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
 }
 
-.course-card .text-overlay p { /* Card description */
-    font-size: 0.9rem; /* Adjust as needed */
+main.courses-page .course-card .text-overlay p { /* If you add paragraphs later */
+    font-size: 0.9rem;
     line-height: 1.3;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
 }
 
 
 /* Hover Effects for Courses */
-.course-card:hover {
-    transform: scale(1.03); /* Slight zoom */
-    box-shadow: 0 0 20px 3px rgba(0, 188, 212, 0.8); /* Cyan glow */
-    z-index: 5; /* Bring card forward */
+main.courses-page .course-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px 3px rgba(0, 188, 212, 0.8);
+    z-index: 5;
 }
 
-.course-card:hover img {
-    filter: brightness(0.5); /* Dim image more on hover */
+main.courses-page .course-card:hover img {
+    filter: brightness(0.5);
 }
-.course-card:hover .overlay {
-    background-color: rgba(0, 0, 0, 0.6); /* Darken overlay on hover */
+main.courses-page .course-card:hover .overlay {
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 
-/* === BUTTONS === */
+/* === BUTTONS (General) === */
 .button {
-    display: inline-block; /* Allow margin/padding */
-    margin-top: 15px; /* Space above button */
-    background-color: #00bcd4; /* Cyan background */
-    color: #1f1f1f; /* Dark text */
+    display: inline-block;
+    margin-top: 15px;
+    background-color: #00bcd4;
+    color: #1f1f1f;
     padding: 10px 25px;
     border-radius: 8px;
     font-weight: bold;
     text-decoration: none;
     transition: background-color 0.3s, box-shadow 0.3s;
     font-family: 'Nunito', sans-serif;
-    border: none; /* Remove default border */
-    cursor: pointer; /* Indicate clickable */
+    border: none;
+    cursor: pointer;
 }
 
 .button:hover {
-    background-color: #0097a7; /* Darker cyan on hover */
+    background-color: #0097a7;
     box-shadow: 0 0 10px #00bcd4;
+}
+
+/* Focus styles */
+a:focus, .button:focus, .hamburger-menu:focus {
+    outline: 2px solid #00bcd4;
+    outline-offset: 3px;
+}
+.button:focus {
+     box-shadow: 0 0 10px #00bcd4;
 }
 
 
 /* === MEDIA QUERIES === */
 @media (max-width: 768px) {
     body {
-        padding-top: 50px; /* Adjust for shorter mobile navbar */
+        padding-top: 50px;
     }
     nav {
-        height: 50px; /* Shorter navbar */
+        height: 50px;
     }
     #nav-links {
-        display: none; /* Hide desktop links */
+        display: none;
     }
     .hamburger-menu {
-        display: flex; /* Show hamburger */
-        height: 50px; /* Match navbar height */
+        display: flex;
+        height: 50px;
     }
 
-    /* Adjust font sizes for smaller screens */
-    .centered-content-block h1, .about-content-block h1 {
-        font-size: 2rem;
-    }
-     .centered-content-block p, .about-content-block p {
-        font-size: 1rem;
-    }
-     .courses-page-container .intro h2 {
-        font-size: 1.8rem;
-    }
-     .courses-page-container .intro p {
-        font-size: 1rem;
-    }
+    /* Centered content adjustments */
+    .centered-content-block h1 { font-size: 2rem; }
+    .centered-content-block p { font-size: 1rem; }
 
-    /* Adjust grid for tablets */
-     .courses-grid {
+    /* Courses page adjustments */
+    main.courses-page { padding: 30px 15px; }
+    main.courses-page .intro h2 { font-size: 1.8rem; }
+    main.courses-page .intro p { font-size: 1rem; }
+    main.courses-page .courses-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 20px;
     }
-     .course-card .text-overlay h3 {
-        font-size: 1.1rem;
-     }
-     .course-card .text-overlay p {
-        font-size: 0.8rem;
-     }
+    main.courses-page .course-card .text-overlay h3 { font-size: 1.1rem; }
+    main.courses-page .course-card .text-overlay p { font-size: 0.8rem; }
 }
 
 @media (max-width: 480px) {
-    /* Stack grid items on small mobile */
-    .courses-grid {
+    /* Centered content adjustments */
+    .centered-content-block h1 { font-size: 1.8rem; }
+
+    /* Courses page adjustments */
+    main.courses-page { padding: 20px 10px; }
+    main.courses-page .intro h2 { font-size: 1.5rem; }
+     main.courses-page .courses-grid {
         grid-template-columns: 1fr; /* Single column */
-        gap: 25px; /* Increase gap slightly for single column */
-    }
-     .centered-content-block h1, .about-content-block h1 {
-        font-size: 1.8rem;
-    }
-     .courses-page-container .intro h2 {
-        font-size: 1.5rem;
+        gap: 25px;
     }
 }
