@@ -13,29 +13,25 @@ html, body {
 
 /* === BODY === */
 body {
-    background-color: #1c1c1c; /* Main dark background */
+    background-color: #1c1c1c;
     font-family: 'Nunito', sans-serif;
     color: #f0f0f0;
     overflow-x: hidden;
-    padding-top: 60px; /* Adjust if using fixed navbar */
+    padding-top: 60px;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     transition: background-color 0.3s ease;
 }
 
-/* === MAIN CONTENT AREA (Generic) === */
 main {
-    flex-grow: 1; /* Allows main to fill space */
-    width: 100%; /* Ensure main takes full width */
-    /* Removed flex centering - handled by page-specific containers */
-    /* Add general padding if desired, or handle in specific containers */
-    /* padding: 20px 0; */
+    flex-grow: 1;
+    width: 100%;
 }
 
 /* === NAVBAR === */
 nav {
-    background-color: #eeeeee; /* Light gray navbar */
+    background-color: #eeeeee;
     height: 60px;
     padding: 0 20px;
     width: 100%;
@@ -62,8 +58,6 @@ nav {
     list-style: none;
     display: flex;
     gap: 20px;
-    padding: 0;
-    margin: 0;
 }
 
 #nav-links li a {
@@ -100,7 +94,6 @@ nav {
     top: 0;
     right: 15px;
     cursor: pointer;
-    transition: transform 0.3s ease;
 }
 
 .hamburger-menu div {
@@ -108,10 +101,9 @@ nav {
     height: 3px;
     background-color: black;
     border-radius: 2px;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease, background-color 0.3s ease;
-    transform-origin: center;
 }
 
+/* Hamburger active */
 .hamburger-menu.is-active div:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
@@ -123,52 +115,31 @@ nav {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* === Mobile Nav Overlay === */
+/* === MOBILE NAV === */
 .mobile-nav {
+    display: none;
+}
+.mobile-nav.active {
     display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(255, 255, 255, 0.95);
-    width: 100%;
-    height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
-    padding: 10px;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    background: rgba(255, 255, 255, 0.95);
     z-index: 1001;
-    opacity: 0;
-    transform: translateY(-100%);
-    visibility: hidden;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out, visibility 0s linear 0.5s;
 }
-
-.mobile-nav.active {
-    opacity: 1;
-    transform: translateY(0);
-    visibility: visible;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out, visibility 0s linear 0s;
-}
-
 .mobile-nav a {
     font-size: 1.5rem;
     font-weight: 600;
     color: black;
     text-decoration: none;
-    transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
 .mobile-nav a:hover {
     color: #00bcd4;
-    text-shadow: 0 0 8px #00bcd4;
     transform: scale(1.1);
 }
-.mobile-nav a.link-active-glow {
-     color: #00bcd4;
-     text-shadow: 0 0 8px #00bcd4;
-}
-
 
 /* === FOOTER === */
 footer {
@@ -179,65 +150,51 @@ footer {
     color: #aaa;
     width: 100%;
     margin-top: auto;
-    flex-shrink: 0;
 }
 
-/* === Centered Content Blocks (Homepage, About, etc.) === */
-/* Apply class="centered-content-block" to the main div inside <main> on those pages */
+/* === HOMEPAGE & ABOUT CENTERED BLOCKS === */
 .centered-content-block {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Internal vertical centering */
-    align-items: center; /* Internal horizontal centering */
-    text-align: center; /* Text centering */
-    padding: 40px 20px; /* Padding inside the block */
-    width: 90%; /* Responsive width */
-    max-width: 600px; /* Adjust max-width per page if needed */
-    margin: auto; /* Center the block within the main area */
-    flex-grow: 1; /* Allow block to take space if needed */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
 }
-/* Example targeting specific page if needed */
-.home-page-content { max-width: 600px; }
-.about-page-content { max-width: 700px; }
-
 .centered-content-block h1 {
     font-family: 'Lora', serif;
     font-size: 2.5rem;
     margin-bottom: 15px;
 }
-
-.centered-content-block h2 { /* Specific subtitle style */
+.centered-content-block h2 {
     font-size: 1.2rem;
     color: #00bcd4;
     margin-bottom: 25px;
 }
-
 .centered-content-block p {
     font-size: 1rem;
     margin-bottom: 30px;
-    line-height: 1.6;
 }
 
-/* === COURSES PAGE Specific Styles (Grid Layout) === */
-/* Target the main element with the class */
+/* === COURSES PAGE === */
 main.courses-page {
-    /* Center the content area horizontally */
-    max-width: 1200px; /* Max width of the courses content */
-    margin-left: auto;
-    margin-right: auto;
-    padding: 40px 20px; /* Padding around the courses content */
-    /* Override generic main flex centering for this page */
-    display: block; /* Reset display from main's potential flex */
+    background-color: #1c1c1c;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
 }
 
-/* Style the intro section within courses page */
 main.courses-page .intro {
     text-align: center;
-    margin-bottom: 40px; /* Space below intro */
-    background-color: #333; /* Darker box for intro */
+    margin-bottom: 30px;
+    background-color: #333;
     padding: 30px;
     border-radius: 10px;
 }
+
 main.courses-page .intro h2 {
     font-family: 'Lora', serif;
     font-size: 2rem;
@@ -245,46 +202,40 @@ main.courses-page .intro h2 {
 }
 main.courses-page .intro p {
     font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 0; /* Remove default p margin if needed */
 }
 
-/* Style the grid container within courses page */
+/* --- FIXED GRID FOR COURSES --- */
 main.courses-page .courses-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
-    gap: 30px; /* Space between cards */
+    grid-template-columns: repeat(3, 366px);
+    grid-auto-rows: 550px;
+    gap: 25px;
+    justify-content: center;
 }
 
-/* Style individual course cards within courses page */
+/* COURSE CARD STYLES */
 main.courses-page .course-card {
-    background-color: #333; /* Card background */
+    background-color: #333;
     border-radius: 10px;
     overflow: hidden;
-    position: relative;
     width: 100%;
-    aspect-ratio: 4 / 3; /* Adjusted aspect ratio */
+    height: 100%;
+    position: relative;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    color: #f0f0f0;
 }
-
 main.courses-page .course-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease-out, filter 0.3s ease-out;
 }
-
 main.courses-page .course-card .overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background-color: rgba(0, 0, 0, 0.4);
     pointer-events: none;
-    transition: background-color 0.3s ease-out;
-    border-radius: 10px; /* Match card rounding */
 }
-
 main.courses-page .course-card .text-overlay {
     position: absolute;
     top: 50%; left: 50%;
@@ -292,111 +243,59 @@ main.courses-page .course-card .text-overlay {
     text-align: center;
     color: white;
     width: 90%;
-    padding: 10px;
-    z-index: 2;
 }
-
 main.courses-page .course-card .text-overlay h3 {
-     font-family: 'Lora', serif;
-     font-size: 1.3rem;
-     margin-bottom: 5px;
-     text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+    font-family: 'Lora', serif;
+    font-size: 1.5rem;
 }
 
-main.courses-page .course-card .text-overlay p { /* If you add paragraphs later */
-    font-size: 0.9rem;
-    line-height: 1.3;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
-}
-
-
-/* Hover Effects for Courses */
+/* HOVER EFFECT */
 main.courses-page .course-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 20px 3px rgba(0, 188, 212, 0.8);
-    z-index: 5;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px 8px rgba(0, 188, 212, 0.8);
 }
-
 main.courses-page .course-card:hover img {
-    filter: brightness(0.5);
+    filter: brightness(0.6);
 }
 main.courses-page .course-card:hover .overlay {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-
-/* === BUTTONS (General) === */
+/* === BUTTON === */
 .button {
-    display: inline-block;
-    margin-top: 15px;
     background-color: #00bcd4;
     color: #1f1f1f;
     padding: 10px 25px;
     border-radius: 8px;
     font-weight: bold;
     text-decoration: none;
-    transition: background-color 0.3s, box-shadow 0.3s;
     font-family: 'Nunito', sans-serif;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
-
 .button:hover {
     background-color: #0097a7;
     box-shadow: 0 0 10px #00bcd4;
 }
 
-/* Focus styles */
-a:focus, .button:focus, .hamburger-menu:focus {
-    outline: 2px solid #00bcd4;
-    outline-offset: 3px;
-}
-.button:focus {
-     box-shadow: 0 0 10px #00bcd4;
-}
-
-
 /* === MEDIA QUERIES === */
 @media (max-width: 768px) {
-    body {
-        padding-top: 50px;
-    }
-    nav {
-        height: 50px;
-    }
-    #nav-links {
-        display: none;
-    }
-    .hamburger-menu {
-        display: flex;
-        height: 50px;
-    }
+    #nav-links { display: none; }
+    .hamburger-menu { display: flex; }
+    nav { height: 50px; }
+    body { padding-top: 50px; }
 
-    /* Centered content adjustments */
     .centered-content-block h1 { font-size: 2rem; }
     .centered-content-block p { font-size: 1rem; }
 
-    /* Courses page adjustments */
-    main.courses-page { padding: 30px 15px; }
-    main.courses-page .intro h2 { font-size: 1.8rem; }
-    main.courses-page .intro p { font-size: 1rem; }
     main.courses-page .courses-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 20px;
     }
-    main.courses-page .course-card .text-overlay h3 { font-size: 1.1rem; }
-    main.courses-page .course-card .text-overlay p { font-size: 0.8rem; }
 }
-
 @media (max-width: 480px) {
-    /* Centered content adjustments */
-    .centered-content-block h1 { font-size: 1.8rem; }
-
-    /* Courses page adjustments */
-    main.courses-page { padding: 20px 10px; }
-    main.courses-page .intro h2 { font-size: 1.5rem; }
-     main.courses-page .courses-grid {
-        grid-template-columns: 1fr; /* Single column */
-        gap: 25px;
+    main.courses-page .courses-grid {
+        grid-template-columns: 1fr;
     }
 }
