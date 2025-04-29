@@ -685,3 +685,19 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
     aspect-ratio: 3 / 4;
   }
 }
+@media (max-width: 768px) {
+  .courses-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .course-card {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 3 / 4;
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+}
