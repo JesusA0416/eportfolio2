@@ -212,37 +212,51 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
      .text-overlay h3 { font-size: 1.1rem; } .text-overlay p { font-size: 0.8rem; }
      .before-we-begin h1 { font-size: 1.6rem; } .before-we-begin p { font-size: 0.9rem; }
  }
-/* --- Courses Grid Layout (Fixed Diagonal) --- */
+/* --- Final Courses Page Card Layout (Deck Style) --- */
 .courses-layout {
   display: grid;
-  grid-template-columns: 300px 300px 300px;
-  grid-template-rows: 300px 300px 300px 300px;
+  grid-template-columns: repeat(3, 300px);
+  grid-template-rows: repeat(4, 300px);
   grid-template-areas:
     "ai small1 small2"
     "ai small3 small4"
     "small5 small6 humanities"
-    "small7 small8 humanities";
-  gap: 20px;
+    "small7 small8 small9";
+  gap: 30px; /* space between cards */
   justify-content: center;
   padding: 40px 20px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
+/* Base Card Style */
 .course-card {
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  border-radius: 20px;
+  background-color: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Images */
 .course-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+/* Hover */
+.course-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px 8px rgba(0, 188, 212, 0.8);
+}
+
+.course-card:hover img {
+  filter: brightness(40%);
+}
+
+/* Overlay */
 .overlay {
   position: absolute;
   top: 0;
@@ -253,6 +267,7 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   pointer-events: none;
 }
 
+/* Text on Cards */
 .text-overlay {
   position: absolute;
   top: 50%;
@@ -264,42 +279,19 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
 }
 
 .text-overlay h3 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-family: 'Lora', serif;
   text-shadow: 0 0 5px black;
 }
 
-.course-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 20px 5px rgba(0, 188, 212, 0.8);
-}
-
-.course-card:hover img {
-  filter: brightness(40%);
-}
-
+/* Small Card */
 .course-card.small {
   width: 300px;
   height: 300px;
 }
 
+/* Big Card */
 .course-card.big {
   width: 600px;
   height: 600px;
-}
-/* --- Updated Courses Layout for 11 Classes --- */
-.courses-layout {
-  display: grid;
-  grid-template-columns: 300px 300px 300px;
-  grid-template-rows: 300px 300px 300px 300px;
-  grid-template-areas:
-    "ai small1 small2"
-    "ai small3 small4"
-    "small5 small6 humanities"
-    "small7 small8 small9";
-  gap: 20px;
-  justify-content: center;
-  padding: 40px 20px;
-  max-width: 1100px;
-  margin: 0 auto;
 }
