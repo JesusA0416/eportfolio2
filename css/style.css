@@ -79,19 +79,19 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
 
 .courses-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 366px); /* 🔥 fixed width cards */
+  grid-auto-rows: 500px; /* 🔥 fixed height cards */
   gap: 25px;
-  width: 1200px;
-  max-width: 100%;
+  width: auto;
   padding: 40px 20px;
-  place-items: center;
+  justify-content: center;
 }
 
-/* Course Card - Image-based structure with min-height fallback */
 .course-card {
+  width: 366px;
+  height: 500px;
+  background-color: #333;
   position: relative;
-  width: 100%;
-  aspect-ratio: 3 / 4; /* <<<<<< BOOM */
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
