@@ -38,17 +38,65 @@
   </div>
 
   <!-- MAIN -->
-  <main class="about-me-page fade-in-section">
-    <section class="intro">
-      <h2>About Me</h2>
+  <main>
+    <section class="before-we-begin fade-in-section">
+      <h1>About Me</h1>
+      <p>You made it to this page. Hey. My name is Jesús Antonio Lopez Aguilar...</p>
+      <!-- [Insert your full About Me personal story paragraph-by-paragraph here, like you've already done.] -->
     </section>
 
-    <section class="about-content">
-      <p>You made it to this page. Hey. My name is Jesús Antonio Lopez Aguilar. I’m currently attending Salt Lake Community College...</p>
+    <section class="my-goals-section fade-in-section">
+      <h2>My Goals</h2>
+      <p class="subheader">My Personal and Academic goals while at SLCC</p>
 
-      <!-- Break your full text into <p> tags for each paragraph here -->
+      <div class="goals-columns">
+        <div>
+          <h3>Short Term Goals</h3>
+          <ul>
+            <li>Practice Self-Compassion and Build Confidence</li>
+            <li>Reach Out to Professors During Office Hours</li>
+            <li>Form Study Groups with Classmates</li>
+            <li>Develop Consistent Study Habits</li>
+            <li>Take Care of My Mental Health</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Long-Term Goals</h3>
+          <ul>
+            <li>Graduate with Dual Degrees in Criminal Justice and Nursing</li>
+            <li>Secure a Career in a Specialized Field of Nursing or Criminal Justice</li>
+            <li>Achieve Financial Stability and Provide for My Family</li>
+          </ul>
+        </div>
+      </div>
 
-      <p>...Welcome to my story. Told in rolled tortillas, court slips, medically prescribed attention, and just enough trauma to keep it interesting. I’m still that same kid with the busted Capri Sun, but now I’ve got goals, two majors, and a little more control over the straw.</p>
+      <div class="term-pathway">
+        <h3>My Pathway</h3>
+
+        <h4>Spring 2025</h4>
+        <ul>
+          <li>HON-2060</li>
+          <li>HON-2100</li>
+          <li>ETHS-2430</li>
+          <li>POLS-2100</li>
+          <li>ENGL-2020</li>
+        </ul>
+        <p><strong>Term 1 Reflection:</strong> Use this section to reflect on your learning after the term has ended.</p>
+
+        <h4>Summer 2025</h4>
+        <ul>
+          <li>ART 1010</li>
+          <li>PSY 1100</li>
+        </ul>
+        <p><strong>Term 2 Reflection:</strong> Use this section to reflect on your learning after the term has ended.</p>
+
+        <h4>Fall 2025</h4>
+        <ul>
+          <li>COMM-1010</li>
+          <li>HLTH 1500</li>
+        </ul>
+        <p><strong>Term 3 Reflection:</strong> Use this section to reflect on your learning after the term has ended.</p>
+      </div>
     </section>
   </main>
 
@@ -63,17 +111,17 @@
       const mobileNav = document.getElementById('mobile-nav');
       const hamburgerIcon = document.getElementById('hamburger-menu');
       const body = document.body;
-
       mobileNav.classList.toggle('active');
       hamburgerIcon.classList.toggle('is-active');
-
       if (mobileNav.classList.contains('active')) {
         body.classList.add('no-scroll');
       } else {
         body.classList.remove('no-scroll');
       }
     }
+  </script>
 
+  <script>
     document.addEventListener('DOMContentLoaded', function () {
       const faders = document.querySelectorAll('.fade-in-section');
       const appearOptions = { threshold: 0.15 };
@@ -84,59 +132,8 @@
           observer.unobserve(entry.target);
         });
       }, appearOptions);
-
-      faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-      });
+      faders.forEach(fader => appearOnScroll.observe(fader));
     });
   </script>
 </body>
 </html>
-<section class="my-goals-section fade-in-section">
-  <h2>My Goals</h2>
-  <p class="subheader">My personal and academic goals while at SLCC</p>
-
-  <div class="goals-columns">
-    <div>
-      <h3>Short-Term Goals</h3>
-      <ul>
-        <li><strong>Practice Self-Compassion and Build Confidence:</strong> ‘As I navigate through the challenges... learning from mistakes is part of the process.’</li>
-        <li><strong>Reach Out to Professors During Office Hours:</strong> I will make an effort to connect... help me succeed in my courses.</li>
-        <li><strong>Form Study Groups with Classmates:</strong> I will find a study buddy... gain different perspectives.</li>
-        <li><strong>Develop Consistent Study Habits:</strong> I will establish a regular routine... plan ahead for exams.</li>
-        <li><strong>Take Care of My Mental Health:</strong> I will focus on self-care, relaxation, and stress management.</li>
-      </ul>
-    </div>
-
-    <div>
-      <h3>Long-Term Goals</h3>
-      <ul>
-        <li><strong>Graduate with Dual Degrees:</strong> Criminal Justice from SLCC and Nursing from Joyce University.</li>
-        <li><strong>Secure a Specialized Career:</strong> Forensic nursing or healthcare law enforcement.</li>
-        <li><strong>Achieve Financial Stability:</strong> Support myself and give back to my family.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="term-pathway">
-    <h3>My Pathway</h3>
-
-    <h4>Spring 2025</h4>
-    <ul>
-      <li>HON-2060, HON-2100, ETHS-2430, POLS-2100, ENGL-2020</li>
-    </ul>
-    <p><em>Reflection:</em> What went well? What are you most proud of?</p>
-
-    <h4>Summer 2025</h4>
-    <ul>
-      <li>ART 1010, PSY 1100</li>
-    </ul>
-    <p><em>Reflection:</em> What are some areas you could improve?</p>
-
-    <h4>Fall 2025</h4>
-    <ul>
-      <li>COMM-1010, HLTH-1500</li>
-    </ul>
-    <p><em>Reflection:</em> How did you stay motivated?</p>
-  </div>
-</section>
