@@ -844,3 +844,42 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
 .about-me-expanded p {
   margin-bottom: 18px;
 }
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 40px;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.about-column {
+  padding: 10px;
+  color: #f0f0f0;
+  line-height: 1.7;
+}
+
+.bio-column h1 {
+  color: #00bcd4;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+}
+
+.about-column h2 {
+  color: #00bcd4;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.about-column h3 {
+  font-size: 1.4rem;
+  margin-top: 20px;
+}
+
+.about-column ul {
+  padding-left: 20px;
+}
+
+.about-column ul li {
+  margin-bottom: 10px;
+}
