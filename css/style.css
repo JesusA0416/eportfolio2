@@ -852,8 +852,8 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
 .about-layout {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  gap: 40px;
-  max-width: 1600px;
+  gap: 30px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
 }
