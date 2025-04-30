@@ -39,59 +39,33 @@
 
   <!-- MAIN CONTENT -->
   <main>
-  <section class="about-me-content fade-in-section">
-    <h1>About Me</h1>
+    <section class="before-we-begin fade-in-section" style="align-items: flex-start; text-align: left; padding: 40px 30px; max-width: 900px; margin: 0 auto;">
+      <h1 style="color: #00bcd4; margin-bottom: 25px;">About Me</h1>
 
-    <p>You made it to this page. Hey. My name is Jesús Antonio Lopez Aguilar. I’m currently attending Salt Lake Community College, majoring in Criminal Justice. I’m part of the SLCC Honors Program, where I plan to grow academically and advance beyond my time here. In addition to my studies at SLCC, I’m also pursuing a second major through Joyce University of Nursing and Health Sciences, working toward my degree in Nursing Practice. My future goals include earning a Doctorate in Nursing Practice (DNP) and a degree in Medical Forensics. My hope is to work in law enforcement and forensic investigation.</p>
+      <!-- PASTE EACH PARAGRAPH IN <p> TAGS BELOW -->
+      <p>You made it to this page. Hey. My name is Jesús Antonio Lopez Aguilar...</p>
+      <p>But before all that ambition came survival...</p>
+      <p>I was born on April 16th, 2006. An Easter baby...</p>
+      <!-- (add all the rest of your story, each wrapped in <p>...</p>) -->
 
-    <p>But before all that ambition came survival. Unlike my relatives who hold Green Cards like exclusive backstage passes, or my people who walk around with legal status like it's a house key, I didn’t get that. Ever heard of the GOLD Card? Not from Sephora. I mean the one Trump introduced, a five-million-dollar VIP fast-pass to citizenship. Yeah, no. I didn’t have that. I didn’t even get the wrapper. What I got was the starter pack: U.S. citizenship, terms and conditions very much included.</p>
-
-    <p>I was born on April 16th, 2006. An Easter baby. And I just know someone in my family was mad that I chose Easter Sunday for my grand entrance. I was born and raised in Salt Lake City, Utah, in an immigrant household I could never imagine replacing. Miriam Aguilar and Sergio Lopez, my parents, came from Mexico to give me and my brother a better life. More opportunity. More room to breathe. That’s why I’m here. Writing this. And why you’re reading it.</p>
-
-    <p>Coming from Mexican heritage? Oh boy. I grew up in that household, the one where your mom runs a full-blown urgent care clinic using only VapoRub, a bottle of 7UP, apple soda, and mineral water. Upset stomach? Vomiting? Too bad. You’re drinking one of those. And the love language? Casual roast battles, sarcasm, threats, and emotional damage with a side of tortillas. Usually, insurance is something we don't use, but we have, emergencies only. That insurance card is not getting touched unless you're bleeding. Not just light bleeding. Dripping.</p>
-
-    <p>But watching my little sister grow up has been its own comedy special. She talks back, rolls her eyes, lets out a whole “UGHGH,” and walks away untouched. Me? In her same situation, a whole TV would’ve flown. 200mph. Clean shot. And I’d just be sitting there like… wow. Evolution.</p>
-
-    <p>We live in a modern neighborhood now, a bigger house. Pros and cons? Oh, definitely a pro for my mom, she can now throw household appliances across much longer distances, like it’s an Olympic sport. She yells our names knowing the echo will make all of us immediately sink into our beds. Not me though. Jokes on you, I already left the moment you said my name in that tone.</p>
-
-    <p>And the stereotypes? Yeah, they check out. Bulk beer at every baby shower or birthday party? Accurate. But why is there more beer than juice or water? I'm pretty sure it's more expensive. Somehow the budget always makes room for tequila. I just sit there wondering how people can drink cans of beer all day and still eat like nothing. Me? I get full off water.</p>
-
-    <p>“¡Para arriba, para abajo, pa' la izquierda, pa' la derecha, pa'l centro, y pa' adentro!” the sacred ritual before taking a shot. Not me though. I was the one going feral in the corner because the Capri Sun pouch didn’t have a straw. Or worse, it did, and I stabbed straight through it. Now I’m holding a leaking pouch, contemplating my existence.</p>
-
-    <p>In high school, I worked at Best Buy. I’ve seen things. From uncensored photos to someone asking what computer is best for watching porn. I was 17. Customers would come up with cracked Galaxy phones and flash Google Translate at me. I'd go, “Buenas, yo hablo español,” and suddenly they’re like “¡¿Por qué no dijiste nada?!” Sir. You didn’t even ask.</p>
-
-    <p>Some people thought I was Asian. Others said I sounded Colombian. And I get that. My accent lives rent-free. I’m proud of it. But I’ve been tempted to say “my dog pissed on me” in Spanish just to throw people off. Or list every STD I know with a Sofia Vergara accent. Just for fun. Just for science.</p>
-
-    <p>Then came the hard part: juvenile probation. I was placed in Alternative Juvenile Detention. Monitored. Watched. Booked if I slipped up. But it saved me. Counseling saved me. I got diagnosed with ADHD. And Adderall gave me structure. It made me productive. It helped me fight for the future I wanted.</p>
-
-    <p>Now I’m a double major in college. I know where I’m headed. Law. Medicine. Service. But I’ve also been shaped by trauma. Heartbreak. Social media drama. A little bit of court. And a sprinkle of amphetamine salts.</p>
-
-    <p>And I’m still scared of bugs. Don’t care what kind. If it’s bigger than a pencil eraser, the lease is theirs.</p>
-
-    <p>This is my story. Written in tortillas, court slips, prescriptions, trauma, and drive. It’s me. Raw and real.</p>
-  </section>
-</main>
+      <a href="index.html" class="button">Back to Home</a>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
     <p>© 2025 Jesús Lopez Aguilar. All rights reserved.</p>
   </footer>
 
-  <!-- JS SCRIPTS -->
+  <!-- JS -->
   <script>
     function toggleMenu() {
       const mobileNav = document.getElementById('mobile-nav');
       const hamburgerIcon = document.getElementById('hamburger-menu');
       const body = document.body;
-
       mobileNav.classList.toggle('active');
       hamburgerIcon.classList.toggle('is-active');
-
-      if (mobileNav.classList.contains('active')) {
-        body.classList.add('no-scroll');
-      } else {
-        body.classList.remove('no-scroll');
-      }
+      body.classList.toggle('no-scroll');
     }
   </script>
 
@@ -99,7 +73,6 @@
     document.addEventListener('DOMContentLoaded', function () {
       const faders = document.querySelectorAll('.fade-in-section');
       const appearOptions = { threshold: 0.15 };
-
       const appearOnScroll = new IntersectionObserver(function (entries, observer) {
         entries.forEach(entry => {
           if (!entry.isIntersecting) return;
@@ -107,12 +80,10 @@
           observer.unobserve(entry.target);
         });
       }, appearOptions);
-
       faders.forEach(fader => {
         appearOnScroll.observe(fader);
       });
     });
   </script>
-
 </body>
 </html>
