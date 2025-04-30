@@ -950,6 +950,19 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
     padding: 0 20px;
   }
 
+  /* Force order for mobile stacking */
+  .left-goals {
+    order: 2;
+  }
+
+  .center-bio {
+    order: 1;
+  }
+
+  .right-path {
+    order: 3;
+  }
+
   .about-heading {
     font-size: 2rem;
   }
