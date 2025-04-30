@@ -942,3 +942,23 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
     order: 0;
   }
 }
+@media (max-width: 768px) {
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-grid > div {
+    width: 100%;
+    order: 0; /* default for all */
+  }
+
+  .about-intro {
+    order: -1; /* force intro to come first */
+  }
+
+  .about-goals,
+  .about-pathway {
+    order: 0;
+  }
+}
