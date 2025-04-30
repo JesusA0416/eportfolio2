@@ -756,3 +756,54 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
     grid-row: auto !important;
   }
 }
+.my-goals-section {
+  padding: 50px 60px;
+  max-width: none;
+  margin: 0;
+}
+
+.my-goals-section h2 {
+  font-size: 2.2rem;
+  color: #00bcd4;
+  font-family: 'Lora', serif;
+  margin-bottom: 10px;
+}
+
+.my-goals-section .subheader {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.goals-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.goals-columns h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.goals-columns ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.term-pathway h3, .term-pathway h4 {
+  margin-top: 30px;
+  font-size: 1.4rem;
+  color: #00bcd4;
+}
+
+.term-pathway ul {
+  padding-left: 20px;
+  list-style-type: square;
+}
+
+.term-pathway p {
+  font-style: italic;
+  margin-top: 10px;
+}
