@@ -926,23 +926,6 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   text-align: center;
 }
 @media (max-width: 768px) {
-  .about-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .goals-box {
-    order: 1;
-  }
-
-  .pathway-box {
-    order: 2;
-  }
-
-  .about-intro {
-    order: 0;
-  }
-}
-@media (max-width: 768px) {
   .about-grid {
     display: flex;
     flex-direction: column;
