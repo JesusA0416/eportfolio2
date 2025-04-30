@@ -906,3 +906,10 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   color: #f0f0f0;
   box-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
+@media (max-width: 768px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 0 20px 40px;
+  }
+}
