@@ -180,6 +180,21 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   transform: translateY(0);
 }
 /* --- Media Queries --- */
+.about-wrapper {
+  max-width: 900px;
+  margin: 100px auto 60px;
+  padding: 0 20px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: left;
+  color: #f0f0f0;
+}
+.about-wrapper h1 {
+  font-size: 2.5rem;
+  font-family: 'Lora', serif;
+  color: #00bcd4;
+  margin-bottom: 30px;
+}
 
 /* Mobile Adjustments (< 768px) */
 @media (max-width: 767px) {
