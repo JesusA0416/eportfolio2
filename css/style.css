@@ -145,12 +145,11 @@ main.courses-page .courses-grid {
 /* --- Styles for before-we-begin.html & about.html --- */
 /* === ABOUT ME PAGE Specific Layout === */
 
-/* Targeting the section using its existing class */
 .before-we-begin {
-  padding: 40px 60px;
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
-  display: block;
+  padding: 40px 20px;
+  text-align: center;
 }
 
 .before-we-begin h1 {
@@ -162,9 +161,9 @@ main.courses-page .courses-grid {
 
 .before-we-begin p {
   font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 24px;
   color: #f0f0f0;
+  margin-bottom: 20px;
+  line-height: 1.6;
 }
 /* Re-add fade-in styles if they were removed */
 .fade-in-section {
