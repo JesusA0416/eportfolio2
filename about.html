@@ -9,106 +9,128 @@
 </head>
 
 <body>
-  <!-- NAVIGATION -->
-  <nav>
-    <div class="nav-container">
-      <ul id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active-nav-link">About Me</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="achievements.html">Achievements</a></li>
-        <li><a href="personal-projects.html">Personal Projects</a></li>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-container">
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active-nav-link">About Me</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="personal-projects.html">Personal Projects</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HAMBURGER MENU -->
+<div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html" class="link-active-glow">About Me</a>
+  <a href="courses.html">Courses</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="personal-projects.html">Personal Projects</a>
+</div>
+
+<!-- ABOUT PAGE LAYOUT -->
+<main class="fade-in-section">
+  <h1 class="about-heading">About Me</h1>
+
+  <div class="about-layout">
+
+    <!-- LEFT COLUMN - GOALS -->
+    <div class="left-goals section-box">
+      <h2>My Goals</h2>
+      <h3>Short-Term</h3>
+      <ul>
+        <li>Practice Self-Compassion and Build Confidence</li>
+        <li>Reach Out to Professors During Office Hours</li>
+        <li>Form Study Groups with Classmates</li>
+        <li>Develop Consistent Study Habits</li>
+        <li>Take Care of My Mental Health</li>
+      </ul>
+      <h3>Long-Term</h3>
+      <ul>
+        <li>Graduate with Dual Degrees in Criminal Justice and Nursing</li>
+        <li>Secure a Career in a Specialized Field</li>
+        <li>Achieve Financial Stability and Provide for My Family</li>
       </ul>
     </div>
-  </nav>
 
-  <!-- HAMBURGER MENU -->
-  <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
+    <!-- CENTER COLUMN - ABOUT ME -->
+    <div class="center-bio section-box">
+      <p>[Insert your entire About Me narrative here — broken into paragraphs. You can paste it in exactly as-is, or I can drop it formatted if you want.]</p>
+    </div>
+
+    <!-- RIGHT COLUMN - PATHWAY -->
+    <div class="right-path section-box">
+      <h2>My Pathway</h2>
+      <h3>Spring 2025</h3>
+      <p>HON-2060, HON-2100, ETHS-2430, POLS-2100, ENGL-2020</p>
+      <h4>Term 1 Reflection</h4>
+      <p>Use this section to reflect on your learning after the term has ended...</p>
+
+      <h3>Summer 2025</h3>
+      <p>ART 1010, PSY 1100</p>
+      <h4>Term 2 Reflection</h4>
+      <p>Use this section to reflect on your learning after the term has ended...</p>
+
+      <h3>Fall 2025</h3>
+      <p>COMM-1010, HLTH 1500</p>
+      <h4>Term 3 Reflection</h4>
+      <p>Use this section to reflect on your learning after the term has ended...</p>
+    </div>
+
   </div>
+</main>
 
-  <div class="mobile-nav" id="mobile-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html" class="link-active-glow">About Me</a>
-    <a href="courses.html">Courses</a>
-    <a href="achievements.html">Achievements</a>
-    <a href="personal-projects.html">Personal Projects</a>
-  </div>
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Jesús Lopez Aguilar. All rights reserved.</p>
+</footer>
 
-  <!-- MAIN CONTENT -->
-  <main class="fade-in-section">
-    <section class="about-me-expanded">
-      <h1>About Me</h1>
-      <div class="about-columns">
-        <p>You made it to this page. Hey. My name is Jesús Antonio Lopez Aguilar. I’m currently attending Salt Lake Community College, majoring in Criminal Justice... [rest of your full paragraph text goes here—unchanged, with each block wrapped in <p> like you already had.]</p>
+<!-- JS SCRIPTS -->
+<script>
+  function toggleMenu() {
+    const mobileNav = document.getElementById('mobile-nav');
+    const hamburgerIcon = document.getElementById('hamburger-menu');
+    const body = document.body;
 
-        <!-- Add the rest of your about me story here with <p> tags for each paragraph -->
-        
-        <h2>My Goals</h2>
-        <h3>Short-Term Goals</h3>
-        <ul>
-          <li>Practice self-compassion and build confidence</li>
-          <li>Reach out to professors during office hours</li>
-          <li>Form study groups with classmates</li>
-          <li>Develop consistent study habits</li>
-          <li>Take care of my mental health</li>
-        </ul>
+    mobileNav.classList.toggle('active');
+    hamburgerIcon.classList.toggle('is-active');
 
-        <h3>Long-Term Goals</h3>
-        <ul>
-          <li>Graduate with dual degrees in Criminal Justice and Nursing</li>
-          <li>Secure a career in a specialized field (e.g., forensic nursing)</li>
-          <li>Achieve financial stability and support my family</li>
-        </ul>
-
-        <h2>My Pathway</h2>
-        <h3>Spring 2025</h3>
-        <p>HON-2060, HON-2100, ETHS-2430, POLS-2100, ENGL-2020</p>
-        <p><strong>Term 1 Reflection:</strong> What went well? What are some areas that you struggled with and could work on in future terms? What are you most proud of?</p>
-
-        <h3>Summer 2025</h3>
-        <p>ART 1010, PSY 1100</p>
-        <p><strong>Term 2 Reflection:</strong> What went well? What are some areas that you struggled with and could work on in future terms?</p>
-
-        <h3>Fall 2025</h3>
-        <p>COMM-1010, HLTH 1500</p>
-        <p><strong>Term 3 Reflection:</strong> What went well? What are you most proud of?</p>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Jesús Lopez Aguilar. All rights reserved.</p>
-  </footer>
-
-  <!-- JS SCRIPTS -->
-  <script>
-    function toggleMenu() {
-      const mobileNav = document.getElementById('mobile-nav');
-      const hamburgerIcon = document.getElementById('hamburger-menu');
-      const body = document.body;
-      mobileNav.classList.toggle('active');
-      hamburgerIcon.classList.toggle('is-active');
-      body.classList.toggle('no-scroll');
+    if (mobileNav.classList.contains('active')) {
+      body.classList.add('no-scroll');
+    } else {
+      body.classList.remove('no-scroll');
     }
+  }
+</script>
 
-    document.addEventListener('DOMContentLoaded', function () {
-      const faders = document.querySelectorAll('.fade-in-section');
-      const appearOptions = { threshold: 0.15 };
-      const appearOnScroll = new IntersectionObserver(function (entries, observer) {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        });
-      }, appearOptions);
-      faders.forEach(fader => {
-        appearOnScroll.observe(fader);
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const faders = document.querySelectorAll('.fade-in-section');
+    const appearOptions = { threshold: 0.15 };
+
+    const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
       });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
