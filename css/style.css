@@ -146,6 +146,11 @@ main.courses-page .courses-grid {
 /* === ABOUT ME PAGE Specific Layout === */
 
 .before-we-begin {
+  min-height: calc(100vh - 60px); /* subtract navbar height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
