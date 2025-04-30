@@ -897,7 +897,7 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   font-family: 'Lora', serif;
 }
 
-.about-layout {
+.about-grid {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 40px;
@@ -906,11 +906,7 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   padding: 0 20px;
   align-items: start;
 }
-.center-bio .button {
-  display: block;
-  margin: 30px auto 0;
-  text-align: center;
-}
+
 /* Column Styling */
 .section-box {
   background-color: #2a2a2a;
@@ -925,7 +921,8 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   font-family: 'Lora', serif;
 }
 
-.section-box h3, .section-box h4 {
+.section-box h3,
+.section-box h4 {
   color: #f0f0f0;
   margin-top: 20px;
   margin-bottom: 10px;
@@ -945,9 +942,16 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   list-style-type: disc;
 }
 
+/* Center the button below About Me */
+.center-about .button {
+  display: block;
+  margin: 30px auto 0;
+  text-align: center;
+}
+
 /* Responsive layout for small screens */
 @media (max-width: 768px) {
-  .about-layout {
+  .about-grid {
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -959,11 +963,11 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
     order: 2;
   }
 
-  .center-bio {
+  .center-about {
     order: 1;
   }
 
-  .right-path {
+  .right-pathway {
     order: 3;
   }
 
