@@ -913,3 +913,10 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
     padding: 0 20px 40px;
   }
 }
+.section-box h2 {
+  color: #00bcd4;
+  font-family: 'Lora', serif;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
