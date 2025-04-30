@@ -906,7 +906,11 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   padding: 0 20px;
   align-items: start;
 }
-
+.center-bio .button {
+  display: block;
+  margin: 30px auto 0;
+  text-align: center;
+}
 /* Column Styling */
 .section-box {
   background-color: #2a2a2a;
