@@ -920,3 +920,20 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   margin-bottom: 15px;
   text-align: center;
 }
+@media (max-width: 768px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .goals-box {
+    order: 1;
+  }
+
+  .pathway-box {
+    order: 2;
+  }
+
+  .about-intro {
+    order: 0;
+  }
+}
