@@ -1011,3 +1011,62 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
     font-size: 2rem;
   }
 }
+.about-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: 'Lora', serif;
+  color: #00bcd4;
+  margin-bottom: 30px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 40px;
+  padding: 40px 5%;
+  align-items: start;
+}
+
+.section-box {
+  background-color: #2a2a2a;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,188,212,0.15);
+}
+
+.section-box h2 {
+  color: #00bcd4;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.section-box h3 {
+  color: #ccc;
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+.section-box h4 {
+  color: #aaa;
+  font-size: 1rem;
+  margin-top: 15px;
+}
+
+.section-box p, .section-box ul {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+  }
+
+  .about-heading {
+    font-size: 2rem;
+  }
+}
