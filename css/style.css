@@ -143,10 +143,62 @@ main.courses-page .courses-grid {
 }
 
 /* --- Styles for before-we-begin.html & about.html --- */
-.before-we-begin { min-height: calc(90vh - 60px); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column; padding: 20px; }
-.before-we-begin h1 { font-size: 2.5rem; margin-bottom: 20px; font-family: 'Lora', serif; }
-.before-we-begin p { font-size: 1.2rem; color: #f0f0f0; margin-bottom: 30px; max-width: 700px; }
+/* === ABOUT ME PAGE Specific Layout === */
 
+/* Targeting the section using its existing class */
+.before-we-begin {
+    /* Base structure */
+    display: flex;
+    flex-direction: column;
+    width: 90%;             /* Responsive width */
+    margin: auto;           /* Center block horizontally */
+    padding: 40px 20px;     /* Vertical and horizontal padding */
+    flex-grow: 1;           /* Allow block to grow */
+
+    /* Layout specific styles */
+    max-width: 900px;        /* Wider block for About Me text */
+    align-items: flex-start; /* Align paragraphs to the left */
+    text-align: left;        /* Align text within paragraphs to the left */
+}
+
+.before-we-begin h1 {
+    width: 100%;             /* Allow h1 to take full width */
+    text-align: center;      /* <<< CENTER ALIGN HEADER TEXT */
+    color: #00bcd4;          /* Color moved from inline style */
+    margin-bottom: 35px;     /* Increased margin */
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;       /* Ensure consistent size */
+}
+
+.before-we-begin p {
+    font-size: 1.1rem;       /* Slightly larger text for readability */
+    line-height: 1.7;        /* More spacing between lines */
+    margin-bottom: 1.5em;    /* Space between paragraphs */
+    max-width: 80ch;         /* Limit paragraph line length for readability */
+    align-self: center;      /* Center paragraph block if container is wider */
+    width: 100%;             /* Allow paragraphs to use available width */
+}
+/* Remove bottom margin from last paragraph */
+.before-we-begin p:last-of-type {
+   margin-bottom: 0;
+}
+
+
+.before-we-begin .button {
+    align-self: center;      /* <<< CENTER THE BUTTON */
+    margin-top: 40px;        /* More space above the button */
+}
+
+/* Re-add fade-in styles if they were removed */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* === Scroll Animation Styles === */
 .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
