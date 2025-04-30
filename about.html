@@ -24,9 +24,7 @@
 
 <!-- HAMBURGER MENU -->
 <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-  <div></div>
-  <div></div>
-  <div></div>
+  <div></div><div></div><div></div>
 </div>
 
 <div class="mobile-nav" id="mobile-nav">
@@ -37,12 +35,13 @@
   <a href="personal-projects.html">Personal Projects</a>
 </div>
 
-<!-- MAIN LAYOUT -->
+<!-- MAIN -->
 <main class="about-page fade-in-section">
   <h1 class="about-heading">About Me</h1>
 
   <div class="about-grid">
-    <!-- LEFT - My Goals -->
+
+    <!-- Left: My Goals -->
     <div class="section-box left-goals">
       <h2>My Goals</h2>
       <h3>Short-Term</h3>
@@ -61,15 +60,17 @@
       </ul>
     </div>
 
-    <!-- CENTER - Full About Me Story -->
+    <!-- Center: About Me Full Text -->
     <div class="section-box center-about">
-      <p>[Your full About Me content goes here, broken into paragraphs. If you want I can drop it formatted too.]</p>
+      <p>You made it to this page. Hey. My name is Jesús Antonio Lopez Aguilar...</p>
+      <!-- Paste your full About Me paragraphs here exactly as you had them -->
       <a href="courses.html" class="button">Go to Courses</a>
     </div>
 
-    <!-- RIGHT - My Pathway -->
+    <!-- Right: My Pathway -->
     <div class="section-box right-pathway">
       <h2>My Pathway</h2>
+
       <h3>Spring 2025</h3>
       <p>HON-2060, HON-2100, ETHS-2430, POLS-2100, ENGL-2020</p>
       <h4>Term 1 Reflection</h4>
@@ -102,12 +103,7 @@
 
     mobileNav.classList.toggle('active');
     hamburgerIcon.classList.toggle('is-active');
-
-    if (mobileNav.classList.contains('active')) {
-      body.classList.add('no-scroll');
-    } else {
-      body.classList.remove('no-scroll');
-    }
+    body.classList.toggle('no-scroll', mobileNav.classList.contains('active'));
   }
 </script>
 
