@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
   <!-- NAVIGATION -->
   <nav>
     <div class="nav-container">
@@ -39,89 +40,71 @@
 
   <!-- MAIN -->
   <main>
-    <section class="before-we-begin fade-in-section">
-      <h1>About Me</h1>
-      <p>You made it to this page. Hey. My name is Jesús Antonio Lopez Aguilar...</p>
-      <!-- [Insert your full About Me personal story paragraph-by-paragraph here, like you've already done.] -->
-    </section>
 
-    <section class="my-goals-section fade-in-section">
-      <h2>My Goals</h2>
-      <p class="subheader">My Personal and Academic goals while at SLCC</p>
-
-      <div class="goals-columns">
-        <div>
-          <h3>Short Term Goals</h3>
-          <ul>
-            <li>Practice Self-Compassion and Build Confidence</li>
-            <li>Reach Out to Professors During Office Hours</li>
-            <li>Form Study Groups with Classmates</li>
-            <li>Develop Consistent Study Habits</li>
-            <li>Take Care of My Mental Health</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Long-Term Goals</h3>
-          <ul>
-            <li>Graduate with Dual Degrees in Criminal Justice and Nursing</li>
-            <li>Secure a Career in a Specialized Field of Nursing or Criminal Justice</li>
-            <li>Achieve Financial Stability and Provide for My Family</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="term-pathway">
-        <h3>My Pathway</h3>
-
-        <h4>Spring 2025</h4>
-        <ul>
-          <li>HON-2060</li>
-          <li>HON-2100</li>
-          <li>ETHS-2430</li>
-          <li>POLS-2100</li>
-          <li>ENGL-2020</li>
-        </ul>
-        <p><strong>Term 1 Reflection:</strong> Use this section to reflect on your learning after the term has ended.</p>
-
-        <h4>Summer 2025</h4>
-        <ul>
-          <li>ART 1010</li>
-          <li>PSY 1100</li>
-        </ul>
-        <p><strong>Term 2 Reflection:</strong> Use this section to reflect on your learning after the term has ended.</p>
-
-        <h4>Fall 2025</h4>
-        <ul>
-          <li>COMM-1010</li>
-          <li>HLTH 1500</li>
-        </ul>
-        <p><strong>Term 3 Reflection:</strong> Use this section to reflect on your learning after the term has ended.</p>
+    <section class="full-page about-section fade-in-section">
+      <h1 class="section-heading">About Me</h1>
+      <div class="about-text">
+        <!-- DROP YOUR FULL ABOUT ME PARAGRAPHS HERE -->
+        <p>You made it to this page. Hey. My name is Jesús Antonio Lopez Aguilar. I’m currently attending Salt Lake Community College...</p>
+        <!-- Split it into multiple <p> paragraphs as needed -->
       </div>
     </section>
+
+    <!-- My Goals Section -->
+    <section class="full-page goals-section fade-in-section">
+      <h2 class="section-heading">My Goals</h2>
+
+      <h3>My Personal and Academic goals while at SLCC</h3>
+
+      <h4>Short Term Goals</h4>
+      <ul>
+        <li>Practice Self-Compassion and Build Confidence</li>
+        <li>Reach Out to Professors During Office Hours</li>
+        <li>Form Study Groups with Classmates</li>
+        <li>Develop Consistent Study Habits</li>
+        <li>Take Care of My Mental Health</li>
+      </ul>
+
+      <h4>Long-Term Goals</h4>
+      <ul>
+        <li>Graduate with Dual Degrees in Criminal Justice and Nursing</li>
+        <li>Secure a Career in a Specialized Field of Nursing or Criminal Justice</li>
+        <li>Achieve Financial Stability and Provide for My Family</li>
+      </ul>
+
+      <h4>My Pathway</h4>
+      <p><strong>Spring 2025</strong><br/>HON-2060, HON-2100, ETHS-2430, POLS-2100, ENGL-2020</p>
+      <p><strong>Summer 2025</strong><br/>ART 1010, PSY 1100</p>
+      <p><strong>Fall 2025</strong><br/>COMM-1010, HLTH 1500</p>
+
+      <h4>Term Reflections</h4>
+      <p><strong>Term 1</strong><br/>Use this section to reflect on your learning after the term has ended...</p>
+      <p><strong>Term 2</strong><br/>Use this section to reflect on your learning after the term has ended...</p>
+      <p><strong>Term 3</strong><br/>Use this section to reflect on your learning after the term has ended...</p>
+    </section>
+
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <p>© 2025 Jesús Lopez Aguilar. All rights reserved.</p>
   </footer>
 
-  <!-- SCRIPTS -->
   <script>
     function toggleMenu() {
       const mobileNav = document.getElementById('mobile-nav');
       const hamburgerIcon = document.getElementById('hamburger-menu');
       const body = document.body;
+
       mobileNav.classList.toggle('active');
       hamburgerIcon.classList.toggle('is-active');
+
       if (mobileNav.classList.contains('active')) {
         body.classList.add('no-scroll');
       } else {
         body.classList.remove('no-scroll');
       }
     }
-  </script>
 
-  <script>
     document.addEventListener('DOMContentLoaded', function () {
       const faders = document.querySelectorAll('.fade-in-section');
       const appearOptions = { threshold: 0.15 };
@@ -135,5 +118,6 @@
       faders.forEach(fader => appearOnScroll.observe(fader));
     });
   </script>
+
 </body>
 </html>
