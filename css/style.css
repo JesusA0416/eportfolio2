@@ -146,21 +146,22 @@ main.courses-page .courses-grid {
 /* === ABOUT ME PAGE Specific Layout === */
 
 .before-we-begin {
-  min-height: calc(100vh - 60px); /* subtract navbar height */
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px;
   text-align: center;
+  min-height: calc(100vh - 60px); /* full screen minus navbar */
+  padding: 0 20px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .before-we-begin h1 {
   font-size: 2.5rem;
-  color: #00bcd4;
   margin-bottom: 20px;
+  color: #00bcd4;
   font-family: 'Lora', serif;
 }
 
@@ -168,7 +169,7 @@ main.courses-page .courses-grid {
   font-size: 1.1rem;
   color: #f0f0f0;
   margin-bottom: 20px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 /* Re-add fade-in styles if they were removed */
 .fade-in-section {
