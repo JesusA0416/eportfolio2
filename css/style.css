@@ -975,3 +975,33 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
     font-size: 2rem;
   }
 }
+/* --- Read More Toggle for About Me --- */
+.read-more-block {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 750px;
+}
+
+.read-more-block summary {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1rem;
+  background-color: #2a2a2a;
+  padding: 10px 15px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0, 188, 212, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+.read-more-block[open] summary {
+  background-color: #00bcd4;
+  color: #1c1c1c;
+}
+
+.expanded-content {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #333;
+  border-radius: 10px;
+  line-height: 1.6;
+}
