@@ -1005,3 +1005,40 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   border-radius: 10px;
   line-height: 1.6;
 }
+.centered-content-block {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: left;
+}
+
+.centered-content-block h1,
+.centered-content-block h2,
+.centered-content-block h3 {
+  text-align: center;
+}
+
+.centered-content-block img {
+  display: block;
+  margin: 30px auto;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 25px;
+  background-color: #00bcd4;
+  color: #1f1f1f;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.button:hover {
+  background-color: #0097a7;
+  box-shadow: 0 0 10px #00bcd4;
+}
