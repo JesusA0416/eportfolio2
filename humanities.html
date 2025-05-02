@@ -88,7 +88,22 @@
 <footer>
   <p>© 2025 Jesús Lopez Aguilar. All rights reserved.</p>
 </footer>
+<script>
+function toggleMenu() {
+  const mobileNav = document.getElementById('mobile-nav');
+  const hamburgerIcon = document.getElementById('hamburger-menu');
+  const body = document.body;
 
+  mobileNav.classList.toggle('active');
+  hamburgerIcon.classList.toggle('is-active');
+
+  if (mobileNav.classList.contains('active')) {
+    body.classList.add('no-scroll');
+  } else {
+    body.classList.remove('no-scroll');
+  }
+}
+</script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const faders = document.querySelectorAll('.fade-in-section');
