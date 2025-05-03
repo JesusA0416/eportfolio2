@@ -1103,4 +1103,12 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   background-color: #fff;
   border-radius: 2px;
 }
-
+.hidden-content {
+  display: none;
+  margin-top: 15px;
+  border: 1px solid #ddd;
+  padding: 15px 20px;
+  border-radius: 8px;
+  background-color: #fdfdfd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
