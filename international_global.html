@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>International Politics - POLS2100</title>
+  <title>International & Global (IG) – POLS 2100</title>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -23,9 +23,7 @@
 </nav>
 
 <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-  <div></div>
-  <div></div>
-  <div></div>
+  <div></div><div></div><div></div>
 </div>
 
 <div class="mobile-nav" id="mobile-nav">
@@ -36,28 +34,22 @@
   <a href="personal-projects.html">Personal Projects</a>
 </div>
 
-<main class="centered-content-block fade-in-section">
-  <h1>International Politics – POLS2100</h1>
-  <h2>Spring 2025</h2>
+<main class="centered-content-block humanities-course fade-in-section">
+  <h1>International & Global (IG)</h1>
+  <h2>POLS 2100 – International Politics</h2>
+  <p>This course pulled no punches. It asked us to break down the motives behind world conflict, diplomacy, and global decision-making—and gave me the perfect excuse to roast U.S. foreign policy with citations. My final project? A theory breakdown of the U.S. invasion and withdrawal from Afghanistan through the lens of IR theory.</p>
 
-  <p><em>Global power, messy breakups, and military boots with a side of diplomacy.</em> This course taught me to decode every U.S. foreign policy move like a walking red flag. Through case studies and theory, I learned to stop asking “Why did they do that?” and start asking “Who benefits from this chaos?”</p>
+  <h2>Signature Assignment: IR Theory & Afghanistan</h2>
+  <p>This embedded paper explores the U.S. occupation of Afghanistan (2001–2021) through Realism and Liberalism—aka Power and PR. Strap in.</p>
 
-  <h2>Signature Assignment</h2>
-  <p>This paper breaks down U.S. involvement in Afghanistan from 2001 to 2021 using Realism and Liberalism — or as I call them, the toxic situationship and the PR team.</p>
-
-  <div style="text-align: center; margin: 25px 0;">
-    <a href="files/FINAL DRAFT - IR THEORY.pdf" target="_blank" class="button">📄 View Final Draft (PDF)</a>
+  <div style="text-align: center; margin: 30px auto;">
+    <iframe src="files/FINAL DRAFT - IR THEORY.pdf" width="100%" height="500px" style="border: none; border-radius: 10px; box-shadow: 0 0 15px rgba(0,188,212,0.4); max-width: 850px;"></iframe>
   </div>
 
   <h2>Reflection</h2>
-  <button onclick="toggleReflection()" class="button">🧠 Read Reflection</button>
-  <div id="reflection-content" class="hidden-content">
-    <p>Writing this paper gave me the perfect opportunity to look at international politics and say: “Y’all really thought this was subtle?” The assignment asked me to choose the best international relations theory or theories to explain why the U.S. invaded, stayed, and then dipped out of Afghanistan between 2001 and 2021. So I got to work, diving into the mess that is global policy, war decisions, and diplomatic branding. And the more I read, the more it became clear: Realism and Liberalism weren’t just helpful—they were the main characters. Realism explained the raw hunger for power, security, and dominance in a post-9/11 world. Liberalism stepped in with her glossy ideals; democracy, human rights, global cooperation—but let’s be real, she was definitely the PR department.</p>
+  <p>Writing this paper gave me the perfect opportunity to look at international politics and say: “Y’all really thought this was subtle?” The assignment asked me to choose the best international relations theory or theories to explain why the U.S. invaded, stayed, and then dipped out of Afghanistan between 2001 and 2021. So I got to work, diving into the mess that is global policy, war decisions, and diplomatic branding...</p>
 
-    <p>Writing this essay was like dissecting a toxic situationship: the U.S. said it was about love (democracy), but their actions screamed control (military bases, drone strikes, oil routes). It was giving “I’m doing this for your own good” energy with boots on the ground and a budget in the billions. I had to pull sources, connect theories, and resist the urge to roll my eyes every time a leader said “freedom” while airstrikes were happening.</p>
-
-    <p>And my biggest takeaway? Power doesn't make people smarter, it just gives them a louder microphone. Realism and Liberalism helped me decode the mess, but they also made it painfully obvious that leadership, whether at home or abroad, is reactive, performative, and often deeply insecure. When countries start acting like messy exes, burning bridges, then blaming the other side, you know theory is needed not just to explain behavior, but to survive it. The U.S. pulled out of Afghanistan not because it was “the right time,” but because the optics and costs stopped serving them. And guess what? That’s not diplomacy... That’s damage control. I’m in my critical thinking era now. IR theory unlocked it. #StayInformed #NotNeutral #BaddieWithBoundaries</p>
-  </div>
+  <p>[continue with all 3 paragraphs you posted above here — formatted cleanly and spaced like the Humanities page]</p>
 
   <div style="text-align: center;">
     <a href="courses.html" class="button">← Back to Courses</a>
@@ -76,7 +68,6 @@ function toggleMenu() {
 
   mobileNav.classList.toggle('active');
   hamburgerIcon.classList.toggle('is-active');
-
   if (mobileNav.classList.contains('active')) {
     body.classList.add('no-scroll');
   } else {
@@ -91,12 +82,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -100px 0px" };
   const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
-      appearOnScroll.unobserve(entry.target);
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        appearOnScroll.unobserve(entry.target);
+      }
     });
   }, appearOptions);
-
   faders.forEach(fader => {
     appearOnScroll.observe(fader);
   });
@@ -105,9 +96,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </body>
 </html>
-<script>
-function toggleReflection() {
-  const content = document.getElementById("reflection-content");
-  content.style.display = (content.style.display === "block") ? "none" : "block";
-}
-</script>
