@@ -1112,3 +1112,9 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   background-color: #fdfdfd;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
+/* --- Hamburger Menu --- */
+.hamburger-menu { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 4px; width: 45px; height: 50px; z-index: 1100; position: fixed; top: 0; right: 15px; cursor: pointer; transition: transform 0.3s ease; }
+.hamburger-menu div { width: 25px; height: 3px; margin: 0; background-color: #000; border-radius: 1px; transition: transform 0.3s ease-in-out, background-color 0.3s ease, opacity 0.3s ease; transform-origin: center; }
+.hamburger-menu.is-active div:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger-menu.is-active div:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger-menu.is-active div:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
