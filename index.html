@@ -8,9 +8,60 @@
     <title>Jesús Lopez Aguilar - ePortfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+<style>
+.heart-bg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: #ff5c8d;
+  transform: rotate(45deg);
+  animation: pulse 2s ease-in-out infinite;
+  opacity: 0.85;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: #ff5c8d;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -8px;
+  left: 0;
+}
+.heart::after {
+  top: 0;
+  left: -8px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: rotate(45deg) scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: rotate(45deg) scale(1.4);
+    opacity: 1;
+  }
+}
+</style>
 </head>
 
 <body>
+    <div class="heart-bg" id="heartContainer"></div>
     <nav>
          <div class="nav-container">
             <ul id="nav-links">
@@ -113,6 +164,16 @@
         const targets = document.querySelectorAll('.fade-in-section');
         targets.forEach(target => observer.observe(target));
         // --- End Intersection Observer ---
+        const heartContainer = document.getElementById("heartContainer");
+             
+        for (let i = 0; i < 20; i++) {
+          const heart = document.createElement("div");
+          heart.className = "heart";
+          heart.style.top = `${Math.random() * 200 - 100}px`;
+          heart.style.left = `${Math.random() * 200 - 100}px`;
+          heart.style.animationDelay = `${Math.random() * 2}s`;
+          heartContainer.appendChild(heart);
+        }
     </script>
     </body>
 </html>
