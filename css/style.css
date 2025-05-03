@@ -1104,36 +1104,3 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   border-radius: 2px;
 }
 
-/* Mobile Nav Default Hidden */
-.mobile-nav {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #111;
-  z-index: 9999;
-  padding: 20px;
-}
-
-/* Mobile Nav Active State */
-.mobile-nav.active {
-  display: flex;
-}
-
-/* Mobile Nav Links */
-.mobile-nav a {
-  color: #fff;
-  font-size: 1.6rem;
-  margin: 15px 0;
-  text-decoration: none;
-}
-
-/* Prevent Background Scroll */
-body.no-scroll {
-  overflow: hidden;
-}
