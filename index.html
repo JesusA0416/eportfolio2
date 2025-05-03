@@ -8,60 +8,10 @@
     <title>Jesús Lopez Aguilar - ePortfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-<style>
-.heart-bg {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.heart {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  background-color: #ff5c8d;
-  transform: rotate(45deg);
-  animation: pulse 2s ease-in-out infinite;
-  opacity: 0.85;
-}
-
-.heart::before,
-.heart::after {
-  content: "";
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  background-color: #ff5c8d;
-  border-radius: 50%;
-}
-
-.heart::before {
-  top: -8px;
-  left: 0;
-}
-.heart::after {
-  top: 0;
-  left: -8px;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: rotate(45deg) scale(1);
-    opacity: 0.85;
-  }
-  50% {
-    transform: rotate(45deg) scale(1.4);
-    opacity: 1;
-  }
-}
-</style>
 </head>
 
 <body>
-    <div class="heart-bg" id="heartContainer"></div>
+    <canvas id="c" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
     <nav>
          <div class="nav-container">
             <ul id="nav-links">
@@ -164,16 +114,84 @@
         const targets = document.querySelectorAll('.fade-in-section');
         targets.forEach(target => observer.observe(target));
         // --- End Intersection Observer ---
-        const heartContainer = document.getElementById("heartContainer");
-             
-        for (let i = 0; i < 20; i++) {
-          const heart = document.createElement("div");
-          heart.className = "heart";
-          heart.style.top = `${Math.random() * 200 - 100}px`;
-          heart.style.left = `${Math.random() * 200 - 100}px`;
-          heart.style.animationDelay = `${Math.random() * 2}s`;
-          heartContainer.appendChild(heart);
-        }
-    </script>
+        <script>
+const c = document.getElementById("c");
+const a = c.getContext("2d");
+let e = [], h = [], O = c.width = innerWidth, Q = c.height = innerHeight;
+const v = 32, M = Math, R = M.random, C = M.cos, Y = 6.3;
+
+for (let i = 0; i < Y; i += .2) {
+  h.push([
+    O / 2 + 180 * M.pow(M.sin(i), 3),
+    Q / 2 + 10 * (-(15 * C(i) - 5 * C(2 * i) - 2 * C(3 * i) - C(4 * i)))
+  ]);
+}
+
+for (let i = 0; i < v; i++) {
+  const f = [], x = R() * O, y = R() * Q;
+  const H = i / v * 80 + 280, S = R() * 40 + 60, B = R() * 60 + 20;
+  for (let k = 0; k < v; k++) {
+    f[k] = {
+      x: x,
+      y: y,
+      X: 0,
+      Y: 0,
+      R: (1 - k / v) + 1,
+      S: R() + 1,
+      q: ~~(R() * v),
+      D: i % 2 * 2 - 1,
+      F: R() * .2 + .7,
+      f: `hsla(${~~H},${~~S}%,${~~B}%,.1)`
+    };
+  }
+  e[i] = f;
+}
+
+function render(p) {
+  a.fillStyle = p.f;
+  a.beginPath();
+  a.arc(p.x, p.y, p.R, 0, Y, 1);
+  a.closePath();
+  a.fill();
+}
+
+function loop() {
+  a.fillStyle = "rgba(0,0,0,.2)";
+  a.fillRect(0, 0, O, Q);
+  for (let i = v; i--;) {
+    const f = e[i], u = f[0], q = h[u.q];
+    const D = u.x - q[0], E = u.y - q[1], G = M.sqrt(D * D + E * E);
+    if (G < 10) {
+      if (R() > .95) {
+        u.q = ~~(R() * v);
+      } else {
+        if (R() > .99) u.D *= -1;
+        u.q += u.D;
+        u.q %= v;
+        if (u.q < 0) u.q += v;
+      }
+    }
+    u.X += -D / G * u.S;
+    u.Y += -E / G * u.S;
+    u.x += u.X;
+    u.y += u.Y;
+    render(u);
+    u.X *= u.F;
+    u.Y *= u.F;
+    for (let k = 0; k < v - 1; k++) {
+      const T = f[k], N = f[k + 1];
+      N.x -= (N.x - T.x) * .7;
+      N.y -= (N.y - T.y) * .7;
+      render(N);
+    }
+  }
+}
+
+(function animate() {
+  requestAnimationFrame(animate);
+  loop();
+})();
+</script>
+   
     </body>
 </html>
