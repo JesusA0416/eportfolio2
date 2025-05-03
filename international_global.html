@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>International & Global (IG) - Jesús Lopez Aguilar</title>
+  <title>International Politics - POLS2100</title>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -37,8 +37,37 @@
 </div>
 
 <main class="centered-content-block fade-in-section">
-  <h1>International & Global (IG)</h1>
-  <p>Welcome to my International & Global (IG) course page! Content coming soon.</p>
+  <h1>International Politics – POLS2100</h1>
+  <h2>Spring 2025</h2>
+  <p><em>Global conflicts, theories of power, and one dramatic U.S. withdrawal later...</em> This course examined how international relations play out through real-world examples and theory. Let's just say: realism and liberalism weren’t just boring academic terms — they showed me how to read American foreign policy like it’s a plotline in a political thriller.</p>
+
+  <h2>Signature Assignment: U.S. Involvement in Afghanistan</h2>
+  <p>This paper analyzes the U.S. war in Afghanistan using two lenses: realism (a.k.a. “we do what we want”) and liberalism (a.k.a. “but make it peace & democracy”). It's an exploration of how power, strategy, and public sentiment shaped one of the longest modern military campaigns.</p>
+
+  <div style="text-align: center; margin: 25px 0;">
+    <a href="files/FINAL DRAFT - IR THEORY.pdf" target="_blank" class="button">📄 View Full Paper (PDF)</a>
+  </div>
+
+  <img src="images/international_global.png" alt="International Politics Visual" style="width:100%; max-width:800px; margin: 30px auto; display: block; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.6);">
+
+  <h2>Reflection</h2>
+  <p>Writing this paper gave me the perfect opportunity to look at international politics and say: “Y’all really thought this was subtle?” The assignment asked me to choose the best international relations theory or theories to explain why the U.S. invaded, stayed, and then dipped out of Afghanistan between 2001 and 2021. So I got to work, diving into the mess that is global policy, war decisions, and diplomatic branding. And the more I read, the more it became clear: Realism and Liberalism weren’t just helpful—they were the main characters. Realism explained the raw hunger for power, security, and dominance in a post-9/11 world. Liberalism stepped in with her glossy ideals; democracy, human rights, global cooperation—but let’s be real, she was definitely the PR department.</p>
+
+  <p>Writing this essay was like dissecting a toxic situationship: the U.S. said it was about love (democracy), but their actions screamed control (military bases, drone strikes, oil routes). It was giving “I’m doing this for your own good” energy with boots on the ground and a budget in the billions. I had to pull sources, connect theories, and resist the urge to roll my eyes every time a leader said “freedom” while airstrikes were happening.</p>
+
+  <p>But what gagged me the most wasn’t just the war itself—it was realizing how every single one of these decisions links to other academic fields. You could easily bring in psychology (fear-based responses), media studies (the way news spun the war), or even gender studies, especially when we consider the Western obsession with “saving Afghan women” as a justification for occupation. The rhetoric of the war was full of emotional manipulation, cultural superiority, and cinematic saviorism, and that’s exactly the kind of narrative Feminist and Constructivist theories love to unpack.</p>
+
+  <p>Even the election cycles back home in the U.S. mirrored Realist panic—voters chose the “lesser evil” just to survive, not to thrive. The deeper I got, the more I saw how IR theory isn't some isolated poli-sci concept—it’s a mirror to how we operate under stress, in fear, and when power is on the line. Whether it's nations or neighborhoods, people will always prioritize survival first, then craft some flowery explanation afterward.</p>
+
+  <p>So yeah, the U.S. didn’t just stay in Afghanistan for peace—they stayed because being the “global baddie” means never losing grip, even when your manicure (read: strategy) is cracking.</p>
+
+  <p>And my biggest takeaway? Power doesn't make people smarter, it just gives them a louder microphone. Realism and Liberalism helped me decode the mess, but they also made it painfully obvious that leadership, whether at home or abroad, is reactive, performative, and often deeply insecure. When countries start acting like messy exes, burning bridges, then blaming the other side, you know theory is needed not just to explain behavior, but to survive it.</p>
+
+  <p>The U.S. pulled out of Afghanistan not because it was “the right time,” but because the optics and costs stopped serving them. And guess what? That’s not diplomacy... That’s damage control. So now, when I hear politicians talking about “liberation” or “duty,” I hear the theory behind the curtain, whispering, “What’s really in it for them?” Thanks to this project, I’ll never read a headline the same way again. I’m in my critical thinking era now. IR theory unlocked it. <strong>#StayInformed #NotNeutral #BaddieWithBoundaries</strong></p>
+
+  <div style="text-align: center;">
+    <a href="courses.html" class="button">← Back to Courses</a>
+  </div>
 </main>
 
 <footer>
@@ -65,20 +94,12 @@ function toggleMenu() {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const faders = document.querySelectorAll('.fade-in-section');
-
-  const appearOptions = {
-    threshold: 0.2,
-    rootMargin: "0px 0px -100px 0px"
-  };
-
+  const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -100px 0px" };
   const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        return;
-      } else {
-        entry.target.classList.add('is-visible');
-        appearOnScroll.unobserve(entry.target);
-      }
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      appearOnScroll.unobserve(entry.target);
     });
   }, appearOptions);
 
