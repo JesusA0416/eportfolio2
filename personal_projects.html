@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learning Outside of Class – Jesús Lopez Aguilar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-container">
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="personal-projects.html" class="active-nav-link">Personal Projects</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+  <div></div><div></div><div></div>
+</div>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About Me</a>
+  <a href="courses.html">Courses</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="personal-projects.html" class="active-nav-link">Personal Projects</a>
+</div>
+
+<main class="centered-content-block fade-in-section">
+  <h1>Learning Outside of Class</h1>
+
+  <h2>Clubs and Campus Activities</h2>
+  <p>I stay involved with SLCC’s student community through two clubs that fuel my academic and career passions:</p>
+  <ul>
+    <li><strong>Utah Criminology Student Association</strong> – Diving deep into justice systems, law enforcement topics, and networking with fellow future forensic experts.</li>
+    <li><strong>SLCC Student Nurse Organization</strong> – Because being on track for an RN isn’t enough. I like being involved with real-world prep, resource sharing, and supporting my fellow nursing students.</li>
+  </ul>
+
+  <h2>Hobbies & Talents</h2>
+  <p>Outside of classes, I’ve done the most — and it shows.</p>
+  <ul>
+    <li><strong>Healthcare & Nursing:</strong> CNA certified, dialysis tech experience, pediatric care, senior care — I stay booked and bedside.</li>
+    <li><strong>Gaming & Tech:</strong> Competitive Xbox grinder, obsessed with optimizing systems and frame rates. My hobby taught me teamwork, patience, and how to set up an Ethernet cable without rage-quitting.</li>
+    <li><strong>Manual Driving:</strong> I drive stick. That’s it. Jeep Wranglers, hills, and all. No stall, all skill.</li>
+    <li><strong>Creative Writing:</strong> My humor and storytelling got me through trauma and straight into academic excellence. I don’t just write for grades — I write to survive (and maybe to go viral).</li>
+    <li><strong>Cultural Roots:</strong> Raised in a Mexican household, bilingual with pride. I carry my family’s story with me everywhere — in every paper, every goal, every meal, and every “sí se puede.”</li>
+    <li><strong>CLEP Exams (for fun?!):</strong> I took CLEP tests I didn’t even need because they were paid for. Academic curiosity activated.</li>
+  </ul>
+
+  <h2>Work Experience</h2>
+  <p>I currently work as a healthcare professional, with hands-on experience in dialysis, pediatrics, and senior care. I also work in real estate and property management, helping clients while managing my own schedule. Flexibility, compassion, and multitasking? Yeah, I got those.</p>
+
+  <h2>Travel & Volunteering</h2>
+  <ul>
+    <li><strong>Travel:</strong> I’ve visited Mexico to connect with family and roots, and I’ve traveled across the U.S. Gaining cultural perspective helps me grow — and helps my future patients feel seen.</li>
+    <li><strong>Volunteer Work:</strong> I’ve helped in medical spaces, mentored students, and supported peers in both real estate and nursing. Mentoring and community engagement keep me grounded while I chase my dreams.</li>
+  </ul>
+
+  <h2>Services I’ve Provided</h2>
+  <ul>
+    <li><strong>Mentorship:</strong> For both new real estate agents and aspiring healthcare students.</li>
+    <li><strong>Tutoring:</strong> Nursing and real estate coursework support — I got you.</li>
+    <li><strong>Community Involvement:</strong> Volunteering in healthcare, participating in charity events, and giving back to the communities that raised me.</li>
+  </ul>
+
+  <div style="text-align: center; margin-top: 40px;">
+    <a href="courses.html" class="button">← Back to Courses</a>
+  </div>
+</main>
+
+<footer>
+  <p>© 2025 Jesús Lopez Aguilar. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  const mobileNav = document.getElementById('mobile-nav');
+  const hamburgerIcon = document.getElementById('hamburger-menu');
+  const body = document.body;
+
+  mobileNav.classList.toggle('active');
+  hamburgerIcon.classList.toggle('is-active');
+
+  if (mobileNav.classList.contains('active')) {
+    body.classList.add('no-scroll');
+  } else {
+    body.classList.remove('no-scroll');
+  }
+}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const faders = document.querySelectorAll('.fade-in-section');
+  const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -100px 0px" };
+  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        appearOnScroll.unobserve(entry.target);
+      }
+    });
+  }, appearOptions);
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+});
+</script>
+
+</body>
+</html>
