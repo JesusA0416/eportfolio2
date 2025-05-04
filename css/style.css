@@ -51,17 +51,6 @@ nav {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   transition: padding 0.3s ease, height 0.3s ease;
 }
-
-/* Mobile Adjustments (< 767px) */
-@media (max-width: 767px) {
-  nav {
-    height: 50px; /* Set your desired mobile navbar height */
-    padding: 10px 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Logo left, hamburger right */
-    flex-direction: row; /* Ensure logo and hamburger are in a row */
-  }
   /* ... other mobile styles ... */
 }
  .nav-container { display: flex; align-items: center; width: 100%; max-width: 1200px; justify-content: space-between; }
