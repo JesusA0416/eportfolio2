@@ -5,60 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <title>Jesús Lopez Aguilar - ePortfolio</title>
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="style.css"> <!-- your main ePortfolio styles -->
   <link rel="stylesheet" href="function-heart.css"> <!-- heart animation styles -->
+
   <style>
-  .honors-banner {
-    height: 90px;
-    max-height: 100px;
-    width: auto;
-    object-fit: contain;
-    object-position: center;
-    display: block;
-    margin: 0 auto;
-    padding: 0;
-  }
+    .honors-banner {
+      height: 90px;
+      max-height: 100px;
+      width: auto;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      margin: 0 auto;
+      padding: 0;
+    }
   </style>
 </head>
 
 <body>
-<!-- NAVIGATION -->
-<nav>
-  <div class="nav-container">
-  <img src="images/honors_banner.png" alt="SLCC Honors ePortfolio" class="honors-banner"/>
-    <ul id="nav-links">
-      <li><a href="index.html"class="active-nav-link">Home</a></li>
-      <li><a href="about.html">About Me</a></li>
-      <li><a href="courses.html">Courses</a></li>
-      <li><a href="achievements.html">Achievements</a></li>
-      <li><a href="personal-projects.html">Personal Projects</a></li>
-    </ul>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <img src="images/honors_banner.png" alt="SLCC Honors ePortfolio" class="honors-banner"/>
+      <ul id="nav-links">
+        <li><a href="index.html" class="active-nav-link">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="personal-projects.html">Personal Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HAMBURGER MENU -->
+  <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
   </div>
-</nav>
-
-<!-- HAMBURGER MENU -->
-<div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-  <div></div><div></div><div></div>
-</div>
-
-<div class="mobile-nav" id="mobile-nav">
-  <a href="index.html" class="link-active-glow">Home</a>
-  <a href="about.html">About Me</a>
-  <a href="courses.html">Courses</a>
-  <a href="achievements.html">Achievements</a>
-  <a href="personal-projects.html">Personal Projects</a>
-</div>
-  <canvas id="c"></canvas>
-
 
   <div class="mobile-nav" id="mobile-nav">
-    <a href="index.html">Home</a>
+    <a href="index.html" class="link-active-glow">Home</a>
     <a href="about.html">About Me</a>
     <a href="courses.html">Courses</a>
     <a href="achievements.html">Achievements</a>
     <a href="personal-projects.html">Personal Projects</a>
   </div>
+
+  <!-- HEART ANIMATION CANVAS -->
+  <div id="obal">
+    <canvas id="c"></canvas>
+  </div>
+
+  <!-- MAIN CONTENT -->
   <main>
     <div class="name-center fade-in-section">
       <h1>Welcome to my ePortfolio.</h1>
@@ -71,42 +73,44 @@
     </div>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <p>© 2025 Jesús Lopez Aguilar | All rights reserved</p>
   </footer>
 
+  <!-- JavaScript -->
   <script>
-  function toggleMenu() {
-    const mobileNav = document.getElementById('mobile-nav');
-    const hamburgerIcon = document.getElementById('hamburger-menu');
-    const body = document.body;
+    function toggleMenu() {
+      const mobileNav = document.getElementById('mobile-nav');
+      const hamburgerIcon = document.getElementById('hamburger-menu');
+      const body = document.body;
 
-    mobileNav.classList.toggle('active');
-    hamburgerIcon.classList.toggle('is-active');
-    body.classList.toggle('no-scroll', mobileNav.classList.contains('active'));
-  }
-</script>
+      mobileNav.classList.toggle('active');
+      hamburgerIcon.classList.toggle('is-active');
+      body.classList.toggle('no-scroll', mobileNav.classList.contains('active'));
+    }
+  </script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const faders = document.querySelectorAll('.fade-in-section');
-    const appearOptions = { threshold: 0.15 };
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const faders = document.querySelectorAll('.fade-in-section');
+      const appearOptions = { threshold: 0.15 };
 
-    const appearOnScroll = new IntersectionObserver(function (entries, observer) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
+      const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      }, appearOptions);
+
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
       });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
     });
-  });
-</script>
-  <div id="obal">
-  <canvas id="c"></canvas>
+  </script>
+
+  <!-- Heart Animation Script -->
   <script src="function-heart.js"></script>
 </body>
 </html>
