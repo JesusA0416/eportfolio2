@@ -161,7 +161,7 @@
   }
 
   function loop() {
-    a.clearRect(0, 0, c.width, c.height); // NO fading overlay
+    a.clearRect(0, 0, c.width, c.height);
     for (let i = v; i--;) {
       const f = e[i], u = f[0], q = h[u.q];
       const D = u.x - q[0], E = u.y - q[1], G = M.sqrt(D * D + E * E);
@@ -192,5 +192,4 @@
 
   loop();
 </script>
-    </body>
 </html>
