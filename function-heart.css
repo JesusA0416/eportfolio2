@@ -1,10 +1,13 @@
 body {
-  background: black;
-  color: #fff;
-  font-family: "Archivo Black", sans-serif;
-  font-size: 3em;
-  text-align: center;
-  scrollbar-width: none;
+    background-color: #1c1c1c;
+    font-family: 'Nunito', sans-serif;
+    color: #f0f0f0;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: background-color 0.3s ease, padding-top 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
 
 .heart {
