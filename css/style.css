@@ -255,9 +255,9 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   }
 }
   .honors-banner {
-  height: auto; /* Or a specific pixel value like 50px, etc. */
+  height: 60px; /* Or a specific pixel value like 50px, etc. */
   width: auto; /* Or a specific pixel value or percentage */
-  max-width: 100%; /* Prevent it from getting wider than its container */
+  max-width: 300px; /* Prevent it from getting wider than its container */
   /* Add any other desired styling like margin or padding */
 }
 
