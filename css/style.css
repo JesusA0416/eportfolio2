@@ -18,11 +18,11 @@ body {
     font-family: 'Nunito', sans-serif;
     color: #f0f0f0;
     overflow-x: hidden;
-    padding-top: 0;
+    padding-top: 60px;
     transition: background-color 0.3s ease, padding-top 0.3s ease;
     display: flex;
     flex-direction: column;
-    min-height: 60%;
+    min-height: 100%;
 }
 
 body.no-scroll {
