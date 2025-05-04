@@ -16,8 +16,6 @@ html {
 body {
     background-color: #1c1c1c;
     font-family: 'Nunito', sans-serif;
-    h1, h2, h3 {
-    font-family: 'Lora', serif;
     color: #f0f0f0;
     overflow-x: hidden;
     padding-top: 60px;
@@ -25,6 +23,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100%;
+}
+
+h1, h2, h3 {
+    font-family: 'Lora', serif;
+    color: #f0f0f0;
+}
 }
 
 body.no-scroll {
