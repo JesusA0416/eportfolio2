@@ -251,24 +251,6 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   color: #00bcd4;
   margin-bottom: 30px;
 }
-@media (max-width: 767px) {
-  nav {
-    height: auto; /* Adjust height to fit logo */
-    padding: 10px 15px; /* Adjust padding as needed */
-    display: flex; /* Enable flexbox for alignment */
-    align-items: center; /* Vertically align logo and hamburger */
-    flex-direction: row; /* Ensure logo and hamburger are in a row */
-  }
-  body {
-    padding-top: auto; /* Adjust body padding if needed */
-  }
-
-  .nav-container {
-    display: flex;
-    justify-content: space-between; /* Logo left, hamburger right */
-    align-items: center; /* Vertically align items */
-    width: 100%;
-  }
 
   #nav-links { display: none; }
   .hamburger-menu { display: flex; height: 50px; top: auto; right: auto; position: static; margin-left: auto; } /* Adjust hamburger positioning */
