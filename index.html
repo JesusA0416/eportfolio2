@@ -145,9 +145,9 @@
       const H = i / v * 80 + 280, S = R() * 40 + 60, B = R() * 60 + 40;
     for (let k = 0; k < v; k++) {
       const colorOptions = [
-        'hsla(120, 100%, 45%, 0.7)', // Green
-        'hsla(0, 0%, 90%, 0.9)',    // White
-        'hsla(0, 100%, 50%, 0.7)'    // Red
+        'hsla(120, 100%, 65%, 0.95)', // Green
+        'hsla(0, 0%, 100%, 1)',    // White
+        'hsla(0, 100%, 60%, 0.95)'    // Red
       ];
       f[k] = {
         x, y, X: 0, Y: 0,
@@ -156,7 +156,7 @@
         q: ~~(R() * v),
         D: i % 2 * 2 - 1,
         F: R() * .2 + .7,
-        f: colorOptions[~~(R() * colorOptions.length)]
+        f: colorOptions[Math.floor(R() * colorOptions.length)]
       };
     }
       e[i] = f;
@@ -164,6 +164,8 @@
 
     function render(p) {
       a.fillStyle = p.f;
+      a.shadowBlur = 20;
+      a.shadowColor = p.f;
       a.beginPath();
       a.arc(p.x, p.y, p.R, 0, Y, 1);
       a.closePath();
