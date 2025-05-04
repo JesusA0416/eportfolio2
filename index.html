@@ -63,22 +63,27 @@
   </footer>
 
   <script>
-    function toggleMenu() {
-      const mobileNav = document.getElementById('mobile-nav');
-      const hamburgerIcon = document.getElementById('hamburger-menu');
-      const body = document.body;
-      mobileNav.classList.toggle('active');
-      hamburgerIcon.classList.toggle('is-active');
-      body.classList.toggle('no-scroll', mobileNav.classList.contains('active'));
-    }
+  const hamburgerIcon = document.getElementById('hamburger-menu');
+  const mobileNav = document.getElementById('mobile-nav');
+  const body = document.body;
 
-    document.querySelectorAll('.mobile-nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('mobile-nav').classList.remove('active');
-        document.getElementById('hamburger-menu').classList.remove('is-active');
-        document.body.classList.remove('no-scroll');
-      });
+  function toggleMenu() {
+    const isActive = mobileNav.classList.contains('active');
+    
+    mobileNav.classList.toggle('active');
+    hamburgerIcon.classList.toggle('is-active');
+    body.classList.toggle('no-scroll', !isActive);
+  }
+
+  // Close mobile nav when any link is clicked
+  document.querySelectorAll('.mobile-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('active');
+      hamburgerIcon.classList.remove('is-active');
+      body.classList.remove('no-scroll');
     });
+  });
+</script>
 
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
