@@ -125,25 +125,22 @@
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
 
-  let e = [], h = [], O = c.width, Q = c.height;
-  const v = 32, M = Math, R = M.random, C = M.cos, Y = 6.3;
+  let e = [], h = [], v = 32, M = Math, R = M.random, C = M.cos, Y = 6.3;
+  const O = () => c.width, Q = () => c.height;
 
   for (let i = 0; i < Y; i += .2) {
     h.push([
-      O / 2 + 180 * M.pow(M.sin(i), 3),
-      Q / 2 + 10 * (-(15 * C(i) - 5 * C(2 * i) - 2 * C(3 * i) - C(4 * i)))
+      O() / 2 + 180 * M.pow(M.sin(i), 3),
+      Q() / 2 + 10 * (-(15 * C(i) - 5 * C(2 * i) - 2 * C(3 * i) - C(4 * i)))
     ]);
   }
 
   for (let i = 0; i < v; i++) {
-    const f = [], x = R() * O, y = R() * Q;
-    const H = i / v * 80 + 280, S = R() * 40 + 60, B = R() * 60 + 20;
+    const f = [], x = R() * O(), y = R() * Q();
+    const H = i / v * 80 + 280, S = R() * 40 + 60, B = R() * 60 + 40;
     for (let k = 0; k < v; k++) {
       f[k] = {
-        x: x,
-        y: y,
-        X: 0,
-        Y: 0,
+        x, y, X: 0, Y: 0,
         R: (1 - k / v) + 1,
         S: R() + 1,
         q: ~~(R() * v),
@@ -164,7 +161,7 @@
   }
 
   function loop() {
-    a.clearRect(0, 0, c.width, c.height); // FIXED: Don't darken background
+    a.clearRect(0, 0, c.width, c.height); // NO fading overlay
     for (let i = v; i--;) {
       const f = e[i], u = f[0], q = h[u.q];
       const D = u.x - q[0], E = u.y - q[1], G = M.sqrt(D * D + E * E);
@@ -173,9 +170,7 @@
           u.q = ~~(R() * v);
         } else {
           if (R() > .99) u.D *= -1;
-          u.q += u.D;
-          u.q %= v;
-          if (u.q < 0) u.q += v;
+          u.q = (u.q + u.D + v) % v;
         }
       }
       u.X += -D / G * u.S;
@@ -192,12 +187,10 @@
         render(N);
       }
     }
+    requestAnimationFrame(loop);
   }
 
-  (function animate() {
-    requestAnimationFrame(animate);
-    loop();
-  })();
+  loop();
 </script>
     </body>
 </html>
