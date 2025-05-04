@@ -1,53 +1,3 @@
-
-.heart {
-  fill: red;
-  position: relative;
-  top: 5px;
-  width: 50px;
-  animation: pulse 1s ease infinite;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.3);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-#heart {
-  position: relative;
-  width: 100px;
-  height: 90px;
-  text-align: center;
-  font-size: 16px;
-  position: relative;
-}
-
-#heart span {
-  width: 100%;
-  display: block;
-  top: 50%;
-  z-index: 1;
-}
-
-#heart {
-  width: 100px;
-  height: 90px;
-  text-align: center;
-  font-size: 16px;
-}
-
-#heart span {
-  width: 100%;
-  display: block;
-  left: 0;
-  right: 0;
-  z-index: 1;
-}
 #obal {
   position: absolute;
   top: 50%;
@@ -55,8 +5,8 @@
   transform: translate(-50%, -50%);
   width: 500px;
   height: 500px;
-  z-index: 0; /* Adjust if you want it behind or in front */
-  pointer-events: none; /* lets users click through it */
+  z-index: 0; /* behind other content */
+  pointer-events: none; /* allows clicks through the animation */
 }
 
 canvas#c {
