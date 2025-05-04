@@ -35,7 +35,7 @@ main {
 }
 
 /* --- Navbar --- */
-nav { background-color: rgba(0, 0, 0, 0.85); height: 120px; padding: 10px 20px; width: 100%; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); transition: padding 0.3s ease, height 0.3s ease; }
+nav { background-color: rgba(0, 0, 0, 0.85); height: 60px; padding: 10px 20px; width: 100%; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); transition: padding 0.3s ease, height 0.3s ease; }
  .nav-container { display: flex; align-items: center; width: 100%; max-width: 1200px; justify-content: center; }
 #nav-links { list-style: none; gap: 20px; margin: 0; padding: 0; display: flex; justify-content: center; }
 #nav-links li { display: inline-block; }
@@ -1082,10 +1082,9 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   margin: 30px 0;
 }
 .honors-banner {
-  height: 100%; /* try 120 or even 140px for more size */
-  object-fit: 100%; /* contain ensures the full image is visible */
+  height: 60px;
+  object-fit: contain;
   object-position: center;
-  max-width: 100%; /* scale to fit parent container */
   display: block;
-  margin: 0 auto;
+  max-width: 100%;
 }
