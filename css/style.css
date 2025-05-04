@@ -35,35 +35,13 @@ main {
 }
 
 /* --- Navbar --- */
-nav {
-  background-color: white;
-  min-height: 80px;       /* give her room */
-  height: auto;
-  padding: 10px 20px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-  transition: padding 0.3s ease, height 0.3s ease;
+nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); transition: padding 0.3s ease, height 0.3s ease; }
  .nav-container { display: flex; align-items: center; width: 100%; max-width: 1200px; justify-content: center; }
 #nav-links { list-style: none; gap: 20px; margin: 0; padding: 0; display: flex; justify-content: center; }
 #nav-links li { display: inline-block; }
 #nav-links li a { font-family: 'Nunito', sans-serif; color: black; text-decoration: none; font-size: 1.2rem; font-weight: 600; padding: 8px 15px; transition: color 0.3s, text-shadow 0.3s, transform 0.3s; }
 #nav-links li a:hover { color: #00bcd4; text-shadow: 0 0 8px #00bcd4; transform: scale(1.1); }
 #nav-links li a.active-nav-link { color: #00bcd4; font-weight: 700; }
-.honors-banner {
-  display: block;
-  max-width: 100%;
-  height: 65px;
-  object-fit: contain;
-  margin: 0 auto;
-}
 /* --- Hamburger Menu --- */
 .hamburger-menu { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 4px; width: 45px; height: 50px; z-index: 1100; position: fixed; top: 0; right: 15px; cursor: pointer; transition: transform 0.3s ease; }
 .hamburger-menu div { width: 25px; height: 3px; margin: 0; background-color: #000; border-radius: 1px; transition: transform 0.3s ease-in-out, background-color 0.3s ease, opacity 0.3s ease; transform-origin: center; }
