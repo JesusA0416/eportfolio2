@@ -1,7 +1,7 @@
 e = [];// trails
 h = [];// heart path
-O = c.width = innerWidth;
-Q = c.height = innerHeight;
+O = c.width = 500;
+Q = c.height = 500;
 
 v = 32; // num trails, num particles per trail & num nodes in heart path
 M = Math;
