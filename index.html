@@ -5,61 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <title>Jesús Lopez Aguilar - ePortfolio</title>
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  </head>
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="style.css"> <!-- your main ePortfolio styles -->
+<body>
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-container">
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active-nav-link">About Me</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="personal-projects.html">Personal Projects</a></li>
+    </ul>
+  </div>
+</nav>
 
+<!-- HAMBURGER MENU -->
+<div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+  <div></div><div></div><div></div>
+</div>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html" class="link-active-glow">About Me</a>
+  <a href="courses.html">Courses</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="personal-projects.html">Personal Projects</a>
+</div>
   <style>
-    .honors-banner {
-      height: 90px;
-      max-height: 100px;
-      width: auto;
-      object-fit: contain;
-      object-position: center;
-      display: block;
-      margin: 0 auto;
-      padding: 0;
+    canvas#c {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
     }
   </style>
 </head>
 
 <body>
-  <!-- NAVIGATION -->
+  <canvas id="c"></canvas>
+
   <nav>
     <div class="nav-container">
-      <img src="images/honors_banner.png" alt="SLCC Honors ePortfolio" class="honors-banner"/>
       <ul id="nav-links">
         <li><a href="index.html" class="active-nav-link">Home</a></li>
         <li><a href="about.html">About Me</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="achievements.html">Achievements</a></li>
-        <li><a href="personal-projects.html">Personal Projects</a></li>
+        <li><a href="projects.html">Personal Projects</a></li>
       </ul>
+      <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+      </div>
     </div>
   </nav>
 
-  <!-- HAMBURGER MENU -->
-  <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-    <div></div><div></div><div></div>
-  </div>
-
   <div class="mobile-nav" id="mobile-nav">
-    <a href="index.html" class="link-active-glow">Home</a>
+    <a href="index.html">Home</a>
     <a href="about.html">About Me</a>
     <a href="courses.html">Courses</a>
     <a href="achievements.html">Achievements</a>
-    <a href="personal-projects.html">Personal Projects</a>
+    <a href="projects.html">Personal Projects</a>
   </div>
 
-  <!-- HEART ANIMATION CANVAS -->
-  <div id="obal">
-    <canvas id="c"></canvas>
-  </div>
-
-  <!-- MAIN CONTENT -->
   <main>
     <div class="name-center fade-in-section">
       <h1>Welcome to my ePortfolio.</h1>
@@ -72,41 +86,116 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <p>© 2025 Jesús Lopez Aguilar | All rights reserved</p>
   </footer>
 
-  <!-- JavaScript -->
   <script>
     function toggleMenu() {
       const mobileNav = document.getElementById('mobile-nav');
       const hamburgerIcon = document.getElementById('hamburger-menu');
       const body = document.body;
-
       mobileNav.classList.toggle('active');
       hamburgerIcon.classList.toggle('is-active');
       body.classList.toggle('no-scroll', mobileNav.classList.contains('active'));
     }
+
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobile-nav').classList.remove('active');
+        document.getElementById('hamburger-menu').classList.remove('is-active');
+        document.body.classList.remove('no-scroll');
+      });
+    });
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
   </script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const faders = document.querySelectorAll('.fade-in-section');
-      const appearOptions = { threshold: 0.15 };
+    const c = document.getElementById("c");
+    const a = c.getContext("2d");
 
-      const appearOnScroll = new IntersectionObserver(function (entries, observer) {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        });
-      }, appearOptions);
+    function resizeCanvas() {
+      c.width = window.innerWidth;
+      c.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
-      faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-      });
-    });
+    let e = [], h = [], v = 32, M = Math, R = M.random, C = M.cos, Y = 6.3;
+    const O = () => c.width, Q = () => c.height;
+
+    for (let i = 0; i < Y; i += .2) {
+      h.push([
+        O() / 2 + 180 * M.pow(M.sin(i), 3),
+        Q() / 2 + 10 * (-(15 * C(i) - 5 * C(2 * i) - 2 * C(3 * i) - C(4 * i)))
+      ]);
+    }
+
+    for (let i = 0; i < v; i++) {
+      const f = [], x = R() * O(), y = R() * Q();
+      const H = i / v * 80 + 280, S = R() * 40 + 60, B = R() * 60 + 40;
+      for (let k = 0; k < v; k++) {
+        f[k] = {
+          x, y, X: 0, Y: 0,
+          R: (1 - k / v) + 1,
+          S: R() + 1,
+          q: ~~(R() * v),
+          D: i % 2 * 2 - 1,
+          F: R() * .2 + .7,
+          f: `hsla(${~~H},${~~S}%,${~~B}%,0.5)`
+        };
+      }
+      e[i] = f;
+    }
+
+    function render(p) {
+      a.fillStyle = p.f;
+      a.beginPath();
+      a.arc(p.x, p.y, p.R, 0, Y, 1);
+      a.closePath();
+      a.fill();
+    }
+
+    function loop() {
+      a.clearRect(0, 0, c.width, c.height);
+      for (let i = v; i--;) {
+        const f = e[i], u = f[0], q = h[u.q];
+        const D = u.x - q[0], E = u.y - q[1], G = M.sqrt(D * D + E * E);
+        if (G < 10) {
+          if (R() > .95) {
+            u.q = ~~(R() * v);
+          } else {
+            if (R() > .99) u.D *= -1;
+            u.q = (u.q + u.D + v) % v;
+          }
+        }
+        u.X += -D / G * u.S;
+        u.Y += -E / G * u.S;
+        u.x += u.X;
+        u.y += u.Y;
+        render(u);
+        u.X *= u.F;
+        u.Y *= u.F;
+        for (let k = 0; k < v - 1; k++) {
+          const T = f[k], N = f[k + 1];
+          N.x -= (N.x - T.x) * .7;
+          N.y -= (N.y - T.y) * .7;
+          render(N);
+        }
+      }
+      requestAnimationFrame(loop);
+    }
+
+    loop();
   </script>
 </body>
 </html>
