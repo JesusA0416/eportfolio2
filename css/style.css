@@ -18,7 +18,7 @@ body {
     font-family: 'Nunito', sans-serif;
     color: #f0f0f0;
     overflow-x: hidden;
-    padding-top: 100px;
+    padding-top: 60px;
     transition: background-color 0.3s ease, padding-top 0.3s ease;
     display: flex;
     flex-direction: column;
