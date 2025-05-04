@@ -255,27 +255,28 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
     padding: 10px 15px; /* Adjust padding as needed */
     display: flex; /* Enable flexbox for alignment */
     align-items: center; /* Vertically align logo and hamburger */
+    flex-direction: row; /* Ensure logo and hamburger are in a row */
   }
   body {
     padding-top: auto; /* Adjust body padding if needed */
   }
 
-  #nav-links { display: none; }
-  .hamburger-menu { display: flex; height: 50px; top: auto; right: auto; position: static; margin-left: auto; } /* Adjust hamburger positioning */
   .nav-container {
     display: flex;
     justify-content: space-between; /* Logo left, hamburger right */
     align-items: center; /* Vertically align items */
     width: 100%;
   }
-}
-  .honors-banner {
-  height: 60px; /* Or a specific pixel value like 50px, etc. */
-  width: auto; /* Or a specific pixel value or percentage */
-  max-width: 300px; /* Prevent it from getting wider than its container */
-  /* Add any other desired styling like margin or padding */
-}
 
+  #nav-links { display: none; }
+  .hamburger-menu { display: flex; height: 50px; top: auto; right: auto; position: static; margin-left: auto; } /* Adjust hamburger positioning */
+
+  .honors-banner {
+    max-height: 40px; /* Example: Limit height on mobile - adjust as needed */
+    width: auto; /* Maintain aspect ratio */
+    margin-right: auto; /* Push hamburger to the right */
+  }
+}
 /* Mobile specific size adjustments (within your media query) */
 @media (max-width: 767px) {
   .honors-banner {
