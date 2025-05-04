@@ -42,7 +42,13 @@ nav { background-color: white; min-height: 60px; height: auto; padding: 0 20px; 
 #nav-links li a { font-family: 'Nunito', sans-serif; color: black; text-decoration: none; font-size: 1.2rem; font-weight: 600; padding: 8px 15px; transition: color 0.3s, text-shadow 0.3s, transform 0.3s; }
 #nav-links li a:hover { color: #00bcd4; text-shadow: 0 0 8px #00bcd4; transform: scale(1.1); }
 #nav-links li a.active-nav-link { color: #00bcd4; font-weight: 700; }
-
+.honors-banner {
+  display: block;
+  max-width: 100%;
+  height: 65px;
+  object-fit: contain;
+  margin: 0 auto;
+}
 /* --- Hamburger Menu --- */
 .hamburger-menu { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 4px; width: 45px; height: 50px; z-index: 1100; position: fixed; top: 0; right: 15px; cursor: pointer; transition: transform 0.3s ease; }
 .hamburger-menu div { width: 25px; height: 3px; margin: 0; background-color: #000; border-radius: 1px; transition: transform 0.3s ease-in-out, background-color 0.3s ease, opacity 0.3s ease; transform-origin: center; }
