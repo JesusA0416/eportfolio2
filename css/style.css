@@ -1082,9 +1082,8 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   margin: 30px 0;
 }
 .honors-banner {
-  display: block;
-  height: 100px; /* Try 80px or more */
-  object-fit: contain;
-  max-width: 100%;
-  z-index: 998;
+  height: 90px;              /* or 100px if you want it bolder */
+  object-fit: cover;         /* zooms in instead of squishing */
+  object-position: center;   /* centers the image focus */
+  max-width: none;           /* prevents width squishing */
 }
