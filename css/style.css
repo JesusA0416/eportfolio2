@@ -1082,3 +1082,59 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   padding-left: 15px;
   margin: 30px 0;
 }
+/* Honors Banner Styling */
+.honors-banner {
+  height: 65px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+}
+
+/* Navbar Container Setup */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Hamburger Styles */
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hamburger-menu div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .honors-banner {
+    order: 1;
+    width: 100%;
+    margin: 10px auto;
+  }
+
+  .hamburger-menu {
+    display: flex;
+    order: 2;
+  }
+
+  #nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    order: 3;
+  }
+
+  #nav-links.show {
+    display: flex;
+  }
+}
