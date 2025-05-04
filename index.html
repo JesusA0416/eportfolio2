@@ -8,19 +8,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* Make sure nav stays above canvas */
-    #hamburger-menu,
-    .mobile-nav,
-    .nav-container {
+    #hamburger-menu, .mobile-nav, .nav-container {
       position: relative;
       z-index: 999;
+    }
+
+    main {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    canvas#c {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
     }
   </style>
 </head>
 
 <body>
-  <!-- HEART CANVAS -->
-  <canvas id="c" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;border: 5px solid red;"></canvas>
+  <canvas id="c"></canvas>
 
   <nav>
     <div class="nav-container">
@@ -31,12 +45,11 @@
         <li><a href="achievements.html">Achievements</a></li>
         <li><a href="projects.html">Personal Projects</a></li>
       </ul>
+      <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+      </div>
     </div>
   </nav>
-
-  <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-    <div></div><div></div><div></div>
-  </div>
 
   <div class="mobile-nav" id="mobile-nav">
     <a href="index.html">Home</a>
@@ -62,38 +75,17 @@
     <p>© 2025 Jesús Lopez Aguilar | All rights reserved</p>
   </footer>
 
-  <!-- MAIN FUNCTIONALITY -->
   <script>
-    // Toggle mobile nav
     function toggleMenu() {
       const mobileNav = document.getElementById('mobile-nav');
       const hamburgerIcon = document.getElementById('hamburger-menu');
       const body = document.body;
-
       mobileNav.classList.toggle('active');
       hamburgerIcon.classList.toggle('is-active');
-      if (mobileNav.classList.contains('active')) {
-        body.classList.add('no-scroll');
-      } else {
-        body.classList.remove('no-scroll');
-      }
+      body.classList.toggle('no-scroll', mobileNav.classList.contains('active'));
     }
 
-    // Mobile nav touch link glow
     document.querySelectorAll('.mobile-nav a').forEach(link => {
-      let touchInitiated = false;
-      link.addEventListener('touchstart', () => {
-        link.classList.add('link-active-glow');
-        touchInitiated = true;
-      });
-      link.addEventListener('touchend', () => {
-        if (touchInitiated) setTimeout(() => link.classList.remove('link-active-glow'), 150);
-        touchInitiated = false;
-      });
-      link.addEventListener('touchcancel', () => {
-        link.classList.remove('link-active-glow');
-        touchInitiated = false;
-      });
       link.addEventListener('click', () => {
         document.getElementById('mobile-nav').classList.remove('active');
         document.getElementById('hamburger-menu').classList.remove('is-active');
@@ -101,7 +93,6 @@
       });
     });
 
-    // Fade in observer
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -113,7 +104,6 @@
     document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
   </script>
 
-  <!-- HEART CANVAS ANIMATION -->
   <script>
     const c = document.getElementById("c");
     const a = c.getContext("2d");
