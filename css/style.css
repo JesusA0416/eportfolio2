@@ -35,7 +35,7 @@ main {
 }
 
 /* --- Navbar --- */
-nav { background-color: rgba(0, 0, 0, 0.85); height: auto; padding: 0; width: 100%; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; justify-content: center; align-items: center; flex-direction: column; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); transition: padding 0.3s ease, height 0.3s ease; }
+nav { background-color: rgba(0, 0, 0, 0.85); height: 100px; padding: 0; width: 100%; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; justify-content: center; align-items: center; flex-direction: column; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); transition: padding 0.3s ease, height 0.3s ease; }
  .nav-container { display: flex; align-items: center; width: 100%; max-.honors-banner {
   height: 80px;                /* Try 90px or 100px if it’s still shy */
   max-height: none;
@@ -243,7 +243,14 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   color: #00bcd4;
   margin-bottom: 30px;
 }
-
+@media (max-width: 767px) {
+  nav {
+    height: 100px; /* Match navbar height with the logo */
+  }
+  body {
+    padding-top: 100px; /* prevent content from hiding under navbar */
+  }
+}
 /* Mobile Adjustments (< 768px) */
 @media (max-width: 767px) {
     #nav-links { display: none; }
@@ -1091,12 +1098,12 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   margin: 30px 0;
 }
 .honors-banner {
-  height: 80px;                /* Try 90px or 100px if it’s still shy */
+  height: 90px;                /* Adjust size to fit mobile gap */
   max-height: none;
   width: auto;
   object-fit: contain;
   object-position: center;
   display: block;
-  margin: 0;
-  padding: 0;
+  margin: 0 auto;              /* Center the logo */
+  padding: 5px 0;
 }
