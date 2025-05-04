@@ -1081,22 +1081,9 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   padding-left: 15px;
   margin: 30px 0;
 }
-.honors-wrapper {
-  width: 100%;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  padding-top: 5px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 998;
-}
-
 .honors-banner {
   display: block;
-  height: 40px;
+  height: 45px;
   object-fit: contain;
-  max-width: 100%;
-  z-index: 998;
+  margin-right: auto;
 }
