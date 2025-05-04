@@ -37,7 +37,7 @@ main {
 /* --- Navbar --- */
 nav {
   background-color: white;
-  height: 60px; /* Example fixed navbar height */
+  height: 60px; /* Set your desired desktop navbar height */
   padding: 0 20px;
   width: 100%;
   position: fixed;
@@ -46,10 +46,23 @@ nav {
   right: 0;
   z-index: 1000;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: center; /* Vertically center content */
+  justify-content: space-between; /* Logo left, links/hamburger right */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   transition: padding 0.3s ease, height 0.3s ease;
+}
+
+/* Mobile Adjustments (< 767px) */
+@media (max-width: 767px) {
+  nav {
+    height: 50px; /* Set your desired mobile navbar height */
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Logo left, hamburger right */
+    flex-direction: row; /* Ensure logo and hamburger are in a row */
+  }
+  /* ... other mobile styles ... */
 }
  .nav-container { display: flex; align-items: center; width: 100%; max-width: 1200px; justify-content: space-between; }
 #nav-links { list-style: none; gap: 20px; margin: 0; padding: 0; display: flex; justify-content: center; }
