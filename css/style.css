@@ -35,7 +35,7 @@ main {
 }
 
 /* --- Navbar --- */
-nav { background-color: rgba(0, 0, 0, 0.85); height: 100px; padding: 0; width: 100%; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; justify-content: center; align-items: center; flex-direction: column; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); transition: padding 0.3s ease, height 0.3s ease; }
+nav { background-color: rgba(0, 0, 0, 0.85); height: 100px; padding: 5px 0; width: 100%; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; justify-content: center; align-items: center; flex-direction: column; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); transition: padding 0.3s ease, height 0.3s ease; }
  .nav-container { display: flex; align-items: center; width: 100%; max-.honors-banner {
   height: 80px;                /* Try 90px or 100px if it’s still shy */
   max-height: none;
