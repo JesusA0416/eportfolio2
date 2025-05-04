@@ -1082,9 +1082,11 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   margin: 30px 0;
 }
 .honors-banner {
-  height: 60px;
-  object-fit: contain;
+  height: 70px;                /* not too big, not too small */
+  object-fit: contain;         /* prevents squishing */
   object-position: center;
   display: block;
+  margin: 0 auto;              /* center it horizontally */
   max-width: 100%;
+  padding: 5px 0;              /* slight vertical padding to help alignment */
 }
