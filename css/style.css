@@ -235,21 +235,6 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   margin-bottom: 30px;
 }
 
-  #nav-links { display: none; }
-  .hamburger-menu { display: flex; height: 50px; top: auto; right: auto; position: static; margin-left: auto; } /* Adjust hamburger positioning */
-
-  .honors-banner {
-    max-height: 40px; /* Example: Limit height on mobile - adjust as needed */
-    width: auto; /* Maintain aspect ratio */
-    margin-right: auto; /* Push hamburger to the right */
-  }
-}
-/* Mobile specific size adjustments (within your media query) */
-@media (max-width: 767px) {
-  .honors-banner {
-    max-height: 40px; /* Example: Limit height on mobile */
-    width: auto; /* Maintain aspect ratio */
-  }
 }
     /* Mobile Grid Layout for Courses */
     .courses-container {
