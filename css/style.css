@@ -129,7 +129,12 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
   margin-bottom: 20px;
   font-family: 'Lora', serif;
 }
-
+.info-block h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: #00bcd4;
+  font-family: 'Lora', serif;
+}
 .info-block p {
   font-size: 1.1rem;
   margin-bottom: 15px;
