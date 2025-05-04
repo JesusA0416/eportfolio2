@@ -7,30 +7,6 @@
   <title>Jesús Lopez Aguilar - ePortfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  </head>
-<body>
-  <nav>
-  <div class="nav-container">
-    <img src="images/honors_banner.png" alt="SLCC Honors ePortfolio" class="honors-banner"/>
-    <ul id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Me</a></li>
-      <li><a href="courses.html">Courses</a></li>
-      <li><a href="achievements.html">Achievements</a></li>
-      <li><a href="personal-projects.html">Personal Projects</a></li>
-    </ul>
-    <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-      <div></div><div></div><div></div>
-    </div>
-  </div>
-</nav>
-<div class="mobile-nav" id="mobile-nav">
-  <a href="index.html">Home</a>
-  <a href="about.html" class="link-active-glow">About Me</a>
-  <a href="courses.html">Courses</a>
-  <a href="achievements.html">Achievements</a>
-  <a href="personal-projects.html">Personal Projects</a>
-</div>
   <style>
     canvas#c {
       position: fixed;
@@ -42,9 +18,34 @@
       pointer-events: none;
     }
   </style>
+</head>
+
 <body>
   <canvas id="c"></canvas>
 
+  <nav>
+    <div class="nav-container">
+      <img src="images/honors_banner.png" alt="SLCC Honors ePortfolio" class="honors-banner"/>
+      <ul id="nav-links">
+        <li><a href="index.html" class="active-nav-link">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="personal-projects.html">Personal Projects</a></li>
+      </ul>
+      <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="courses.html">Courses</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="personal-projects.html">Personal Projects</a>
+  </div>
   <main>
     <div class="name-center fade-in-section">
       <h1>Welcome to my ePortfolio.</h1>
