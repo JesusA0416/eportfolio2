@@ -16,6 +16,8 @@ html {
 body {
     background-color: #1c1c1c;
     font-family: 'Nunito', sans-serif;
+    h1, h2, h3 {
+    font-family: 'Lora', serif;
     color: #f0f0f0;
     overflow-x: hidden;
     padding-top: 60px;
@@ -67,6 +69,44 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
   max-width: 1000px;
   margin: 0 auto;
 }
+  .personal-projects-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #00bcd4;
+  text-align: center;
+  font-family: 'Lora', serif;
+}
+
+.personal-projects-page h2 {
+  font-size: 1.8rem;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  color: #00bcd4;
+  font-family: 'Lora', serif;
+}
+
+.personal-projects-page h3 {
+  font-size: 1.4rem;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #f0f0f0;
+}
+
+.personal-projects-page p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.personal-projects-page ul {
+  margin-bottom: 30px;
+  padding-left: 20px;
+}
+
+.personal-projects-page ul li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}  
 /* --- Styles for index.html --- */
 .name-center { min-height: calc(90vh - 60px); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column; padding: 20px; }
 .name-center h1 { font-size: 2.5rem; margin-bottom: 10px; font-family: 'Lora', serif; }
