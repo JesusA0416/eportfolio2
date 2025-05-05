@@ -162,6 +162,18 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
   text-align: left;
   line-height: 1.7;
 }
+.section-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.info-column {
+  flex: 1 1 300px;
+  max-width: 400px;
+}
 /* --- Styles for index.html --- */
 .name-center { min-height: calc(90vh - 60px); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column; padding: 20px; }
 .name-center h1 { font-size: 2.5rem; margin-bottom: 10px; font-family: 'Lora', serif; }
@@ -339,6 +351,16 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   margin-bottom: 30px;
 }
 /* Mobile Adjustments (< 768px) */
+@media (max-width: 768px) {
+  .section-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-column {
+    max-width: 90%;
+  }
+}
 @media (max-width: 767px) {
     #nav-links { display: none; }
     .hamburger-menu { display: flex; height: 50px; top: 0; right: 15px; }
