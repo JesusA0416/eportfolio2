@@ -1000,11 +1000,3 @@ body {
   animation: rotateScene 30s linear infinite;
 }
 
-@keyframes rotateScene {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
-}
