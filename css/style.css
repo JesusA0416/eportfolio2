@@ -112,62 +112,43 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
   line-height: 1.6;
 }  
 
-.info-block:hover {
-  transform: scale(1.01);
-  box-shadow: 0 0 25px rgba(0, 188, 212, 0.3);
-}
-.info-block:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(0, 188, 212, 0.35);
+/* WRAPPER for each SECTION ROW */
+.info-section {
+  margin-bottom: 60px;
 }
 
-.info-box {
-  background-color: #2a2a2a;
-  color: #f0f0f0;
-  padding: 30px 25px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 188, 212, 0.2);
-  flex: 1 1 300px; /* responsive block sizing */
-  max-width: 400px;
-  text-align: left;
-  line-height: 1.7;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.info-box:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 25px rgba(0, 188, 212, 0.35);
-}
-
-.info-box h3 {
-  font-size: 1.6rem;
-  color: #00bcd4;
-  margin-bottom: 15px;
-  font-family: 'Lora', serif;
-}
-
-.info-box p,
-.info-box ul,
-.info-box li {
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.05rem;
-  margin-bottom: 12px;
-}
-
+/* LAYOUT inside each row (flex for multi-box sections only) */
 .info-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 25px;
-  margin-bottom: 60px;
 }
 
-.info-row-heading {
-  text-align: center;
-  font-size: 2rem;
+/* UNIFIED BOX STYLE */
+.info-box {
+  background-color: #2a2a2a;
+  padding: 25px;
+  border-radius: 10px;
+  flex: 1 1 280px;
+  max-width: 300px;
+  box-shadow: 0 0 15px rgba(0, 188, 212, 0.2);
+  color: #f0f0f0;
+  line-height: 1.7;
+  font-family: 'Nunito', sans-serif;
+}
+
+.info-box h3 {
+  font-size: 1.3rem;
   color: #00bcd4;
   font-family: 'Lora', serif;
-  margin: 60px 0 30px;
+  margin-bottom: 12px;
+}
+
+.info-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(0, 188, 212, 0.35);
+  transition: 0.3s ease;
 }
 /* --- Styles for index.html --- */
 .name-center { min-height: calc(90vh - 60px); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column; padding: 20px; }
@@ -190,7 +171,6 @@ main.courses-page .courses-grid {
     margin: 0 auto;
     padding: 20px 0;
 }
-
 .intro {
   grid-column: 1 / -1; /* full width of the grid */
   text-align: center;
