@@ -63,7 +63,8 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
 .mobile-nav a.link-active-glow { color: #00bcd4; text-shadow: 0 0 8px #00bcd4; }
 .mobile-nav.active { opacity: 1; transform: translateY(0); visibility: visible; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out, visibility 0s linear 0s; }
 
-/* === Page Specific Styles === */
+/* === PERSONAL PROJECTS PAGE === */
+
 .personal-projects-page {
   flex-grow: 1;
   display: flex;
@@ -73,13 +74,26 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
   max-width: 1000px;
   margin: 0 auto;
 }
-  .personal-projects-page h1 {
+
+.personal-projects-page h1 {
   font-size: 2.5rem;
   margin-bottom: 30px;
   color: #00bcd4;
   text-align: center;
   font-family: 'Lora', serif;
 }
+
+.personal-subheading {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+  font-size: 1.1rem;
+  font-family: 'Nunito', sans-serif;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
 .personal-projects-page h2 {
   font-size: 1.8rem;
   margin-top: 40px;
@@ -94,30 +108,28 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
   margin-top: 30px;
   margin-bottom: 10px;
   color: #f0f0f0;
+  text-align: center;
 }
 
 .personal-projects-page p {
   margin-bottom: 20px;
   line-height: 1.7;
   font-size: 1.05rem;
+  text-align: center;
 }
 
 .personal-projects-page ul {
   margin-bottom: 30px;
   padding-left: 20px;
+  list-style-type: disc;
 }
 
 .personal-projects-page ul li {
   margin-bottom: 10px;
   line-height: 1.6;
-}  
-
-/* WRAPPER for each SECTION ROW */
-.info-section {
-  margin-bottom: 60px;
 }
 
-/* LAYOUT inside each row (flex for multi-box sections only) */
+/* === GRID LAYOUT === */
 .personal-grid {
   display: flex;
   flex-direction: column;
@@ -146,32 +158,6 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
 .info-box:hover {
   transform: translateY(-3px);
   box-shadow: 0 0 25px rgba(0, 188, 212, 0.35);
-}
-.grid-box .info-box h3 {
-  text-align: center;
-}
-.grid-row .info-row p {
-    text-align: center;
-}
-.personal-heading {
-  text-align: center;
-  font-size: 2.5rem;
-  color: #00bcd4;
-  font-family: 'Lora', serif;
-  margin-bottom: 20px;
-}
-.personal-subheading {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 40px;
-  padding: 0 20px;
-}
-
-.personal-subheading p {
-  font-size: 1.1rem;
-  font-family: 'Nunito', sans-serif;
-  color: #f0f0f0;
-  line-height: 1.6;
 }
 /* --- Styles for index.html --- */
 .name-center { min-height: calc(90vh - 60px); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column; padding: 20px; }
