@@ -149,6 +149,33 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
   font-size: 1.05rem;
   margin-bottom: 12px;
 }
+.info-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.info-row-heading {
+  text-align: center;
+  font-size: 2rem;
+  color: #00bcd4;
+  font-family: 'Lora', serif;
+  margin: 60px 0 30px;
+}
+
+.info-block {
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  padding: 30px 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 188, 212, 0.2);
+  flex: 1 1 300px; /* responsive block sizing */
+  max-width: 400px;
+  text-align: left;
+  line-height: 1.7;
+}
 /* --- Styles for index.html --- */
 .name-center { min-height: calc(90vh - 60px); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column; padding: 20px; }
 .name-center h1 { font-size: 2.5rem; margin-bottom: 10px; font-family: 'Lora', serif; }
