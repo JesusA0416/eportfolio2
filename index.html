@@ -7,6 +7,31 @@
   <title>Jesús Lopez Aguilar - ePortfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+  .night {
+    position: fixed;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    z-index: -3; /* lower than canvas */
+    filter: blur(0.1vmin);
+    background-image:
+      radial-gradient(ellipse at top, transparent 0%, #000),
+      radial-gradient(ellipse at bottom, #000, rgba(145, 233, 255, 0.2)),
+      repeating-linear-gradient(220deg, black 0px, black 19px, transparent 19px, transparent 22px),
+      repeating-linear-gradient(189deg, black 0px, black 19px, transparent 19px, transparent 22px),
+      repeating-linear-gradient(148deg, black 0px, black 19px, transparent 19px, transparent 22px),
+      linear-gradient(90deg, #00fffa, #f0f0f0);
+    animation: nightFade 5s ease-in-out forwards;
+  }
+
+  @keyframes nightFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style>
   </head>
 
 <body>
@@ -49,6 +74,7 @@
 </head>
 
 <body>
+  <div class="night"></div>
   <canvas id="c"></canvas>
 
   <nav>
