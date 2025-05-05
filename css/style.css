@@ -111,20 +111,6 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
   margin-bottom: 10px;
   line-height: 1.6;
 }  
-.info-block {
-  background-color: #2a2a2a;
-  color: #f0f0f0;
-  padding: 30px 25px;
-  margin: 30px auto;
-  max-width: 900px;
-  width: 95%;
-  border-radius: 12px;
-  box-shadow: 0 0 18px rgba(0, 188, 212, 0.25);
-  border: 1px solid rgba(0, 188, 212, 0.2);
-  line-height: 1.7;
-  text-align: left;
-  transition: transform 0.3s ease;
-}
 
 .info-block:hover {
   transform: scale(1.01);
