@@ -86,10 +86,9 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
   margin-top: 40px;
   margin-bottom: 15px;
   text-align: center;
-  color: #f0f0f0;
   font-family: 'Lora', serif;
 }
-.personal-projdct-page=v2 h2 {
+.personal-projdct-page-v2 h2 {
   font-size: 1.8rem;
   margin-top: 40px;
   margin-bottom: 15px;
