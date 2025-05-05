@@ -147,7 +147,9 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
   transform: translateY(-3px);
   box-shadow: 0 0 25px rgba(0, 188, 212, 0.35);
 }
-
+.info-box h3 {
+  text-align: center;
+}
 .personal-heading {
   text-align: center;
   font-size: 2.5rem;
