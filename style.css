@@ -985,18 +985,3 @@ body {
   animation-play-state: paused !important;
 }
 /* === 3D Camera Rotation for Flower Scene === */
-.camera-container {
-  perspective: 1000px;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.flower-scene {
-  transform-style: preserve-3d;
-  animation: rotateScene 30s linear infinite;
-}
-
