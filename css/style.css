@@ -85,6 +85,7 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
   font-size: 1.8rem;
   margin-top: 40px;
   margin-bottom: 15px;
+  text-align: center;
   color: #00bcd4;
   font-family: 'Lora', serif;
 }
