@@ -118,23 +118,21 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
 }
 
 /* LAYOUT inside each row (flex for multi-box sections only) */
-.info-row {
+.personal-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-top: 30px;
+}
+
+.grid-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 25px;
 }
-.grid-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin: 40px auto;
-  max-width: 1200px;
-  padding: 0 10px;
-}
 
-.grid-row .info-box {
+.info-box {
   flex: 1 1 300px;
   max-width: 360px;
   background-color: #2a2a2a;
@@ -145,34 +143,17 @@ nav { background-color: white; height: 60px; padding: 0 20px; width: 100%; posit
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.grid-row .info-box:hover {
+.info-box:hover {
   transform: translateY(-3px);
   box-shadow: 0 0 25px rgba(0, 188, 212, 0.35);
 }
-/* UNIFIED BOX STYLE */
-.info-box {
-  background-color: #2a2a2a;
-  padding: 25px;
-  border-radius: 10px;
-  flex: 1 1 280px;
-  max-width: 300px;
-  box-shadow: 0 0 15px rgba(0, 188, 212, 0.2);
-  color: #f0f0f0;
-  line-height: 1.7;
-  font-family: 'Nunito', sans-serif;
-}
 
-.info-box h3 {
-  font-size: 1.3rem;
+.personal-heading {
+  text-align: center;
+  font-size: 2.5rem;
   color: #00bcd4;
   font-family: 'Lora', serif;
-  margin-bottom: 12px;
-}
-
-.info-box:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(0, 188, 212, 0.35);
-  transition: 0.3s ease;
+  margin-bottom: 20px;
 }
 /* --- Styles for index.html --- */
 .name-center { min-height: calc(90vh - 60px); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column; padding: 20px; }
