@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Social Science (SS) - Jesús Lopez Aguilar</title>
+  <title>Social Science (SS) – Jesús Lopez Aguilar</title>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <div class="night"></div>
 </head>
 
 <body>
-<!-- NAVBAR -->
+
+<!-- NAVIGATION -->
 <nav>
   <div class="nav-container">
     <ul id="nav-links">
@@ -38,17 +38,21 @@
   <a href="personal-projects.html">Personal Projects</a>
 </div>
 
+<!-- MAIN CONTENT -->
 <main class="centered-content-block fade-in-section">
-  <h1>Social Science (SS) – HON 2060</h1>
-  <h2>American Identities</h2>
+  <h1 style="color: #00bcd4;">Social Science (SS) – HON 2060</h1>
+  <h2 style="color: #00bcd4;">American Identities</h2>
   <p><em>This course wasn’t about waving flags — it was about peeling them back.</em> HON 2060: American Identities asked what it actually means to be “American” in a country full of contradictions. We covered identity from every angle: historical, cultural, social, and political — and none of it came with easy answers.</p>
 
   <p>This reflection is my response to that challenge. It’s layered with my own experience, the data I gathered, and the stories that shaped this class. It’s blunt, personal, and unapologetically real — because that’s what this course demanded: truth, not performance.</p>
 
-  <h2>Final Reflection</h2>
-  <p>To be truly honest, I don’t even have a formal opinion on American identity other than: you’re literally the whitest bitch in the room. You’re the one tailgating me with your ultra-bright LED headlights while I’m already going 90 in the fast lane, still kissing my bumper like it’s patriotic. I’ve heard more about the Second Amendment than I’ve heard people spell the word “amendment.” Flags with guns. Guns with flags. Pickup trucks with both. Nobody’s really sure if the Constitution still applies unless it’s about guns or gas prices. And half the people screaming about “freedom” have their Wi-Fi password set to BackTheBlue123. But yeah — America, land of the free, home of the delusional high beams.</p>
+  <h2 style="color: #00bcd4;">Signature Assignment – “What Does It Mean to Be American?”</h2>
+  <p>This signature assignment asked us to confront American identity through the lens of our own experience, informed by qualitative research and interviews. My approach? If America wanted answers, it was going to get them uncensored. I collected survey data from thousands across the country — and then tore the concept of "American" wide open. Below is my final written reflection for the class.</p>
 
-  <p>Lowkey, I used to think American identity was just overly confident cheerleaders in USA flag crop tops. You know the ones. TikTok dancers with camo Crocs and acrylic nails screaming “FREEDOM” while using a straw in a turtle cup. But nah. It’s more like a personality cult. It’s people bragging about rights they don’t understand and never had to earn. I’ve heard more about the Second Amendment than I’ve heard people correctly spell “amendment.” And no one really knows when the Constitution applies unless someone’s crying about guns, taxes, or Starbucks cups.</p>
+  <h2 style="color: #00bcd4;">Final Reflection</h2>
+  <p>To be truly honest, I don’t even have a formal opinion on American identity other than: you’re literally the whitest bitch in the room. You’re the one tailgating me with your ultra-bright LED headlights while I’m already going 90 in the fast lane, still kissing my bumper like it’s patriotic. I’ve heard more about the Second Amendment than I’ve heard people spell the word amendment. Flags with guns. Guns with flags. Pickup trucks with both. Nobody’s really sure if the Constitution still applies unless it’s about guns or gas prices. And half the people screaming about “freedom” have their Wi-Fi password set to BackTheBlue123. But yeah America, land of the free, home of the delusional high beams.</p>
+
+  <p>Lowkey, I used to think American identity was just overly confident cheerleaders in USA flag crop tops. You know the ones. TikTok dancers with camo Crocs and acrylic nails screaming “FREEDOM” while using a straw in a turtle cup. But nah. It’s more like a personality cult. It’s people bragging about rights they don’t understand and never had to earn. And no one really knows when the Constitution applies unless someone’s crying about guns, taxes, or Starbucks cups.</p>
 
   <p>I walked into this class Mexican-American and I walked out Mexican-American. Still got asked if I was Asian. So apparently, I don’t even qualify for the hyphen. That’s been the story. Being enough to check a box but not enough to be believed when I say “I’m from here.” Someone always needs a follow-up question. Like I’m lying. Like “Salt Lake” isn’t good enough. It’s always “but where are you really from?” Sir, the hospital on 900 South. Next question.</p>
 
@@ -70,17 +74,19 @@
 
   <p>I still don’t have a perfect definition. But I know this: I’ve lived through enough systems, courts, screenings, school suspensions, and side-eyes to tell you that American identity is less about how you feel and more about how you’re treated. I thought I was supposed to be proud of it. Turns out, I had to survive it first.</p>
 
-  <p>And somehow, I’m still the narrator.</p>
+  <p style="font-weight: bold; margin-top: 30px;">And somehow, I’m still the narrator.</p>
 
   <div style="text-align: center; margin-top: 40px;">
     <a href="courses.html" class="button">← Back to Courses</a>
   </div>
 </main>
 
+<!-- FOOTER -->
 <footer>
   <p>© 2025 Jesús Lopez Aguilar. All rights reserved.</p>
 </footer>
 
+<!-- JS -->
 <script>
 function toggleMenu() {
   const mobileNav = document.getElementById('mobile-nav');
@@ -101,15 +107,17 @@ function toggleMenu() {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const faders = document.querySelectorAll('.fade-in-section');
-  const appearOptions = { threshold: 0.15 };
-  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+  const appearOptions = {
+    threshold: 0.2,
+    rootMargin: "0px 0px -100px 0px"
+  };
+  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
+      appearOnScroll.unobserve(entry.target);
     });
   }, appearOptions);
-
   faders.forEach(fader => {
     appearOnScroll.observe(fader);
   });
