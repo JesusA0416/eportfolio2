@@ -2,113 +2,107 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ETHS2430 – Chican* & Latin* Experiences</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <div class="night"></div>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Social Science (SS) – ETHS 2430</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 
 <body>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="courses.html" class="active-nav-link">Courses</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="personal-projects.html">Personal Projects</a></li>
+      </ul>
+    </div>
+  </nav>
 
-<!-- NAVIGATION -->
-<nav>
-  <div class="nav-container">
-    <ul id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Me</a></li>
-      <li><a href="courses.html" class="active-nav-link">Courses</a></li>
-      <li><a href="achievements.html">Achievements</a></li>
-      <li><a href="personal-projects.html">Personal Projects</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- HAMBURGER MENU -->
-<div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
-
-<div class="mobile-nav" id="mobile-nav">
-  <a href="index.html">Home</a>
-  <a href="about.html">About Me</a>
-  <a href="courses.html">Courses</a>
-  <a href="achievements.html">Achievements</a>
-  <a href="personal-projects.html">Personal Projects</a>
-</div>
-
-<!-- MAIN CONTENT -->
-<main class="eths-page fade-in-section">
-  <h1>ETHS 2430 – Chicanx & Latinx Experiences</h1>
-
-  <h2>Course Description</h2>
-  <p>Explore how Latin* and Chican* communities were formed and continue to evolve in response to historical events and current social issues...</p>
-
-  <h2>Signature Assignment</h2>
-  <iframe src="files/eths2430_presentation.pdf" width="100%" height="750px" style="border-radius: 12px; border: none; box-shadow: 0 0 10px rgba(0,0,0,0.4); margin: 30px 0;"></iframe>
-
-  <div style="text-align: center;">
-    <a href="courses.html" class="button">← Back to Courses</a>
-  </div>
-</main>  <!-- EMBEDDED PDF -->
-  <div style="text-align:center; margin: 30px 0;">
-    <iframe 
-      src="files/eths2430_presentation.pdf"
-      width="100%" 
-      height="700px" 
-      style="border: none; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5);"
-    ></iframe>
+  <!-- HAMBURGER MENU -->
+  <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
   </div>
 
-  <!-- BACK TO COURSES BUTTON -->
-  <div style="text-align:center; margin-top: 30px;">
-    <a href="courses.html" class="button">← Back to Courses</a>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="courses.html">Courses</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="personal-projects.html">Personal Projects</a>
   </div>
-</main>
 
-<!-- FOOTER -->
-<footer>
-  <p>© 2025 Jesús Lopez Aguilar. All rights reserved.</p>
-</footer>
+  <!-- MAIN CONTENT -->
+  <main class="centered-content-block fade-in-section">
+    <h1>Social Science (SS) – ETHS 2430</h1>
+    <h2>Chican* & Latin* Experiences</h2>
+    <p><em>This course examined the evolution of Latin* and Chican* communities in response to historical trauma and modern social issues.</em> From Indigeneity and immigration to empowerment and cultural reimagining, we traced the movements and moments that continue shaping these communities in the U.S.</p>
 
-<!-- SCRIPTS -->
-<script>
-function toggleMenu() {
-  const mobileNav = document.getElementById('mobile-nav');
-  const hamburgerIcon = document.getElementById('hamburger-menu');
-  const body = document.body;
+    <h2>Signature Project: ETHS 2430 Presentation</h2>
+    <p>This final project synthesized my understanding of systemic injustice and grassroots resistance, centered around the Black Futures Lab — but critically examining what gets lost when justice becomes a subscription model.</p>
 
-  mobileNav.classList.toggle('active');
-  hamburgerIcon.classList.toggle('is-active');
+    <!-- PDF EMBED -->
+    <div style="text-align: center; margin: 40px auto;">
+      <iframe 
+        src="https://jesusa0416.github.io/eportfolio2/files/eths2430_presentation.pdf" 
+        style="width:100%; max-width:950px; height:1000px; border:none; border-radius:12px; box-shadow:0 0 20px rgba(0,188,212,0.5);" 
+        sandbox="allow-scripts allow-same-origin">
+      </iframe>
+    </div>
 
-  if (mobileNav.classList.contains('active')) {
-    body.classList.add('no-scroll');
-  } else {
-    body.classList.remove('no-scroll');
-  }
-}
-</script>
+    <h2>Reflection</h2>
+    <div style="max-width: 850px; margin: 0 auto; font-size: 1.1em; line-height: 1.75;">
+      <p>This assignment didn’t feel like a moment of discovery for me. Instead, it became a mirror. It was an uncomfortable, necessary checkpoint where I re-evaluated not what I learned, but what’s still broken within the systems we study and the very core of the curriculum itself...</p>
+      <!-- Trimmed for brevity — insert full reflection text here if needed -->
+    </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const faders = document.querySelectorAll('.fade-in-section');
-  const appearOptions = { threshold: 0.15 };
+    <div style="text-align: center; margin-top: 50px;">
+      <a href="courses.html" class="button">← Back to Courses</a>
+    </div>
+  </main>
 
-  const appearOnScroll = new IntersectionObserver(function (entries, observer) {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
+  <footer>
+    <p>© 2025 Jesús Lopez Aguilar. All rights reserved.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function toggleMenu() {
+      const mobileNav = document.getElementById('mobile-nav');
+      const hamburgerIcon = document.getElementById('hamburger-menu');
+      const body = document.body;
+
+      mobileNav.classList.toggle('active');
+      hamburgerIcon.classList.toggle('is-active');
+
+      if (mobileNav.classList.contains('active')) {
+        body.classList.add('no-scroll');
+      } else {
+        body.classList.remove('no-scroll');
+      }
+    }
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const faders = document.querySelectorAll('.fade-in-section');
+      const appearOptions = { threshold: 0.05, rootMargin: "0px 0px -10% 0px" };
+      const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, appearOptions);
+
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+      });
     });
-  }, appearOptions);
-
-  faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-  });
-});
-</script>
-
+  </script>
 </body>
 </html>
