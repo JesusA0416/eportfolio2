@@ -33,52 +33,6 @@
   }
 </style>
   </head>
-<script>
-  async function trackVisitor() {
-    try {
-      const response = await fetch('https://ipinfo.io/json?token=84b94f022c9c95'); // Optional: get a free token
-      const data = await response.json();
-
-      const visitor = {
-        location: `${data.city}, ${data.country}`,
-        time: new Date().toLocaleTimeString()
-      };
-
-      const logContainer = document.getElementById("visitor-log");
-
-      if (logContainer) {
-        const entry = document.createElement("div");
-        entry.textContent = `👁️ ${visitor.location} • ${visitor.time}`;
-        entry.style.color = "#ccc";
-        entry.style.padding = "4px 0";
-        logContainer.prepend(entry);
-
-        // Remove placeholder if it exists
-        const placeholder = logContainer.querySelector("p");
-        if (placeholder) placeholder.remove();
-
-        // Limit to last 5
-        const entries = logContainer.querySelectorAll("div");
-        if (entries.length > 5) {
-          entries[entries.length - 1].remove();
-        }
-      }
-    } catch (error) {
-      console.error("Failed to fetch visitor info:", error);
-    }
-  }
-
-  window.addEventListener("DOMContentLoaded", trackVisitor);
-</script>
-
-<body>
-<section style="margin-top: 3rem;">
-  <h2 style="color: #90ee90;">Who's Watching?</h2>
-  <div id="visitor-log">
-  <p style="color: #aaa;">Loading recent lurkers...</p>
-  </div>
-</section>
-
 <!-- NAVIGATION -->
 <nav>
   <div class="nav-container">
