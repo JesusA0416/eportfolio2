@@ -1336,3 +1336,26 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   margin: 15px 0;
   text-align: justify;
 }
+.finearts-course h1 {
+  font-size: 2.3rem;
+  font-family: 'Lora', serif;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #00bcd4;
+}
+
+.finearts-course h2 {
+  font-size: 1.5rem;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #f0f0f0;
+}
+
+.finearts-course p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 15px 0;
+  text-align: justify;
+}
+
