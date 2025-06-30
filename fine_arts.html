@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fine Arts (FA) - Jesús Lopez Aguilar</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fine Arts (FA) – DANC 1010</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
   <div class="night"></div>
 </head>
 
@@ -38,8 +38,24 @@
 </div>
 
 <main class="centered-content-block fade-in-section">
-  <h1>Fine Arts (FA)</h1>
-  <p>Welcome to my Fine Arts (FA) course page! Content coming soon.</p>
+  <h1>Fine Arts (FA) – DANC 1010</h1>
+  <h2>Dance in Culture</h2>
+  <p><em>This course explored the power of movement and rhythm as tools of identity, resistance, and storytelling across cultures.</em> We studied dance forms from around the world to understand how physical expression is tied to historical trauma, community celebration, and cultural survival.</p>
+
+  <h2>Course Description</h2>
+  <p>This course introduces students to dance as a cultural, historical, and artistic form of human expression. Through critical analysis of diverse dance forms, students examine how movement communicates meaning and reflects cultural identity, values, and traditions across the world.</p>
+
+  <h2>Representative Image</h2>
+  <img src="images/danc1010_project.jpg" alt="Dance in Culture Project" style="width:100%; max-width:800px; border-radius: 10px; margin: 30px auto; display: block; box-shadow: 0 0 15px rgba(0,0,0,0.6);">
+
+  <h2>Reflection</h2>
+  <p style="font-style: italic; color: #bbb; text-align: center;">
+    Reflection coming soon...
+  </p>
+
+  <div style="text-align: center; margin-top: 50px;">
+    <a href="courses.html" class="button">← Back to Courses</a>
+  </div>
 </main>
 
 <footer>
@@ -72,13 +88,11 @@ document.addEventListener('DOMContentLoaded', function() {
     rootMargin: "0px 0px -100px 0px"
   };
 
-  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        return;
-      } else {
+      if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
-        appearOnScroll.unobserve(entry.target);
+        observer.unobserve(entry.target);
       }
     });
   }, appearOptions);
