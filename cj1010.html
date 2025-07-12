@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Social Science (SS) – CJ1010</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <div class="night"></div>
+</head>
+
+<body>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="courses.html" class="active-nav-link">Courses</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="personal-projects.html">Personal Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HAMBURGER MENU -->
+  <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="courses.html">Courses</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="personal-projects.html">Personal Projects</a>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="centered-content-block personal-projects-page fade-in-section">
+  <h1>Social Science (SS) – CJ 1010</h1>
+  <h2>The State Death Penalty vs. Police Brutality</h2>
+  <p><em>This critical thinking essay analyzes police brutality and the death penalty as two forms of state-sanctioned violence. It was completed as part of the Social Science General Education Signature Assignment.</em></p>
+
+  <h2>Signature Assignment: Critical Thinking Essay</h2>
+  <p>This essay argues that police brutality and the death penalty are not separate failures, but extensions of the same system of enforcement. Through formal analysis and cited research, the work examines how both practices represent state power—not justice—and disproportionately harm marginalized communities.</p>
+
+  <!-- PDF EMBED -->
+  <div style="text-align: center; margin: 40px auto;">
+    <iframe src="files/cj1010_critical_thinking_essay.pdf" width="100%" height="600px" style="border: 1px solid #ccc; border-radius: 10px;"></iframe>
+    <p style="text-align: center; margin-top: 10px;">
+      <a href="files/cj1010_critical_thinking_essay.pdf" target="_blank" class="button">📄 View Full Essay</a>
+    </p>
+  </div>
+
+  <h2>Abstract</h2>
+  <div class="fade-in-section" style="max-width: 850px; margin: 0 auto; font-size: 1.1em; line-height: 1.75;">
+    <p>The state death penalty and police brutality are two forms of government-enforced violence operating under the appearance of justice. One occurs through sentencing, the other through street-level enforcement. Both involve legal systems that allow certain individuals to take life on behalf of the state. Although often viewed separately, they follow the same logic: punishment through authority and control. Racial and economic bias appear across both, especially in how force is applied and who receives the harshest outcomes. The public often views the death penalty as legal and justified, while describing police brutality as accidental or isolated. In reality, both reflect selective enforcement shaped by power, not fairness. The difference lies only in the setting. Lethal outcomes remain the same. Law and policy do not guarantee justice when the people enforcing them act without equal restraint or oversight. Statistics, historical trends, and legal data confirm that the system does not protect all people equally. Those in power are more likely to be protected than those they police or sentence. Legal outcomes and street-level violence must be understood as connected expressions of how authority is exercised in the United States.</p>
+  </div>
+
+  <div style="text-align: center; margin-top: 50px;">
+    <a href="courses.html" class="button">← Back to Courses</a>
+  </div>
+</main>
+
+  <footer>
+    <p>© 2025 Jesús Lopez Aguilar. All rights reserved.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function toggleMenu() {
+      const mobileNav = document.getElementById('mobile-nav');
+      const hamburgerIcon = document.getElementById('hamburger-menu');
+      const body = document.body;
+
+      mobileNav.classList.toggle('active');
+      hamburgerIcon.classList.toggle('is-active');
+
+      if (mobileNav.classList.contains('active')) {
+        body.classList.add('no-scroll');
+      } else {
+        body.classList.remove('no-scroll');
+      }
+    }
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const faders = document.querySelectorAll('.fade-in-section');
+      const appearOptions = { threshold: 0.05, rootMargin: "0px 0px -10% 0px" };
+      const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, appearOptions);
+
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+      });
+    });
+  </script>
+</body>
+</html>
