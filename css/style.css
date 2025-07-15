@@ -982,6 +982,22 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
     grid-row: auto !important;
   }
 }
+/* === SLCC HONORS PROGRAM GRID === */
+.courses-container.honors-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 366px);
+  grid-template-rows: repeat(2, 550px);
+  grid-template-areas:
+    "h1 h2 hip2";
+  gap: 25px;
+  justify-content: center;
+  padding: 40px 20px;
+  margin: 0 auto;
+}
+.course-card[style*="grid-area: h1"] { grid-area: h1; }
+.course-card[style*="grid-area: h2"] { grid-area: h2; }
+.course-card[style*="grid-area: hip2"] { grid-area: hip2; }
+
 .my-goals-section {
   padding: 50px 60px;
   max-width: none;
