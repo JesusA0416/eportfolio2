@@ -95,6 +95,10 @@ function toggleMenu() {
   hamburgerIcon.classList.toggle('is-active');
   body.classList.toggle('no-scroll', mobileNav.classList.contains('active'));
 }
+  const courseCards = document.querySelectorAll('.course-card.fade-in-section');
+  courseCards.forEach(card => {
+    card.style.opacity = '1';
+  });
 </script>
 </body>
 </html>
