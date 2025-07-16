@@ -1,93 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Physical Science (PS) - Jesús Lopez Aguilar</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather in the Movies – Physical Science</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
   <div class="night"></div>
 </head>
 
 <body>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="courses.html" class="active-nav-link">Courses</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="personal-projects.html">Personal Projects</a></li>
+      </ul>
+    </div>
+  </nav>
 
-<nav>
-  <div class="nav-container">
-    <ul id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Me</a></li>
-      <li><a href="courses.html" class="active-nav-link">Courses</a></li>
-      <li><a href="achievements.html">Achievements</a></li>
-      <li><a href="personal-projects.html">Personal Projects</a></li>
-    </ul>
+  <!-- HAMBURGER MENU -->
+  <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
   </div>
-</nav>
 
-<div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="courses.html">Courses</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="personal-projects.html">Personal Projects</a>
+  </div>
 
-<div class="mobile-nav" id="mobile-nav">
-  <a href="index.html">Home</a>
-  <a href="about.html">About Me</a>
-  <a href="courses.html">Courses</a>
-  <a href="achievements.html">Achievements</a>
-  <a href="personal-projects.html">Personal Projects</a>
-</div>
+  <!-- MAIN CONTENT -->
+  <main class="centered-content-block personal-projects-page fade-in-section">
+    <h1>🌪️ Into the Storm – Weather in the Movies</h1>
+    <h2>Physical Science (PS) – SLCC</h2>
+    <p><strong>By Jesús A. Lopez Aguilar | P-1: Weather in the Movies</strong></p>
 
-<main class="centered-content-block fade-in-section">
-  <h1>Physical Science (PS)</h1>
-  <p>Welcome to my Physical Science (PS) course page! Content coming soon.</p>
-</main>
+    <h2>🎬 Movie Summary: Weather as the Main Character</h2>
+    <p><em>Into the Storm</em> follows multiple characters trying to survive a catastrophic outbreak of tornadoes, culminating in an EF-5 wedge tornado that destroys nearly everything in the town of Silverton. The movie uses severe weather as the driving force of the plot, and almost every character decision revolves around reacting to tornado-related danger.</p>
 
-<footer>
-  <p>© 2025 Jesús Lopez Aguilar. All rights reserved.</p>
-</footer>
+    <h2>🧪 The Science Behind EF-5 Tornadoes</h2>
+    <p>Tornadoes are rotating columns of air that form from powerful thunderstorms. EF-5 tornadoes are the most intense on the Enhanced Fujita scale, with estimated wind speeds over 200 mph. They can level buildings, throw vehicles, and cause immense damage. However, EF-5s are extremely rare and require very specific conditions to form, including high wind shear and atmospheric instability.</p>
 
-<script>
-function toggleMenu() {
-  const mobileNav = document.getElementById('mobile-nav');
-  const hamburgerIcon = document.getElementById('hamburger-menu');
-  const body = document.body;
+    <h2>🧨 What the Film Got Right — And Really Wrong</h2>
+    <ul>
+      <li><strong>Realistic:</strong> The damage from the EF-5 tornado looks believable, and the emotional intensity mirrors real storm disaster events.</li>
+      <li><strong>Unrealistic:</strong> Multiple EF-4/EF-5 tornadoes in one day over one small town? Very unlikely. Also, tornadoes don’t have calm “eyes” like hurricanes. And sorry—people would NOT be calmly filming during it.</li>
+    </ul>
 
-  mobileNav.classList.toggle('active');
-  hamburgerIcon.classList.toggle('is-active');
+    <h2>📸 Media & Resources</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/en/3/3f/Into_the_Storm_2014_film_poster.jpg" alt="Into the Storm Poster" style="max-width:100%; margin-bottom: 1rem;">
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=0eWxC1IQi3g" target="_blank">NOAA Explains the EF Scale</a></li>
+      <li><a href="https://www.youtube.com/watch?v=MxT1zqYbR8E" target="_blank">Real EF-5 Tornado Footage – Joplin, MO</a></li>
+    </ul>
 
-  if (mobileNav.classList.contains('active')) {
-    body.classList.add('no-scroll');
-  } else {
-    body.classList.remove('no-scroll');
-  }
-}
-</script>
+    <h2>📚 References (APA Style) & Justifications</h2>
+    <ol>
+      <li><strong>National Weather Service.</strong> (2023). Enhanced Fujita Scale (EF Scale).  
+        <a href="https://www.weather.gov/oun/efscale" target="_blank">https://www.weather.gov/oun/efscale</a><br>
+        <em>Justification:</em> Government site with expert-reviewed science and updated criteria for tornado classification.</li>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const faders = document.querySelectorAll('.fade-in-section');
+      <li><strong>Doswell, C. A., & Brooks, H. E.</strong> (2002). Lessons learned from the damage produced by the tornadoes of 3 May 1999. <em>Weather and Forecasting, 17</em>(3), 593–611.<br>
+        <em>Justification:</em> Peer-reviewed paper by meteorologists using real EF-5 damage data. High authority source.</li>
 
-  const appearOptions = {
-    threshold: 0.2,
-    rootMargin: "0px 0px -100px 0px"
-  };
+      <li><strong>Silver, N.</strong> (2012). The Weatherman Is Not a Moron. <em>The New York Times.</em>  
+        <a href="https://www.nytimes.com/2012/09/09/magazine/the-weatherman-is-not-a-moron.html" target="_blank">https://www.nytimes.com/2012/09/09/magazine/the-weatherman-is-not-a-moron.html</a><br>
+        <em>Justification:</em> Data science explanation of weather prediction and chaos theory by a respected statistician.</li>
+    </ol>
 
-  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        return;
+    <h2>💭 Final Thoughts</h2>
+    <p><em>Into the Storm</em> goes full disaster movie with its tornado drama, but underneath the chaos lies a foundation of real meteorology. The science is exaggerated—but not totally fiction. If anything, it gets people curious about EF-5s... and hopefully, helps more folks take real storms seriously.</p>
+
+    <div style="text-align: center; margin-top: 50px;">
+      <a href="courses.html" class="button">← Back to Courses</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Jesús Lopez Aguilar. All rights reserved.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function toggleMenu() {
+      const mobileNav = document.getElementById('mobile-nav');
+      const hamburgerIcon = document.getElementById('hamburger-menu');
+      const body = document.body;
+
+      mobileNav.classList.toggle('active');
+      hamburgerIcon.classList.toggle('is-active');
+
+      if (mobileNav.classList.contains('active')) {
+        body.classList.add('no-scroll');
       } else {
-        entry.target.classList.add('is-visible');
-        appearOnScroll.unobserve(entry.target);
+        body.classList.remove('no-scroll');
       }
+    }
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const faders = document.querySelectorAll('.fade-in-section');
+      const appearOptions = { threshold: 0.05, rootMargin: "0px 0px -10% 0px" };
+      const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, appearOptions);
+
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+      });
     });
-  }, appearOptions);
-
-  faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-  });
-});
-</script>
-
+  </script>
 </body>
 </html>
