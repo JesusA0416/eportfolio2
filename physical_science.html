@@ -170,7 +170,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const faders = document.querySelectorAll('.fade-in-section');
-      const appearOptions = { threshold: 0.05, rootMargin: "0px 0px -10% 0px" };
+      const appearOptions = { threshold: 0.05, rootMargin: "0px 0px -50% 0px" };
       const appearOnScroll = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
