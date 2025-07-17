@@ -1374,4 +1374,10 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   margin: 15px 0;
   text-align: justify;
 }
-
+.reference-wrapper {
+  max-width: 850px;
+  margin: 0 auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
