@@ -1384,3 +1384,7 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
 .reference-list li {
     margin-bottom: 10px;
 }
+
+ul li {
+    margin-bottom:10px:
+}
