@@ -1381,3 +1381,6 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   overflow-wrap: break-word;
   word-break: break-word;
 }
+.reference-list li {
+    margin-bottom: 10px;
+}
