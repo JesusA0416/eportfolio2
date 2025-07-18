@@ -1382,9 +1382,11 @@ a:focus, .button:focus { outline: 2px solid #00bcd4; outline-offset: 3px; }
   word-break: break-word;
 }
 .reference-list li {
-    margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-ul li {
-    margin-bottom:10px:
+.reference-list li a {
+  color: #ffffff;
+  font-style: italic;
+  text-decoration: underline;
 }
