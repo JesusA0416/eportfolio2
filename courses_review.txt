@@ -1,0 +1,208 @@
+ISSUES:
+- The <div class="night"></div> is placed inside the <head> element, which is invalid HTML. The <head> should only contain metadata, scripts, styles, and similar elements. Visual content elements like <div> must be inside the <body>.
+- The <body> tag is missing entirely; this is a critical structural error. You must include an opening <body> tag after the closing </head> tag, and ensure all visible content is within it.
+- The <html> element does not have a corresponding closing </html> tag at the end. Make sure to close it properly to maintain well-formed HTML.
+- Heading levels should be used semantically and in order; however, the page starts with an <h2> without an <h1> preceding it. Ideally, pages should have one <h1> as main heading. Consider changing <h2> to <h1> in the intro section.
+- The images have alt text, which is good, but some alt texts are simple and could be more descriptive for accessibility. For example, alt="American Institutions" could be expanded to something like "Logo or banner for American Institutions course" if the image conveys more than just a decorative icon. Alternatively, if these images are purely decorative because the course name appears in text, alt="" could be used to hide them from screen readers.
+- Links in the mobile navigation duplicate links in the main nav, which is fine, but they don't use a <nav> landmark; wrapping the mobile links in a <nav> would improve semantic structure.
+- Inline CSS styles (style="grid-column: ...") on many course cards introduce repetition, which could be managed better through CSS classes or grid template areas for maintainability.
+- The JavaScript is included at the bottom inside the <body> (which was missing though), which is good. Just remember to add the <body> tag to properly contain them.
+- The footer and nav elements are used correctly.
+- For readability, some comments can be more concise or standardized.
+- The duplicate active nav link styling is named differently between the desktop and mobile menus (class="active-nav-link" vs class="link-active-glow"). Consistent naming would be clearer.
+
+CORRECTED FILE:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses - Jesús Lopez Aguilar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="night"></div>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="courses.html" class="active-nav-link">Courses</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="personal-projects.html">Personal Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HAMBURGER MENU -->
+  <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- MOBILE NAVIGATION -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="courses.html" class="active-nav-link">Courses</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="personal-projects.html">Personal Projects</a>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="courses-page">
+
+    <section class="intro fade-in-section">
+      <h1>Top-Picks Topics</h1>
+      <p>Below are the courses I’ve completed as part of the general education at SLCC — each one was handpicked, non-refundable, and stress-tested. Would recommend.</p>
+    </section>
+
+    <section class="courses-grid">
+
+      <!-- Course Cards -->
+      <a href="american_institutions.html" class="course-card fade-in-section course-span-2x2">
+        <img src="images/american_institutions.png" alt="American Institutions course logo" />
+        <div class="overlay"></div>
+        <div class="text-overlay"><h2>American Institutions (AI)</h2></div>
+      </a>
+
+      <a href="quantitative_literacy.html" class="course-card fade-in-section" style="grid-column: 3; grid-row: 1;">
+        <img src="images/quantitative_literacy.png" alt="Quantitative Literacy course logo" />
+        <div class="overlay"></div>
+        <div class="text-overlay"><h2>Quantitative Literacy (QL)</h2></div>
+      </a>
+
+      <a href="composition.html" class="course-card fade-in-section" style="grid-column: 3; grid-row: 2;">
+        <img src="images/composition.png" alt="Composition course logo" />
+        <div class="overlay"></div>
+        <div class="text-overlay"><h2>Composition (EN)</h2></div>
+      </a>
+
+      <a href="fine_arts.html" class="course-card fade-in-section" style="grid-column: 1; grid-row: 3;">
+        <img src="images/course2.png" alt="Fine Arts course logo" />
+        <div class="overlay"></div>
+        <div class="text-overlay"><h2>Fine Arts (FA)</h2></div>
+      </a>
+
+      <a href="communication.html" class="course-card fade-in-section" style="grid-column: 2; grid-row: 3;">
+        <img src="images/communication.png" alt="Communication course logo" />
+        <div class="overlay"></div>
+        <div class="text-overlay"><h2>Communication (CM)</h2></div>
+      </a>
+
+      <a href="international_global.html" class="course-card fade-in-section" style="grid-column: 3; grid-row: 3;">
+        <img src="images/international_global.png" alt="International & Global course logo" />
+        <div class="overlay"></div>
+        <div class="text-overlay"><h2>International & Global (IG)</h2></div>
+      </a>
+
+      <a href="lifelong_wellness.html" class="course-card fade-in-section" style="grid-column: 1; grid-row: 4;">
+        <img src="images/lifelong_wellness.png" alt="Lifelong Wellness course logo" />
+        <div class="overlay"></div>
+        <div class="text-overlay"><h2>Lifelong Wellness (LW)</h2></div>
+      </a>
+
+      <a href="life_science.html" class="course-card fade-in-section" style="grid-column: 2; grid-row: 4;">
+        <img src="images/life_science.png" alt="Life Science course logo" />
+        <div class="overlay"></div>
+        <div class="text-overlay"><h2>Life Science (LS)</h2></div>
+      </a>
+
+      <a href="physical_science.html" class="course-card fade-in-section" style="grid-column: 3; grid-row: 4;">
+        <img src="images/physical_science.png" alt="Physical Science course logo" />
+        <div class="overlay"></div>
+        <div class="text-overlay"><h2>Physical Science (PS)</h2></div>
+      </a>
+
+      <a href="social_science.html" class="course-card fade-in-section" style="grid-column: 1; grid-row: 5;">
+        <img src="images/social_science.png" alt="Social Science course logo" />
+        <div class="overlay"></div>
+        <div class="text-overlay"><h2>Social Science (SS)</h2></div>
+      </a>
+
+      <a href="humanities.html" class="course-card fade-in-section course-span-2x2">
+        <img src="images/course1.png" alt="Humanities course logo" />
+        <div class="overlay"></div>
+        <div class="text-overlay"><h2>Humanities (HU)</h2></div>
+      </a>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Jesús Lopez Aguilar. All rights reserved.</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    function toggleMenu() {
+      const mobileNav = document.getElementById('mobile-nav');
+      const hamburgerIcon = document.getElementById('hamburger-menu');
+      const body = document.body;
+
+      mobileNav.classList.toggle('active');
+      hamburgerIcon.classList.toggle('is-active');
+
+      if (mobileNav.classList.contains('active')) {
+        body.classList.add('no-scroll');
+      } else {
+        body.classList.remove('no-scroll');
+      }
+    }
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const faders = document.querySelectorAll('.fade-in-section');
+
+      const appearOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -100px 0px"
+      };
+
+      const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          appearOnScroll.unobserve(entry.target);
+        });
+      }, appearOptions);
+
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+      });
+    });
+  </script>
+
+</body>
+</html>
+```
+
+**Additional notes:**
+
+- I introduced a new CSS class `course-span-2x2` for the course cards that span multiple grid columns and rows, so inline styles are minimized. You can add in your CSS:
+
+```css
+.course-span-2x2 {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}
+```
+
+(or whatever values suit the courses that use it). This will improve maintainability and keep your HTML cleaner.
+
+- Changing the heading tags from <h3> inside the card overlays to <h2> is more appropriate since the page heading is now <h1>, and the cards represent subsections or main points.
+
+- Consistent naming of the active navigation link class between desktop and mobile navigation helps styling clarity.
+
+- Remember to always include all required semantic elements, including <body>, to ensure your page parses correctly by browsers and assistive technologies.
+
+Let me know if you want me to help further with CSS refactoring or accessibility improvements!

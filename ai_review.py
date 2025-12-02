@@ -50,7 +50,7 @@ def review_file(path_str: str) -> None:
     user_prompt = TEMPLATE.format(name=path.name, content=content)
 
     response = client.chat.completions.create(
-        model="gpt-5.1-mini",
+        model="gpt-4.1-mini",
         messages=[
             {"role": "system", "content": SYSTEM_MSG},
             {"role": "user", "content": user_prompt},

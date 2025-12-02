@@ -1,0 +1,237 @@
+ISSUES:
+- The most critical structural problem is that there are two `<head>` elements and two `<nav>` elements before the `<body>` tag, which is invalid HTML. Specifically, there is a `<nav>`, hamburger menu div, mobile nav div, and a `<style>` block placed directly between the closing `</head>` and opening `<body>`. These should be inside the `<body>`. Only one `<head>` per HTML document is allowed.
+- The repeated navigation markup appears twice: once before `<body>` (invalid, should not be there), then again inside `<body>`. This is duplicated navigation that hurts maintainability and may confuse screen readers.
+- The `<style>` tag with the canvas styles is placed twice: one inside the head, one wrongly placed outside head before body; styles should be consolidated and placed only in `<head>`.
+- Nested HTML elements are not semantically correct at the top: the `<nav>` and related navigation divs should be strictly inside the `<body>` tag.
+- Accessibility: The images used are only a `<canvas>` and a `div` with background styling; no image tags to worry about alt text currently. However, the hamburger menu `<div class="hamburger-menu" ...>` lacks any ARIA labeling or accessible role to indicate it is a button, which can cause screen reader confusion. Suggest adding `role="button"`, `aria-label="Toggle menu"`, and `tabindex="0"` to make it keyboard accessible. Also, since it uses `onclick` and no keyboard event handlers, it is inaccessible to keyboard users.
+- Heading structure is decent: there is a main `<h1>`, then `<h2>`, which is good.
+- Link text "Let's Explore" is clear and descriptive.
+- The footer uses a `<p>` with a copyright notice, which is fine.
+- Inline styling is used in multiple places; while not a syntax error, for maintainability, it's better to move these styles to the external CSS file unless absolutely necessary.
+- Inconsistent filenames for "Personal Projects" link: one nav uses `personal-projects.html`, another uses `projects.html`, which could cause broken links.
+- Multiple identical `id` attributes: The `hamburger-menu` has `id="hamburger-menu"` repeated twice (once before body, once inside body for the nav). Duplicate IDs are invalid and can cause JavaScript issues.
+- Similarly, `mobile-nav` div appears twice with the same `id`, which is invalid and confusing.
+- The placement of the `canvas` element and div with class "night" intended for background visual elements is fine, but note the `z-index` management must be precise to prevent overlapping interactive elements.
+- The JavaScript to toggle menu is fine but references only one hamburger menu and mobile nav; duplication of these elements can cause unpredictable behavior.
+- Some of the inline comments about code sections have inconsistent formatting (e.g., comments placed directly within the head or between tags).
+
+CORRECTED FILE:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <title>Jesús Lopez Aguilar - ePortfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+  .night {
+    position: fixed;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    z-index: -3; /* lower than canvas */
+    filter: blur(0.1vmin);
+    background-image:
+      radial-gradient(ellipse at top, transparent 0%, #000),
+      radial-gradient(ellipse at bottom, #000, rgba(145, 233, 255, 0.2)),
+      repeating-linear-gradient(220deg, black 0px, black 19px, transparent 19px, transparent 22px),
+      repeating-linear-gradient(189deg, black 0px, black 19px, transparent 19px, transparent 22px),
+      repeating-linear-gradient(148deg, black 0px, black 19px, transparent 19px, transparent 22px),
+      linear-gradient(90deg, #00fffa, #f0f0f0);
+    animation: nightFade 5s ease-in-out forwards;
+  }
+
+  @keyframes nightFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  canvas#c {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+  }
+  </style>
+</head>
+
+<body>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <ul id="nav-links">
+        <li><a href="index.html" class="active-nav-link">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="personal-projects.html">Personal Projects</a></li>
+      </ul>
+      <div class="hamburger-menu" id="hamburger-menu" role="button" aria-label="Toggle menu" tabindex="0" onclick="toggleMenu()" onkeypress="if(event.key === 'Enter' || event.key === ' ') toggleMenu();">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAVIGATION -->
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html" class="link-active-glow">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="courses.html">Courses</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="personal-projects.html">Personal Projects</a>
+  </div>
+
+  <div class="night"></div>
+  <canvas id="c"></canvas>
+
+  <main>
+    <div class="name-center fade-in-section">
+      <h1>Welcome to my ePortfolio.</h1>
+      <h2>This site was crafted by Jesús Lopez Aguilar, stitched together by seven mood swings, fueled by Adderall, delusion, ambition, and everything nice.</h2>
+      <p>This space means everything. I coded it by hand, and it took longer than it takes cartoons to finish a Tallis drawing for inmates — and with far less emotional stability.</p>
+      <p>Feel free to look around. If you find a bug (on the site or crawling near you), do yourself a favor and keep it to yourself.</p>
+      <p>I don't tolerate bugs. Digital or real. Either one will send me into a full mental spiral and I will not recover gracefully.</p>
+      <p>You’ve been warned. Enjoy the chaos.</p>
+      <a href="before-we-begin.html" class="button">Let's Explore</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Jesús Lopez Aguilar | All rights reserved</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const mobileNav = document.getElementById('mobile-nav');
+      const hamburgerIcon = document.getElementById('hamburger-menu');
+      const body = document.body;
+      mobileNav.classList.toggle('active');
+      hamburgerIcon.classList.toggle('is-active');
+      body.classList.toggle('no-scroll', mobileNav.classList.contains('active'));
+    }
+
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobile-nav').classList.remove('active');
+        document.getElementById('hamburger-menu').classList.remove('is-active');
+        document.body.classList.remove('no-scroll');
+      });
+    });
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+  </script>
+
+  <script>
+    const c = document.getElementById("c");
+    const a = c.getContext("2d");
+
+    function resizeCanvas() {
+      c.width = window.innerWidth;
+      c.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    let e = [], h = [], v = 32, M = Math, R = M.random, C = M.cos, Y = 6.3;
+    const O = () => c.width, Q = () => c.height;
+
+    for (let i = 0; i < Y; i += .2) {
+      h.push([
+        O() / 2 + 180 * M.pow(M.sin(i), 3),
+        Q() / 2 + 10 * (-(15 * C(i) - 5 * C(2 * i) - 2 * C(3 * i) - C(4 * i)))
+      ]);
+    }
+
+    for (let i = 0; i < v; i++) {
+      const f = [], x = R() * O(), y = R() * Q();
+      const H = i / v * 80 + 280, S = R() * 40 + 60, B = R() * 60 + 40;
+      for (let k = 0; k < v; k++) {
+        f[k] = {
+          x, y, X: 0, Y: 0,
+          R: (1 - k / v) + 1,
+          S: R() + 1,
+          q: ~~(R() * v),
+          D: i % 2 * 2 - 1,
+          F: R() * .2 + .7,
+          f: `hsla(${~~H},${~~S}%,${~~B}%,0.5)`
+        };
+      }
+      e[i] = f;
+    }
+
+    function render(p) {
+      a.fillStyle = p.f;
+      a.beginPath();
+      a.arc(p.x, p.y, p.R, 0, Y, 1);
+      a.closePath();
+      a.fill();
+    }
+
+    function loop() {
+      a.clearRect(0, 0, c.width, c.height);
+      for (let i = v; i--;) {
+        const f = e[i], u = f[0], q = h[u.q];
+        const D = u.x - q[0], E = u.y - q[1], G = M.sqrt(D * D + E * E);
+        if (G < 10) {
+          if (R() > .95) {
+            u.q = ~~(R() * v);
+          } else {
+            if (R() > .99) u.D *= -1;
+            u.q = (u.q + u.D + v) % v;
+          }
+        }
+        u.X += -D / G * u.S;
+        u.Y += -E / G * u.S;
+        u.x += u.X;
+        u.y += u.Y;
+        render(u);
+        u.X *= u.F;
+        u.Y *= u.F;
+        for (let k = 0; k < v - 1; k++) {
+          const T = f[k], N = f[k + 1];
+          N.x -= (N.x - T.x) * .7;
+          N.y -= (N.y - T.y) * .7;
+          render(N);
+        }
+      }
+      requestAnimationFrame(loop);
+    }
+
+    loop();
+  </script>
+</body>
+</html>
+```
+
+---
+
+**Explanation of key fixes and advice:**
+
+- All navigation markup and related interactive elements must be inside the `<body>`. Having them outside causes invalid HTML and unpredictable behavior.
+- Remove duplicated nav and mobile nav elements and repeated IDs. IDs must be unique per page.
+- Enhance the hamburger menu for keyboard accessibility by adding `role="button"`, an `aria-label`, and `tabindex="0"`, plus a `keypress` handler for Enter and Space keys. This ensures screen readers and keyboard users can properly interact with it.
+- Consolidate your inline styles inside `<head>` or, better yet, move them all to your `css/style.css` file for maintainability.
+- Keep link URLs consistent to prevent broken links and confusion.
+- Avoid putting inline styles and scripts scattered in the wrong parts of the document.
+- Duplicate comments between tags can be confusing; keep comments clear and with correct placement.
+- Your JavaScript logic looks sound and is well structured, so no changes needed there besides accessibility improvements on the toggle button.
+
+Following these corrections and advice will improve the validity, accessibility, and maintainability of your ePortfolio site. Keep up the good work!
