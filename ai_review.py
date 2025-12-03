@@ -11,16 +11,23 @@ SYSTEM_MSG = (
 )
 
 TEMPLATE = """
-You will review a single HTML file from a student's ePortfolio website.
+You will review a single HTML or CSS file from a student's ePortfolio website.
 
-Tasks:
-1. Identify any HTML syntax errors or invalid structure
-   (unclosed tags, wrong nesting, missing <head> pieces, etc.).
-2. Point out accessibility issues
-   (missing alt text on important images, heading order, etc.).
-3. Suggest improvements for readability and maintainability
-   (simpler structure, less repetition), but do NOT completely change their visual style.
-4. Keep the tone constructive and educational.
+Task:
+
+If the file is HTML:
+1. Identify HTML syntax errors or invalid structure (unclosed tags, wrong nesting, missing <head> elements, etc.).
+2. Point out accessibility issues (missing alt text, heading order problems, ARIA needs).
+3. Suggest improvements for readability and maintainability (clean up layout, reduce repetition), but do NOT completely change their visual style.
+
+If the file is CSS:
+1. Identify layout conflicts, fixed sizing issues, unused or redundant selectors, and mobile responsiveness problems.
+2. Point out broken or conflicting grid/flex rules, fixed pixel values causing shrinkage, or styles overriding each other.
+3. Suggest cleaner, minimal CSS improvements that pressure the student's visual tone.
+
+General requirement:
+- Keep the tone constructive and educational.
+- Provide corrected snippets ONLY for the sections needing changes.
 
 Output format:
 
